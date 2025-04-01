@@ -1,6 +1,4 @@
 (intro)=
-# Welcome to the Template Book
+# FLP0478 - Processamento de Língua Natural Aplicada para Ciência Política e Análise de Políticas Públicas
 
-_This is the first page the student will see when opening the url._
-
-This book can be used as a template for other books. It includes a starter package of the software developed by the TeachBooks initiative and some exercises to get you going!
+Este livro texto é parte do material da disciplina FLP0478 - Processamento de Língua Natural Aplicada para Ciência Política e Análise de Políticas Públicas, que busca auxiliar
