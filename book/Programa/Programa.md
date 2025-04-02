@@ -1,5 +1,5 @@
 # Programa  
-**Universidade de São Paulo**
+**Universidade de São Paulo**  
 **Faculdade de Filosofia, Letras e Ciências Humanas**  
 **Departamento de Ciência Política**  
 
