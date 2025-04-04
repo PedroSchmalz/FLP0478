@@ -9,7 +9,7 @@ only_build_toc_files: true                           # Replace this with false i
 
 
 html:
-  favicon : "figures/TB_favicon.ico"                 # Replace this with your own favicon
+  favicon : "figures/logo.jpg"                 # Replace this with your own favicon
   baseurl :  "https://github.com/PedroSchmalz/FLP0478"          # Replace this with your own URL
 
 sphinx:                                              # Options passed on to the underlying sphinx-parser
