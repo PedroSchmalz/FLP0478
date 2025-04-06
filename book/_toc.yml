@@ -8,6 +8,8 @@ parts:
   - caption: Introdução Python
     chapters:
     - file: aulas/aula1.ipynb
+      sections:
+      -file: videos/videos.md
   - caption: Aprendizado de Máquina
     chapters:
     - file: exercises.md
