@@ -9,7 +9,7 @@ parts:
     chapters:
     - file: aulas/aula1.ipynb
       sections:
-      - file: videos/vunesp1.md
+      - file: videos/videos.md
   - caption: Aprendizado de Máquina
     chapters:
     - file: exercises.md
