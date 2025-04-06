@@ -6,7 +6,7 @@ parts:
     chapters:
     - file: Programa/Programa.md
   - caption: Introdução Python
-  - file: aula1.md
+  - file: secao1.md
     sections:
       - file: aulas/aula1.ipynb
     - file: some_content/overview.md
