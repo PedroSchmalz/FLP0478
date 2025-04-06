@@ -1,4 +1,4 @@
-# Seção de Aulas
+# Seção 1 - Introdução ao Python
 
 Bem-vindo à seção de aulas! Aqui você encontrará conteúdo estruturado para facilitar seu aprendizado.
 
