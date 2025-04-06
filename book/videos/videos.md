@@ -13,13 +13,8 @@ kernelspec:
 
 # VUNESP - Introdução ao Python
 
-Videos uploaded to YouTube can be embedded in the Jupyter Book. There are several ways to do so:
-
-
-
-Or the HTML-iframe code can be directly included in the markdown file.
 
 Resulting in the video below:
 
-```{video} https://www.youtube.com/embed/UCb-b82tzLo?
+```{video} https://youtu.be/ZC8bfSZLl80?si=pFteGknu5k4EoEZP
 ```
