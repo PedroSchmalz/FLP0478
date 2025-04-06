@@ -5,6 +5,9 @@ parts:
   - caption: Sumário
     chapters:
     - file: Programa/Programa.md
+    - file: aulas/aula1.md
+      sections:
+      - file: aulas/aula1.ipynb
     - file: some_content/overview.md
       sections:
       - file: some_content/text_and_code.ipynb
