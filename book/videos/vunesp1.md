@@ -14,5 +14,5 @@ kernelspec:
 # VUNESP - Introdução ao Python
 
 
-```{video} https://youtu.be/ZC8bfSZLl80?si=pFteGknu5k4EoEZP
+```{video} https://www.youtube.com/embed/ZC8bfSZLl80?si=b5TjLT0YY3XDUqwu
 ```
