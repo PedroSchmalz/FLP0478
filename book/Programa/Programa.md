@@ -52,7 +52,7 @@ O aluno deverá escolher um problema de classificação de interesse e tentar ap
 ### 1. Introdução  
 
 **Referência:**  
-Grimmer J, Roberts ME, Stewart BM (2022). *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 1 & 2  
+Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 1 & 2  
 
 **Lab 1: Introdução: Apresentação do curso e introdução ao básico de Python**  
 
