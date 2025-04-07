@@ -21,15 +21,7 @@ Pedro Schmalz
 Turma Vespertino: 14:00-18:00  
 Turma Noturno: 19:00-23:00  
 
-As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados que refletem a evolução dos  
-posicionamentos políticos ao longo do tempo e em resposta a vários eventos. Este curso baseado em projetos  
-enfoca a interseção entre aprendizado de máquina, processamento de língua natural e ciência política,  
-mostrando como as estruturas de Aprendizado de Máquina (Machine Learning) e PLN (Processamento da Língua  
-Natural) podem ser aplicadas para responder a questões importantes envolvendo política e políticas públicas.  
-Um componente-chave do curso é um projeto de pesquisa de um semestre usando um grande conjunto de  
-dados de texto. Os alunos irão formular, explorar e abordar exercícios focados usando esses dados. Ao final do  
-curso, os alunos terão adquirido experiência prática no uso de dados em larga escala e soluções eficazes de  
-PNL.  
+As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados que refletem a evolução dos posicionamentos políticos ao longo do tempo e em resposta a vários eventos. Este curso baseado em projetos enfoca a interseção entre aprendizado de máquina, processamento de língua natural e ciência política, mostrando como as estruturas de Aprendizado de Máquina (Machine Learning) e PLN (Processamento da Língua  Natural) podem ser aplicadas para responder a questões importantes envolvendo política e políticas públicas. Um componente-chave do curso é um projeto de pesquisa de um semestre usando um grande conjunto de  dados de texto. Os alunos irão formular, explorar e abordar exercícios focados usando esses dados. Ao final do curso, os alunos terão adquirido experiência prática no uso de dados em larga escala e soluções eficazes de PLN.  
 
 ## Objetivos  
 
@@ -76,7 +68,7 @@ Grimmer J, Roberts ME, Stewart BM (2022). *Text as Data: A New Framework for Mac
 ### 2. Seleção e Representação: A Construção do Corpus  
 
 **Referência:**  
-Grimmer J, Roberts ME, Stewart BM (2022). \cite{`grimmer2022text`}. *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 3 & 4  
+Grimmer J, Roberts ME, Stewart BM (2022). \cite`grimmer2022text`. *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 3 & 4  
 
 **Lab 2: Condicionais e Loops**  
 
