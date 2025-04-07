@@ -48,7 +48,7 @@ As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados 
 
 ### 1. Introdução  
 **Referências:**  
-- Grimmer et al. (2022). *Text as Data*. Capítulos 1 & 2.  
+- Grimmer et al. (2022).{cite}`grimmer2022text` *Text as Data*. Capítulos 1 & 2.  
 
 **Lab 1:** Introdução ao Python e Google Colab  
 **Objetivos:**  
