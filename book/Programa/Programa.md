@@ -58,7 +58,7 @@ As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados 
 
 ### 2. Seleção e Representação: A Construção do Corpus  
 **Referências:**  
-- Grimmer et al. (2022). *Text as Data*. Capítulos 3 & 4.  
+- Grimmer et al. (2022).{cite}`grimmer2022text` *Text as Data*. Capítulos 3 & 4.  
 
 **Lab 2:** Condicionais e Loops  
 **Objetivos:**  
@@ -68,7 +68,7 @@ As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados 
 
 ### 3. Mensuração e Aprendizado Supervisionado  
 **Referências:**  
-- Grimmer et al. (2022). *Text as Data*. Capítulos 6, 15 & 16.  
+- Grimmer et al. (2022).{cite}`grimmer2022text` *Text as Data*. Capítulos 6, 15 & 16.  
 
 **Lab 3:** Funções, Módulos e Numpy  
 **Objetivos:**  
@@ -78,7 +78,7 @@ As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados 
 
 ### 4. Conceitos Básicos de Estatística para Machine Learning I  
 **Referências:**  
-- Cerulli (2023). *Fundamentals of Supervised Machine Learning*. Capítulo 2.  
+- Cerulli (2023).{cite}`cerulli2023fundamentals` *Fundamentals of Supervised Machine Learning*. Capítulo 2.  
 
 **Lab 4:** Pandas e Estatísticas Resumidas  
 **Objetivos:**  
@@ -88,7 +88,7 @@ As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados 
 
 ### 5. Conceitos Básicos de Estatística para Machine Learning II  
 **Referências:**  
-- James et al. (2023). *An Introduction to Statistical Learning*. Capítulo 2.  
+- James et al. (2023).{cite}`james2023introduction` *An Introduction to Statistical Learning*. Capítulo 2.  
 
 **Lab 5:** Visualização de Dados em Python  
 **Objetivos:**  
@@ -98,7 +98,7 @@ As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados 
 
 ### 6. Classificação  
 **Referências:**  
-- James et al. (2023). Capítulo 4.  
+- James et al. (2023).{cite}`james2023introduction` *An Introduction to Statistical Learning*. Capítulo 4.  
 
 **Lab 6:** Métricas de Classificação  
 **Objetivos:**  
@@ -108,7 +108,7 @@ As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados 
 
 ### 7. Resampling  
 **Referências:**  
-- Jurafsky & Martin (2024). *Speech and Language Processing*. Capítulo 5.  
+- Jurafsky & Martin (2024).{cite}`jurafsky2024speech` *Speech and Language Processing*. Capítulo 5.  
 
 **Lab 7:** Overfitting e Validação  
 **Objetivos:**  
@@ -127,4 +127,4 @@ As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados 
 - Projeto Panda do IME-USP: [https://panda.ime.usp.br](https://panda.ime.usp.br)  
 - Curso Gratuito da DSA sobre Python: [https://www.datascienceacademy.com.br/cursosgratuitos](https://www.datascienceacademy.com.br/cursosgratuitos)  
 
-**Autores citados:** Barberá, Bird, Devlin, Géron, Grimmer, James, Jurafsky, Kuhn, Liu, entre outros.  
+**Autores citados:** Barberá, Bird, Devlin, Géron, Grimmer, James, Jurafsky, Kuhn, Liu, entre outros.
