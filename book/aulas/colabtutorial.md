@@ -85,10 +85,46 @@ Use o comando `!pip install` para instalar bibliotecas diretamente no Colab. Por
 
 ---
 
+## Usando o VS Code como Alternativa ao Google Colab
+
+Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você também pode usar o **Visual Studio Code (VS Code)** para trabalhar com arquivos `.ipynb` localmente. Isso pode ser útil se você preferir um ambiente offline ou mais personalizável.
+
+### Passo 1: Instalar o VS Code
+
+1. Baixe o Visual Studio Code no site oficial: [VS Code](https://code.visualstudio.com/).
+2. Instale o VS Code seguindo as instruções para o seu sistema operacional.
+
+### Passo 2: Instalar a Extensão para Jupyter
+
+1. Abra o VS Code.
+2. Vá até a aba de extensões clicando no ícone de quadrado no lado esquerdo ou pressione `Ctrl + Shift + X`.
+3. Pesquise por **"Jupyter"** e clique em **Install** para instalar a extensão oficial da Microsoft.
+
+### Passo 3: Configurar o Python no VS Code
+
+1. Certifique-se de que o Python está instalado no seu computador. Caso não esteja, baixe-o em [Python.org](https://www.python.org/).
+2. Instale a extensão **Python** no VS Code (siga o mesmo processo da extensão Jupyter).
+3. Configure o interpretador Python clicando no canto inferior esquerdo do VS Code e selecionando o ambiente Python desejado.
+
+### Passo 4: Abrir e Editar Arquivos `.ipynb`
+
+1. Abra o arquivo `.ipynb` no VS Code clicando em **File** > **Open File** e selecionando o arquivo.
+2. O arquivo será aberto em uma interface interativa semelhante ao Jupyter Notebook.
+3. Execute as células clicando no botão de "play" ao lado de cada célula ou pressionando `Shift + Enter`.
+
+### Passo 5: Alternar entre Colab e VS Code
+
+- Você pode alternar entre o Google Colab e o VS Code facilmente:
+  - **Do Colab para o VS Code**: Baixe o notebook no Colab clicando em **File** > **Download** > **Notebook (.ipynb)** e abra no VS Code.
+  - **Do VS Code para o Colab**: Faça upload do arquivo `.ipynb` no Colab clicando em **File** > **Upload Notebook**.
+
+---
+
 ## Recursos Adicionais
 
+- [Documentação do VS Code para Jupyter](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 - [Documentação Oficial do Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
-- [Vídeo Tutorial](https://www.youtube.com/embed/UCb-b82tzLo?)
+- [Vídeo Tutorial sobre VS Code e Jupyter](https://www.youtube.com/watch?v=2e9DI5M4g7A)
 
 ```{video} https://www.youtube.com/embed/UCb-b82tzLo?
 ```

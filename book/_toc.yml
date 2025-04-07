@@ -5,7 +5,7 @@ parts:
   - caption: Apresentação
     chapters:
     - file: Programa/Programa.md
-  - caption: Introdução
+  - caption: Aula 01 - Introdução
     chapters:
     - file: aulas/colabtutorial.md
     - file: aulas/aula1.ipynb
