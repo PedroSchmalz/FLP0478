@@ -1,3 +1,5 @@
-# References
+# Bibliografia do Curso
+
 :::{bibliography}
+
 :::
