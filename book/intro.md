@@ -22,8 +22,22 @@ Siga-nos nas redes sociais:
 
 [![X](https://img.shields.io/twitter/follow/:user
 )](https://x.com/SchmalzPedro)  
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pedro-schmalz)  
+
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PedroSchmalz)
+
+
+- **Lorena Barberia**
+
+[![X](https://img.shields.io/twitter/follow/:user
+)](https://x.com/SchmalzPedro)  
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pedro-schmalz)  
+
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PedroSchmalz)
+
+
 
 
 - **NUPRAM - Núcleo de Política, Redes Sociais e Aprendizado de Máquina**
