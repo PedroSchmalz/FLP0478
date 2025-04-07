@@ -76,7 +76,7 @@ Grimmer J, Roberts ME, Stewart BM (2022). *Text as Data: A New Framework for Mac
 ### 2. Seleção e Representação: A Construção do Corpus  
 
 **Referência:**  
-Grimmer J, Roberts ME, Stewart BM (2022). \cite{grimmer2022text}. *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 3 & 4  
+Grimmer J, Roberts ME, Stewart BM (2022). \cite{`grimmer2022text`}. *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 3 & 4  
 
 **Lab 2: Condicionais e Loops**  
 
