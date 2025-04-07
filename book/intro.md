@@ -1,5 +1,5 @@
 (intro)=
-# Processamento da Língua Natural para as Humanidades (PLN4HUM) 
+# Processamento da Língua Natural para as Humanidades - PLN4HUM 
 
  Parte da disciplina FLP0478 - Processamento de Língua Natural Aplicada para Ciência Política e Análise de Políticas Públicas
 
@@ -10,7 +10,7 @@
 - Pedro Schmalz. Doutorando em Ciência Política pela Universidade de São Paulo;
 - Profa. Dra. Lorena Barberia, Departamento de Ciência Política (USP)
 
-Este livro texto é parte do material da disciplina FLP0478 - Processamento de Língua Natural Aplicada para Ciência Política e Análise de Políticas Públicas, que busca auxiliar os alunos na compreensão básica da linguagem de programação Python, nos pilares fundamentais do Aprendizado de Máquina Supervisionado, e possíveis usos e aplicações na Ciência Política, com provável contribuição para outras áreas das humanidades.
+Este livro texto é parte do material da disciplina FLP0478 - Processamento de Língua Natural Aplicada para Ciência Política e Análise de Políticas Públicas, que busca auxiliar os alunos na compreensão básica da linguagem de programação Python, nos pilares fundamentais do Aprendizado de Máquina Supervisionado, e possíveis usos e aplicações na Ciência Política, com provável contribuição para outras áreas das humanidades. É um trabalho realizado dentro do Núcleo de Estudos NUPRAM (Núcleo de Política, Redes Sociais e Aprendizado de Máquina). O NUPRAM foi criado em 2025 para ampliar os estudos sobre o uso de PLN na Ciência Política e Humanidades, além de tentar entender o uso e comportamento dos políticos nas redes sociais.
 
 
 

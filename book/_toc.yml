@@ -5,8 +5,9 @@ parts:
   - caption: Apresentação
     chapters:
     - file: Programa/Programa.md
-  - caption: Introdução Python
+  - caption: Introdução
     chapters:
+    - file: aulas/colabtutorial.md
     - file: aulas/aula1.ipynb
       sections:
       - file: videos/vunesp1.md
