@@ -19,15 +19,15 @@ Este livro texto é parte do material da disciplina FLP0478 - Processamento de L
 Siga-nos nas redes sociais:  
 
 - **Pedro Schmalz**  
-  [![X](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/X_logo_2023.svg/20px-X_logo_2023.svg.png)](https://x.com/SchmalzPedro)  
-  [![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/20px-LinkedIn_logo_initials.png)](https://linkedin.com/in/pedro-schmalz)  
-  [![GitHub](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/20px-Octicons-mark-github.svg.png)](https://github.com/PedroSchmalz)  
+  [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/X_logo_2023.svg/30px-X_logo_2023.svg.png" alt="X" width="30">](https://x.com/SchmalzPedro)
+  [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/30px-LinkedIn_logo_initials.png" alt="LinkedIn" width="30">](https://linkedin.com/in/pedro-schmalz)
+  [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/30px-Octicons-mark-github.svg.png" alt="GitHub" width="30">](https://github.com/PedroSchmalz)
 
 - **Lorena Barberia**  
-  [![X](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/X_logo_2023.svg/20px-X_logo_2023.svg.png)](https://x.com/SchmalzPedro)  
-  [![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/20px-LinkedIn_logo_initials.png)](https://linkedin.com/in/pedro-schmalz)  
-  [![GitHub](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/20px-Octicons-mark-github.svg.png)](https://github.com/PedroSchmalz)  
+  [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/X_logo_2023.svg/30px-X_logo_2023.svg.png" alt="X" width="30">](https://x.com/LorenaBarberia)
+  [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/30px-LinkedIn_logo_initials.png" alt="LinkedIn" width="30">](https://linkedin.com/in/lorena-barberia)
+  [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/30px-Octicons-mark-github.svg.png" alt="GitHub" width="30">](https://github.com/LorenaBarberia)
 
 - **NUPRAM - Núcleo de Política, Redes Sociais e Aprendizado de Máquina**  
-  [![GitHub](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/20px-Octicons-mark-github.svg.png)](https://github.com/PedroSchmalz)
+  [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/30px-Octicons-mark-github.svg.png" alt="GitHub" width="30">](https://github.com/NUPRAM)
 
