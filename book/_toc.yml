@@ -13,9 +13,9 @@ parts:
     - file: aulas/aula1/aula1.ipynb
       sections:
       - file: videos/vunesp1.md
-  - caption: Aprendizado de Máquina
+  - caption: Aula 02 - Seleção e Representação
     chapters:
-    - file: exercises.md
+    - file: aulas/aula2/aula2intro.md
   - caption: Outros
     chapters:
     - file: references.md
