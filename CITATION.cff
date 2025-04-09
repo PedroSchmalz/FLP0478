@@ -2,11 +2,11 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: 'TeachBooks Template' # replace with your own book title when you use this template
-authors: #replace with your own name(s) if you use this template
-- email: info@teachbooks.io
+title: 'Processamento da Língua Natural para as Ciências Humanas' # replace with your own book title when you use this template
+authors: Schmalz, Pedro and Barberia, Lorena #replace with your own name(s) if you use this template
+- email: nupram.fflch@usp.br
   name: 'TeachBooks Development Team'
-  website: 'https://teachbooks.io/'
+  website: 'pedroschmalz.github.io/FLP0478/'
 message: 'If you use this teachbook, please cite it using these metadata.'
 preferred-citation:
   type: book
