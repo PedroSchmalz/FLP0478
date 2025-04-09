@@ -41,7 +41,7 @@
 - Os métodos de aprendizado supervisionado podem nos ajudar a classificar o debate nas redes sociais (e.g., Twitter).  
 - O monitoramento é ainda mais importante considerando que, devido às restrições da pandemia, muitos candidatos e políticos aumentaram o uso de mídias sociais para se comunicar com sua base (e.g., parlamentos fechados para deliberação e tramitação), e o eleitorado também teve engajamento nas redes.  
 
-### Funcionamento do curso
+## Funcionamento do curso
 
 - **Modelo de aprendizado ativo.**  
 
@@ -67,7 +67,7 @@
 
 
 <figure>
-  <img src="../images/image1.png" alt="Modelos Dedutivos e Interativos" style="width: 100%; max-width: 2400px;">
+  <img src="../aula1/images/image1.png" alt="Modelos Dedutivos e Interativos" style="width: 100%; max-width: 2400px;">
   <figcaption>Figura 1: Modelos Dedutivos e Interativos. 
   Fonte: Grimmer et al. (p.41)</figcaption>
 </figure>
