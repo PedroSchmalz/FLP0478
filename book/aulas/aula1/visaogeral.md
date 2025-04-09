@@ -41,14 +41,14 @@
 - Os métodos de aprendizado supervisionado podem nos ajudar a classificar o debate nas redes sociais (e.g., Twitter).  
 - O monitoramento é ainda mais importante considerando que, devido às restrições da pandemia, muitos candidatos e políticos aumentaram o uso de mídias sociais para se comunicar com sua base (e.g., parlamentos fechados para deliberação e tramitação), e o eleitorado também teve engajamento nas redes.  
 
-## Funcionamento do curso
+### Funcionamento do curso
 
 - **Modelo de aprendizado ativo.**  
 
 - **Etapas do curso:**  
   - Nivelamento de Python (aulas 1-5);  
   - Introdução ao Aprendizado de Máquina (aulas 6-11);  
-  - Introdução ao BERT (aulas 12-15).  
+  - Introdução ao Aprendizado Profundo e ao BERT (aulas 12-15).  
 
 - **Avaliação:**  
   - Listas semanais (Graduação e Pós-graduação);  

@@ -14,34 +14,37 @@ kernelspec:
 
 # Instalação do Software
 
+```{video} https://www.youtube.com/embed/UCb-b82tzLo?
+```
+
 ## O que é o Google Colab?
 
 O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
 
 ---
 
-## Como acessar o Google Colab?
+### Como acessar o Google Colab?
 
 1. Acesse o site do Google Colab: [Google Colab](https://colab.research.google.com/).
 2. Faça login com sua conta do Google.
 
 ---
 
-## Criando um novo notebook
+### Criando um novo notebook
 
 1. Clique em **"File"** (Arquivo) > **"New Notebook"** (Novo Notebook).
 2. Um novo notebook será aberto com uma célula pronta para receber código.
 
 ---
 
-## Estrutura do Notebook
+### Estrutura do Notebook
 
 - **Células de Código**: Para escrever e executar código Python.
 - **Células de Texto**: Para adicionar explicações ou formatações em Markdown.
 
 ---
 
-## Executando Código
+### Executando Código
 
 1. Escreva o código em uma célula de código, por exemplo:
    ```python
@@ -51,14 +54,14 @@ O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar 
 
 ---
 
-## Upload de Arquivos
+### Upload de Arquivos
 
 1. Clique no ícone de pasta no lado esquerdo.
 2. Clique em **"Upload"** para carregar arquivos do seu computador.
 
 ---
 
-## Conectando ao Google Drive
+### Conectando ao Google Drive
 
 1. Execute o seguinte código para montar o Google Drive:
    ```python
@@ -69,7 +72,7 @@ O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar 
 
 ---
 
-## Instalando Bibliotecas
+### Instalando Bibliotecas
 
 Use o comando `!pip install` para instalar bibliotecas diretamente no Colab. Por exemplo:
 ```python
@@ -78,7 +81,7 @@ Use o comando `!pip install` para instalar bibliotecas diretamente no Colab. Por
 
 ---
 
-## Salvando e Compartilhando
+### Salvando e Compartilhando
 
 1. O notebook é salvo automaticamente no Google Drive.
 2. Para compartilhar, clique em **"Share"** (Compartilhar) no canto superior direito e configure as permissões.
@@ -126,6 +129,4 @@ Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você tamb
 - [Documentação Oficial do Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
 - [Vídeo Tutorial sobre VS Code e Jupyter](https://www.youtube.com/watch?v=2e9DI5M4g7A)
 
-```{video} https://www.youtube.com/embed/UCb-b82tzLo?
-```
 
