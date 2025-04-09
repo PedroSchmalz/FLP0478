@@ -2,50 +2,52 @@
 # Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: 'Processamento da Língua Natural para as Ciências Humanas' # replace with your own book title when you use this template
-authors: Schmalz, Pedro and Barberia, Lorena #replace with your own name(s) if you use this template
-- email: nupram.fflch@usp.br
-  name: 'TeachBooks Development Team'
-  website: 'pedroschmalz.github.io/FLP0478/'
-message: 'If you use this teachbook, please cite it using these metadata.'
+title: 'Processamento da Língua Natural para as Ciências Humanas'
+authors:
+  - name: 'Pedro Schmalz'
+    email: 'pedrosantanaschmalz@usp.br'
+    affiliation: 'Universidade de São Paulo (USP)'
+  - name: 'Lorena Barberia'
+    email: 'lorenabarberia@usp.br'
+    affiliation: 'Universidade de São Paulo (USP)'
+message: 'Se você usar este TeachBook, por favor cite-o usando estes metadados.'
 preferred-citation:
   type: book
-  authors: #replace with your own name(s) if you use this template
-  - email: info@teachbooks.io
-    name: 'TeachBooks Development Team'
-    website: 'https://teachbooks.io/'
-#  - given-names: Tom
-#    name-particle: van
-#    family-names: Woudenberg
-#    email: t.r.van.woudenberg@tudelft.nl
-#    affiliation: TeachBooks
-#    orcid: 'https://orcid.org/0000-0002-9536-061X'
-  url: 'https://teachbooks.github.io/template/' # replace with your own URL (book website / publisher link) when you use this template
+  authors:
+    - name: 'Pedro Schmalz'
+      email: 'nupram.fflch@usp.br'
+      affiliation: 'Universidade de São Paulo (USP)'
+    - name: 'Lorena Barberia'
+      email: 'nupram.fflch@usp.br'
+      affiliation: 'Universidade de São Paulo (USP)'
+  title: 'Processamento da Língua Natural para as Ciências Humanas'
+  url: 'https://pedroschmalz.github.io/FLP0478/'
   identifiers:
     - type: url
-      value: 'https://teachbooks.github.io/template/' # replace with your own URL when you use this template
-      description: 'Published book on GitHub Pages'
+      value: 'https://pedroschmalz.github.io/FLP0478/'
+      description: 'Página do livro no GitHub Pages'
     - type: url
-      value: 'https://github.com/TeachBooks/template' # replace with your own URL when you use this template
-      description: 'GitHub repository'
-  abstract: >- # replace with your own abstract when you use this template
-    The template allows you to start your own TeachBook and
-    hosting that TeachBook online without knowledge on Git,
-    the Jupyter book package, python or anaconda. It doesn't
-    elaborate on the collaborative functionalities of Git or
-    how to edit the book
-  keywords: # replace with your own keywords when you use this template
-    - TeachBooks
-    - Template
-    - 'Jupyter Book'
-  title: 'TeachBooks Template' # replace with your own book title when you use this template
+      value: 'https://github.com/pedroschmalz/FLP0478'
+      description: 'Repositório GitHub do livro'
+  abstract: >-
+    Este livro aborda o uso de técnicas de Processamento de Língua Natural (PLN)
+    aplicadas às Ciências Humanas. Ele foi desenvolvido como material didático
+    para o curso FLP0478 na Universidade de São Paulo (USP).
+  keywords:
+    - Processamento de Língua Natural
+    - Ciências Humanas
+    - PLN
+    - Ensino
+    - Universidade de São Paulo
   institution:
-    name: 'TeachBooks' # replace with your own institution when you use this template
+    name: 'Universidade de São Paulo (USP)'
   license: CC-BY-4.0
   license-url: 'https://creativecommons.org/licenses/by/4.0/'
-  copyright: '© 2025 TeachBooks' # replace with your own affiliation / name when you use this template
+  copyright: '© 2023 Pedro Schmalz e Lorena Barberia'
   languages:
-    - en # replace with your book language when you use this template
-  contact: # replace with your own contact information when you use this template
-  - email: info@teachbooks.io
-    name: 'TeachBooks Development Team'
+    - pt
+  contact:
+    - name: 'Pedro Schmalz'
+      email: 'pedrosantanaschmalz@usp.br'
+    - name: 'Lorena Barberia'
+      email: 'lorenabarberia@usp.br'
