@@ -7,6 +7,7 @@ parts:
     - file: Programa/Programa.md
   - caption: Aula 01 - Introdução
     chapters:
+    - file: aulas/aula1/aula1intro.md
     - file: aulas/aula1/colabtutorial.md
     - file: aulas/aula1/aula1.ipynb
       sections:
