@@ -18,27 +18,16 @@ Este livro texto é parte do material da disciplina FLP0478 - Processamento de L
 
 Siga-nos nas redes sociais:  
 
-- **Pedro Schmalz**
+- **Pedro Schmalz**  
+  [![X](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/X_logo_2023.svg/20px-X_logo_2023.svg.png)](https://x.com/SchmalzPedro)  
+  [![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/20px-LinkedIn_logo_initials.png)](https://linkedin.com/in/pedro-schmalz)  
+  [![GitHub](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/20px-Octicons-mark-github.svg.png)](https://github.com/PedroSchmalz)  
 
-[![X](https://img.shields.io/twitter/follow/:user
-)](https://x.com/SchmalzPedro)  
+- **Lorena Barberia**  
+  [![X](https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/X_logo_2023.svg/20px-X_logo_2023.svg.png)](https://x.com/SchmalzPedro)  
+  [![LinkedIn](https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/20px-LinkedIn_logo_initials.png)](https://linkedin.com/in/pedro-schmalz)  
+  [![GitHub](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/20px-Octicons-mark-github.svg.png)](https://github.com/PedroSchmalz)  
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pedro-schmalz)  
-
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PedroSchmalz)
-
-
-- **Lorena Barberia**
-
-[![X](https://img.shields.io/twitter/follow/:user
-)](https://x.com/SchmalzPedro)  
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/pedro-schmalz)  
-
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PedroSchmalz)
-
-
-
-
-- **NUPRAM - Núcleo de Política, Redes Sociais e Aprendizado de Máquina**
+- **NUPRAM - Núcleo de Política, Redes Sociais e Aprendizado de Máquina**  
+  [![GitHub](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/20px-Octicons-mark-github.svg.png)](https://github.com/PedroSchmalz)
 
