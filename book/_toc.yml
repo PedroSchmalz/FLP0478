@@ -7,8 +7,8 @@ parts:
     - file: Programa/Programa.md
   - caption: Aula 01 - Introdução
     chapters:
-    - file: aulas/colabtutorial.md
-    - file: aulas/aula1.ipynb
+    - file: aulas/aula1/colabtutorial.md
+    - file: aulas/aula1/aula1.ipynb
       sections:
       - file: videos/vunesp1.md
   - caption: Aprendizado de Máquina
