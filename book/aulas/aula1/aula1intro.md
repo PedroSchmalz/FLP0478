@@ -4,9 +4,9 @@
 Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 1 & 2  
 
 ````{margin}
-
+```{note}
 "Ser ou não ser, eis a questão"
-
+```
 ````
 
 **Lab 1: Introdução: Apresentação do curso e introdução ao básico de Python**  
