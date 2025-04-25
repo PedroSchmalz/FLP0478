@@ -35,10 +35,6 @@ Uma disciplina baseada em *Project-Based Learning* (PBL) é uma abordagem pedag�
 </figure>
 
 
-
-
-
-
 ---
 
 ## Objetivos do Curso
@@ -68,13 +64,14 @@ Uma disciplina baseada em *Project-Based Learning* (PBL) é uma abordagem pedag�
 
 ### Funcionamento do curso
 
-- **Modelo de aprendizado ativo.** - O curso funcionará com aulas em duas partes. Na primeira parte da aula (14h-16h e 19h-21h), os alunos terão uma aula expositiva sobre os principais assuntos da aula. Ao retorno do intervalo (16h15-18h e 21h15-23h) os alunos trabalharão em duplas nos laboratórios, com auxílio do coordenador de laboratórios. Será disponibilizado para eles um `jupyter notebook` (para ser trabalhado no Colab ou VScode) com textos explicativos, questões e exercícios.
 
 ````{margin}
 ```{warning}
 Sobre o uso de LLMs: Existem diversas LLMs (e.g. ChatGPT, DeepSeek, LeChat, etc.), e lutar contra elas pode ser improdutivo e infrutífero. Pedimos aos alunos responsabilidade: O aprendizado e fixação também é de seu interesse, não proibimos o uso dessas ferramentas, mas insistimos que sempre tentem resolver primeiro sozinhos (e com seus pares) as listas de exercícios para que possam entender melhor o que estão fazendo. Cada aula do curso depende das aulas anteriores e do aprendizado contido nelas.
 ```
 ````
+
+- **Modelo de aprendizado ativo.** - O curso funcionará com aulas em duas partes. Na primeira parte da aula (14h-16h e 19h-21h), os alunos terão uma aula expositiva sobre os principais assuntos da aula. Ao retorno do intervalo (16h15-18h e 21h15-23h) os alunos trabalharão em duplas nos laboratórios, com auxílio do coordenador de laboratórios. Será disponibilizado para eles um `jupyter notebook` (para ser trabalhado no Colab ou VScode) com textos explicativos, questões e exercícios.
 
 - **Etapas do curso:**  
   - Nivelamento de Python (aulas 1-5);  
@@ -85,7 +82,7 @@ Sobre o uso de LLMs: Existem diversas LLMs (e.g. ChatGPT, DeepSeek, LeChat, etc.
   - Listas semanais (Graduação e Pós-graduação);  
   - Trabalho final (Pós-graduação).  
 
-
+---
 ## O que é o Aprendizado Supervisionado?
 
 Como dito acima, a disciplina focará apenas no aprendizado estatístico supervisionado. Os seguintes conceitos são essenciais para o aprendizado supervisionado:
@@ -99,13 +96,14 @@ Como dito acima, a disciplina focará apenas no aprendizado estatístico supervi
 
 ### 1. Target
 
-Em toda tarefa de aprendizado supervisionado, temos um target ("alvo"). Em estatística usual, pensamos nesse como nosso "Y", ou variável dependente, ou variável explicada, que é o valor que desejamos prever ou classificar. O target é determinado com base em dados previamente anotados ou rotulados, que servem como referência para o treinamento do modelo. A relação entre o target e as variáveis preditoras, ou *features*, (Representadas por X) é modelada para encontrar padrões que possam ser generalizados para novos dados. Assim, o aprendizado supervisionado busca minimizar o erro entre as previsões do modelo e os valores reais do target, garantindo que o modelo seja capaz de realizar previsões precisas em dados não vistos.
-
 ````{margin}
 ```{note}
 Target e Variável dependente são sinônimos. Assim como *features* e variáveis preditoras, ou variáveis explicativas, ou variáveis independentes. As principais diferenças são de jargões entre as áreas de Aprendizado de Máquina e a Estatística mais tradicional. No entanto, os conceitos são os mesmos. 
 ```
 ````
+
+Em toda tarefa de aprendizado supervisionado, temos um target ("alvo"). Em estatística usual, pensamos nesse como nosso "Y", ou variável dependente, ou variável explicada, que é o valor que desejamos prever ou classificar. O target é determinado com base em dados previamente anotados ou rotulados, que servem como referência para o treinamento do modelo. A relação entre o target e as variáveis preditoras, ou *features*, (Representadas por X) é modelada para encontrar padrões que possam ser generalizados para novos dados. Assim, o aprendizado supervisionado busca minimizar o erro entre as previsões do modelo e os valores reais do target, garantindo que o modelo seja capaz de realizar previsões precisas em dados não vistos.
+
 
 ### 2. *Features*
 
