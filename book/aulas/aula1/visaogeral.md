@@ -2,7 +2,7 @@
 
 ## Sobre a disciplina
 
-**Metodologia:** A disciplina tem como metodologia ser *Project-Based Learning*, ancorada no projeto *Mapping Political Elites COVID-19 Vaccine Tweets in Brazil*.
+**Metodologia:** A disciplina é  *Project-Based Learning*, ancorada no projeto *Mapping Political Elites COVID-19 Vaccine Tweets in Brazil*.
 
 ---
 
@@ -63,12 +63,4 @@
 - Coleta e Avaliação de outras Amostras para avaliar se o *training* data set corretamente classifica outras amostras  
 - Statistical Framework: \(y = f(x) + \epsilon\)  
  
-
-
-
-<figure>
-  <img src="../aula1/images/image1.png" alt="Modelos Dedutivos e Interativos" style="width: 100%; max-width: 2400px;">
-  <figcaption>Figura 1: Modelos Dedutivos e Interativos. 
-  Fonte: Grimmer et al. (p.41)</figcaption>
-</figure>
 
