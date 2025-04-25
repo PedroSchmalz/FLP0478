@@ -96,7 +96,7 @@ Em toda tarefa de aprendizado supervisionado, temos um target ("alvo"). Em estat
 
 ### 3. *Banco de Treinamento*
 
-O banco de treinamento, ou córpus, é talvez o mais importante para o aprendizado, seja ele supervisionado ou não supervisionado. No nosso caso, trabalharemos... A {numref}`Figura {number} <orpusconstr>`
+O banco de treinamento, ou córpus, é talvez o mais importante para o aprendizado, seja ele supervisionado ou não supervisionado. No nosso caso, trabalharemos... A {numref}`Figura {number} <corpusconstr>`
 
 
 ```{figure} ../aula1/images/corpus_flow.png
