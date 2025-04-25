@@ -96,7 +96,7 @@ Em toda tarefa de aprendizado supervisionado, temos um target ("alvo"). Em estat
 
 ### 3. *Banco de Treinamento*
 
-O banco de treinamento, ou córpus, é talvez o mais importante para o aprendizado, seja ele supervisionado ou não supervisionado. No nosso caso, trabalharemos... A {numref}`Figura {number} <corpusconstr>`
+O banco de treinamento, ou córpus, é talvez o mais importante para o aprendizado, seja ele supervisionado ou não supervisionado. No nosso caso, trabalharemos com um corpus contendo tweets/publicações no X, portanto uma tarefa de PLN, e nosso target é o posicionamento e sentimento. A {numref}`Figura {number} <corpusconstr>` mostra boa parte do processo envolvido na construção de um corpus, antes mesmo de se utilizar qualquer método de aprendizado de máquina.
 
 
 ```{figure} ../aula1/images/corpus_flow.png
@@ -109,7 +109,7 @@ Processo de Construção de Um Corpus para aprendizado Supervisionado. Fonte: Au
 ```
 
 
-Para que qualquer classificação automatizada seja possível, precisamos de um banco de treinamento. Esse é o banco que contém tanto nossas Targets (Y) quanto nossas *Features* (**X**). Veremos ao longo do curso que, para garantir que nossos resultados não são espúrios/pouco generalizáveis, precisamos dividir nosso banco de dados em dois ou três subconjuntos:
+Para que qualquer classificação/predição automatizada seja possível, precisamos de um banco de treinamento. Esse é o banco que contém tanto nossas Targets (Y) quanto nossas *Features* (**X**). Veremos ao longo do curso que, para garantir que nossos resultados não são espúrios/pouco generalizáveis, precisamos dividir nosso banco de dados em dois ou três subconjuntos:
 
 * **Banco de Validação**: Quando estamos fazendo validações cruzadas, como métodos de K-fold, validação simples, etc., precisamos dividir uma parcela dos dados para que estes não sejam "vistos" pelo modelo de aprendizado de máquina durante o treinamento. A intuição disto é que teremos uma prova de que o modelo conseguirá performar bem em dados não vistos. No entanto, como veremos nas aulas futuras, o banco de validação é visto durante o treinamento, por isso precisamos também de um banco de teste que com certeza não será visto no treinamento.
 
@@ -118,11 +118,3 @@ Para que qualquer classificação automatizada seja possível, precisamos de um 
 ### 4. Predição vs. Classificação
 
 No contexto de *Machine Learning*, predição e classificação são tarefas distintas, embora relacionadas. A predição refere-se à estimativa de valores contínuos, como prever o preço de uma casa ou a temperatura de um dia específico, com base em variáveis explicativas. Já a classificação envolve a categorização de dados em classes discretas, como determinar se um e-mail é spam ou não, ou identificar o sentimento de um texto como positivo, negativo ou neutro. Enquanto a predição utiliza algoritmos que minimizam o erro em variáveis contínuas (como regressão linear), a classificação foca em maximizar a precisão na atribuição de rótulos às categorias (como regressão logística ou árvores de decisão). Ambas as tarefas compartilham princípios fundamentais, mas diferem nos objetivos e nas métricas de avaliação utilizadas, como erro médio absoluto para predição e acurácia ou F1-score para classificação. No curso, focaremos em tarefas de classificação.
-
-<figure>
-  <img src="../aula1/images/image1.png" alt="Modelos Dedutivos e Interativos" style="width: 100%; max-width: 2400px;">
-  <figcaption>Figura 1: Modelos Dedutivos e Interativos. 
-  Fonte: Grimmer et al. (p.41)</figcaption>
-</figure>
-
-
