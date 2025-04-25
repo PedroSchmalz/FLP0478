@@ -26,14 +26,6 @@ Uma disciplina baseada em *Project-Based Learning* (PBL) é uma abordagem pedag�
 - **Foco no Desenho de Pesquisa e Aprendizado Supervisionado:**  
   *  Existem muitos métodos de aprendizado e modelos de aprendizado estatístico. Portanto, a disciplina focará em uma classe de modelos apenas: Modelos de aprendizado supervisionado, que utilizam córpus anotados por humanos. Isso nos permite avaliar de forma mais clara como os diversos modelos performam em tarefas diferentes, e guiar os alunos focando principalmente em como desenhar sua pesquisa para aplicar práticas de aprendizado supervisionado.
 
-<figure>
-  <img src="../aula1/images/corpus_flow.png" alt="Modelos Dedutivos e Interativos" style="width: 100%; max-width: 2400px;">
-  <figcaption>
-    Figura 1: Processo de Construção de Um Corpus para aprendizado Supervisionado.  
-    <br>Fonte: Autores (2025).
-  </figcaption>
-</figure>
-
 
 ---
 
@@ -67,7 +59,7 @@ Uma disciplina baseada em *Project-Based Learning* (PBL) é uma abordagem pedag�
 
 ````{margin}
 ```{warning}
-Sobre o uso de LLMs: Existem diversas LLMs (e.g. ChatGPT, DeepSeek, LeChat, etc.), e lutar contra elas pode ser improdutivo e infrutífero. Pedimos aos alunos responsabilidade: O aprendizado e fixação também é de seu interesse, não proibimos o uso dessas ferramentas, mas insistimos que sempre tentem resolver primeiro sozinhos (e com seus pares) as listas de exercícios para que possam entender melhor o que estão fazendo. Cada aula do curso depende das aulas anteriores e do aprendizado contido nelas.
+Sobre o uso de LLMs: Existem diversas LLMs (e.g. ChatGPT, DeepSeek, LeChat, etc.), e lutar contra elas pode ser improdutivo e infrutífero. Pedimos aos alunos responsabilidade: O aprendizado e fixação também é de seu interesse. Não proibimos o uso dessas ferramentas, mas insistimos que sempre tentem resolver primeiro sozinhos (e com seus pares) as listas de exercícios para que possam entender melhor o que estão fazendo. Cada aula do curso depende das aulas anteriores e do aprendizado contido nelas.
 ```
 ````
 
@@ -110,6 +102,17 @@ Em toda tarefa de aprendizado supervisionado, temos um target ("alvo"). Em estat
 *Features*, ou variáveis independentes, ou variáveis explicativas, são as variáveis utilizadas pelo pesquisador para tentar prever o valor do *target*, seja em uma tarefa de classificação ou de predição. No exemplo específico de uma tarefa em PLN (Processamento da Língua Natural), o nosso "x" é o texto (e.g. o conteúdo de um tweet), que vai ser processado de diversas formas para que o modelo de aprendizado possa trabalhar com ele. Outro exemplo é na classificação de pessoas que podem ser devedoras (aplicação comum de *ML* em bancos), que podem ter como variáveis explicativas dívidas anteriores, renda, idade, educação, etc.
 
 ### 3. *Banco de Treinamento*
+
+O banco de treinamento, ou córpus, é talvez o mais importante para o aprendizado, seja ele supervisionado ou não supervisionado. No nosso caso, trabalharemos... A figura {ref}`fig-corpus-contrucao`
+
+
+<figure>
+  <img src="../aula1/images/corpus_flow.png" alt="Construção do Córpus" style="width: 100%; max-width: 2400px;">
+  <figcaption>
+    Figura 1: Processo de Construção de Um Corpus para aprendizado Supervisionado.  
+    <br>Fonte: Autores (2025). {#fig-corpus-construcao}
+  </figcaption>
+</figure>
 
 Para que qualquer classificação automatizada seja possível, precisamos de um banco de treinamento. Esse é o banco que contém tanto nossas Targets (Y) quanto nossas *Features* (**X**). Veremos ao longo do curso que, para garantir que nossos resultados não são espúrios/pouco generalizáveis, precisamos dividir nosso banco de dados em dois ou três subconjuntos:
 
