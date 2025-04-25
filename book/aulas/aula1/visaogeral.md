@@ -86,6 +86,19 @@ Como dito acima, a disciplina focará apenas no aprendizado estatístico supervi
 </figure>
 
 
+```{figure} ../aula1/images/image1.png
+    ---
+    width: 80%
+    name: dedutivointerativo
+    align: center
+    ---
+    Figura 1: Modelos Dedutivos e Interativos. 
+    Fonte: Grimmer et al. (p.41)
+```
+
+{numref}`Figura {number} <dedutivointerativo>`
+
+
 ### 1. Target
 
 ````{margin}
