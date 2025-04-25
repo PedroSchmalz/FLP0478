@@ -10,15 +10,18 @@ Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data:
 - Apresentar os principais tipos de variáveis e estruturas de dados em Python  
 
 **Referências Complementares para o Laboratório:**  
+
+
+````{margin}
+```{note}
+As leituras para o laboratório não são obrigatórias. No entanto, complementam de maneira significativa os conteúdos abordados.
+```
+````
+
 - Menezes, Nilo Ney Coutinho (2019). {cite}`menezes2019introducao`. Capítulo 3 - "Variáveis e entrada de dados", Capítulo 4 - "Condições", Cap. 5 - "Repetições" e Capítulo 6 - "Listas" em *Introdução à Programação com Python*. Terceira Edição, Editora Novatec. pp. 49-136.  
 - McKinney, Wes (2022). {cite}`mckinney2022python`. Chapter 3. "Built-In Data Structures, Functions, and Files" in *Python for Data Analysis Data Wrangling with pandas, NumPy, and Jupyter*. Third Edition. O'Reilly.  
 - Matthes, Eric (2023). {cite}`matthes2023python`. *Python Crash Course - A Hands-On, Project-Based Introduction to Programming*. 3rd Edition. No Starch Press.  
 
-````{margin}
-```{note}
-As leituras para o laboratório não são obrigatórias.
-```
-````
 
 
 
