@@ -69,6 +69,8 @@ Uma disciplina baseada em *Project-Based Learning* (PBL) é uma abordagem pedag�
 ### Funcionamento do curso
 
 - **Modelo de aprendizado ativo.** - O curso funcionará com aulas em duas partes. Na primeira parte da aula (14h-16h e 19h-21h), os alunos terão uma aula expositiva sobre os principais assuntos da aula. Ao retorno do intervalo (16h15-18h e 21h15-23h) os alunos trabalharão em duplas nos laboratórios, com auxílio do coordenador de laboratórios. Será disponibilizado para eles um `jupyter notebook` (para ser trabalhado no Colab ou VScode) com textos explicativos, questões e exercícios.
+
+````{margin}
 ```{warning}
 Sobre o uso de LLMs: Existem diversas LLMs (e.g. ChatGPT, DeepSeek, LeChat, etc.), e lutar contra elas pode ser improdutivo e infrutífero. Pedimos aos alunos responsabilidade: O aprendizado e fixação também é de seu interesse, não proibimos o uso dessas ferramentas, mas insistimos que sempre tentem resolver primeiro sozinhos (e com seus pares) as listas de exercícios para que possam entender melhor o que estão fazendo. Cada aula do curso depende das aulas anteriores e do aprendizado contido nelas.
 ```
