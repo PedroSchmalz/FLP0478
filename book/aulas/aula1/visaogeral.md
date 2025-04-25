@@ -79,25 +79,6 @@ Sobre o uso de LLMs: Existem diversas LLMs (e.g. ChatGPT, DeepSeek, LeChat, etc.
 
 Como dito acima, a disciplina focará apenas no aprendizado estatístico supervisionado. Os seguintes conceitos são essenciais para o aprendizado supervisionado:
 
-<figure>
-  <img src="../aula1/images/image1.png" alt="Modelos Dedutivos e Interativos" style="width: 100%; max-width: 2400px;">
-  <figcaption>Figura 1: Modelos Dedutivos e Interativos. 
-  Fonte: Grimmer et al. (p.41)</figcaption>
-</figure>
-
-
-```{figure} ../aula1/images/image1.png
----
-width: 80%
-name: dedutivointerativo
-align: center
----
-Modelos Dedutivos e Interativos. Fonte: Grimmer et al. (p.41)
-```
-
-{numref}`Figure {number} <dedutivointerativo>`
-
-
 ### 1. Target
 
 ````{margin}
@@ -115,16 +96,18 @@ Em toda tarefa de aprendizado supervisionado, temos um target ("alvo"). Em estat
 
 ### 3. *Banco de Treinamento*
 
-O banco de treinamento, ou córpus, é talvez o mais importante para o aprendizado, seja ele supervisionado ou não supervisionado. No nosso caso, trabalharemos... A figura {ref}`fig-corpus-contrucao`
+O banco de treinamento, ou córpus, é talvez o mais importante para o aprendizado, seja ele supervisionado ou não supervisionado. No nosso caso, trabalharemos... A {numref}`Figura {number} <orpusconstr>`
 
 
-<figure>
-  <img src="../aula1/images/corpus_flow.png" alt="Construção do Córpus" style="width: 100%; max-width: 2400px;">
-  <figcaption>
-    Figura 1: Processo de Construção de Um Corpus para aprendizado Supervisionado.  
-    <br>Fonte: Autores (2025). {#fig-corpus-construcao}
-  </figcaption>
-</figure>
+```{figure} ../aula1/images/corpus_flow.png
+---
+width: 100%
+name: corpusconstr
+align: center
+---
+Processo de Construção de Um Corpus para aprendizado Supervisionado. Fonte: Autores (2025).
+```
+
 
 Para que qualquer classificação automatizada seja possível, precisamos de um banco de treinamento. Esse é o banco que contém tanto nossas Targets (Y) quanto nossas *Features* (**X**). Veremos ao longo do curso que, para garantir que nossos resultados não são espúrios/pouco generalizáveis, precisamos dividir nosso banco de dados em dois ou três subconjuntos:
 
