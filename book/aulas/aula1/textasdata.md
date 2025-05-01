@@ -59,10 +59,10 @@ Seis principios
 
 
 
-```{admonition} 💡 Exercício: Explorando o Ciclo de Descoberta → Mensuração → Inferência
+```{admonition} 📝 Exercício: Explorando o Ciclo de Descoberta → Mensuração → Inferência
 :class: exercise
 
-Com base no exemplo de {cite}`catalinac2016from` e King, Pand and Roberts (2013), reflita sobre como o ciclo de **descoberta → mensuração → inferência** pode ser aplicado em diferentes contextos de pesquisa. Responda às perguntas abaixo:
+Com base no exemplo de Catalinac ({cite}`catalinac2016from`,2016) e King, Pand and Roberts ({cite}`king2013how`,2013), reflita sobre como o ciclo de **descoberta → mensuração → inferência** pode ser aplicado em diferentes contextos de pesquisa. Responda às perguntas abaixo:
 
 1. **Definição do Problema**  
    - Identifique um problema de pesquisa relevante na sua área de interesse. Por exemplo, "Como as redes sociais influenciam o debate público sobre mudanças climáticas?".
