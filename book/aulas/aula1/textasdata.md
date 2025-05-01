@@ -16,22 +16,23 @@ Textos são registros riquíssimos da atividade humana: é por meio da linguagem
 
 ## O Paradigma proposto por Grimmer et al. 
 
-O livro *Text as Data: A New Framework for Machine Learning and the Social Sciences*  de Grimmer, Roberts e Stewart (2022) propõe um paradigma (ou *framework*) específico para integrar métodos de PLN e machine learning ao trabalho de pesquisa social. Esse paradigma envolve uma nova forma de ver o processo de produção científico, agora indutivo ao invés de dedutivo.
+O livro *Text as Data: A New Framework for Machine Learning and the Social Sciences*  de Grimmer, Roberts e Stewart (2022) propõe um paradigma (ou *framework*) específico para integrar métodos de PLN e machine learning ao trabalho de pesquisa social. Esse paradigma envolve uma nova forma de ver o processo de produção científico, agora indutivo ao invés de dedutivo. A {numref}`Figura {number} <modeloindut>` mostra como os autores constroem as diferenças entre esses dois modelos.
 
-<figure>
-  <img src="../aula1/images/image1.png" alt="Modelos Dedutivos e Interativos" style="width: 100%; max-width: 2400px;">
-  <figcaption>Figura 1: Modelos Dedutivos e Interativos. 
-  Fonte: Grimmer et al. (p.41)</figcaption>
-</figure>
+```{figure} ../aula1/images/image1.png
+---
+width: 100%
+name: modeloindut
+align: center
+---
+ Modelos Dedutivos e Interativos. Fonte: Grimmer et al. (p.41)
+```
 
 
 ### Modelo Dedutivo
 
-Os autores dividem o processo de pesquisa nas ciências sociais nos modelos indutivo e dedutivo. O dedutivo é o método em que estamos mais acostumados a ver: Com base em uma literatura e teoria, construímos a pergunta de pesquisa. Linearmente, seguimos para a construção das hipóteses. Só depois dessas duas fases, partimos para a coleta dos dados e análise, apresentando nossos resultados, seja na forma de artigos ou livros. Há o pressuposto forte de que esse processo é acíclico. Ou seja, um passo do processo não pode influenciar o anterior, há uma direção única e sequencial. 
+Os autores dividem o processo de pesquisa nas ciências sociais em dois modelos principais: o dedutivo e o indutivo. O modelo dedutivo, mais tradicional e amplamente disseminado, é caracterizado por um fluxo linear e sequencial de etapas. Nele, a pesquisa se inicia com a formulação de uma pergunta ancorada na literatura e em teorias pré-existentes. A partir dessa base, são elaboradas hipóteses que orientam a coleta e a análise de dados, culminando na apresentação dos resultados em artigos ou livros. Esse modelo pressupõe uma sequência rígida e acíclica, em que cada etapa é concebida para não interferir nas anteriores. Contudo, os autores argumentam que essa visão é ilusória e constitui, na prática, uma “ficção” (Id., p. 40), pois não corresponde à forma como a pesquisa efetivamente se desenvolve nas ciências sociais. Manter essa ficção pode dificultar a compreensão sobre como perguntas e hipóteses foram originalmente construídas, de que maneira a análise de dados impactou suas formulações e como conceitos e problemas foram refinados ao longo de um processo investigativo marcado pela interação constante entre teoria, dados e interpretação.
 
-No entanto, os autores argumentam que isso é ilusório e uma "ficção" (Id., p. 40), e não é a maneira que a pesquisa avança nas ciências sociais de fato. Sustentar essa ficção atrapalharia a discussão de como certas hipóteses e perguntas foram formuladas, como a análise dos dados as influenciou, e como os conceitos e perguntas foram refinados pela análise detalhada dos dados e textos coletados.
-
-```{admonition} Com a palavra, os autores
+```{admonition} Com a palavra, os autores:
 :class: quote
 "Se o procedimento dedutivo padrão for seguido de forma muito rígida e os dados forem coletados apenas no último momento, os pesquisadores podem perder a oportunidade de refinar seus conceitos, desenvolver novas teorias e avaliar novas hipóteses. Grande parte do aprendizado ocorre durante a análise dos dados. Mesmo quando um projeto de pesquisa começa com uma pergunta clara de interesse, frequentemente termina com um foco substancialmente diferente. Foi isso que aconteceu em um de nossos próprios projetos, uma análise das mídias sociais chinesas conduzida por Gary King, Jennifer Pan e Margaret Roberts (King, Pan e Roberts, 2013)."  
 ({cite}`grimmer2022text`, p. 39, tradução nossa).
@@ -39,6 +40,8 @@ No entanto, os autores argumentam que isso é ilusório e uma "ficção" (Id., p
 
 
 ### Modelo Indutivo
+
+O modelo indutivo teria sua força em admitir que os processos de formulação e desenho de pesquisa, coleta de dados, e análise se complementam e são cíclicos. Você pode começar com uma pergunta de pesquisa e hipóteses e descobrir, na análise de dados, que outra formulação da pergunta (ou uma pergunta completamente diferente) é mais interessante do que a sua pergunta inicial. Isso não quer dizer que não se deve ter uma ampla visão da literatura e da teoria que foi criada até o momento. Na verdade, 
 
 - **Descoberta**: identificar padrões, categorias ou temas em grandes volumes de texto.
 - **Mensuração**: quantificar a presença de conceitos em textos.
@@ -65,6 +68,31 @@ Estudo clássico que ilustra o ciclo de descoberta → mensuração → inferên
 - **Validação**: leitura dos tópicos e comparação com fatos conhecidos.
 - **Inferência**: estimativa do efeito da reforma eleitoral na mudança de agenda.
 
+```{admonition} 💡 Exercício: Explorando o Ciclo de Descoberta → Mensuração → Inferência
+:class: exercise
+
+Com base no exemplo de Catalinac (2016), reflita sobre como o ciclo de **descoberta → mensuração → inferência** pode ser aplicado em diferentes contextos de pesquisa. Responda às perguntas abaixo:
+
+1. **Definição do Problema**  
+   - Identifique um problema de pesquisa relevante na sua área de interesse. Por exemplo, "Como as redes sociais influenciam o debate público sobre mudanças climáticas?".
+   
+2. **Coleta de Dados**  
+   - Que tipo de dados textuais você utilizaria para abordar esse problema? Considere fontes como redes sociais, discursos políticos, artigos de jornal, etc.
+
+3. **Método**  
+   - Qual método de análise você aplicaria para identificar padrões ou temas nos textos? Exemplos incluem Latent Dirichlet Allocation (LDA), análise de sentimentos ou classificação supervisionada.
+
+4. **Validação**  
+   - Como você validaria os resultados da sua análise? Pense em estratégias como leitura manual de amostras, comparação com eventos conhecidos ou validação cruzada.
+
+5. **Inferência**  
+   - Que tipo de inferência você poderia fazer com base nos resultados? Por exemplo, estimar o impacto de uma política pública ou identificar mudanças no discurso político ao longo do tempo.
+
+6. **Reflexão Final**  
+   - Como o ciclo iterativo de descoberta e mensuração pode ajudar a refinar suas perguntas de pesquisa e hipóteses iniciais? Considere como os dados podem influenciar o foco do seu estudo.
+
+Após responder às perguntas, discuta suas respostas com um colega ou no grupo de estudos. Reflita sobre como o paradigma proposto por Grimmer et al. pode ser aplicado para enriquecer sua pesquisa.
+```
 
 
 ## 🚀 Conclusão
