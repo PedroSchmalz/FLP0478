@@ -1,46 +1,40 @@
 # Programa da Disciplina
 
+**Universidade**: Universidade de São Paulo (USP)
 
-## Universidade de São Paulo  
-Faculdade de Filosofia, Letras e Ciências Humanas  
-Departamento de Ciência Política  
+**Faculdade**: Faculdade de Filosofia, Letras e Ciências Humanas  (FFLCH)
 
-**FLS 6513**  
-Processamento de Língua Natural Aplicada para Ciência Política e Análise de Políticas  
-Públicas (Natural Language Processing for Political and Policy Analysis: A Machine Learning Approach)  
+**Departamento**: Departamento de Ciência Política  
 
-&  
+**Disciplina**:
 
-**FLP0478**  
-Processamento de Língua Natural (NLP) Aplicada para Ciência Política e Análise de Políticas  
-Públicas  
+* **FLS 6513** - Pós Graduação - Processamento de Língua Natural Aplicada para Ciência Política e Análise de Políticas Públicas (*Natural Language Processing for Political and Policy Analysis: A Machine Learning Approach*)  
 
-**Lorena G. Barberia**  
+* **FLP0478**  - Graduação - Processamento de Língua Natural (NLP) Aplicada para Ciência Política e Análise de Políticas   Públicas  
 
-Coordenador de Laboratórios:  
-Pedro Schmalz  
+**Professora Dra.** : Lorena G. Barberia
 
-2º semestre / 2024  
-Turma Vespertino: 14:00-18:00  
-Turma Noturno: 19:00-23:00  
+**Coordenador de Laboratórios**: Pedro Schmalz  
+
+2º semestre / 2025  
+Turma Vespertino: 14h00-18h00  
+Turma Noturno: 19h00-22h30  
+
+## Introdução 
 
 As redes sociais e a World Wide Web fornecem uma rica fonte de dados detalhados que refletem a evolução dos posicionamentos políticos ao longo do tempo e em resposta a vários eventos. Este curso baseado em projetos enfoca a interseção entre aprendizado de máquina, processamento de língua natural e ciência política, mostrando como as estruturas de Aprendizado de Máquina (Machine Learning) e PLN (Processamento da Língua  Natural) podem ser aplicadas para responder a questões importantes envolvendo política e políticas públicas. Um componente-chave do curso é um projeto de pesquisa de um semestre usando um grande conjunto de  dados de texto. Os alunos irão formular, explorar e abordar exercícios focados usando esses dados. Ao final do curso, os alunos terão adquirido experiência prática no uso de dados em larga escala e soluções eficazes de PLN.  
 
 ## Objetivos  
 
-- Aprender as habilidades básicas de programação em Python e como aplicá-las no Processamento de  
-Língua Natural (PLN).  
+- Aprender as habilidades básicas de programação em Python e como aplicá-las no Processamento de  Língua Natural (PLN).  
 
-- Compreender os conceitos fundamentais de aprendizado profundo e como LLMs tais como o BERT,  
-(Bidirectional Encoder Representations from Transformers), LLaMA, podem ser utilizados para  
-PLN.  
+- Explorar diferentes métodos de classificação em PLN, como classificação binária, multiclasse e multirrótulo. Além disso, como são criados os bancos para a classificação de textos, e alguns cuidados   metodológicos que devem ser tomados. 
 
-- Explorar diferentes métodos de classificação em PLN, como classificação binária, multiclasse e  
-multirrótulo. Além disso, como são criados os bancos para a classificação de textos, e alguns cuidados  
-metodológicos que devem ser tomados.  
+- Apresentar os modelos clássicos de aprendizado de máquina (e.g. Logístico, *SVM*, *Random Forest*), focando no aprendizado supervisionado para tarefas de classificação.
 
-- Aplicar esses conceitos e técnicas em projetos práticos para classificação de textos, incluindo a criação  
-de modelos de classificação de posicionamento e sentimento.  
+- Compreender os conceitos fundamentais de aprendizado de máquina e aprendizado profundo  e como modelos como o BERT (Bidirectional Encoder Representations from Transformers), LLaMA, podem ser utilizados para PLN.  
+
+- Aplicar esses conceitos e técnicas em projetos práticos para classificação de textos, incluindo a criação de modelos de classificação de posicionamento e sentimento.  
 
 ## Avaliação  
 
@@ -48,32 +42,52 @@ de modelos de classificação de posicionamento e sentimento.
 Os alunos deverão entregar listas semanais de exercícios que trabalham os conteúdos discutidos nos laboratórios em sala e nos textos obrigatórios.  
 
 2. **Trabalho Final (Pós-graduação somente).** 40% da nota final (pós-graduação).  
-O aluno deverá escolher um problema de classificação de interesse e tentar aplicar as técnicas aprendidas no curso utilizando o banco de dados utilizado durante a disciplina.  
+O aluno deverá escolher um problema de interesse e tentar aplicar as técnicas aprendidas no curso utilizando o banco de dados utilizado durante a disciplina. Os detalhes desse trabalho final serão discutidos ao longo da disciplina  
 
 ## Programação, Objetivos e Referências:  
 
 ### 1. Introdução  
+---
 
-**Referência:**  
+**Leitura Obrigatória:**  
 Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 1 & 2  
 
-**Lab 1: Introdução: Apresentação do curso e introdução ao básico de Python**  
+**Textos Complementares:**
 
-**Objetivos:**  
-- Introduzir o Google Colab, principal ferramenta de nossas aulas  
-- Apresentar os principais tipos de variáveis e estruturas de dados em Python  
+CATALINAC, Amy (2016). {cite}`catalinac2016from` From Pork to Policy: The Rise of Programmatic Campaigning in Japanese Elections. The Journal of Politics. [S. l.]: University of Chicago Press, jan. 2016. DOI 10.1086/683073. Disponível em: http://dx.doi.org/10.1086/683073.
 
-**Referências para o Lab:**  
+KING, GARY; PAN, JENNIFER; ROBERTS, MARGARET E (2013). {cite}`king2013how` How Censorship in China Allows Government Criticism but Silences Collective Expression. American Political Science Review. [S. l.]: Cambridge University Press (CUP), maio 2013. DOI 10.1017/s0003055413000014. Disponível em: http://dx.doi.org/10.1017/S0003055413000014.
+
+**Laboratório 1: Introdução ao básico de Python**  
+
+**Objetivos da Aula:**
+- Discutir os modelos Indutivo e Dedutivos de pesquisa nas ciências sociais;
+- Apresentar o Paradigma de Grimmer et al. (2022) sobre como utilizar o Texto como Dado 
+- Introduzir o `Google Colab` e `VSCode`, as IDEs[^1] principais para nossa aula, que se baseiam no `Jupyter Notebook`, criado para o `Python`.
+- Apresentar os principais tipos de variáveis e estruturas de dados em Python.
+
+**Referências Complementares para o Laboratório:**  
+
+
+````{margin}
+```{note}
+As leituras para o laboratório não são obrigatórias. No entanto, complementam de maneira significativa os conteúdos abordados.
+```
+````
+
 - Menezes, Nilo Ney Coutinho (2019). {cite}`menezes2019introducao`. Capítulo 3 - "Variáveis e entrada de dados", Capítulo 4 - "Condições", Cap. 5 - "Repetições" e Capítulo 6 - "Listas" em *Introdução à Programação com Python*. Terceira Edição, Editora Novatec. pp. 49-136.  
 - McKinney, Wes (2022). {cite}`mckinney2022python`. Chapter 3. "Built-In Data Structures, Functions, and Files" in *Python for Data Analysis Data Wrangling with pandas, NumPy, and Jupyter*. Third Edition. O'Reilly.  
-- Matthes, Eric (2023). {cite}`matthes2023python`. *Python Crash Course - A Hands-On, Project-Based Introduction to Programming*. 3rd Edition. No Starch Press.  
+- Matthes, Eric (2023). {cite}`matthes2023python`. *Python Crash Course - A Hands-On, Project-Based Introduction to Programming*. 3rd Edition. No Starch Press.
 
-### 2. Seleção e Representação: A Construção do Corpus  
+
+
+### 2. Seleção e Representação: A Construção do Corpus
+---  
 
 **Referência:**  
 Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 3 & 4  
 
-**Lab 2: Condicionais e Loops**  
+**Laboratório 2: Condicionais e Loops**  
 
 **Objetivos:**  
 - Apresentar algumas declarações condicionais  
