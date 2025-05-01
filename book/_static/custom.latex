@@ -16,6 +16,7 @@
 \usepackage{anyfontsize} % Permite ajustar tamanhos de fonte
 \renewcommand\normalsize{\fontsize{12}{14}\selectfont} % Define 12pt como padrão com espaçamento de 14pt
 
-% Corrigir o problema do texto cinza
+% Corrigir o problema do texto cinza no modo escuro
 \usepackage{xcolor} % Pacote para controle de cores
-\color{black} % Define a cor do texto como preto
+\definecolor{forcedblack}{rgb}{0, 0, 0} % Define a cor preta como "forcedblack"
+\color{forcedblack} % Aplica a cor preta globalmente
