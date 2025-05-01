@@ -46,7 +46,7 @@ O aluno deverá escolher um problema de interesse e tentar aplicar as técnicas 
 
 ## Programação, Objetivos e Referências:  
 
-### 1. Introdução  
+### 1. Introdução - O Texto como Dado
 ---
 
 **Leitura Obrigatória:**  
@@ -63,17 +63,11 @@ KING, GARY; PAN, JENNIFER; ROBERTS, MARGARET E (2013). {cite}`king2013how` How C
 **Objetivos da Aula:**
 - Discutir os modelos Indutivo e Dedutivos de pesquisa nas ciências sociais;
 - Apresentar o Paradigma de Grimmer et al. (2022) sobre como utilizar o Texto como Dado 
-- Introduzir o `Google Colab` e `VSCode`, as IDEs[^1] principais para nossa aula, que se baseiam no `Jupyter Notebook`, criado para o `Python`.
+- Introduzir o `Google Colab` e `VSCode`, as IDEs principais para nossa aula, que se baseiam no `Jupyter Notebook`, criado para o `Python`.
 - Apresentar os principais tipos de variáveis e estruturas de dados em Python.
 
 **Referências Complementares para o Laboratório:**  
 
-
-````{margin}
-```{note}
-As leituras para o laboratório não são obrigatórias. No entanto, complementam de maneira significativa os conteúdos abordados.
-```
-````
 
 - Menezes, Nilo Ney Coutinho (2019). {cite}`menezes2019introducao`. Capítulo 3 - "Variáveis e entrada de dados", Capítulo 4 - "Condições", Cap. 5 - "Repetições" e Capítulo 6 - "Listas" em *Introdução à Programação com Python*. Terceira Edição, Editora Novatec. pp. 49-136.  
 - McKinney, Wes (2022). {cite}`mckinney2022python`. Chapter 3. "Built-In Data Structures, Functions, and Files" in *Python for Data Analysis Data Wrangling with pandas, NumPy, and Jupyter*. Third Edition. O'Reilly.  
@@ -97,7 +91,8 @@ Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data:
 - Matthes, Eric (2023). {cite}`matthes2023python`. "Chapter 5: If Statements" and "Chapter 7: User Input and While Loops" in *Python Crash Course - A Hands-On, Project-Based Introduction to Programming*. 3rd Edition. No Starch Press.  
 - Lutz, Mark (2013). {cite}`lutz2013learning`. Chapter 12 "if Tests and Syntax Rules", Chapter 13 "While and for Loops", and Chapter 14 "Iterations and Comprehensions" in *Learning Python*. 5th Edition, O'Reilly Media, Inc.  
 
-### 3. Mensuração e Aprendizado Supervisionado  
+### 3. Mensuração e Aprendizado Supervisionado
+___
 
 **Referências:**  
 - Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 6, 15 e 16  
