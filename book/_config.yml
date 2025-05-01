@@ -23,8 +23,9 @@ sphinx:                                              # Options passed on to the 
     smartquotes: false
     language: pt
     html_js_files:
-    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js # Required for live code: https://teachbooks.io/manual/features/live_code.html
+    - https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js # Required for live code
     - _static/custom.js
+    - _static/structured_data.js
     thebe_config:
       use_thebe_lite: true                           # Required for live code: https://teachbooks.io/manual/features/live_code.html
       exclude_patterns: ["**/_*.yml", "**/*.md", "**/*.ipynb"] #exclude files which should not be accessible for live code: https://teachbooks.io/manual/features/live_code.html
