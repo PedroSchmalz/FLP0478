@@ -41,10 +41,11 @@ Os autores dividem o processo de pesquisa nas ciências sociais em dois modelos 
 
 ### Modelo Indutivo
 
-O modelo indutivo teria sua força em admitir que os processos de formulação e desenho de pesquisa, coleta de dados, e análise se complementam e são cíclicos. Você pode começar com uma pergunta de pesquisa e hipóteses e descobrir, na análise de dados, que outra formulação da pergunta (ou uma pergunta completamente diferente) é mais interessante do que a sua pergunta inicial. Isso não quer dizer que não se deve ter uma ampla visão da literatura e da teoria que foi criada até o momento. Na verdade, 
+O modelo indutivo destaca-se por reconhecer que os processos de formulação e desenho de pesquisa, coleta de dados e análise são complementares e interdependentes, ocorrendo de forma cíclica. Nesse modelo, é possível começar com uma pergunta de pesquisa e hipóteses iniciais e, ao longo da análise de dados, reformular essas perguntas ou até mesmo identificar questões completamente novas e mais relevantes. Isso não significa que se deva ignorar a literatura e as teorias existentes, mas sim que é necessário estabelecer uma relação simbiótica entre teoria e prática. Essa abordagem permite articular o que é observado na literatura com os novos conceitos e descobertas emergentes dos dados, promovendo um processo de pesquisa mais dinâmico e adaptativo. Grimmer et al. ({cite}`grimmer2022text`) dividem o modelo em três partes:
 
-- **Descoberta**: identificar padrões, categorias ou temas em grandes volumes de texto.
-- **Mensuração**: quantificar a presença de conceitos em textos.
+- **Descoberta**: Esse estágio está intimamente ligado a construção da pergunta de pesquisa e avaliação da literatura. Envolve, sobretudo, teoria, organização dos principais conceitos, e formulação da pergunta e hipóteses de pesquisa. Um passo extremamente importante do desenho de pesquisa 
+  * >  🗨️ "Decidir o que você quer medir a partir dos dados envolve desenvolver uma conceitualização — uma forma de organizar o mundo — que nos ajude a compreender o complexo mundo em que vivemos. A conceitualização ajudará a simplificar o mundo altamente complexo em que vivemos para estudar um ou dois aspectos específicos dele." ({cite}`grimmer2022text`, p. 43).
+- **Mensuração**: Estágio de operacionalização dos conceitos e construção da metodologia, além da coleta dos dados.
 - **Predição**: prever características ou resultados com base em dados textuais.
 - **Inferência causal**: estimar efeitos de intervenções ou mudanças usando textos como variáveis.
 
@@ -98,6 +99,8 @@ Trabalhar com **text as data** exige:
 
 ## 📖 Referência
 
-Grimmer, J., Roberts, M. E., & Stewart, B. M. (2022). *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press.
+Grimmer, J., Roberts, M. E., & Stewart, B. M. (2022). {cite}`grimmer2022text` *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press.
 
-CATALINAC, Amy. From Pork to Policy: The Rise of Programmatic Campaigning in Japanese Elections. The Journal of Politics. [S. l.]: University of Chicago Press, jan. 2016. DOI 10.1086/683073. Disponível em: http://dx.doi.org/10.1086/683073.
+CATALINAC, Amy. {cite}`catalinac2016from` From Pork to Policy: The Rise of Programmatic Campaigning in Japanese Elections. The Journal of Politics. [S. l.]: University of Chicago Press, jan. 2016. DOI 10.1086/683073. Disponível em: http://dx.doi.org/10.1086/683073.
+
+KING, GARY; PAN, JENNIFER; ROBERTS, MARGARET E (2013). {cite}`king2013how` How Censorship in China Allows Government Criticism but Silences Collective Expression. American Political Science Review. [S. l.]: Cambridge University Press (CUP), maio 2013. DOI 10.1017/s0003055413000014. Disponível em: http://dx.doi.org/10.1017/S0003055413000014.
