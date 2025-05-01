@@ -12,31 +12,11 @@ Nos últimos anos, a explosão de dados digitais e o avanço das capacidades com
 
 Textos são registros riquíssimos da atividade humana: é por meio da linguagem que se expressam políticas públicas, manifestações culturais, debates eleitorais e sentimentos. Ainda assim, até pouco tempo atrás, a análise sistemática de grandes volumes de texto era restrita ou inviável. Com o avanço dos métodos de **Aprendizado de Máquina** e técnicas de **Processamento de Linguagem Natural (PLN)**, passou a ser possível transformar textos em dados estruturados e analisá-los para fazer descrever e fazer inferências sobre o comportamento humano. No entanto, ainda há uma escassez de bancos de dados de textos com classificação e supervisão humana para a utilização no aprendizado de máquina, especialmente na Língua Portuguesa. Por isso, é necessário que mais pesquisadores tenham domínio das técnicas de aprendizado supervisionado (e não supervisionado). E também entendam que essas técnicas não substituem a análise atenciosa e dedicada do pesquisador, mas as amplificam, gerando oportunidades de pesquisa e descrição do comportamento humana de forma mais ampla.
 
----
-
-## 📌 De onde vem esse debate?
-
-O livro *Text as Data* (Grimmer, Roberts e Stewart, 2022) propõe um framework específico para integrar métodos de PLN e machine learning ao trabalho de pesquisa social, com foco em:
-
-- **Descoberta**: identificar padrões, categorias ou temas em grandes volumes de texto.
-- **Mensuração**: quantificar a presença de conceitos em textos.
-- **Predição**: prever características ou resultados com base em dados textuais.
-- **Inferência causal**: estimar efeitos de intervenções ou mudanças usando textos como variáveis.
-
-> ✳️ Diferentemente da ciência da computação, o foco na pesquisa social é menos sobre otimizar modelos e mais sobre produzir inferências substantivas e teoricamente orientadas.
 
 
+## O Paradigma proposto por Grimmer et al. 
 
----
-
-## 📚 Texto como dado: um novo paradigma para as Ciências Sociais
-
-Antes, a abordagem padrão em ciências sociais era **dedutiva**: formular uma teoria, derivar hipóteses e então coletar dados para testá-las. O trabalho com grandes coleções de texto, porém, revela a importância de abordagens **indutivas e iterativas**, em que as perguntas de pesquisa podem emergir a partir da análise dos próprios dados.
-
-> Exemplos:
-> - Analisar postagens de políticos no Twitter para descobrir temas emergentes.
-> - Mapear padrões de censura em redes sociais na China.
-> - Medir o grau de negatividade em campanhas eleitorais.
+O livro *Text as Data: A New Framework for Machine Learning and the Social Sciences*  de Grimmer, Roberts e Stewart (2022) propõe um paradigma (ou *framework*) específico para integrar métodos de PLN e machine learning ao trabalho de pesquisa social. Esse paradigma envolve uma nova forma de ver o processo de produção científico, agora indutivo ao invés de dedutivo.
 
 <figure>
   <img src="../aula1/images/image1.png" alt="Modelos Dedutivos e Interativos" style="width: 100%; max-width: 2400px;">
@@ -45,32 +25,36 @@ Antes, a abordagem padrão em ciências sociais era **dedutiva**: formular uma t
 </figure>
 
 
----
+### Modelo Dedutivo
 
-## 📝 Seis princípios fundamentais da análise de texto em ciências sociais
+Os autores dividem o processo de pesquisa nas ciências sociais nos modelos indutivo e dedutivo. O dedutivo é o método em que estamos mais acostumados a ver: Com base em uma literatura e teoria, construímos a pergunta de pesquisa. Linearmente, seguimos para a construção das hipóteses. Só depois dessas duas fases, partimos para a coleta dos dados e análise, apresentando nossos resultados, seja na forma de artigos ou livros. Há o pressuposto forte de que esse processo é acíclico. Ou seja, um passo do processo não pode influenciar o anterior, há uma direção única e sequencial. 
 
-Segundo Grimmer et al. (2022), para aplicar PLN e machine learning a textos de forma válida, é essencial respeitar alguns princípios:
+No entanto, os autores argumentam que isso é ilusório e uma "ficção" (Id., p. 40), e não é a maneira que a pesquisa avança nas ciências sociais de fato. Sustentar essa ficção atrapalharia a discussão de como certas hipóteses e perguntas foram formuladas, como a análise dos dados as influenciou, e como os conceitos e perguntas foram refinados pela análise detalhada dos dados e textos coletados.
 
-1. **Teoria e conhecimento substantivo são essenciais**: métodos computacionais organizam textos, mas cabe à teoria guiar a interpretação.
-2. **Métodos computacionais não substituem humanos — eles os ampliam**.
-3. **A construção e teste de teorias deve ser iterativa e acumulativa**.
-4. **Os métodos de texto sintetizam generalizações a partir da linguagem**.
-5. **Não existe método único ideal — a escolha depende da tarefa**.
-6. **Validação é indispensável e depende da teoria e do objetivo da pesquisa**.
+```{admonition} Com a palavra, os autores
+:class: quote
+"Se o procedimento dedutivo padrão for seguido de forma muito rígida e os dados forem coletados apenas no último momento, os pesquisadores podem perder a oportunidade de refinar seus conceitos, desenvolver novas teorias e avaliar novas hipóteses. Grande parte do aprendizado ocorre durante a análise dos dados. Mesmo quando um projeto de pesquisa começa com uma pergunta clara de interesse, frequentemente termina com um foco substancialmente diferente. Foi isso que aconteceu em um de nossos próprios projetos, uma análise das mídias sociais chinesas conduzida por Gary King, Jennifer Pan e Margaret Roberts (King, Pan e Roberts, 2013)."  
+({cite}`grimmer2022text`, p. 39, tradução nossa).
+```
 
----
 
-## 📊 Tarefas principais no uso de textos como dados
+### Modelo Indutivo
 
-A proposta do livro é organizar a pesquisa baseada em texto não pelos algoritmos, mas pelas **tarefas sociais** que se quer realizar:
+- **Descoberta**: identificar padrões, categorias ou temas em grandes volumes de texto.
+- **Mensuração**: quantificar a presença de conceitos em textos.
+- **Predição**: prever características ou resultados com base em dados textuais.
+- **Inferência causal**: estimar efeitos de intervenções ou mudanças usando textos como variáveis.
 
-- **Representação**: transformar texto em dados (ex.: matrizes documento-termo, embeddings).
-- **Descoberta**: encontrar padrões ou categorias (ex.: topic models, clustering).
-- **Mensuração**: quantificar conceitos previamente definidos.
-- **Predição**: prever variáveis de interesse a partir do texto.
-- **Inferência causal**: estimar o efeito de intervenções ou eventos usando textos.
+
 
 ---
+
+## Análise Agnóstica do Texto
+
+
+Seis principios
+
+
 
 ## 💡 Exemplo didático: Catalinac (2016)
 
@@ -81,7 +65,7 @@ Estudo clássico que ilustra o ciclo de descoberta → mensuração → inferên
 - **Validação**: leitura dos tópicos e comparação com fatos conhecidos.
 - **Inferência**: estimativa do efeito da reforma eleitoral na mudança de agenda.
 
----
+
 
 ## 🚀 Conclusão
 
@@ -91,7 +75,7 @@ Trabalhar com **text as data** exige:
 - Validação constante, adequada aos objetivos substantivos e não apenas métricas padrão de machine learning.
 - Entender que não existe organização “correta” dos textos — e sim representações mais ou menos úteis para determinadas perguntas.
 
----
+
 
 ## 📖 Referência
 
