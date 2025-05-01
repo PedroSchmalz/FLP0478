@@ -1,6 +1,13 @@
 % Configuração de margens no padrão ABNT
 \usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=2cm]{geometry}
 
+% Forçar as margens no documento
+\setlength{\topmargin}{-1cm} % Ajusta a margem superior
+\setlength{\oddsidemargin}{0cm} % Ajusta a margem esquerda para páginas ímpares
+\setlength{\evensidemargin}{0cm} % Ajusta a margem esquerda para páginas pares
+\setlength{\textwidth}{16cm} % Define a largura do texto
+\setlength{\textheight}{24cm} % Define a altura do texto
+
 % Configuração da fonte Times New Roman
 \usepackage{mathptmx} % Usa Times New Roman para texto e matemática
 \renewcommand{\familydefault}{\rmdefault} % Garante que a fonte padrão seja serifada (Times)
