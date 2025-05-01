@@ -99,3 +99,5 @@ Trabalhar com **text as data** exige:
 ## 📖 Referência
 
 Grimmer, J., Roberts, M. E., & Stewart, B. M. (2022). *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press.
+
+CATALINAC, Amy. From Pork to Policy: The Rise of Programmatic Campaigning in Japanese Elections. The Journal of Politics. [S. l.]: University of Chicago Press, jan. 2016. DOI 10.1086/683073. Disponível em: http://dx.doi.org/10.1086/683073.
