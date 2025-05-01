@@ -11,6 +11,8 @@ only_build_toc_files: true                           # Replace this with false i
 html:
   favicon : "figures/logo.jpg"                 # Replace this with your own favicon
   baseurl :  "https://github.com/PedroSchmalz/FLP0478"          # Replace this with your own URL
+  extra_css: 
+   - "custom.css"                    # Add your own CSS file here (optional)
 
 sphinx:                                              # Options passed on to the underlying sphinx-parser
   config:

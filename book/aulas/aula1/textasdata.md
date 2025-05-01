@@ -46,8 +46,8 @@ O modelo indutivo destaca-se por reconhecer que os processos de formulação e d
 - **Descoberta**: Esse estágio está intimamente ligado a construção da pergunta de pesquisa e avaliação da literatura. Envolve, sobretudo, teoria, organização dos principais conceitos, e formulação da pergunta e hipóteses de pesquisa. Um passo extremamente importante do desenho de pesquisa 
   * >  🗨️ "Decidir o que você quer medir a partir dos dados envolve desenvolver uma conceitualização — uma forma de organizar o mundo — que nos ajude a compreender o complexo mundo em que vivemos. A conceitualização ajudará a simplificar o mundo altamente complexo em que vivemos para estudar um ou dois aspectos específicos dele." ({cite}`grimmer2022text`, p. 43).
 - **Mensuração**: Estágio de operacionalização dos conceitos e construção da metodologia, além da coleta dos dados.
-- **Predição**: prever características ou resultados com base em dados textuais.
-- **Inferência causal**: estimar efeitos de intervenções ou mudanças usando textos como variáveis.
+- **Predição/Inferência**: prever características ou resultados com base em dados textuais.
+
 
 
 

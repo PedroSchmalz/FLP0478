@@ -1,0 +1,9 @@
+/* Justificar o texto no corpo principal */
+p {
+    text-align: justify;
+  }
+  
+  /* Justificar o texto dentro de admonitions */
+  .admonition p {
+    text-align: justify;
+  }
