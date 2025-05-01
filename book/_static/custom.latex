@@ -37,7 +37,11 @@
 \usepackage{etoolbox} % Pacote para manipular comandos
 \AtBeginEnvironment{margin}{\renewcommand{\textbf}[1]{}} % Ignora o conteúdo do ambiente "margin"
 
-
 % Remover sumários locais ("Contents") no PDF
+\makeatletter
+\patchcmd{\@startsection} % Remove sumários locais gerados automaticamente
+  {\addcontentsline{toc}{section}{#1}}
+  {}{}{}
+\makeatother
 \patchcmd{\chapter}{\if@twocolumn\cleardoublepage\else\clearpage\fi}{\clearpage}{}{}
 \renewcommand{\tableofcontents}{}
