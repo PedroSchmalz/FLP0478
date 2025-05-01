@@ -1,8 +1,8 @@
 # O Texto como um Dado
 
 ````{margin}
-```{admonition} Citação
-:class: note
+```{admonition} 💬 Com a palavra, os autores
+:class: quote
 "Os pesquisadores podem aprender muito sobre o comportamento humano a partir de textos, mas, para isso, é necessário um engajamento com o contexto em que esses textos são produzidos. Uma compreensão profunda do contexto das ciências sociais permitirá que os pesquisadores façam perguntas mais importantes e impactantes, garantam que as medidas extraídas sejam válidas e estejam mais atentos às implicações práticas e éticas de seu trabalho." ({cite}`grimmer2022text`, p. 25, Tradução nossa).
 ```
 ````
@@ -32,7 +32,7 @@ align: center
 
 Os autores dividem o processo de pesquisa nas ciências sociais em dois modelos principais: o dedutivo e o indutivo. O modelo dedutivo, mais tradicional e amplamente disseminado, é caracterizado por um fluxo linear e sequencial de etapas. Nele, a pesquisa se inicia com a formulação de uma pergunta ancorada na literatura e em teorias pré-existentes. A partir dessa base, são elaboradas hipóteses que orientam a coleta e a análise de dados, culminando na apresentação dos resultados em artigos ou livros. Esse modelo pressupõe uma sequência rígida e acíclica, em que cada etapa é concebida para não interferir nas anteriores. Contudo, os autores argumentam que essa visão é ilusória e constitui, na prática, uma “ficção” (Id., p. 40), pois não corresponde à forma como a pesquisa efetivamente se desenvolve nas ciências sociais. Manter essa ficção pode dificultar a compreensão sobre como perguntas e hipóteses foram originalmente construídas, de que maneira a análise de dados impactou suas formulações e como conceitos e problemas foram refinados ao longo de um processo investigativo marcado pela interação constante entre teoria, dados e interpretação.
 
-```{admonition} Com a palavra, os autores:
+```{admonition} 💬 Com a palavra, os autores:
 :class: quote
 "Se o procedimento dedutivo padrão for seguido de forma muito rígida e os dados forem coletados apenas no último momento, os pesquisadores podem perder a oportunidade de refinar seus conceitos, desenvolver novas teorias e avaliar novas hipóteses. Grande parte do aprendizado ocorre durante a análise dos dados. Mesmo quando um projeto de pesquisa começa com uma pergunta clara de interesse, frequentemente termina com um foco substancialmente diferente. Foi isso que aconteceu em um de nossos próprios projetos, uma análise das mídias sociais chinesas conduzida por Gary King, Jennifer Pan e Margaret Roberts (King, Pan e Roberts, 2013)."  
 ({cite}`grimmer2022text`, p. 39, tradução nossa).
