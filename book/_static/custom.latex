@@ -32,3 +32,12 @@
 \AtBeginDocument{%
   \color{forcedblack} % Aplica a cor preta no início do documento
 }
+
+% Ignorar blocos de margem no PDF
+\usepackage{etoolbox} % Pacote para manipular comandos
+\AtBeginEnvironment{margin}{\renewcommand{\textbf}[1]{}} % Ignora o conteúdo do ambiente "margin"
+
+% Ignorar conteúdo inicial no PDF
+\AtBeginDocument{%
+  \renewcommand{\maketitle}{} % Remove o título ou conteúdo inicial
+}
