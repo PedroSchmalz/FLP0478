@@ -2,3 +2,14 @@
 p {
     text-align: justify;
   }
+
+
+  /* Alinhar o texto dos blocos admonition à esquerda */
+.admonition {
+  text-align: left;
+}
+
+/* Alinhar o texto dentro de notas de margem (margin) à esquerda */
+.margin {
+  text-align: left;
+}
