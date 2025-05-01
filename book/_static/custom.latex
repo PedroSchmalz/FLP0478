@@ -37,7 +37,7 @@
 \usepackage{etoolbox} % Pacote para manipular comandos
 \AtBeginEnvironment{margin}{\renewcommand{\textbf}[1]{}} % Ignora o conteúdo do ambiente "margin"
 
-% Ignorar conteúdo inicial no PDF
-\AtBeginDocument{%
-  \renewcommand{\maketitle}{} % Remove o título ou conteúdo inicial
-}
+
+% Remover sumários locais ("Contents") no PDF
+\patchcmd{\chapter}{\if@twocolumn\cleardoublepage\else\clearpage\fi}{\clearpage}{}{}
+\renewcommand{\tableofcontents}{}
