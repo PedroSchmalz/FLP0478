@@ -14,12 +14,19 @@
 
 % Configuração do tamanho da fonte
 \usepackage{anyfontsize} % Permite ajustar tamanhos de fonte
-\renewcommand\normalsize{\fontsize{14}{14}\selectfont} % Define 12pt como padrão com espaçamento de 14pt
+\renewcommand\normalsize{\fontsize{12}{14}\selectfont} % Define 12pt como padrão com espaçamento de 14pt
 
 % Corrigir o problema do texto cinza no modo escuro
 \usepackage{xcolor} % Pacote para controle de cores
 \definecolor{forcedblack}{rgb}{0, 0, 0} % Define a cor preta como "forcedblack"
-\color{forcedblack} % Aplica a cor preta globalmente
+
+% Forçar a cor preta para todo o documento
+\makeatletter
+\let\original@textcolor\textcolor
+\renewcommand{\textcolor}[2]{\original@textcolor{forcedblack}{##2}}
+\let\original@color\color
+\renewcommand{\color}[1]{\original@color{forcedblack}}
+\makeatother
 
 % Garantir que todo o texto (inclusive headers e body) seja preto
 \AtBeginDocument{%
