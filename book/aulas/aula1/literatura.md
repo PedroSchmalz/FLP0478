@@ -1,5 +1,7 @@
 # Leituras
 
+
+
 **Leitura Obrigatória:**  
 Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 1 & 2  
 
