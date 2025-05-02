@@ -12,23 +12,21 @@ kernelspec:
   name: python3
 ---
 
-# Instalação do Software
+# Software
 
-```{video} https://www.youtube.com/embed/UCb-b82tzLo?
-```
+Na disciplina, trabalharemos com o Python usando o formato do `Jupyter Notebook`, que contém arquivos `.ipynb`. Esses notebooks permitem combinar código, texto explicativo, visualizações e resultados em um único documento interativo. Eles são amplamente utilizados em ciência de dados, aprendizado de máquina e ensino de programação, pois oferecem uma maneira prática de executar e documentar análises de forma integrada. Durante o curso, utilizaremos tanto o **Google Colab**, uma ferramenta baseada na nuvem que nos permite usar *jupyter notebooks* no *browser*, quanto o **VS Code**, uma alternativa local, para trabalhar com esses notebooks.
 
-
+(vscode-setup-bash)=
 `````{tab-set}
-````{tab-item} Google Colab
+````{tab} Google Colab
 
+Para quem prefere trabalhar com a nuvem, a opção é o Google Colab, e será a preferência em nossas aulas, tanto para evitar problemas de compatibilidade com pacotes e funções, quanto para facilitar para aqueles que possuem máquinas menos "potentes". O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
+
+
+### Vídeo Tutorial
 
 ```{video} https://www.youtube.com/embed/UCb-b82tzLo?
 ```
-
-## O que é o Google Colab?
-
-O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
-
 ---
 
 ### Como acessar o Google Colab?
@@ -150,6 +148,6 @@ Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você tamb
 - [Vídeo Tutorial sobre VS Code e Jupyter](https://www.youtube.com/watch?v=2e9DI5M4g7A)
 
 ````
-```````
+````````
 
 
