@@ -21,6 +21,10 @@ kernelspec:
 `````{tab-set}
 ````{tab-item} Google Colab
 
+
+```{video} https://www.youtube.com/embed/UCb-b82tzLo?
+```
+
 ## O que é o Google Colab?
 
 O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
