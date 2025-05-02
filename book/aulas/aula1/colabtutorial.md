@@ -138,18 +138,15 @@ Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você tamb
 2. O arquivo será aberto em uma interface interativa semelhante ao Jupyter Notebook.
 3. Execute as células clicando no botão de "play" ao lado de cada célula ou pressionando `Shift + Enter`.
 
----
 
-### Passo 5: Alternar entre Colab e VS Code
+````
+`````
+
+### Alternar entre Colab e VS Code
 
 - Você pode alternar entre o Google Colab e o VS Code facilmente:
   - **Do Colab para o VS Code**: Baixe o notebook no Colab clicando em **File** > **Download** > **Notebook (.ipynb)** e abra no VS Code.
   - **Do VS Code para o Colab**: Faça upload do arquivo `.ipynb` no Colab clicando em **File** > **Upload Notebook**.
-
----
-
-````
-`````
 
 
 ## Recursos Adicionais
