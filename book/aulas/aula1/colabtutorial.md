@@ -17,7 +17,7 @@ kernelspec:
 Na disciplina, trabalharemos com o Python usando o formato do `Jupyter Notebook`, que contém arquivos `.ipynb`. Esses notebooks permitem combinar código, texto explicativo, visualizações e resultados em um único documento interativo. Eles são amplamente utilizados em ciência de dados, aprendizado de máquina e ensino de programação, pois oferecem uma maneira prática de executar e documentar análises de forma integrada. Durante o curso, utilizaremos tanto o **Google Colab**, uma ferramenta baseada na nuvem que nos permite usar *jupyter notebooks* no *browser*, quanto o **VS Code**, uma alternativa local, para trabalhar com esses notebooks.
 
 `````{tab-set}
-````{tab} Google Colab
+````{tab-item} Google Colab
 
 Para quem prefere trabalhar com a nuvem, a opção é o Google Colab, e será a preferência em nossas aulas, tanto para evitar problemas de compatibilidade com pacotes e funções, quanto para facilitar para aqueles que possuem máquinas menos "potentes". O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
 
@@ -93,7 +93,7 @@ Use o comando `!pip install` para instalar bibliotecas diretamente no Colab. Por
 
 ````
 
-````{tab} VS Code
+````{tab-item} VS Code
 
 ## Usando o VS Code como Alternativa ao Google Colab
 
