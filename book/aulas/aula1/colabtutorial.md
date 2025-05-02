@@ -104,6 +104,11 @@ Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você tamb
 
 ---
 
+### Vídeo Tutorial
+
+```{video} https://www.youtube.com/embed/UCb-b82tzLo?
+```
+
 ### Passo 1: Instalar o VS Code
 
 1. Baixe o Visual Studio Code no site oficial: [VS Code](https://code.visualstudio.com/).
