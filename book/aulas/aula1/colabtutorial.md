@@ -139,12 +139,11 @@ Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você tamb
 
 ---
 
+````
+
+
 ## Recursos Adicionais
 
 - [Documentação do VS Code para Jupyter](https://code.visualstudio.com/docs/datascience/jupyter-notebooks)
 - [Documentação Oficial do Google Colab](https://colab.research.google.com/notebooks/intro.ipynb)
 - [Vídeo Tutorial sobre VS Code e Jupyter](https://www.youtube.com/watch?v=2e9DI5M4g7A)
-
-````
-
-
