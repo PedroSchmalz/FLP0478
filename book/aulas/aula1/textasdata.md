@@ -44,30 +44,49 @@ Os autores dividem o processo de pesquisa nas ciências sociais em dois modelos 
 O modelo indutivo destaca-se por reconhecer que os processos de formulação e desenho de pesquisa, coleta de dados e análise são complementares e interdependentes, ocorrendo de forma cíclica. Nesse modelo, é possível começar com uma pergunta de pesquisa e hipóteses iniciais e, ao longo da análise de dados, reformular essas perguntas ou até mesmo identificar questões completamente novas e mais relevantes. Isso não significa que se deva ignorar a literatura e as teorias existentes, mas sim que é necessário estabelecer uma relação simbiótica entre teoria e prática. Essa abordagem permite articular o que é observado na literatura com os novos conceitos e descobertas emergentes dos dados, promovendo um processo de pesquisa mais dinâmico e adaptativo. Grimmer et al. ({cite}`grimmer2022text`) dividem o modelo em três partes:
 
 - **Descoberta**: Este estágio está intimamente ligado a construção da pergunta de pesquisa e avaliação da literatura. Envolve, sobretudo, teoria, organização dos principais conceitos, e formulação da pergunta e hipóteses de pesquisa. Um passo extremamente importante do desenho de pesquisa e geralmente ignorada no modelo de pesquisa quantitativa tradicional. Entender o papel da descoberta e articulação da teoria é essencial, e pode levar ao desenvolvimento de novas teorias, especialmente se os pesquisadores tiverem o espaço para serem mais sinceros em como operaram nesse passo essencial da pesquisa.
-  * >  🗨️ "Decidir o que você quer medir a partir dos dados envolve desenvolver uma conceitualização — uma forma de organizar o mundo — que nos ajude a compreender o complexo mundo em que vivemos. A conceitualização ajudará a simplificar o mundo altamente complexo em que vivemos para estudar um ou dois aspectos específicos dele." ({cite}`grimmer2022text`, p. 43).
+  * >  🗨️ "Decidir o que você quer medir a partir dos dados envolve desenvolver uma conceitualização — uma forma de organizar o mundo — que nos ajude a compreender o complexo mundo em que vivemos. A conceitualização ajudará a simplificar o mundo altamente complexo em que vivemos para estudar um ou dois aspectos específicos dele." ({cite}`grimmer2022text`, p. 43, tradução nossa).
 
 
 
 - **Mensuração**: O estágio de descoberta está bem conectado com o estágio de mensuração: A análise de textos e a coleta e categorização dos dados pode levar a novas conceitualizações e operacionalizações, ou gerar novas perguntas, como é o caso do KPR ({cite}`king2013how`,2013). Nesse estágio, o pesquisador está interessado em mensurar os conceitos, e coletar os dados que permitam entender indivíduos ou textos, classificando e diminuindo a complexidade destes. Os autores destacam que esse processo, intimamente ligado com a descrição e mensuração, é também deixado de lado. No entanto, se a operacionalização não reflete adequadamente os conceitos, ou se a descrição foi deixada de lado, isso pode ter sérias consequências para a pesquisa e os resultados da inferência.
-  * >  🗨️ "A mensuração é o ingrediente essencial para a descrição: um objetivo importante por si só que é frequentemente negligenciado na pesquisa em ciências sociais. Se realizada adequadamente, a descrição fornece resumos valiosos dos dados, que, por sua vez, podem informar teorias, fornecer as medidas necessárias para inferências causais ou caracterizar o estado do mundo." ({cite}`grimmer2022text`, p. 45).
+  * >  🗨️ "A mensuração é o ingrediente essencial para a descrição: um objetivo importante por si só que é frequentemente negligenciado na pesquisa em ciências sociais. Se realizada adequadamente, a descrição fornece resumos valiosos dos dados, que, por sua vez, podem informar teorias, fornecer as medidas necessárias para inferências causais ou caracterizar o estado do mundo." ({cite}`grimmer2022text`, p. 45, tradução nossa).
 
-- **Predição/Inferência**: Por fim, os autores destacam um último estágio da pesquisa: a Predição (em aplicações mais usuais do Aprendizado Estatístico) ou a Inferência, entendida aqui como a causal. Nesse estágio, o objetivo é prever valores (contínuos ou classes) ou fazer inferências sobre efeitos e causalidade no mundo a partir dos dados 
-  * >  🗨️ "Os pesquisadores podem usar textos para prever valores de preços de ações ou os locais onde é provável que ocorram conflitos políticos. Essas são questões preditivas porque perguntam como as informações disponíveis hoje ajudam a entender o que acontecerá amanhã. Os pesquisadores também podem avaliar o efeito causal de adotar uma abordagem negativa em uma campanha — uma intervenção — na cobertura da mídia sobre a campanha. Ou podem estar interessados em como certos tipos de conteúdo político afetam o engajamento dos usuários em fóruns online." ({cite}`grimmer2022text`, p. 46).
+- **Predição/Inferência**: Por fim, os autores destacam um estágio crucial da pesquisa: a Predição, amplamente utilizada em aplicações mais comuns de Aprendizado Estatístico, ou a Inferência, aqui entendida como causal. Nesse estágio, o objetivo é prever valores (sejam eles contínuos ou categóricos) ou realizar inferências sobre efeitos e relações de causalidade no mundo real a partir dos dados. 
+  * >  🗨️ "Os pesquisadores podem usar textos para prever valores de preços de ações ou os locais onde é provável que ocorram conflitos políticos. Essas são questões preditivas porque perguntam como as informações disponíveis hoje ajudam a entender o que acontecerá amanhã. Os pesquisadores também podem avaliar o efeito causal de adotar uma abordagem negativa em uma campanha — uma intervenção — na cobertura da mídia sobre a campanha. Ou podem estar interessados em como certos tipos de conteúdo político afetam o engajamento dos usuários em fóruns online." ({cite}`grimmer2022text`, p. 46, tradução nossa).
+
+Novamente, é importante ressaltar que esses estágios não são linearmente ou temporalmente separados no modelo indutivo. Pelo contrário, eles frequentemente ocorrem de forma simultânea e interdependente, influenciando-se mutuamente. A descoberta pode levar a novas formas de mensuração, enquanto a mensuração pode revelar padrões ou questões que reorientam o processo de descoberta. Essa interação contínua entre os estágios permite que os pesquisadores adaptem suas abordagens, refinem suas perguntas de pesquisa e desenvolvam teorias mais robustas e fundamentadas nos dados. Assim, o modelo indutivo não apenas reconhece, mas também valoriza a natureza iterativa e dinâmica da pesquisa em ciências sociais.
 
 
 ---
 
-## Análise Agnóstica do Texto
+## Abordagem Agnóstica da Análise de Texto
 
+Baseando-se nesse modelo indutivo de pesquisa, os autores propõem seis princípios "agnósticos" para o uso e análise de texto nas ciências humanas e sociais. Essa abordagem é chamada de agnóstica porque reconhece que, na maioria dos casos nas ciências sociais, nossas classes, conceitos e definições não são "dadas" ou indiscutíveis. Para qualquer classificação, é essencial uma base teórica sólida e uma argumentação consistente para validar as escolhas feitas.
 
-Seis principios
+Por exemplo, isso será amplamente discutido nas tarefas de classificação de posicionamento e sentimento: Existe realmente um posicionamento neutro? Essa seria uma classe válida para análise de posicionamento? No caso de sentimentos, parece mais plausível afirmar que existe um estado neutro, mas a questão se torna mais complexa quando tratamos de posicionamento político. Esse exemplo, embora pareça mais "simples e direto", ilustra os desafios inerentes à classificação. Como veremos ao longo do curso, a classificação da linguagem humana e das diversas expressões de opiniões, emoções, discursos e textos está longe de ser uma tarefa trivial.
+
+A análise de texto exige não apenas ferramentas computacionais avançadas, mas também uma compreensão profunda do contexto social e teórico em que os textos são produzidos. Essa combinação de rigor teórico e técnico é o que permite que os pesquisadores desenvolvam análises mais robustas e inferências significativas sobre o comportamento humano. E é com base nisso que os autores apresentam os seis princípios:
+
+## Princípios-chave para Análise de Texto
+
+| **Princípios**                                                                 | **Seção**    |
+|-------------------------------------------------------------------------------|--------------|
+| 1) Teorias das ciências sociais e conhecimento substantivo são essenciais para o desenho da pesquisa. | Seção 2.7.1  |
+| 2) A análise de texto não substitui os humanos — ela os complementa.          | Seção 2.7.2  |
+| 3) Construir, refinar e testar teorias das ciências sociais requer iteração e acumulação. | Seção 2.7.3  |
+| 4) Métodos de análise de texto destilam generalizações a partir da linguagem. | Seção 2.7.4  |
+| 5) O melhor método depende da tarefa.                                         | Seção 2.7.5  |
+| 6) Validações são essenciais e dependem da teoria e da tarefa.                | Seção 2.7.6  |
+
+---
+
 
 
 
 ```{admonition} 📝 Exercício: Explorando o Ciclo de Descoberta → Mensuração → Inferência
 :class: exercise
 
-Com base no exemplo de Catalinac ({cite}`catalinac2016from`,2016) e King, Pand and Roberts ({cite}`king2013how`,2013), reflita sobre como o ciclo de **descoberta → mensuração → inferência** pode ser aplicado em diferentes contextos de pesquisa. Responda às perguntas abaixo:
+Com base no exemplo de Catalinac ({cite}`catalinac2016from`,2016) e King, Pand and Roberts ({cite}`king2013how`,2013), reflita sobre como o ciclo de **descoberta → mensuração → inferência** pode ser aplicado em diferentes contextos de pesquisa. Responda às perguntas abaixo (Não vale nota, rs):
 
 1. **Definição do Problema**  
    - Identifique um problema de pesquisa relevante na sua área de interesse. Por exemplo, "Como as redes sociais influenciam o debate público sobre mudanças climáticas?".
@@ -91,17 +110,20 @@ Após responder às perguntas, discuta suas respostas com um colega ou no grupo 
 ```
 
 
-## 🚀 Conclusão
+## Resumo
 
-Trabalhar com **text as data** exige:
-- Combinar métodos computacionais e teoria social.
-- Respeitar a lógica iterativa de descoberta e refinamento conceitual.
-- Validação constante, adequada aos objetivos substantivos e não apenas métricas padrão de machine learning.
-- Entender que não existe organização “correta” dos textos — e sim representações mais ou menos úteis para determinadas perguntas.
+Trabalhar com **text as data** envolve integrar métodos computacionais e teoria social para analisar textos de forma sistemática e rigorosa. O paradigma proposto por Grimmer et al. (2022) destaca a importância de um modelo indutivo, que reconhece a interdependência entre descoberta, mensuração e inferência. Esse modelo permite que os pesquisadores adaptem suas perguntas de pesquisa e refinem suas hipóteses com base nos dados.
+
+Os principais pontos incluem:
+- **Combinação de métodos computacionais e teoria social:** A análise de texto deve ser guiada por teorias das ciências sociais e complementada por técnicas de aprendizado de máquina e PLN.
+- **Iteração e refinamento conceitual:** O processo de pesquisa é dinâmico e cíclico, permitindo ajustes contínuos nas perguntas e métodos.
+- **Validação constante:** Os resultados devem ser validados com base nos objetivos substantivos, indo além de métricas padrão de machine learning.
+- **Representações úteis:** Não há uma organização "correta" dos textos, mas sim representações que sejam adequadas às perguntas de pesquisa.
+
+Esse *framework* oferece uma abordagem robusta para transformar textos em dados estruturados, promovendo análises mais profundas e inferências significativas sobre o comportamento humano.
 
 
-
-## 📖 Referência
+## Referências
 
 Grimmer, J., Roberts, M. E., & Stewart, B. M. (2022). {cite}`grimmer2022text` *Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press.
 
