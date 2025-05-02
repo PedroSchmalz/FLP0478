@@ -93,7 +93,7 @@ Use o comando `!pip install` para instalar bibliotecas diretamente no Colab. Por
 
 ````
 
-````{tab} VS Code
+````{tab-item} VS Code
 
 ## Usando o VS Code como Alternativa ao Google Colab
 
