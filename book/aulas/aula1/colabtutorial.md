@@ -14,7 +14,7 @@ kernelspec:
 
 # Software
 
-Na disciplina, trabalharemos com o Python usando o formato do `Jupyter Notebook`, que contém arquivos `.ipynb`. Esses notebooks permitem combinar código, texto explicativo, visualizações e resultados em um único documento interativo. Eles são amplamente utilizados em ciência de dados, aprendizado de máquina e ensino de programação, pois oferecem uma maneira prática de executar e documentar análises de forma integrada. Durante o curso, utilizaremos tanto o **Google Colab**, uma ferramenta baseada na nuvem que nos permite usar *jupyter notebooks* no *browser*, quanto o **VS Code**, uma alternativa local, para trabalhar com esses notebooks.
+Na disciplina, trabalharemos com o Python usando o `Jupyter Notebook`, que contém arquivos no formato `.ipynb`. Esses notebooks permitem combinar código, texto explicativo, visualizações e resultados em um único documento interativo. Eles são amplamente utilizados em ciência de dados, aprendizado de máquina e ensino de programação, pois oferecem uma maneira prática de executar e documentar análises de forma integrada. Durante o curso, utilizaremos tanto o **Google Colab**, uma ferramenta baseada na nuvem que nos permite usar *jupyter notebooks* no *browser*, quanto o **VS Code**, uma alternativa local, para trabalhar com esses notebooks.
 
 `````{tab-set}
 ````{tab-item} Google Colab (Preferido)
@@ -144,6 +144,18 @@ Use o comando `!pip install` para instalar bibliotecas diretamente no Colab. Por
 
 1. O notebook é salvo automaticamente no Google Drive.
 2. Para compartilhar, clique em **"Share"** (Compartilhar) no canto superior direito e configure as permissões.
+3. Você também pode baixar o arquivo `.ipynb` para compartilhar com colegas ou usar localmente no seu computador, clicando em "Arquivo" > "Fazer Download" > "Baixar o .ipynb"
+
+```{figure} ../aula1/images/colab5.png
+---
+width: 100%
+name: colab5
+align: center
+---
+
+```
+
+
 
 ````
 
