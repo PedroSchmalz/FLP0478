@@ -163,7 +163,7 @@ align: center
 
 ## Tutorial VS Code
 
-Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você também pode usar o **Visual Studio Code (VS Code)** para trabalhar com arquivos `.ipynb` localmente. Isso pode ser útil se você preferir um ambiente offline ou mais personalizável. No entanto, você terá que tomar mais cuidado com a instalação de pacotes, versão destes pacotes, localização dos arquivos, etc.
+Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você também pode usar o **Visual Studio Code (VS Code)** para trabalhar com arquivos `.ipynb` localmente. Isso pode ser útil se você preferir um ambiente offline ou mais personalizável. No entanto, você terá que tomar mais cuidado com a instalação de pacotes, versão destes pacotes e do Python, localização dos arquivos, etc.
 
 ---
 
@@ -188,7 +188,7 @@ Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você tamb
 ```{figure} ../aula1/images/vscode1.png
 ---
 width: 100%
-name: colab5
+name: vscode1
 align: center
 ---
 
@@ -199,13 +199,24 @@ align: center
 ### Passo 3: Configurar o Python no VS Code
 
 1. Certifique-se de que o Python está instalado no seu computador. Caso não esteja, baixe-o em [Python.org](https://www.python.org/).
+
+```{figure} ../aula1/images/python.png
+---
+width: 100%
+name: python
+align: center
+---
+
+```
+
+
 2. Instale a extensão **Python** no VS Code (siga o mesmo processo da extensão Jupyter).
 3. Configure o interpretador Python clicando no canto inferior esquerdo do VS Code e selecionando o ambiente Python desejado.
 
 ```{figure} ../aula1/images/vscode2.png
 ---
 width: 100%
-name: colab5
+name: vscode2
 align: center
 ---
 
@@ -214,7 +225,7 @@ align: center
 ```{figure} ../aula1/images/vscode3.png
 ---
 width: 100%
-name: colab5
+name: vscode3
 align: center
 ---
 
