@@ -28,6 +28,7 @@ Para quem prefere trabalhar com a nuvem, a opção é o Google Colab. E este apl
 ### Vídeo Tutorial
 
 ```{video} https://www.youtube.com/embed/UCb-b82tzLo?
+:align: center
 ```
 ---
 
