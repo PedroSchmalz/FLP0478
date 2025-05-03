@@ -22,7 +22,7 @@ Na disciplina, trabalharemos com o Python usando o formato do `Jupyter Notebook`
 ## Tutorial Google Colab
 
 
-Para quem prefere trabalhar com a nuvem, a opção é o Google Colab, e será a preferência em nossas aulas, tanto para evitar problemas de compatibilidade com pacotes e funções, quanto para facilitar para aqueles que possuem máquinas menos "potentes". O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
+Para quem prefere trabalhar com a nuvem, a opção é o Google Colab. E este será a preferência em nossas aulas, tanto para evitar problemas de compatibilidade com pacotes e funções, quanto para facilitar para aqueles que possuem máquinas menos "potentes". O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
 
 
 ### Vídeo Tutorial
@@ -35,6 +35,7 @@ Para quem prefere trabalhar com a nuvem, a opção é o Google Colab, e será a 
 
 1. Acesse o site do Google Colab: [Google Colab](https://colab.research.google.com/).
 2. Faça login com sua conta do Google.
+
 
 ---
 
@@ -69,7 +70,7 @@ Para quem prefere trabalhar com a nuvem, a opção é o Google Colab, e será a 
 
 ---
 
-### Conectando ao Google Drive
+### Pegando arquivos do Google Drive
 
 1. Execute o seguinte código para montar o Google Drive:
    ```python
@@ -77,6 +78,21 @@ Para quem prefere trabalhar com a nuvem, a opção é o Google Colab, e será a 
    drive.mount('/content/drive')
    ```
 2. Siga as instruções para autorizar o acesso.
+
+
+### Usando diretamente no Google Drive
+
+1. Abra o Google Drive e clique com o botão direito do mouse em algum arquivo no formato .ipynb
+2. Clique em abrir com -> Google Colaboratory
+
+```{figure} ../aula1/images/colab1.png
+---
+width: 100%
+name: colab1
+align: center
+---
+
+```
 
 ---
 
