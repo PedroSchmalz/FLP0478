@@ -44,6 +44,15 @@ Para quem prefere trabalhar com a nuvem, a opção é o Google Colab. E este ser
 1. Clique em **"File"** (Arquivo) > **"New Notebook"** (Novo Notebook).
 2. Um novo notebook será aberto com uma célula pronta para receber código.
 
+```{figure} ../aula1/images/colab4.png
+---
+width: 100%
+name: colab4
+align: center
+---
+
+```
+
 ---
 
 ### Estrutura do Notebook
