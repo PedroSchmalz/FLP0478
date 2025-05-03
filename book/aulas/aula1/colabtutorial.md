@@ -202,6 +202,28 @@ align: center
 2. Instale a extensão **Python** no VS Code (siga o mesmo processo da extensão Jupyter).
 3. Configure o interpretador Python clicando no canto inferior esquerdo do VS Code e selecionando o ambiente Python desejado.
 
+```{figure} ../aula1/images/vscode2.png
+---
+width: 100%
+name: colab5
+align: center
+---
+
+```
+
+```{figure} ../aula1/images/vscode3.png
+---
+width: 100%
+name: colab5
+align: center
+---
+
+```
+
+4. Cheque o seguinte [tutorial](https://code.visualstudio.com/docs/datascience/jupyter-notebooks) do VScode se tiver algum problema nos passos anteriores.
+
+
+
 ---
 
 ### Passo 4: Abrir e Editar Arquivos `.ipynb`
