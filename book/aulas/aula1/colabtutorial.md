@@ -211,7 +211,7 @@ align: center
 
 
 2. Instale a extensão **Python** no VS Code (siga o mesmo processo da extensão Jupyter).
-3. Configure o interpretador Python clicando no canto inferior esquerdo do VS Code e selecionando o ambiente Python desejado.
+3. Configure o interpretador Python abrindo um arquivo (ou criando) `.ipynb` e selecionando o ambiente Python desejado.
 
 ```{figure} ../aula1/images/vscode2.png
 ---
