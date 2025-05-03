@@ -13,7 +13,9 @@ parts:
     - file: aulas/aula1/colabtutorial.md
     - file: aulas/aula1/aula1.ipynb
       sections:
+      - file: aulas/aula1/lab1.ipynb
       - file: videos/vunesp1.md
+      dropdown: true  # Adicione esta linha para ativar o dropdown
   - caption: Aula 02 - Seleção e Representação
     chapters:
     - file: aulas/aula2/aula2intro.md
