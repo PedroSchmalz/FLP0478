@@ -82,8 +82,8 @@ Para quem prefere trabalhar com a nuvem, a opção é o Google Colab. E este ser
 
 ### Usando diretamente no Google Drive
 
-1. Abra o Google Drive e clique com o botão direito do mouse em algum arquivo no formato .ipynb
-2. Clique em abrir com > Google Colaboratory
+1. Abra o Google Drive no seu *browser* e clique com o botão direito do mouse em algum arquivo no formato `.ipynb`
+2. Clique em "Abrir com" > "Google Colaboratory"
 
 ```{figure} ../aula1/images/colab1.png
 ---
@@ -93,6 +93,32 @@ align: center
 ---
 
 ```
+
+2.a. Talvez a sua conta do Drive ainda não tenha o Colab instalado. Se esse for o seu caso, clique em "Abrir com" > "Conectar mais apps".
+
+```{figure} ../aula1/images/colab2.png
+---
+width: 100%
+name: colab2
+align: center
+---
+
+```
+
+2.b. Procure por "Colab" ou "Google Colaboratory" na barra de pesquisa.
+
+```{figure} ../aula1/images/colab3.png
+---
+width: 100%
+name: colab3
+align: center
+---
+
+```
+
+2.c. Instale o Colab e tente o passo 2 novamente.
+
+
 
 ---
 
