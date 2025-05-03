@@ -83,7 +83,7 @@ Para quem prefere trabalhar com a nuvem, a opção é o Google Colab. E este ser
 ### Usando diretamente no Google Drive
 
 1. Abra o Google Drive e clique com o botão direito do mouse em algum arquivo no formato .ipynb
-2. Clique em abrir com -> Google Colaboratory
+2. Clique em abrir com > Google Colaboratory
 
 ```{figure} ../aula1/images/colab1.png
 ---
