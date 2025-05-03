@@ -185,6 +185,15 @@ Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você tamb
 2. Vá até a aba de extensões clicando no ícone de quadrado no lado esquerdo ou pressione `Ctrl + Shift + X`.
 3. Pesquise por **"Jupyter"** e clique em **Install** para instalar a extensão oficial da Microsoft.
 
+```{figure} ../aula1/images/vscode1.png
+---
+width: 100%
+name: colab5
+align: center
+---
+
+```
+
 ---
 
 ### Passo 3: Configurar o Python no VS Code
