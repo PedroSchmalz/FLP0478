@@ -22,7 +22,7 @@ Na disciplina, trabalharemos com o Python usando o `Jupyter Notebook`, que cont�
 ## Tutorial Google Colab
 
 
-Para quem prefere trabalhar com a nuvem, a opção é o Google Colab. E este será a preferência em nossas aulas, tanto para evitar problemas de compatibilidade com pacotes e funções, quanto para facilitar para aqueles que possuem máquinas menos "potentes". O Google Colab é uma ferramenta gratuita baseada na nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
+Para quem prefere trabalhar com a nuvem, a opção é o Google Colab. E este aplicativo será a preferência em nossas aulas, tanto para evitar problemas de compatibilidade com pacotes e funções, quanto para facilitar para aqueles que possuem máquinas menos "potentes". O Google Colab é uma ferramenta gratuita em nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
 
 
 ### Vídeo Tutorial
