@@ -1,6 +1,6 @@
 # Leituras
 
-
+## Aula 01 - Introdução: Texto como um dado.
 
 **Leitura Obrigatória:**  
 Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 1 & 2  
@@ -10,7 +10,6 @@ Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data:
 CATALINAC, Amy (2016). {cite}`catalinac2016from` From Pork to Policy: The Rise of Programmatic Campaigning in Japanese Elections. The Journal of Politics. [S. l.]: University of Chicago Press, jan. 2016. DOI 10.1086/683073. Disponível em: http://dx.doi.org/10.1086/683073.
 
 KING, GARY; PAN, JENNIFER; ROBERTS, MARGARET E (2013). {cite}`king2013how` How Censorship in China Allows Government Criticism but Silences Collective Expression. American Political Science Review. [S. l.]: Cambridge University Press (CUP), maio 2013. DOI 10.1017/s0003055413000014. Disponível em: http://dx.doi.org/10.1017/S0003055413000014.
-
 
 
 **Laboratório 1: Introdução ao básico de Python**  
