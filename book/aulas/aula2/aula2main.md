@@ -1,5 +1,5 @@
 
-# Capítulos 3 e 4 de Grimmer et al. — *Text as Data*
+# Seleção e Representação
 
 ## Capítulo 3: Princípios de Seleção e Representação
 
