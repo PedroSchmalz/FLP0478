@@ -24,12 +24,6 @@ Na disciplina, trabalharemos com o Python usando o `Jupyter Notebook`, que cont�
 
 Para quem prefere trabalhar com a nuvem, a opção é o Google Colab. E este aplicativo será a preferência em nossas aulas, tanto para evitar problemas de compatibilidade com pacotes e funções, quanto para facilitar para aqueles que possuem máquinas menos "potentes". O Google Colab é uma ferramenta gratuita em nuvem que permite executar código Python diretamente no navegador. Ele é amplamente utilizado para aprendizado de máquina, análise de dados e outras tarefas que exigem Python.
 
-
-### Vídeo Tutorial
-
-```{video} https://www.youtube.com/embed/UCb-b82tzLo?
-:align: center
-```
 ---
 
 ### Como acessar o Google Colab?
@@ -167,11 +161,6 @@ align: center
 Embora o Google Colab seja uma excelente ferramenta baseada na nuvem, você também pode usar o **Visual Studio Code (VS Code)** para trabalhar com arquivos `.ipynb` localmente. Isso pode ser útil se você preferir um ambiente offline ou mais personalizável. No entanto, você terá que tomar mais cuidado com a instalação de pacotes, versão destes pacotes e do Python, localização dos arquivos, etc.
 
 ---
-
-### Vídeo Tutorial
-
-```{video} https://www.youtube.com/embed/UCb-b82tzLo?
-```
 
 ### Passo 1: Instalar o VS Code
 
