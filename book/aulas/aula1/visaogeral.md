@@ -123,6 +123,43 @@ align: center
 Processo de Construção de Um Corpus para aprendizado Supervisionado. Fonte: Autores (2025).
 ```
 
+1. **Formulação da Questão de Pesquisa**
+   - Definição clara do problema ou pergunta central do estudo, que orienta todas as decisões subsequentes.
+
+2. **Revisão de Literatura**
+   - Fundamentação teórica do estudo, identificação de lacunas e orientação para a definição de categorias e critérios de anotação.
+
+3. **Metodologia**
+   - Escolha dos métodos de coleta, seleção e processamento dos dados, bem como dos critérios para anotação e categorização.
+
+4. **Desenho de Pesquisa**
+   - Organização do fluxo de trabalho, definição das fontes de dados, amostragem e procedimentos de anotação.
+
+5. **Categorização**
+   - Organização dos dados em categorias relevantes para o objetivo do estudo, que podem ser revistas e ajustadas ao longo do processo.
+
+6. **Refinamento**
+   - Etapa iterativa de ajustes e revisões das categorias e critérios, garantindo maior precisão e relevância à categorização.
+
+7. **Anotação Humana**
+   - Anotadores humanos rotulam os dados conforme os critérios estabelecidos, assegurando qualidade e consistência.
+
+8. **Corpus Anotado**
+   - Resultado final: banco de dados estruturado e rotulado, pronto para uso em tarefas de aprendizado supervisionado.
+
+#### **Circularidade e Iteratividade no Processo**
+
+> **Importante:** O processo de construção do corpus é dinâmico e iterativo. Por exemplo, durante a anotação humana, pode-se perceber a necessidade de refinar categorias ou critérios, retornando à etapa de refinamento. Da mesma forma, a revisão de literatura pode influenciar diretamente a categorização ou até mesmo o desenho de pesquisa. Essas idas e vindas são naturais e desejáveis, pois aumentam a robustez e a representatividade do corpus.
+
+#### **Considerações Práticas**
+
+- O corpus anotado serve de base para tarefas de classificação ou predição automatizada, contendo tanto as *features* (**X**) quanto as *targets* (**Y**).
+- Para garantir validade e generalização dos resultados, é fundamental dividir o corpus em subconjuntos: treinamento, validação e teste.
+- O processo de anotação e refinamento é crítico: inconsistências ou erros podem comprometer todo o aprendizado posterior.
+- A natureza circular do processo permite revisões contínuas, resultando em um corpus mais robusto e adequado para tarefas de PLN.
+
+Ao seguir rigorosamente essas etapas — e reconhecendo a importância das circularidades no fluxo de trabalho —, garantimos que o corpus resultante seja confiável, representativo e adequado para o treinamento de modelos de aprendizado de máquina.
+
 
 Para que qualquer classificação/predição automatizada seja possível, precisamos de um banco de treinamento. Esse é o banco que contém tanto nossas Targets (Y) quanto nossas *Features* (**X**). Veremos ao longo do curso que, para garantir que nossos resultados não são espúrios/pouco generalizáveis, precisamos dividir nosso banco de dados em dois ou três subconjuntos:
 
