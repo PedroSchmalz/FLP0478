@@ -100,12 +100,14 @@ $$
 Y = f(X_1, X_2, \ldots, X_n) + \epsilon
 $$
 
-Onde:
+Nessa equação:
 
-- $Y$: target (variável dependente)
-- $X_1, X_2, \ldots, X_n$: features (variáveis preditoras)
-- $f$: função aprendida pelo modelo
-- $\epsilon$: termo de erro
+- **$Y$** é o *target*, ou seja, o valor que queremos prever (por exemplo, o preço de uma casa, a classificação de um e-mail como spam ou não, etc.).
+- **$X_1, X_2, \ldots, X_n$** são as *features*, ou variáveis preditoras — as diferentes informações que usamos para tentar prever o target (como tamanho da casa, número de quartos, localização, etc.).
+- **$f$** representa a função ou o modelo que buscamos aprender a partir dos dados rotulados. Ela descreve como as *features* se combinam para explicar ou prever o *target*.
+- **$\epsilon$** é o termo de erro, que representa as diferenças inevitáveis entre as previsões do modelo e os valores reais do target, já que nem tudo pode ser perfeitamente explicado pelas features.
+
+Assim, no aprendizado supervisionado, nosso objetivo é encontrar a melhor função $f$ que relacione as *features* ao *target*, minimizando o erro $\epsilon$ e permitindo que o modelo faça boas previsões mesmo para novos dados.
 
 ### 3. *Banco de Treinamento*
 
