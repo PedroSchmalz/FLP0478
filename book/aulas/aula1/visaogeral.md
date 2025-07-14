@@ -94,7 +94,18 @@ Em toda tarefa de aprendizado supervisionado, temos um target ("alvo"). Na estat
 
 ### 2. *Features*
 
-*Features*, ou variáveis independentes/explicativas, são as variáveis utilizadas pelo pesquisador para tentar prever o valor do *target*, seja em uma tarefa de classificação ou de predição. No exemplo específico de uma tarefa em PLN (Processamento da Língua Natural), o nosso "x" é o texto (e.g. o conteúdo de um tweet), que vai ser processado de diversas formas para que o modelo de aprendizado possa trabalhar com ele. Outro exemplo é na classificação de pessoas que podem ser devedoras (aplicação comum de *ML* em bancos), que podem ter como variáveis explicativas dívidas anteriores, renda, idade, educação, etc.
+*Features*, ou variáveis independentes/explicativas, são as variáveis utilizadas pelo pesquisador para tentar prever o valor do *target*, seja em uma tarefa de classificação ou de predição. No exemplo específico de uma tarefa em PLN (Processamento da Língua Natural), o nosso "x" é o texto (e.g. o conteúdo de um tweet), que vai ser processado de diversas formas para que o modelo de aprendizado possa trabalhar com ele. Outro exemplo é na classificação de pessoas que podem ser devedoras (aplicação comum de *ML* em bancos), que podem ter como variáveis explicativas dívidas anteriores, renda, idade, educação, etc. A relação entre o target (*Y*) e as features (*X*) no aprendizado supervisionado pode ser expressa assim:
+
+$$
+Y = f(X_1, X_2, \ldots, X_n) + \epsilon
+$$
+
+Onde:
+
+- $Y$: target (variável dependente)
+- $X_1, X_2, \ldots, X_n$: features (variáveis preditoras)
+- $f$: função aprendida pelo modelo
+- $\epsilon$: termo de erro
 
 ### 3. *Banco de Treinamento*
 
