@@ -147,11 +147,11 @@ Processo de Construção de Um Corpus para aprendizado Supervisionado. Fonte: Au
 8. **Corpus Anotado**
    - Resultado final: banco de dados estruturado e rotulado, pronto para uso em tarefas de aprendizado supervisionado.
 
-#### **Circularidade e Iteratividade no Processo**
+#### Circularidade e Iteratividade no Processo
 
 > **Importante:** O processo de construção do corpus é dinâmico e iterativo. Por exemplo, durante a anotação humana, pode-se perceber a necessidade de refinar categorias ou critérios, retornando à etapa de refinamento. Da mesma forma, a revisão de literatura pode influenciar diretamente a categorização ou até mesmo o desenho de pesquisa. Essas idas e vindas são naturais e desejáveis, pois aumentam a robustez e a representatividade do corpus.
 
-#### **Considerações Práticas**
+#### Considerações Práticas
 
 - O corpus anotado serve de base para tarefas de classificação ou predição automatizada, contendo tanto as *features* (**X**) quanto as *targets* (**Y**).
 - Para garantir validade e generalização dos resultados, é fundamental dividir o corpus em subconjuntos: treinamento, validação e teste.
@@ -169,4 +169,32 @@ Para que qualquer classificação/predição automatizada seja possível, precis
 
 ### 4. Predição vs. Classificação
 
-No contexto de *Machine Learning*, predição e classificação são tarefas distintas, embora relacionadas. A predição refere-se à estimativa de valores contínuos, como prever o preço de uma casa ou a temperatura de um dia específico, com base em variáveis explicativas. Já a classificação envolve a categorização de dados em classes discretas, como determinar se um e-mail é spam ou não, ou identificar o sentimento de um texto como positivo, negativo ou neutro. Enquanto a predição utiliza algoritmos que minimizam o erro em variáveis contínuas (como regressão linear), a classificação foca em maximizar a precisão na atribuição de rótulos às categorias (como regressão logística ou árvores de decisão). Ambas as tarefas compartilham princípios fundamentais, mas diferem nos objetivos e nas métricas de avaliação utilizadas, como erro médio absoluto para predição e acurácia ou F1-score para classificação. No curso, focaremos em tarefas de classificação, e futuramente discutiremos as principais métricas envolvidas nesse tipo de tarefa.
+No contexto de *Machine Learning*, predição e classificação são tarefas distintas, embora relacionadas. A predição refere-se à estimativa de valores contínuos, como prever o preço de uma casa ou a temperatura de um dia específico, com base em variáveis explicativas. Já a classificação envolve a categorização de dados em classes discretas, como determinar se um e-mail é spam ou não, ou identificar o sentimento de um texto como positivo, negativo ou neutro.
+
+Enquanto a predição utiliza algoritmos que minimizam o erro em variáveis contínuas (como regressão linear), a classificação foca em maximizar a precisão na atribuição de rótulos às categorias (como regressão logística ou árvores de decisão). Ambas as tarefas compartilham princípios fundamentais, mas diferem nos objetivos e nas métricas de avaliação utilizadas, como erro médio absoluto para predição e acurácia ou F1-score para classificação.
+
+No curso, focaremos em tarefas de classificação, e futuramente discutiremos as principais métricas envolvidas nesse tipo de tarefa.
+
+#### Exemplos Práticos em PLN
+
+- **Predição:** Prever a nota média de avaliações de um produto a partir de textos de comentários.
+- **Classificação:** Identificar o tema de uma notícia (política, esporte, entretenimento) ou detectar sentimentos em postagens.
+
+#### Tabela Comparativa
+
+| Aspecto             | Predição                    | Classificação                       |
+|---------------------|----------------------------|-------------------------------------|
+| Tipo de saída       | Valor contínuo             | Categoria discreta                  |
+| Exemplo em PLN      | Prever nota de review      | Detectar sentimento (positivo/neg.) |
+| Algoritmos comuns   | Regressão linear           | Regressão logística, árvores        |
+| Métrica principal   | Erro médio absoluto (MAE)  | Acurácia, F1-score                  |
+
+#### Pontos Importantes para Diferenciação
+
+- **Conversão de Texto em Números:** Tanto em predição quanto em classificação, textos precisam ser transformados em representações numéricas (vetores, embeddings) para serem usados por algoritmos de aprendizado de máquina.
+- **Classificação Multiclasse e Multilabel:** Além da classificação binária (duas classes), há tarefas com múltiplas classes (multiclasse) e situações em que um exemplo pode pertencer a várias categorias ao mesmo tempo (multilabel).
+- **Contexto no PLN:** A maioria das tarefas práticas de PLN (análise de sentimentos, classificação de tópicos, detecção de spam) são classificações, mas há aplicações de predição, como prever engajamento de postagens ou duração de leitura de um texto.
+- **Conexão com o Cotidiano:** Filtros de spam, recomendações de filmes, assistentes virtuais e sistemas de recomendação utilizam esses conceitos diariamente.
+- **Importância da Definição do Problema:** Definir corretamente se o problema é de predição ou classificação é crucial para escolher os algoritmos, métricas e abordagens adequadas.
+
+Ao compreender as diferenças e semelhanças entre predição e classificação, você estará mais preparado para identificar qual abordagem utilizar em diferentes problemas de PLN, além de entender as métricas e desafios específicos de cada tarefa.
