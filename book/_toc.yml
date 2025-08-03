@@ -17,9 +17,9 @@ parts:
       - file: videos/vunesp1.md
   - caption: Aula 02 - Seleção e Representação
     chapters:
-    # - file: aulas/aula2/aula2intro.md
-    # - file: aulas/aula2/aula2main.md
-    # - file: aulas/aula2/aula2.ipynb
+    - file: aulas/aula2/aula2intro.md
+    - file: aulas/aula2/aula2main.md
+    - file: aulas/aula2/aula2.ipynb
   - caption: Outros
     chapters:
     - file: references.md
