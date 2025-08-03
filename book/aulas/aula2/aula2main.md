@@ -8,13 +8,12 @@
 ```
 ````
 
-
 Para que uma aplicação de aprendizado de máquina supervisionada seja possível é necessário um córpus anotado. Córpus (Corpora, no plural) são conjunto de textos coletados de forma sistemática, representativo de uma língua ou variedade linguística específica, utilizado para alimentar, treinar, testar ou validar modelos e técnicas de análise automática de linguagem humana. Portanto, antes mesmo de pensar em qual técnica de aprendizado profundo utilizar, o pesquisador precisa refletir profundamente sobre como irá construir o seu córpus e de qual universo serão retirados os documentos textuais. A qualidade, a representatividade e a precisão das anotações do córpus têm impacto direto na performance e na generalização dos modelos treinados.
 
 
 ```{admonition} 💬 Com a palavra, os autores:
 :class: quote
-"Os dados textuais refletem interações sociais, transações econômicas e processos políticos. Para utilizar essa riqueza de informações para formular e responder perguntas interessantes, o pesquisador deve primeiro selecionar cuidadosamente o corpus de interesse e, em seguida, representar esses documentos de forma numérica."
+"Os dados textuais refletem interações sociais, transações econômicas e processos políticos. Para utilizar essa riqueza de informações para formular e responder perguntas interessantes, o pesquisador deve primeiro selecionar cuidadosamente o corpus de interesse e, em seguida, representar esses documentos de forma numérica. Embora seja mais complicado devido à enorme quantidade de informações armazenadas nos textos, as decisões sobre como coletar e representar numericamente textos são semelhantes às decisões que pesquisadores tomam para representar numericamente outras variáveis de interesse nas ciências sociais. Coletar um corpus é análogo a identificar uma amostra de uma população de interesse."
 ({cite}`grimmer2022text`, p. 72, tradução nossa)
 ```
 
