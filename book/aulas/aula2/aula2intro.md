@@ -7,6 +7,7 @@ Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data:
 
 **Leituras Complementares:**
 
+Lohr, Sharon L. (2009). {cite}`lohr2009introduction`. "Introduction" in *Sampling: Design and Analysis*. Cengage.
 
 
 **Laboratório 2: Condicionais e Loops**  
