@@ -13,8 +13,8 @@ Lohr, Sharon L. (2009). {cite}`lohr2009introduction`. "Introduction" in *Samplin
 **Laboratório 2: Condicionais e Loops**  
 
 **Objetivos:**  
-- ...
-- ...
+- Discutir tópicos essenciais para a criação de um córpus anotado
+- Discutir amostragem e desenho de pesquisa
 - Apresentar algumas declarações condicionais  
 - Introduzir as estruturas de repetição (Loops) e suas duas principais formas  
 
