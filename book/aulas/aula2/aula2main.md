@@ -8,7 +8,7 @@
 ```
 ````
 
-Para que uma aplicação de aprendizado de máquina supervisionada seja possível é necessário um córpus anotado. Córpus (Corpora, no plural) são conjunto de textos coletados de forma sistemática, representativo de uma língua ou variedade linguística específica, utilizado para alimentar, treinar, testar ou validar modelos e técnicas de análise automática de linguagem humana. Portanto, antes mesmo de pensar em qual técnica de aprendizado profundo utilizar, o pesquisador precisa refletir profundamente sobre como irá construir o seu córpus e de qual universo serão retirados os documentos textuais. A qualidade, a representatividade e a precisão das anotações do córpus têm impacto direto na performance e na generalização dos modelos treinados.
+Para que uma aplicação de aprendizado de máquina supervisionada seja possível é necessário um córpus anotado. Córpus (Corpora, no plural) são conjunto de textos coletados de forma sistemática, representativo de uma língua ou variedade linguística específica, utilizado para alimentar, treinar, testar ou validar modelos e técnicas de análise automática de linguagem humana. Portanto, antes mesmo de pensar em qual técnica de aprendizado profundo utilizar, o pesquisador precisa refletir profundamente sobre como irá construir o seu córpus e de qual universo serão retirados os documentos textuais. A qualidade, a representatividade e a precisão das anotações têm impacto direto na performance e na generalização dos modelos treinados.
 
 
 ```{admonition} 💬 Com a palavra, os autores:
@@ -17,9 +17,9 @@ Para que uma aplicação de aprendizado de máquina supervisionada seja possíve
 ({cite}`grimmer2022text`, p. 72, tradução nossa)
 ```
 
-## Capítulo 3: Princípios de Seleção e Representação
+## Princípios de Seleção e Representação
 
-O capítulo 3 aprofunda a importância de selecionar e representar textos de modo criterioso para transformar linguagem em dados úteis para pesquisa social. A seguir, detalho os pontos centrais de forma didática e aplicável:
+O capítulo 3 do livro de Grimmer et al. aprofunda a importância de selecionar e representar textos de modo criterioso para transformá-los em dados úteis para pesquisa social. Pesquisadores precisam considerar uma série de fatores 
 
 ### 1. Construção do Corpus Guiada pela Pergunta
 

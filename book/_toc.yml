@@ -18,7 +18,7 @@ parts:
   - caption: Aula 02 - Seleção e Representação
     chapters:
     - file: aulas/aula2/aula2intro.md
-    - file: aulas/aula2/aula2main.md
+  # - file: aulas/aula2/aula2main.md
   # - file: aulas/aula2/aula2.ipynb
   - caption: Outros
     chapters:
