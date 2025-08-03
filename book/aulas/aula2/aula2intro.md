@@ -9,6 +9,8 @@ Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data:
 
 Lohr, Sharon L. (2009). {cite}`lohr2009introduction`. "Introduction" in *Sampling: Design and Analysis*. Cengage.
 
+Barberá, Pablo, Boydstun, Amber E., Linn, Suzanna, McMahon, Robert, & Nagler, Jonathan (2020). {cite}`barbera2020automated`. "Automated Text Classification of News Articles: A Practical Guide". Political Analysis, 1–24. https://doi.org/10.1017/pan.2020.8
+
 
 **Laboratório 2: Condicionais e Loops**  
 
