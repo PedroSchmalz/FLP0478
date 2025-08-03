@@ -13,7 +13,7 @@ parts:
     - file: aulas/aula1/colabtutorial.md
     - file: aulas/aula1/aula1.ipynb
       sections:
-      - file: aulas/aula1/lab1.ipynb
+    # - file: aulas/aula1/lab1.ipynb
       - file: videos/vunesp1.md
   - caption: Outros
     chapters:
