@@ -7,9 +7,11 @@ Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data:
 
 **Leituras Complementares:**
 
+Barberá, Pablo, Boydstun, Amber E., Linn, Suzanna, McMahon, Robert, & Nagler, Jonathan (2020). {cite}`barbera2020automated`. "Automated Text Classification of News Articles: A Practical Guide". Political Analysis, 1–24. https://doi.org/10.1017/pan.2020.8
+
 Lohr, Sharon L. (2009). {cite}`lohr2009introduction`. "Introduction" in *Sampling: Design and Analysis*. Cengage.
 
-Barberá, Pablo, Boydstun, Amber E., Linn, Suzanna, McMahon, Robert, & Nagler, Jonathan (2020). {cite}`barbera2020automated`. "Automated Text Classification of News Articles: A Practical Guide". Political Analysis, 1–24. https://doi.org/10.1017/pan.2020.8
+KING, Gary; LAM, Patrick; ROBERTS, Margaret E. {cite}`KingLamRoberts2017` Computer-assisted keyword and document set discovery from unstructured text. American Journal of Political Science, v. 00, n. 00, p. 1–18, 2017. DOI: 10.1111/ajps.12291. Disponível em: http://doi:10.7910/DVN/FMJDCD. Acesso em: 8 ago. 2025.
 
 
 **Laboratório 2: Condicionais e Loops**  
