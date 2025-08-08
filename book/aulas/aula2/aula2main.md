@@ -8,6 +8,9 @@
 ```
 ````
 
+Como foi dito anteriormente, novas oportunidades e ferramentas de análise de texto estão disponíveis para os pesquisadores das humanidades e ciências sociais. O volume e a velocidade em que novos dados textuais e documentos são disponibilizados aumenta diariamente. Também aumentam as dificuldades e desafios para os pesquisadores no pensar em possíveis perguntas e desenhos de pesquisa, além de como operacionalizar esses dados da forma mais adequada para o seu projeto.
+
+
 Para que uma aplicação de aprendizado de máquina supervisionada seja possível é necessário um córpus anotado. Córpus (Corpora, no plural) são conjunto de textos coletados de forma sistemática, representativo de uma língua ou variedade linguística específica, utilizado para alimentar, treinar, testar ou validar modelos e técnicas de análise automática de linguagem humana. Portanto, antes mesmo de pensar em qual técnica de aprendizado profundo utilizar, o pesquisador precisa refletir profundamente sobre como irá construir o seu córpus e de qual universo serão retirados os documentos textuais. A qualidade, a representatividade e a precisão das anotações têm impacto direto na performance e na generalização dos modelos treinados.
 
 
