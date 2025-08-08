@@ -13,3 +13,15 @@ p {
 .margin {
   text-align: left;
 }
+
+
+/* Estilo para a admonition de tweet */
+.admonition.tweet {
+  background: #f5f8fa;
+  border-left: 4px solid #1da1f2;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #14171a;
+  margin: 1em 0;
+  padding: 1em;
+  border-radius: 10px;
+}

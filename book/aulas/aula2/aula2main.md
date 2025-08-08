@@ -32,10 +32,14 @@ O capítulo 3 do livro de Grimmer et al. aprofunda a importância de selecionar 
 
 ### Princípio 1. Construção do Corpus Guiada pela Pergunta
 
-- O corpus deve ser construído a partir da pergunta de pesquisa.
   - Antes de coletar textos, defina claramente o que você quer saber e qual população deseja analisar.
   - Exemplo: analisar tweets pode ser ótimo para estudar engajamento político online, mas ruim para medir opinião pública geral.
-- Corpus exploratório: às vezes, você começa com um corpus disponível e só depois define a pergunta. Nesse caso, é importante revisitar e refinar o corpus conforme a pesquisa avança.
+
+```{admonition} 🐦 Tweet
+:class: tweet
+**@usuario_exemplo**: Este é um tweet de teste para simular a visualização de um post do Twitter no Jupyter Book! #PLN4HUM #Exemplo
+12:34 · 8 ago. 2025
+```
 
 ### 2. Não Existe Corpus Neutro
 
