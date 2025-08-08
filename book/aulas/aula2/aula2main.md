@@ -22,9 +22,15 @@ Na nossa disciplina, focaremos em como fazer a pesquisa utilizando métodos de a
 
 ## Princípios de Seleção e Representação
 
-O capítulo 3 do livro de Grimmer et al. aprofunda a importância de selecionar e representar textos de modo criterioso para transformá-los em dados úteis para pesquisa social. Pesquisadores precisam considerar uma série de fatores 
+O capítulo 3 do livro de Grimmer et al. aprofunda a importância de selecionar e representar textos de modo criterioso para transformá-los em dados úteis para pesquisa social. Nem toda informação textual é relevante para toda pergunta de pesquisa. O pesquisador deve ir para além do acúmulo de documentos e textos, focalizando na qualidade do que é coletado. Como o pesquisador decide quais textos são relevantes? Devido à relativa novidade desse tipo de métodos nas ciências sociais, há um descompasso entre a literatura e teoria clássica de muitas das ciências sociais e os métodos utilizados no Processamento da Língua Natural. Nem sempre será possível se guiar pela literatura para a operacionalização de variáveis e representação numérica do texto. Portanto, o pesquisador precisará de muita validação, dentro e fora da construção do córpus. Para guiar os pesquisadores nessa empreitada, Grimmer et al. propõem quatro princípios que devem guiá-los na pesquisa em PLN.
 
-### 1. Construção do Corpus Guiada pela Pergunta
+````{margin}
+```{note}
+"representação numérica do texto" refere-se à conversão do conteúdo textual (palavras, frases, parágrafos) em formatos quantitativos que possam ser manipulados e analisados por ferramentas estatísticas ou computacionais. Isso inclui, por exemplo, transformar textos em vetores numéricos por meio de métodos como contagem de palavras (Bag-of-Words), frequências de termos (TF-IDF), embeddings (Word2Vec, GloVe, BERT), ou outras formas que capturam características do texto em números. Veremos as diversas formas de representação do texto a partir da aula 06 do curso. Esses números permitem que algoritmos identifiquem padrões, similaridades, tópicos ou outras relações estruturais nos dados textuais, tornando-os operacionalizáveis para análises sociais, mesmo em grande escala. Assim, a "representação numérica do texto" é o processo de traduzir a informação qualitativa do texto para variáveis quantitativas que podem ser estudadas e interpretadas sistematicamente.
+```
+````
+
+### Princípio 1. Construção do Corpus Guiada pela Pergunta
 
 - O corpus deve ser construído a partir da pergunta de pesquisa.
   - Antes de coletar textos, defina claramente o que você quer saber e qual população deseja analisar.

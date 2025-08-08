@@ -14,7 +14,7 @@ Lohr, Sharon L. (2009). {cite}`lohr2009introduction`. "Introduction" in *Samplin
 KING, Gary; LAM, Patrick; ROBERTS, Margaret E. {cite}`kinglamroberts2017`. Computer-assisted keyword and document set discovery from unstructured text. American Journal of Political Science, v. 00, n. 00, p. 1–18, 2017. DOI: 10.1111/ajps.12291. Disponível em: http://doi:10.7910/DVN/FMJDCD. Acesso em: 8 ago. 2025.
 
 
-**Objetivos:**  
+**Objetivos da Aula:**  
 - Discutir tópicos essenciais para a criação de um córpus anotado
 - Discutir amostragem e desenho de pesquisa
 - Apresentar algumas declarações condicionais  
