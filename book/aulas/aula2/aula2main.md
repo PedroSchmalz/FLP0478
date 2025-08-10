@@ -84,7 +84,7 @@ A garantia de que a representação e as medidas funcionam vem de validação si
 
 ---
 
-## Capítulo 4 — Seleção de Documentos: tópicos-chave aprofundados
+## Capítulo 4 — Seleção de Documentos
 
 
 ### 1. População e quantidades de interesse: ancoragem do desenho
