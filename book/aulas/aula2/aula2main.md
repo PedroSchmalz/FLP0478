@@ -70,62 +70,71 @@ A representação deve ser guiada pela pergunta e pela quantidade de interesse. 
 
 ### 4. Validação é Essencial
 
-- Valide suas escolhas de representação e corpus.
-  - Compare resultados com dados codificados manualmente, avalie acurácia preditiva e tente replicar experimentos.
-  - Se a validação falhar, revise sua abordagem.
+A garantia de que a representação e as medidas funcionam vem de validação sistemática, alinhada ao objetivo (medir, prever, inferir causalmente). Essa validação deve ser feita na construção do córpus e no treinamento dos modelos de aprendizado de máquina supervisionado. Alguns pontos importantes são:
 
-### Exemplos Práticos
+- **Definir o critério de sucesso**: especificar o que significa “funcionar” para a tarefa (correlação com gold standard, acurácia preditiva, replicação de efeitos causais).
 
-- **Discursos do Estado da União (EUA):** Permitem estudar tendências de linguagem política ao longo de séculos, mostrando como a escolha do corpus e da representação afeta as descobertas.
-- **Federalist Papers:** Atribuição de autoria baseada em padrões sutis de linguagem, ilustrando a importância da representação adequada ao objetivo.
+- **Usar validações externas**: comparar medidas com codificação humana, dados administrativos ou fatos conhecidos; quando possível, fazer auditorias cegas.
+
+- **Testes de sensibilidade e robustez**: verificar robustez a escolhas de pré-processamento, features, amostragem e janelas temporais; remover componentes e checar impacto.
+
+- **Particionar e replicar**: separar treino/validação/teste, usar validação cruzada e replicar resultados em períodos, fontes ou populações distintas.
+
+- **Revisitar desenho e representação**: se a validação falhar, ajustar pergunta, corpus, features e modelo; documentar limitações e escolhas que afetam a inferência.
 
 ---
 
-## Capítulo 4: Seleção de Documentos
+## Capítulo 4 — Seleção de Documentos: tópicos-chave aprofundados
 
-O capítulo 4 aprofunda o processo de escolha dos textos para análise, destacando que essa etapa é fundamental para garantir inferências válidas.
 
-### 1. População e Quantidades de Interesse
+### 1. População e quantidades de interesse: ancoragem do desenho
 
-- Pergunta e população de interesse: sempre relacione sua pergunta à população que deseja estudar.
-- Quantidades de interesse: defina quais métricas ou resumos você quer extrair dos textos (ex: frequência de temas, polaridade de sentimentos).
+Definir com precisão a população de interesse (quem, onde, quando) e as quantidades de interesse (o que será medido) é o passo que orienta todas as decisões subsequentes de coleta e filtragem. Um mesmo acervo pode ser excelente para uma pergunta (p.ex., estratégia de candidatos) e inadequado para outra (p.ex., opinião pública), pois o corpus reflete os produtores dos textos, não “a sociedade” em geral. Sem essa ancoragem, a amostra tende a deslizar para conveniência ou disponibilidade, comprometendo validade externa e interpretação.
 
-### 2. Quatro Tipos de Viés na Seleção de Corpus
+### 2. “Found data”: potencial e limites
 
-| Tipo de Viés           | Descrição                                                                                       | Exemplo Didático                                   |
-|------------------------|------------------------------------------------------------------------------------------------|----------------------------------------------------|
-| **Viés de Recursos**   | Grupos com mais acesso a recursos produzem e preservam mais textos.                            | Arquivos históricos tendem a privilegiar elites.   |
-| **Viés de Incentivo**  | Motivações estratégicas afetam o que é registrado ou omitido.                                  | Políticos podem evitar registrar discussões sensíveis. |
-| **Viés de Meio**       | O formato e a tecnologia influenciam o conteúdo textual.                                       | Limite de caracteres no Twitter molda o discurso.  |
-| **Viés de Recuperação**| Métodos de busca (palavras-chave, APIs) podem excluir textos relevantes ou incluir irrelevantes.| Usar só "fantasma" para buscar histórias pode perder "assombração". |
+Grande parte dos corpora são “dados achados”, produzidos por agentes com recursos e incentivos próprios, e divulgados sob regras institucionais e tecnológicas que não visam à pesquisa. Isso cria lacunas estruturais (ausência de grupos sem capacidade de registro/preservação), mudanças de regime de coleta/acesso ao longo do tempo e assimetrias por plataforma. Usar “found data” é legítimo, mas requer: explicitar por que esse acervo responde à pergunta, o que ele não captura e como isso afeta o que pode ser inferido.
+
+### 3. Quatro vieses recorrentes de seleção
+
+- **Viés de recursos**: textos representam desproporcionalmente quem consegue produzir, armazenar e tornar acessíveis documentos; arquivos históricos, bases editoriais e acervos como Ngrams tendem a super-representar certos gêneros/áreas por custos e infraestrutura. Eventos/vozes sem presença de mídia ou capacidade de registro desaparecem do corpus, afetando séries temporais e comparações.
+- **Viés de incentivos**: atores estrategicamente produzem, ocultam, removem ou deslocam conversas para canais menos visíveis (censura, autopromoção, telefonemas em vez de e‑mails quando há transparência). A disponibilidade de transcrições pode alterar o próprio comportamento (mais formalização, menos franqueza), o que precisa ser entendido e, quando possível, verificado qualitativamente.
+- **Viés de meio**: o suporte molda conteúdo e forma (limites de caracteres, multimodalidade, efemeridade, feeds personalizados), e diferentes plataformas/línguas sofrem constrangimentos distintos. Mudanças de produto (p.ex., novas features, políticas) reconfiguram o que é dito e como é medido, quebrando a comparabilidade longitudinal se não forem controladas.
+- **Viés de recuperação**: critérios e ferramentas de busca (palavras‑chave, APIs, filtros) introduzem inclusões/omissões sistemáticas; termos lembrados tendem a enviesar a cobertura temática e o tipo de documento retornado. Interfaces opacas (amostragem, relevância, case sensitivity) podem alterar a população efetivamente observada sem aviso.
+
+
+Abaixo, dois exemplos de viés de recuperação que podem surgir dependendo das palavras-chaves que o pesquisador estabelecer para pesquisar opiniões sobre Bolsonaro ou Lula durante a pandemia.
+
+```{admonition} 🐦 Tweet
+:class: tweet
+**@usuario_exemplo**: Se fosse o *Nine* não ia ter nenhuma vacina por que ele ia roubar tudo. 
+12:34 · 10 ago. 2021
+```
+
+Se o pesquisador só tivesse como palavra-chave para o presidente Lula o seu nome (ou nome inteiro), poderia perder um tweet nesse formato, que o menciona através de um apelido pejorativo. O seguinte exemplo era algo mais comum em nosso banco de dados.
+
 
 
 ```{admonition} 🐦 Tweet
 :class: tweet
-**@usuario_exemplo**: Este é um tweet de teste para simular a visualização de um post do Twitter no Jupyter Book! #PLN4HUM #Exemplo
-12:34 · 8 ago. 2025
+**@usuario_exemplo**: O genocida não comprou vacinas, e ainda queria ganhar dinheiro em cima delas. Impeachment agora! 
+12:34 · 12 ago. 2021
 ```
 
-### 3. Dados Encontrados ("Found Data")
+Novamente, por estar se referenciando ao ex-presidente Bolsonaro por meio de um outro nome, o pesquisador poderia perder certos *tweets*, gerando um viés na amostra. Isso é especialmente sensível quando queremos mensurar a opinião pública sobre determinados candidatos. O pesquisador não deve ter somente um contato amplo com a literatura, mas também deve explorar bem os seus dados. Isso garante que ele esteja no controle da pesquisa, não o método.
 
-- Muitos corpora são dados encontrados, não planejados.
-  - Isso impõe limitações para generalização e pode introduzir vieses difíceis de corrigir.
-- Transparência: sempre explique como os textos foram selecionados e quais limitações existem.
 
-### 4. Considerações Didáticas
+### 4. Estratégias de mitigação e boas práticas
 
-- Corpus representativo: o ideal é que o corpus reflita bem a população de interesse, mas nem sempre isso é possível.
-- Iteratividade: o processo de seleção pode precisar ser repetido conforme a pesquisa evolui.
-- Mudanças ao longo do tempo: plataformas digitais mudam rapidamente, o que pode afetar comparações históricas.
+- Planejar com o alvo em mente: colecionar após definir população/quantidades de interesse e testar se o corpus permite estimá-las com qualidade suficiente.
+- Ampliar e calibrar fontes: combinar acervos com perfis distintos (institucionais, jornalísticos, redes sociais, arquivos) para reduzir lacunas de recursos e incentivos; monitorar mudanças de plataforma e política de dados.
+- Revisar consultas e pipelines: construir e iterar listas de termos/estratégias de busca, testar consultas alternativas, amostrar manualmente falsos positivos/negativos e documentar diferenças entre APIs.
+- Amostrar com desenho explícito: quando possível, aplicar amostragem estratificada/temporal ou reponderar para corrigir desequilíbrios conhecidos (volume tardio, fontes dominantes).
+- Validar externamente: cruzar medidas com codificação humana, dados administrativos, fatos conhecidos ou séries paralelas; analisar sensibilidade a janelas, filtros e critérios de inclusão.
+- Documentar o escopo de inferência: declarar claramente a que população os resultados se aplicam, o que não pode ser generalizado e por quê; registrar versões, datas, consultas, filtros e limitações conhecidas.
 
----
 
-## Dicas Práticas e Reflexões
-
-- Antes de coletar textos: defina sua pergunta, população e quantidades de interesse.
-- Durante a coleta: esteja atento aos vieses e limitações, documentando suas escolhas.
-- Na representação: teste abordagens simples primeiro e valide sempre.
-- Ao analisar: lembre-se de que textos refletem processos sociais complexos — seja crítico e transparente sobre o que seus dados realmente representam.
+Para permitir avaliação e replicação, registrar e disponibilizar: critérios de inclusão/exclusão, fontes e versões, janelas temporais, consultas e parâmetros, mudanças de política/plataforma, taxas de erro estimadas na recuperação e impacto esperado dos vieses identificados sobre as conclusões.
 
 
 ## Conclusão
