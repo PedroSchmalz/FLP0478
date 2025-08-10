@@ -11,7 +11,7 @@
 Como foi dito anteriormente, novas oportunidades e ferramentas de análise de texto estão disponíveis para os pesquisadores das humanidades e ciências sociais. O volume e a velocidade em que novos dados textuais e documentos são disponibilizados aumenta diariamente. Agências governamentais podem utilizar documentos e relatórios para a melhoria dos serviços públicas; Cientistas políticos podem mensurar mudanças de tópicos de debate entre os políticos, como certos tópicos flutuam ao longo do tempo nas redes sociais, etc. As possibilidades de pesquisa são inúmeras, assim como as de erros. Muitas são as dificuldades e desafios para os pesquisadores no momento de pensar em possíveis perguntas e desenhos de pesquisa, além de como operacionalizar esses dados da forma mais adequada para o seu projeto. Portanto, o pesquisador deve pensar com muito cuidado em qual sua pergunta de pesquisa, população e quantidades de interesse, o universo de documentos, e se esses documentos podem responder a sua pergunta e/ou se refletem seus interesses de pesquisa.
 
 
-Na nossa disciplina, focaremos em como fazer a pesquisa utilizando métodos de aprendizado de máquina supervisionado. Para que uma aplicação desse tipo seja possível é necessário um córpus anotado. Córpus (Corpora, no plural) são conjunto de textos coletados de forma sistemática, representativo de uma língua ou variedade linguística específica, utilizado para alimentar, treinar, testar ou validar modelos e técnicas de análise automática de linguagem humana. Portanto, antes mesmo de pensar em qual técnica de aprendizado utilizar, o pesquisador precisa refletir profundamente sobre como irá construir o seu córpus e de qual universo serão retirados os documentos textuais. A qualidade, a representatividade e a precisão das anotações têm impacto direto na performance e na generalização dos modelos treinados, assim como das inferências e resultados da pesquisa.
+Na nossa disciplina, focaremos em como fazer a pesquisa utilizando métodos de aprendizado de máquina supervisionado. Para que uma aplicação desse tipo seja possível é necessário um córpus anotado. Córpus (Corpora, no plural) é um conjunto de textos coletados de forma sistemática, representativo de uma língua ou variedade linguística específica, utilizado para alimentar, treinar, testar ou validar modelos e técnicas de análise automática de linguagem humana. Portanto, antes mesmo de pensar em qual técnica de aprendizado utilizar, o pesquisador precisa refletir profundamente sobre como irá construir o seu córpus e de qual universo serão retirados os documentos textuais. A qualidade, a representatividade e a precisão das anotações têm impacto direto na performance e na generalização dos modelos treinados, assim como das inferências e resultados da pesquisa.
 
 
 ```{admonition} 💬 Com a palavra, os autores:
@@ -25,7 +25,7 @@ Na nossa disciplina, focaremos em como fazer a pesquisa utilizando métodos de a
 
 ````{margin}
 ```{note}
-"representação numérica do texto" refere-se à conversão do conteúdo textual (palavras, frases, parágrafos) em formatos quantitativos que possam ser manipulados e analisados por ferramentas estatísticas ou computacionais. Isso inclui, por exemplo, transformar textos em vetores numéricos por meio de métodos como contagem de palavras (Bag-of-Words), frequências de termos (TF-IDF), embeddings (Word2Vec, GloVe, BERT), ou outras formas que capturam características do texto em números. Veremos as diversas formas de representação do texto a partir da aula 06 do curso. Esses números permitem que algoritmos identifiquem padrões, similaridades, tópicos ou outras relações estruturais nos dados textuais, tornando-os operacionalizáveis para análises sociais, mesmo em grande escala. Assim, a "representação numérica do texto" é o processo de traduzir a informação qualitativa do texto para variáveis quantitativas que podem ser estudadas e interpretadas sistematicamente.
+"Representação numérica do texto" refere-se à conversão do conteúdo textual (palavras, frases, parágrafos) em formatos quantitativos que possam ser manipulados e analisados por ferramentas estatísticas ou computacionais. Isso inclui, por exemplo, transformar textos em vetores numéricos por meio de métodos como contagem de palavras (Bag-of-Words), frequências de termos (TF-IDF), embeddings (Word2Vec, GloVe, BERT), ou outras formas que capturam características do texto em números. Veremos as diversas formas de representação do texto a partir da aula 06 do curso. Esses números permitem que algoritmos identifiquem padrões, similaridades, tópicos ou outras relações estruturais nos dados textuais, tornando-os operacionalizáveis para análises sociais, mesmo em grande escala. Assim, a "representação numérica do texto" é o processo de traduzir a informação qualitativa do texto para variáveis quantitativas que podem ser estudadas e interpretadas sistematicamente.
 ```
 ````
 
@@ -34,28 +34,39 @@ O capítulo 3 do livro de Grimmer et al. aprofunda a importância de selecionar 
 
 ### Princípio 1. Construção do Corpus Guiada pela Pergunta
 
-  - Antes de coletar textos, defina claramente o que você quer saber e qual população deseja analisar.
-  - Exemplo: analisar tweets pode ser ótimo para estudar engajamento político online, mas ruim para medir opinião pública geral.
+O primeiro princípio, já mencionado de forma indireta ao longo do texto, é que a pergunta de pesquisa deve orientar a construção do córpus — e não o contrário. Mesmo no exemplo de King, Pan e Roberts (2013), em que a pergunta emergiu de modo aparentemente ‘acidental’, a elaboração do primeiro córpus foi guiada por uma questão de pesquisa delineada à luz de uma literatura científica específica. Isso não implica um retorno a um modelo estritamente dedutivo; significa, antes, que a construção do córpus deve ser conduzida por uma boa pergunta de pesquisa, sustentada, sempre que possível, por referências bibliográficas sólidas. Os pontos centrais desse princípio são:
 
-```{admonition} 🐦 Tweet
-:class: tweet
-**@usuario_exemplo**: Este é um tweet de teste para simular a visualização de um post do Twitter no Jupyter Book! #PLN4HUM #Exemplo
-12:34 · 8 ago. 2025
-```
+- **Definir a pergunta de pesquisa**: formular uma questão clara, específica e operacionalizável, explicitando o fenômeno, a unidade de análise, o recorte temporal e/ou espacial, e o resultado esperado (ou a hipótese a testar).
+- **Delimitar o universo e a amostra**: especificar com precisão o universo relevante (por exemplo, mídia nacional vs. regional; órgãos oficiais vs. redes sociais) e adotar estratégias de amostragem coerentes com a pergunta (probabilística, teórica, intencional, por cotas), justificando as escolhas.
+- **Identificar as quantidades de interesse**: deixar explícito quais medidas serão estimadas e como serão operacionalizadas (por exemplo, proporção/volume de tópicos discutidos por políticos, supervisionado ou não; posicionamento de jornais sobre tópicos/figuras em escalas definidas; polaridade/valência do sentimento em discussões online; intensidade, saliência, centralidade, diversidade). Indicar a unidade de medida, o método de estimação e potenciais vieses.
+- **Avaliar o uso de um córpus existente**: ao reutilizar um córpus de terceiros, verificar a adequação à pergunta (cobertura temporal, fontes, idiomas, gêneros), a validade das variáveis/rotulagens, a qualidade e documentação, permissões e limitações; checar se as medidas desejadas são mensuráveis com aquele material ou se será necessário complementar/ajustar o córpus.
 
-### 2. Não Existe Corpus Neutro
 
-- Toda seleção de textos envolve escolhas e valores.
-  - Fatores como acesso desigual à produção de textos, políticas de preservação, censura e privacidade influenciam o que está disponível.
-  - Atenção ética: uso de textos públicos nem sempre elimina preocupações com privacidade. Considere o contexto de produção e expectativas dos autores.
-- Implicações práticas: um corpus pode reforçar vieses sociais, como sub-representação de certos grupos.
+### 2. Não Existe Corpus Neutro/Sem valores
+
+A construção de um córpus nunca é neutra: envolve escolhas sobre fontes, períodos, gêneros, critérios de inclusão/exclusão e formas de representação que refletem pressupostos teóricos, limitações práticas e valores do pesquisador. Essas decisões têm implicações metodológicas e éticas — especialmente para quem é incluído/excluído, como variáveis são medidas/rotuladas e que inferências se tornam possíveis. À luz dos princípios e alertas de seleção e representação, convém atentar para:
+
+- **Preocupações éticas e de LGPD**: garantir base legal, finalidade específica e minimização de dados; adotar anonimização/pseudonimização quando cabível; considerar riscos de reidentificação, sobretudo quando textos são vinculados a outros dados sensíveis.
+
+- **Consentimento, publicidade e “integridade contextual”**: mesmo conteúdos “públicos” podem ter normas contextuais de uso e expectativas de privacidade distintas; avalie a adequação do uso de textos de redes sociais, fóruns fechados ou listas restritas em função de contexto e audiência previstos originalmente.
+
+- **Diferenças de recursos e incentivos entre grupos**: textos refletem mais os grupos com capacidade de produzir, registrar e preservar documentos; ausência de registros não é aleatória em termos socioeconômicos, temporais ou institucionais. Outros viéses podem surgir de ocultação intencional de documentos, censura, uso inadequado de palavras chaves, métodos de coleta, etc.
+
+- **Linguagem prejudicial e danos potenciais**: reconhecer e tratar a presença de conteúdo nocivo (ódio, estereótipos), ponderando efeitos de sua inclusão em modelos e de sua divulgação pública, sobretudo sobre grupos vulneráveis.
+
 
 ### 3. Não Há Uma Única Representação Correta
 
-- A representação do texto deve ser adequada à pergunta de pesquisa.
-  - Pode variar de indicadores simples (presença/ausência de palavras) a modelos complexos que capturam contexto e semântica.
-  - Escolha a representação mais simples que responda sua pergunta, mas esteja aberto a ajustar conforme necessário.
-- Exemplo didático: para identificar autoria, contar palavras de ligação ("e", "mas", "porém") pode ser mais útil do que analisar temas.
+A representação deve ser guiada pela pergunta e pela quantidade de interesse. Prefira o mais simples que capture o fenômeno e valide. Não existirá uma única forma de representar o texto, nem mesmo dentro da mesma pergunta. Aqui é necessário validação, acompanhamento por outros pesquisadores, codificadores trabalhando em pares (ou trios). Tudo isso assegurará que o córpus possua validade. 
+
+- **Definir o objetivo de mensuração**: explicitar o que se quer medir no texto (p. ex., tema, posição, tom, estilo, saliência) e como isso pode se manifestar linguisticamente.
+
+- **Escolher a representação mínima suficiente**: optar por features tão simples quanto possível (palavras, n-gramas, dicionários, bag-of-words) antes de adotar modelos mais complexos (embeddings, contextuais, estruturas sintáticas). Em certos casos, se deseja somente contar a frequência de certas palavras e não o contexto em que elas estão. Nesses casos, o pesquisador pode optar por modelos mais leves com representações simples.
+
+- **Alinhar unidade e contexto**: decidir o nível de análise (token, sentença, documento) e se ordem, sintaxe ou metadados são necessários ao objetivo.
+
+- **Tornar operacional e testável**: especificar métricas, procedimentos de pré-processamento e critérios de sucesso; comparar alternativas e manter a que melhor atende à pergunta com validação externa. Registrar a concordância entre anotadores (Alpha de Krippendorf, etc.), e registrar também as regras de anotação.
+
 
 ### 4. Validação é Essencial
 
@@ -87,6 +98,13 @@ O capítulo 4 aprofunda o processo de escolha dos textos para análise, destacan
 | **Viés de Incentivo**  | Motivações estratégicas afetam o que é registrado ou omitido.                                  | Políticos podem evitar registrar discussões sensíveis. |
 | **Viés de Meio**       | O formato e a tecnologia influenciam o conteúdo textual.                                       | Limite de caracteres no Twitter molda o discurso.  |
 | **Viés de Recuperação**| Métodos de busca (palavras-chave, APIs) podem excluir textos relevantes ou incluir irrelevantes.| Usar só "fantasma" para buscar histórias pode perder "assombração". |
+
+
+```{admonition} 🐦 Tweet
+:class: tweet
+**@usuario_exemplo**: Este é um tweet de teste para simular a visualização de um post do Twitter no Jupyter Book! #PLN4HUM #Exemplo
+12:34 · 8 ago. 2025
+```
 
 ### 3. Dados Encontrados ("Found Data")
 
