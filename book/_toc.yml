@@ -20,9 +20,8 @@ parts:
     - file: aulas/aula2/aula2intro.md
     - file: aulas/aula2/aula2main.md
     - file: aulas/aula2/aula2.ipynb
-      sections:
-      - file: aulas/aula2/lab2.ipynb
-      - file: videos/aitaon.md
+    - file: aulas/aula2/lab2.ipynb
+    - file: videos/aitaon.md
   - caption: Outros
     chapters:
     - file: references.md
