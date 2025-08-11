@@ -14,5 +14,5 @@ kernelspec:
 # AI TÁ ON: PLN e Ciências Sociais
 
 
-```{video} https://www.youtube.com/live/eQ8EAJgDZgw?si=_0C0hINy-PWsHynU
+```{video} https://www.youtube.com/embed/eQ8EAJgDZgw
 ```
