@@ -1,0 +1,18 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.10.3
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
+---
+
+# AI TÁ ON: PLN e Ciências Sociais
+
+
+```{video} https://www.youtube.com/live/eQ8EAJgDZgw?si=_0C0hINy-PWsHynU
+```
