@@ -95,7 +95,7 @@ Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data:
 ___
 
 **Referências:**  
-- Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 6, 15 e 16  
+- Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 5, 6, 15 e 16  
 
 **Lab 3: Funções, Módulos e Introdução ao Numpy**  
 
