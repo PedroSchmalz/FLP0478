@@ -177,7 +177,7 @@ Como fica claro, o último passo é o de remover palavras que são muito frequen
 
 ### Construir a matriz *document-feature*
 
-Depois de todos esses passos, o final é o de transformar o texto em dados numéricos. O resultado final é uma matriz de documentos-termos, chamada de *W*, com N textos e um vocabulário de tamanho (Matriz N x J). No geral, essa matriz é muito esparsa, isto é, contém muitos zeros em muitas colunas para muitos documentos. Por isso é necessário tokenizar, eliminar certos termos, etc. 
+Depois de todos esses passos, o final é o de transformar o texto em dados numéricos. O resultado final é uma matriz de documentos-termos, chamada de *W*, com N textos e um vocabulário de tamanho J (Matriz N x J). No geral, essa matriz é muito esparsa, isto é, contém muitos zeros em muitas colunas para muitos documentos. Por isso é necessário tokenizar, eliminar certos termos, etc. 
 
 
 ### Quando não pré-processar?
