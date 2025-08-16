@@ -6,7 +6,6 @@ ___
 **Leituras Obrigatórias:**  
 - Grimmer J, Roberts ME, Stewart BM (2022). {cite}`grimmer2022text`.*Text as Data: A New Framework for Machine Learning and the Social Sciences*. Princeton University Press. Capítulos 5, 6, 15 e 16  
 
-**Lab 3: Funções, Módulos e Introdução ao Numpy**  
 
 **Leituras Complementares:**
 
@@ -20,7 +19,7 @@ Barberá, Pablo, Boydstun, Amber E., Linn, Suzanna, McMahon, Robert, & Nagler, J
 - Como importar módulos, convenções de importação e principais módulos  
 - Introdução ao Numpy e seus principais módulos  
 
-**Laboratório 2: Condicionais e Loops**  
+**Laboratório 3: Funções, Módulos e Introdução ao Numpy**  
 
 
 **Referências para o Lab:**  
