@@ -95,7 +95,7 @@ Note que surgem duas colunas distintas (“Igreja” e “igreja”) para a mesm
 | Documento | decisão | igreja | bairro |
 |-----------|------|-------|---------|
 | Doc1      | 1    | 1     | 0         |
-| Doc2      | 0    | 0     | 1         |
+| Doc2      | 0    | 1     | 1         |
 
 </div>
 
