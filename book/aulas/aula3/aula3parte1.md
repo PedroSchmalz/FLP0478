@@ -2,7 +2,7 @@
 
 ## *Bag-of-words*
 
-Na última aula, vimos o que é um córpus e os princípios que o pesquisador deve seguir na construção ou utilização de um córpus para tarefas de aprendizado supervisionado. Depois de construir um córpus de documentos, o pesquisador deve decidir como irá representar o texto de forma numérica. Uma das formas mais comuns, e utilizadas nos modelos mais clássicos de aprendizado estatístico, é a *bag-of-words*, ou saco de palavras. Essa representação será a base dos modelos iniciais do curso que veremos a partir da sexta aula, como o modelo logístico/multinomial. A ideia principal por trás desse modelo é a de representar cada documento pelo número de vezes que cada palavra aparece nele. Considere as seguintes frases (ou documentos):
+Na última aula, vimos como fazer a seleção e representação, e o que é um Córpus. Depois de construir um córpus de documentos, o pesquisador deve decidir como irá representar o texto de forma numérica. Uma das formas mais comuns, e utilizadas nos modelos mais clássicos de aprendizado estatístico, é a *bag-of-words*, ou saco de palavras. Essa representação será a base dos modelos iniciais do curso que veremos a partir da sexta aula, como o modelo logístico/multinomial. A ideia principal por trás desse modelo é a de representar cada documento pelo número de vezes que cada palavra aparece nele. Considere as seguintes frases (ou documentos):
 
 1. O cachorro ama o osso;
 2. O Osso ama o cachorro;
@@ -237,7 +237,7 @@ Quando alinhamos essas peças, obtemos previsões (médias, variâncias) que pod
 
 $$
 \underbrace{Y_i}_{\text{quantidade observada}}
-=\;\beta_0+\beta_1 X_i \;+\;\underbrace{\varepsilon_i}_{\text{ruído}}
+=\;\beta_0+\beta_1 X_i \;+\;\underbrace{\varepsilon_i}_{\text{erro}}
 ,\qquad
 \varepsilon_i\sim\mathcal{N}\bigl(0,\sigma^2\bigr)
 $$

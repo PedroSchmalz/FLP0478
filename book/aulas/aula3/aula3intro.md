@@ -13,8 +13,10 @@ Barberá, Pablo, Boydstun, Amber E., Linn, Suzanna, McMahon, Robert, & Nagler, J
 
 
 **Objetivos da Aula:**  
-- Discutir tópicos essenciais para a criação de um córpus anotado
-- Discutir amostragem e desenho de pesquisa
+- Apresentar a representação *bag-of-words* (BOW)
+- Discutir o modelo multinomial e sua relação com o BOW
+- Discutir boas práticas de mensuração
+- Apresentar métodos de dicionário para análise textual
 - Apresentar as funções e como criá-las  
 - Como importar módulos, convenções de importação e principais módulos  
 - Introdução ao Numpy e seus principais módulos  
