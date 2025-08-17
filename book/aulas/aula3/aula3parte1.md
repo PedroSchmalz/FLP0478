@@ -325,7 +325,8 @@ Na página 116 o livro ilustra, com um triângulo, o **2-simplex** associado a u
    $$
      \bigl\{\boldsymbol\mu\in\mathbb R^{J}\;|\;\mu_j\ge0,\; \sum_{j=1}^J\mu_j=1\bigr\}.
    $$  
-   • Cada vetor $\boldsymbol\mu$ guarda *proporções* (probabilidades) que precisam somar 1.
+
+Cada vetor $\boldsymbol\mu$ guarda *proporções* (probabilidades) que precisam somar 1.
 
 2. **Caso $J=3$** – o triângulo da figura  
    • Os vértices correspondem a probabilidades concentradas em uma única palavra:  
