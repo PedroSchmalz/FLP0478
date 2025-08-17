@@ -1,4 +1,3 @@
-
 # *Bag-of-Words* e o modelo Multinomial
 
 ## Capítulo 5 - *Bag-of-words*
@@ -308,6 +307,44 @@ Se o documento tiver **apenas uma palavra**, podemos representá-lo assim:
 
 Isso é chamado de representação *one‑hot encoding* (só um valor igual a 1, o resto é 0). Também é conhecido como dummy variable, com cada coluna tendo valores binários (zero e um) para cada palavra.
 
+#### O Simplex
+
+```{figure} ../aula3/images/simplex.png
+---
+width: 100%
+name: simplexgrimmer
+align: center
+---
+ Visualização de um Simplex 2D. Fonte: Grimmer et al. (p.116)
+```
+
+Na página 116 o livro ilustra, com um triângulo, o **2-simplex** associado a um vocabulário de três palavras (“cat”, “dog”, “fish”). A ideia geral:
+
+1. **Definição geométrica**  
+   • Para $J$ categorias, o $(J-1)$-simplex é o conjunto  
+   $$
+     \bigl\{\boldsymbol\mu\in\mathbb R^{J}\;|\;\mu_j\ge0,\; \sum_{j=1}^J\mu_j=1\bigr\}.
+   $$  
+   • Cada vetor $\boldsymbol\mu$ guarda *proporções* (probabilidades) que precisam somar 1.
+
+2. **Caso $J=3$** – o triângulo da figura  
+   • Os vértices correspondem a probabilidades concentradas em uma única palavra:  
+     – Vértice “cat”: $(1,0,0)$  
+     – Vértice “dog”: $(0,1,0)$  
+     – Vértice “fish”: $(0,0,1)$  
+   • Pontos na borda indicam que uma das probabilidades é 0; pontos no interior têm todas as três positivas.  
+   • O centro ($\mu_1=\mu_2=\mu_3=1/3$) representa uso equiproporcional das palavras.
+
+3. **Por que ele aparece aqui?**  
+   • O parâmetro $\boldsymbol\mu$ de um modelo Multinomial precisa viver dentro desse simplex; só assim representa probabilidades válidas.  
+   • Distribuições como a **Dirichlet** produzem pontos aleatórios *dentro* do simplex, permitindo colocar incerteza sobre $\boldsymbol\mu$.  
+   • Visualizar o simplex ajuda a ver como diferentes escolhas de hiperparâmetro $\boldsymbol\alpha$ (na Dirichlet) “empurram” a massa para os cantos (favoritismo a uma palavra) ou para o centro (distribuição balanceada).
+
+4. **Leitura prática do diagrama**  
+   • Qualquer ponto marcado no triângulo equivale a uma mistura $(\mu_{\text{cat}},\mu_{\text{dog}},\mu_{\text{fish}})$.  
+   • Exemplo: um ponto perto da base que liga “cat” a “dog” significa $\mu_{\text{fish}}\approx0$.  
+   • A área de cor mais escura (se sombreada) costuma indicar densidade maior de probabilidade sob uma Dirichlet específica – quanto mais escura, mais prováveis são esses vetores $\boldsymbol\mu$.
+
 ---
 
 #### Ligação com a probabilidade
@@ -325,7 +362,6 @@ Isso significa que:
 - em 25% das vezes sai **cachorro**,
 - e em 25% das vezes sai **peixe**.
 
----
 
 #### Quando o documento tem mais de uma palavra
 
@@ -349,7 +385,6 @@ $$
 - a fração com fatoriais ($M_i! / \prod W_{ij} !$) só diz **quantas formas diferentes há de reorganizar as palavras dentro do documento**;  
 - o produto $\prod \mu_j^{W_{ij}}$ só diz: "qual é a probabilidade de ter exatamente tantas ocorrências de cada palavra".
 
----
 
 #### Exemplo intuitivo
 
@@ -370,7 +405,7 @@ $$
 
 Ou seja, **9,4% de chance** de observar esse documento, dado o modelo.  
 
----
+
 
 #### O que essa distribuição garante?
  
@@ -379,19 +414,13 @@ A **média**:  $E[W_{ij}] = M_i \mu_j $
 
 cada contagem esperada é igual ao proporção $\mu_j$ vezes o tamanho do documento ($M_i$).  
 
-- A variância:  
-  $$ 
-  Var(W_{ij}) = M_i \mu_j (1 - \mu_j) 
-  $$  
+A **variância**:  $Var(W_{ij}) = M_i \mu_j (1 - \mu_j)$  
   
-  quanto mais incerta a palavra (probabilidade perto de 0,5), maior a variação.  
+quanto mais incerta a palavra (probabilidade perto de 0,5), maior a variação.  
 
-- A covariância:  
-  $$ 
-  Cov(W_{ij}, W_{ij'}) = - M_i \mu_j \mu_{j'} 
-  $$  
+A **covariância**:  $Cov(W_{ij}, W_{ij'}) = - M_i \mu_j \mu_{j'}$  
   
-  se conto mais de uma palavra, conto menos de outra (efeito de soma fixa: o total de palavras tem que dar $M_i$).
+se conto mais de uma palavra, conto menos de outra (efeito de soma fixa: o total de palavras tem que dar $M_i$).
 
 ---
 
@@ -504,7 +533,7 @@ Exemplo:
 
 ---
 
-### 6.5 Conclusão
+### Conclusão
 
 - A **distribuição multinomial** representa **contagens de palavras**, assumindo sorteios independentes.  
 - Ela explica como calcular probabilidades de documentos e possibilita análises de autoria, classificação etc.  
