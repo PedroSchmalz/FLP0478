@@ -186,118 +186,329 @@ Nem sempre vale aplicar todo o pré-processamento “no automático”. Em taref
 
 
 
-## Capítulo 6 – O modelo Multinomial
+## Capítulo 6 - O Modelo Multinomial
 
-No capítulo anterior vimos que a representação *Bag-of-Words* transforma os textos em uma matriz de documentos e termos, onde cada célula representa a contagem de uma palavra em determinado documento. O próximo passo é pensar em **modelos probabilísticos** que expliquem como essas observações poderiam ter sido geradas.  
+Até agora, vimos como transformar um texto em números usando *bag‑of‑words* (BOW).  
+Mas uma pergunta importante surge: **de onde vêm esses números?**  
+Ou, em termos de estatística: *qual a "história" por trás das contagens de palavras?*
 
-O modelo multinomial é uma das formas mais simples e fundamentais de fazer isso. Ele parte da hipótese de que cada documento é resultado de um processo **de sorteios sucessivos de palavras a partir de uma distribuição de probabilidades**. Esse modelo serve de base para diversos outros métodos mais complexos (como tópicos, classificadores probabilísticos e modelos hierárquicos).
+Neste capítulo, Grimmer et al. discutem a **distribuição multinomial**, que é o modelo probabilístico mais simples e direto para textos representados como BOW.  
+Esse modelo permite **atribuir probabilidades a documentos** e pensar em hipóteses, como por exemplo: *quem é o autor de um texto?*  
+
+Aqui é necessário distinguir entre modelos probabilísticos e modelos algorítmicos, que são duas formas diferentes de ver a mesma coisa. Modelos probabílisticos olham para como os dados foram gerados usando probabilidade. Quando as premissas sobre o processo de geração dos dados (Ou *Data Generating Proces*, *DGP*) são corretas, os modelos probabilísticos oferecem uma afirmação clara sobre as premissas no funcionamento ideal do modelo. Também são fáceis de extrapolar para novas situações e apresentam formas claras para otimização e quantificação da incerteza.
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"Essas bases probabilísticas contrastam com abordagens algorítmicas, que especificam uma série de passos, geralmente na forma de uma função objetivo a ser otimizada. É melhor pensar nisso como uma linguagem diferente para descrever algo semelhante. Por exemplo, muitos modelos, como a regressão linear, podem ser descritos de uma perspectiva probabilística (um modelo linear normal) ou de uma perspectiva algorítmica (minimizar a soma dos erros quadráticos)."
+({cite}`grimmer2022text`, p. 112, tradução nossa)
+```
+
+Em estatística e em ciência de dados, *Data Generating Process (DGP)*, ou processo gerador de dados, é a narrativa formal — probabilística ou causal — que especifica como os dados observados poderiam ter sido produzidos. Em outras palavras, é um conjunto de suposições explícitas sobre:
+
+* Quais variáveis existem (observadas e latentes).
+
+* Como elas se relacionam (determinística e/ou estocasticamente).
+
+* Quais distribuições de probabilidade regem os componentes aleatórios.
+
+* Como o “ruído” entra no sistema e quais são suas propriedades (média, variância, independência/heterocedasticidade, etc.).
+
+* Qual é a ordem de geração (quem vem antes: parâmetros, covariáveis, resultados).
+
+A utilidade do DGP é dupla. Primeiro, ele torna transparentes as suposições do modelo: quando se sabe exatamente que história está sendo contada, sabe-se também quando as conclusões são válidas. Segundo, um DGP bem especificado habilita a escolha de estimadores apropriados, a derivação de propriedades (consistência, viés, variância), a quantificação de incerteza e a validação do modelo (diagnósticos e testes de aderência).
+
+Em modelos probabilísticos, o DGP é escrito como uma sequência de sorteios de distribuições (por exemplo, parâmetros são sorteados de um prior; dados são sorteados de uma verossimilhança condicional nos parâmetros). Isso permite inferência Bayesiana, estimação por máxima verossimilhança e análise de incerteza bem fundamentada. Em abordagens algorítmicas, muitas vezes não se escreve explicitamente um DGP; define-se um objetivo de otimização (loss) e um procedimento de ajuste. Mesmo assim, pode-se interpretar esses procedimentos como aproximando um DGP implícito (por exemplo, regressão linear com MSE corresponde a erros normais i.i.d.).
 
 
-### A distribuição Multinomial
+### Revisão — Distribuições, DGP e Regressão Linear
 
-Para entender o modelo, começamos com um vocabulário pequeno. Suponha três palavras:
+Modelar estatisticamente é **contar uma história** sobre como os dados surgem. Chamamos essa história de **processo gerador de dados (DGP)**.  
+No caso mais simples:
 
-- "cachorro"  
-- "gato"  
-- "peixe"  
+1. **Distribuição** escolhida – Normal, Bernoulli, Multinomial, etc.  
+2. **Parâmetros** que controlam média, variância, covariâncias.  
+3. **Regras de amostragem** (independência, tamanho da amostra).  
 
-Se cada documento tivesse apenas **uma palavra**, poderíamos dizer que ele é gerado por uma distribuição **categórica** com probabilidades (μ_cachorro, μ_gato, μ_peixe). Por exemplo:
+Quando alinhamos essas peças, obtemos previsões (médias, variâncias) que podem ser comparadas à observação.
 
-- μ = (0.5, 0.25, 0.25)  
+---
 
-Aqui "cachorro" tem 50% de chance de aparecer, e "gato" ou "peixe" 25% cada.
+#### Regressão Linear Simples
 
-Quando o documento pode conter **M palavras**, passamos à **distribuição Multinomial**. Ela define a probabilidade de observar um vetor de contagens como:
 
 $$
-W_i \sim Multinomial(M_i, \mu)
+\underbrace{Y_i}_{\text{quantidade observada}}
+=\;\beta_0+\beta_1 X_i \;+\;\underbrace{\varepsilon_i}_{\text{ruído}}
+,\qquad
+\varepsilon_i\sim\mathcal{N}\bigl(0,\sigma^2\bigr)
 $$
 
-onde:  
-- \( M_i \) = número total de palavras no documento *i*  
-- \( \mu \) = vetor de probabilidades para o vocabulário  
+* **Distribuição** dos erros: Normal(0, σ²).  
+* **Parâmetros desconhecidos**: $\beta_0, \beta_1, \sigma^2$.
+* **Variáveis explicativas**: $X_i$  
+* **Suposição de independência** entre $\varepsilon_i$.  
+
+Isso gera um conjunto de $Y_i$ cujas **condicionais** $Y|X$ seguem uma normal centrada em $\beta_0+\beta_1X$. Por que assumir erro Normal?
+
+**A. Lembrete-relâmpago: Distribuição Normal**  
+• Formato “sino”: simétrica em torno da média $\mu$.  
+• Desvio-padrão $\sigma$ controla a “largura” (68 % dos valores em $\mu \pm \sigma$).  
+• Única distribuição contínua totalmente descrita por **média** e **variância**.
+
+**B. Teorema Central do Limite (TCL) em 2 linhas**  
+Se somarmos (ou tirarmos a média de) muitos efeitos independentes com variância finita, o resultado tende a ser Normal — **mesmo que cada efeito individual não seja Normal**.  
+Consequência prática: o termo de erro $\varepsilon$ de um modelo costuma ser bem aproximado por Normal, porque ele agrega inúmeras pequenas influências não controladas.
 
 
-### Exemplo
+#### Conexão com o Multinomial (Cap. 6 de Grimmer et al.)
 
-Suponha um documento de 3 palavras gerado pelo vocabulário (cachorro, gato, peixe), e as palavras sorteadas foram: (peixe, cachorro, peixe).  
+No capítulo de texto como dado:
 
-A contagem é o vetor:
+* **Distribuição de contagem** escolhida: **Multinomial**.  
+* **Parâmetro**: vetor $\mu$ no simplex (probabilidades das palavras).  
+* **Dados**: contagens $W_{ij}$.  
+* **DGP**: para cada documento i  
+  $$
+  W_i \sim \text{Multinomial}(M_i,\mu).
+  $$
+
+A lógica é idêntica à regressão:
+
+1. Escolher a distribuição coerente com a natureza do dado (contagem → Multinomial).  
+2. Declarar suposições (independência de tokens, mesmo $\mu$ em todos os docs ou dentro de grupos).  
+3. Estimar $\mu$ pela máxima verossimilhança ($\hat\mu_j=W_{\cdot j}/\sum_j W_{\cdot j}$).  
+4. Avaliar ajuste e, se necessário, **regularizar** com um prior Dirichlet (equivalente a adicionar pseudo-contagens).
+
+---
+
+#### Papel das suposições — paralelos úteis
+
+| Componente            | Regressão linear               | Multinomial de texto          |
+|-----------------------|--------------------------------|-------------------------------|
+| Variável de interesse | Y contínuo                     | Vetor de contagens            |
+| Distribuição do erro  | Normal                         | Multinomial                   |
+| Independência         | Observações \(i\)              | Tokens dentro de doc          |
+| Heterocedasticidade?  | Viola σ² constante             | Viola $\mu$ comum           |
+| Regularização         | Erros-padrão robustos, Bayes ridge | Dirichlet prior (\(\alpha\)) |
+
+Quebrar qualquer suposição exige **diagnóstico** (gráficos de resíduos, comparação empírica/vistas teóricas) e possivelmente **refinar o DGP** (transformar variáveis, hierarquizar parâmetros, robustez).
+
+
+
+### Distribuição Multinomial
+
+Imagine que temos só **três palavras possíveis no vocabulário**: gato, cachorro e peixe.  
+Cada documento é um "saco de palavras" com algumas dessas palavras.  
+
+Se o documento tiver **apenas uma palavra**, podemos representá-lo assim:
+
+- gato → $(1, 0, 0)$  
+- cachorro → $(0, 1, 0)$  
+- peixe → $(0, 0, 1)$  
+
+Isso é chamado de representação *one‑hot encoding* (só um valor igual a 1, o resto é 0). Também é conhecido como dummy variable, com cada coluna tendo valores binários (zero e um) para cada palavra.
+
+---
+
+#### Ligação com a probabilidade
+
+Podemos imaginar um **sorteio de palavras**: para cada posição do documento, escolhemos uma palavra de acordo com certas probabilidades.  
+
+Por exemplo, suponha que temos:
 
 $$
-W = (1, 0, 2)
+\mu = (0.5,\, 0.25,\, 0.25)
 $$
 
-Com parâmetros μ = (0.5, 0.25, 0.25), a probabilidade de observar essas contagens é:
+Isso significa que:
+- metade das vezes sai **gato**,
+- em 25% das vezes sai **cachorro**,
+- e em 25% das vezes sai **peixe**.
+
+---
+
+#### Quando o documento tem mais de uma palavra
+
+Agora, em vez de escolher uma palavra, escolhemos várias (por exemplo $M=10$ palavras).  
+O documento é uma **coleção de sorteios**. O modelo que descreve isso é a **distribuição multinomial**.
+
+Formalmente, se $W_{ij}$ é a contagem da palavra $j$ no documento $i$, dizemos:
 
 $$
-p(W|\mu) = \frac{3!}{1! \times 0! \times 2!} \times 0.5^1 \times 0.25^0 \times 0.25^2
+W_i \sim \text{Multinomial}(M_i, \mu).
 $$
 
+E a fórmula da probabilidade desse documento é:
+
 $$
-p(W|\mu) = 0.09375
+p(W_i \mid \mu) = \frac{M_i!}{\prod_{j=1}^J W_{ij}!}
+\prod_{j=1}^J \mu_j^{W_{ij}}.
 $$
 
+💡 Não se assuste:  
+- a fração com fatoriais ($M_i! / \prod W_{ij} !$) só diz **quantas formas diferentes há de reorganizar as palavras dentro do documento**;  
+- o produto $\prod \mu_j^{W_{ij}}$ só diz: "qual é a probabilidade de ter exatamente tantas ocorrências de cada palavra".
 
-### Propriedades úteis
+---
 
-A partir do modelo, podemos derivar:
+#### Exemplo intuitivo
 
-- **Esperança:** \(E[W_{ij}] = M_i \mu_j\)  
-- **Variância:** \(Var(W_{ij}) = M_i \mu_j (1 - \mu_j)\)  
-- **Covariância:** \(Cov(W_{ij}, W_{ij'}) = - M_i \mu_j \mu_{j'}\)  
+Diga que $\mu = (0.5, 0.25, 0.25)$, ou seja, metade das vezes dá **gato**.  
 
-Ou seja, quanto mais palavras sorteamos, mais as contagens se aproximam de suas probabilidades médias.
+Agora criamos um documento com 3 palavras: (peixe, gato, peixe).  
+Isso equivale ao vetor:
+
+$$
+W = (1, 0, 2).
+$$
+
+A probabilidade desse documento é:
+
+$$
+p(W \mid \mu) = \frac{3!}{1!\,0!\,2!}(0.5)^1 (0.25)^0 (0.25)^2 = 0.09375.
+$$
+
+Ou seja, **9,4% de chance** de observar esse documento, dado o modelo.  
+
+---
+
+#### O que essa distribuição garante?
+
+- A média:  
+  $$ \mathbb{E}[W_{ij}] = M_i \mu_j $$  
+  → cada contagem esperada é igual ao proporção $\mu_j$ vezes o tamanho do documento ($M_i$).  
+
+- A variância:  
+  $$ \text{Var}(W_{ij}) = M_i \mu_j (1 - \mu_j) $$  
+  → quanto mais incerta a palavra (probabilidade perto de 0,5), maior a variação.  
+
+- A covariância:  
+  $$ \text{Cov}(W_{ij}, W_{ij'}) = - M_i \mu_j \mu_{j'} $$  
+  → se conto mais de uma palavra, conto menos de outra (efeito de soma fixa: o total de palavras tem que dar $M_i$).
+
+---
+
+#### Um Modelo de Linguagem Básico
+
+Um **modelo de linguagem** é qualquer modelo que atribui probabilidades a textos.  
+No caso multinomial, pensamos o texto como "gerado" a partir de uma **caixa de probabilidades $\mu$**.
+
+---
+
+#### Aplicação famosa – *Federalist Papers*
+
+Mosteller e Wallace (1963) tentaram descobrir quem escreveu alguns ensaios com autoria disputada.
+
+Considere o vocabulário bem pequeno: {**by**, **man**, **upon**}.  
+Contagens observadas:
+
+| Autor     | by  | man | upon |
+|-----------|-----|-----|------|
+| Hamilton  | 859 | 102 | 374  |
+| Jay       | 82  |   0 |   1  |
+| Madison   | 474 |  17 |   7  |
+| Disputado | 15  |   2 |   0  |
+
+---
+
+#### Estimando $\mu$
+
+Para cada autor, calculamos a *fração de uso* de cada palavra.  
+Por exemplo, Hamilton:
+
+$$
+\hat{\mu}_H = \left(\tfrac{859}{1335}, \tfrac{102}{1335}, \tfrac{374}{1335}\right)
+= (0.64,\, 0.08,\, 0.28).
+$$
+
+Fazendo o mesmo para os outros autores, temos:
+
+- Jay: $(0.99, 0, 0.01)$  
+- Madison: $(0.95, 0.035, 0.015)$
+
+---
+
+#### Testando o documento disputado
+
+Documento disputado = $(15, 2, 0)$.  
+
+Calculamos a probabilidade de ele surgir segundo cada autor.  
+O resultado indica que **Madison** é o autor mais provável.
+
+---
+
+#### Por que precisamos de *Smoothing*?
+
+Note como Jay tem probabilidade **zero** de usar "man".  
+Mas será que isso é verdade? Não, só temos poucos textos de Jay. Ele *poderia* ter usado "man", só não apareceu.  
+
+Se aplicarmos as fórmulas “secas”, então qualquer vez que "man" apareça, Jay é automaticamente impossível.  
+Isso é perigoso!
+
+---
+
+#### Solução: Suavização de Laplace (add-one)
+
+Em vez de assumir que zero é zero, adicionamos **1 a todas as contagens**:
+
+$$
+\tilde{W}_{ij} = W_{ij} + 1.
+$$
+
+Assim, toda palavra tem chance não-nula.  
+É como imaginar que vimos cada palavra pelo menos uma vez.
+
+---
+
+#### O Dirichlet como Regularização
+
+Podemos ser ainda mais elegantes: em vez de *forçar um add‑one manual*,  
+colocamos um **prior probabilístico** sobre $\mu$: a **Distribuição de Dirichlet**.
+
+---
+
+#### O que é uma Dirichlet?
+
+Uma distribuição que gera vetores de probabilidades $\mu$ (não negativos, que somam 1).  
+Ou seja, é perfeita para modelar "proporções de palavras".
+
+Se:
+
+$$
+\mu_k \sim \text{Dirichlet}(\alpha),
+$$
+
+então o vetor $\mu_k$ já vem com uma noção de "suavização".  
+Os parâmetros $\alpha_j$ funcionam como **pseudo-contagens**.
+
+Exemplo:  
+- Se $\alpha = (1,1,1)$, é como se tivéssemos visto *1 ocorrência fictícia de cada palavra*.  
+- Se $\alpha = (10,10,10)$, todos os $\mu$ ficarão próximos de $(1/3,1/3,1/3)$.
+
+---
+
+#### Propriedades
+
+- Esperança:  
+  $$ \mathbb{E}[\mu_j] = \frac{\alpha_j}{\sum \alpha} $$
+- Variância:  
+  valores grandes de $\alpha$ → distribuições concentradas;  
+  valores pequenos → maior variabilidade.
+
+---
+
+### 6.5 Conclusão
+
+- A **distribuição multinomial** representa **contagens de palavras**, assumindo sorteios independentes.  
+- Ela explica como calcular probabilidades de documentos e possibilita análises de autoria, classificação etc.  
+- O problema dos zeros é resolvido com **suavização (Laplace)** ou com um **prior Dirichlet**.  
+- Esse é um dos pontos de partida para modelos de tópicos, classificação supervisionada e outras técnicas avançadas.
+
+---
+
+Resumindo: o modelo multinomial é como **imaginar que um autor tem um saquinho de palavras com certas probabilidades, e cada documento é produzido sorteando delas várias vezes**.
 
 
-### Estimando \(\mu\)
-
-Na prática, observamos a matriz documento-termo e queremos descobrir \(\mu\). A estimação mais simples é a **Máxima Verossimilhança (MLE):**
-
-\[
-\hat{\mu}_j = \frac{W_{ij}}{M_i}
-\]
-
-Isto é, a frequência relativa de cada termo em um documento (ou conjunto de documentos).
-
-Quando temos vários documentos, podemos tratar como se fossem um grande documento concatenado, já que a soma de variáveis multinomiais com o mesmo \(\mu\) é também uma variável multinomial.
-
-
-### Exemplo clássico: autoria dos *Federalist Papers*
-
-Mosteller e Wallace (1963) aplicaram o modelo multinomial para inferir qual autor (Hamilton, Madison ou Jay) escreveu ensaios de autoria disputada. A ideia é simples:
-
-1. Estimar \(\mu\) de cada autor a partir dos textos conhecidos.  
-2. Calcular a probabilidade de o texto disputado ter sido gerado por cada distribuição.  
-3. Classificar o autor mais provável.  
-
-Resultado: o modelo favoreceu Madison como autor dos ensaios disputados.
-
-
-### Regularização e suavização
-
-Um problema ocorre quando uma palavra nunca aparece nos textos de um autor. Nesse caso, a probabilidade estimada para ela é zero, levando a probabilidades nulas no cálculo.  
-
-Para corrigir isso, usa-se **regularização**, a mais comum sendo a **suavização de Laplace** (*Laplace smoothing*), que consiste em adicionar um pequeno valor \(\alpha\) às contagens:
-
-\[
-\hat{\mu}_j = \frac{W_{ij} + \alpha}{M_i + \alpha J}
-\]
-
-Com isso, mesmo palavras não observadas têm probabilidade > 0.
-
-
-### Conexão com a Dirichlet
-
-Uma forma bayesiana de incluir essa regularização é assumir que:
-
-\[
-\mu \sim Dirichlet(\alpha)
-\]
-
-O Dirichlet é uma distribuição que gera vetores de probabilidades que somam 1. Ele funciona como **prior** para as proporções de palavras. Ao atualizar com os dados observados, obtemos a distribuição posterior para \(\mu\), que combina evidência empírica e pseudo-contagens do prior.
-
-Esse passo é importante porque abre caminho para modelos hierárquicos (como LDA), em que múltiplos documentos compartilham e variam em torno de distribuições de palavras.
 
 
 
