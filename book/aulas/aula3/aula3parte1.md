@@ -375,10 +375,7 @@ Ou seja, **9,4% de chance** de observar esse documento, dado o modelo.
 #### O que essa distribuição garante?
  
 
-A média:  
-$$
-E[W_{ij}] = M_i \mu_j 
-$$  
+A **média**:  $E[W_{ij}] = M_i \mu_j $  
 
 cada contagem esperada é igual ao proporção $\mu_j$ vezes o tamanho do documento ($M_i$).  
 
