@@ -1,6 +1,6 @@
 # *Bag-of-Words* e o modelo Multinomial
 
-## Capítulo 5 - *Bag-of-words*
+## *Bag-of-words*
 
 Na última aula, vimos o que é um córpus e os princípios que o pesquisador deve seguir na construção ou utilização de um córpus para tarefas de aprendizado supervisionado. Depois de construir um córpus de documentos, o pesquisador deve decidir como irá representar o texto de forma numérica. Uma das formas mais comuns, e utilizadas nos modelos mais clássicos de aprendizado estatístico, é a *bag-of-words*, ou saco de palavras. Essa representação será a base dos modelos iniciais do curso que veremos a partir da sexta aula, como o modelo logístico/multinomial. A ideia principal por trás desse modelo é a de representar cada documento pelo número de vezes que cada palavra aparece nele. Considere as seguintes frases (ou documentos):
 
@@ -185,7 +185,7 @@ Nem sempre vale aplicar todo o pré-processamento “no automático”. Em taref
 
 
 
-## Capítulo 6 - O Modelo Multinomial
+## O Modelo Multinomial
 
 Até agora, vimos como transformar um texto em números usando *bag‑of‑words* (BOW).  
 Mas uma pergunta importante surge: **de onde vêm esses números?**  
