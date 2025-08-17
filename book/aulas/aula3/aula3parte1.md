@@ -186,6 +186,120 @@ Nem sempre vale aplicar todo o pré-processamento “no automático”. Em taref
 
 
 
+## Capítulo 6 – O modelo Multinomial
+
+No capítulo anterior vimos que a representação *Bag-of-Words* transforma os textos em uma matriz de documentos e termos, onde cada célula representa a contagem de uma palavra em determinado documento. O próximo passo é pensar em **modelos probabilísticos** que expliquem como essas observações poderiam ter sido geradas.  
+
+O modelo multinomial é uma das formas mais simples e fundamentais de fazer isso. Ele parte da hipótese de que cada documento é resultado de um processo **de sorteios sucessivos de palavras a partir de uma distribuição de probabilidades**. Esse modelo serve de base para diversos outros métodos mais complexos (como tópicos, classificadores probabilísticos e modelos hierárquicos).
+
+
+### A distribuição Multinomial
+
+Para entender o modelo, começamos com um vocabulário pequeno. Suponha três palavras:
+
+- "cachorro"  
+- "gato"  
+- "peixe"  
+
+Se cada documento tivesse apenas **uma palavra**, poderíamos dizer que ele é gerado por uma distribuição **categórica** com probabilidades (μ_cachorro, μ_gato, μ_peixe). Por exemplo:
+
+- μ = (0.5, 0.25, 0.25)  
+
+Aqui "cachorro" tem 50% de chance de aparecer, e "gato" ou "peixe" 25% cada.
+
+Quando o documento pode conter **M palavras**, passamos à **distribuição Multinomial**. Ela define a probabilidade de observar um vetor de contagens como:
+
+$$
+W_i \sim Multinomial(M_i, \mu)
+$$
+
+onde:  
+- \( M_i \) = número total de palavras no documento *i*  
+- \( \mu \) = vetor de probabilidades para o vocabulário  
+
+
+### Exemplo
+
+Suponha um documento de 3 palavras gerado pelo vocabulário (cachorro, gato, peixe), e as palavras sorteadas foram: (peixe, cachorro, peixe).  
+
+A contagem é o vetor:
+
+$$
+W = (1, 0, 2)
+$$
+
+Com parâmetros μ = (0.5, 0.25, 0.25), a probabilidade de observar essas contagens é:
+
+$$
+p(W|\mu) = \frac{3!}{1! \times 0! \times 2!} \times 0.5^1 \times 0.25^0 \times 0.25^2
+$$
+
+$$
+p(W|\mu) = 0.09375
+$$
+
+
+### Propriedades úteis
+
+A partir do modelo, podemos derivar:
+
+- **Esperança:** \(E[W_{ij}] = M_i \mu_j\)  
+- **Variância:** \(Var(W_{ij}) = M_i \mu_j (1 - \mu_j)\)  
+- **Covariância:** \(Cov(W_{ij}, W_{ij'}) = - M_i \mu_j \mu_{j'}\)  
+
+Ou seja, quanto mais palavras sorteamos, mais as contagens se aproximam de suas probabilidades médias.
+
+
+### Estimando \(\mu\)
+
+Na prática, observamos a matriz documento-termo e queremos descobrir \(\mu\). A estimação mais simples é a **Máxima Verossimilhança (MLE):**
+
+\[
+\hat{\mu}_j = \frac{W_{ij}}{M_i}
+\]
+
+Isto é, a frequência relativa de cada termo em um documento (ou conjunto de documentos).
+
+Quando temos vários documentos, podemos tratar como se fossem um grande documento concatenado, já que a soma de variáveis multinomiais com o mesmo \(\mu\) é também uma variável multinomial.
+
+
+### Exemplo clássico: autoria dos *Federalist Papers*
+
+Mosteller e Wallace (1963) aplicaram o modelo multinomial para inferir qual autor (Hamilton, Madison ou Jay) escreveu ensaios de autoria disputada. A ideia é simples:
+
+1. Estimar \(\mu\) de cada autor a partir dos textos conhecidos.  
+2. Calcular a probabilidade de o texto disputado ter sido gerado por cada distribuição.  
+3. Classificar o autor mais provável.  
+
+Resultado: o modelo favoreceu Madison como autor dos ensaios disputados.
+
+
+### Regularização e suavização
+
+Um problema ocorre quando uma palavra nunca aparece nos textos de um autor. Nesse caso, a probabilidade estimada para ela é zero, levando a probabilidades nulas no cálculo.  
+
+Para corrigir isso, usa-se **regularização**, a mais comum sendo a **suavização de Laplace** (*Laplace smoothing*), que consiste em adicionar um pequeno valor \(\alpha\) às contagens:
+
+\[
+\hat{\mu}_j = \frac{W_{ij} + \alpha}{M_i + \alpha J}
+\]
+
+Com isso, mesmo palavras não observadas têm probabilidade > 0.
+
+
+### Conexão com a Dirichlet
+
+Uma forma bayesiana de incluir essa regularização é assumir que:
+
+\[
+\mu \sim Dirichlet(\alpha)
+\]
+
+O Dirichlet é uma distribuição que gera vetores de probabilidades que somam 1. Ele funciona como **prior** para as proporções de palavras. Ao atualizar com os dados observados, obtemos a distribuição posterior para \(\mu\), que combina evidência empírica e pseudo-contagens do prior.
+
+Esse passo é importante porque abre caminho para modelos hierárquicos (como LDA), em que múltiplos documentos compartilham e variam em torno de distribuições de palavras.
+
+
 
 
 
