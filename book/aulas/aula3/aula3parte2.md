@@ -1,4 +1,3 @@
-
 # Mensuração e Aprendizado Supervisionado
 
 ## Princípios da Mensuração
@@ -42,3 +41,46 @@ O quinto princípio é bem autoexplicativo: Se o pesquisador sabe de problemas, 
 ## Contagem de Palavras
 
 Antes da criação de categorias ou tópicos de documentos, uma forma mais simples de trabalhar com texto era a de contar a frequência de certas palavras ao longo de todo o documento. Ainda que contagem de palavras seja uma forma mais direta e clara de trabalhar com o texto, ela pode não ser tão útil para conceitos mais complexos. No entanto, pode ser extretamente efetiva em alguns casos. Grimmer et al. citam o exemplo de Duneier (2016, {cite}`duneier2016ghetto`) com a exploração de como a palavra *Ghetto* muda de significado e utilização antes e depois do nazismo.
+
+
+```{figure} ../aula3/images/ghetto.png
+---
+width: 100%
+name: duneierghetto
+align: center
+---
+ Gráfico 1 de Duneier (2016) mostrando a proporção do uso da palavra "Ghetto" ao longo dos anos. Dados coletados do Google *Ngrams*
+
+```
+
+Como mostra a {numref}`Figura {number} <duneierghetto>`, o significado associado à palavra "Ghetto" mudou profundamente após a Segunda Guerra Mundial. Inicialmente, o termo era usado principalmente para descrever áreas de segregação de judeus na Europa. No pós-guerra, influenciado pela experiência nazista de discriminação e confinamento, o uso da palavra passou a abranger também os guetos de negros americanos, refletindo processos de segregação racial nos Estados Unidos. Essa mudança revela como eventos históricos podem transformar o sentido e o contexto de termos utilizados pela sociedade.
+
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"Em outras palavras, Duneier sustenta não apenas que a associação da palavra “gueto” mudou — algo claramente visível no gráfico —, mas também que a introdução de “gueto” como termo para descrever a segregação residencial negra esteve ligada ao uso nazista da palavra. O livro de Duneier é um exemplo poderoso de como uma análise quantitativa simples pode complementar, de forma útil, uma sociologia histórica detalhada e sutil."
+({cite}`grimmer2022text`, p. 286, tradução nossa)
+```
+
+Grimmer et al. reforçam, e nós assinamos embaixo, de que bons trabalhos de análise de texto não precisam sempre utilizar os métodos mais novos e refinados. Bons trabalhos podem surgir de uma análise simples, desde que bem embasada com a teoria, literatura, e processos históricos.
+
+### Métodos de Dicionário
+
+Dicionários são a generalização do método de palavras chaves. Eles usam a frequência média das palavras chaves que aparecem em um texto para classificar os documentos em categorias ou mensurar quanto esses documentos pertencem à categorias particulares. Como um pesquisador pode aplicar esses métodos?
+
+1. Devem identificar um conjunto de palavras que separam categorias e mensurar a frequência delas em um conjunto de documentos;
+2. Criar um dicionário ou utilizar um dicionário existente.
+
+#### Limitações
+
+Os métodos de dicionário já não são utilizados de maneira tão ampla, e alguns estudos mostram que costumam ter performance pior do que modelos de aprendizado supervisionado simples ({cite}`barbera2020automated`). Aqui estão alguns problemas:
+
+1. Os valores atribuídos às palavras devem se alinhar à como as palavras são usadas naquele contexto;
+2. Devem ser usados de forma cautelosa e com bastante validação explícita.
+3. Não produzem métricas com propriedades particulares;
+4. Performam pior do que modelos simples de aprendizado de máquina supervisionado (e.g. regressão logística, multinomial, *Decision Trees*, etc.)
+
+## Conclusão
+
+A mensuração em análise de texto exige rigor conceitual, transparência e validação constante. Como vimos, bons resultados dependem de uma clara definição dos objetivos, da identificação e disponibilização dos dados, de processos de codificação reprodutíveis e da comunicação aberta sobre limitações. Métodos simples, como a contagem de palavras, podem ser extremamente úteis para revelar mudanças históricas no significado de termos, desde que bem fundamentados teoricamente. Por outro lado, métodos de dicionário oferecem uma abordagem prática para classificação de textos, mas apresentam limitações e exigem validação cuidadosa. Independentemente do método escolhido, o compromisso com a clareza, a replicabilidade e a honestidade sobre as restrições do processo é fundamental para garantir a qualidade e a credibilidade da pesquisa em PLN (e no geral).
+
