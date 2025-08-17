@@ -376,15 +376,18 @@ Ou seja, **9,4% de chance** de observar esse documento, dado o modelo.
 
 - A média:  
   $$ E[W_{ij}] = M_i \mu_j $$  
-  → cada contagem esperada é igual ao proporção $\mu_j$ vezes o tamanho do documento ($M_i$).  
+
+  cada contagem esperada é igual ao proporção $\mu_j$ vezes o tamanho do documento ($M_i$).  
 
 - A variância:  
   $$ Var(W_{ij}) = M_i \mu_j (1 - \mu_j) $$  
-  → quanto mais incerta a palavra (probabilidade perto de 0,5), maior a variação.  
+  
+  quanto mais incerta a palavra (probabilidade perto de 0,5), maior a variação.  
 
 - A covariância:  
   $$ Cov(W_{ij}, W_{ij'}) = - M_i \mu_j \mu_{j'} $$  
-  → se conto mais de uma palavra, conto menos de outra (efeito de soma fixa: o total de palavras tem que dar $M_i$).
+  
+  se conto mais de uma palavra, conto menos de outra (efeito de soma fixa: o total de palavras tem que dar $M_i$).
 
 ---
 
