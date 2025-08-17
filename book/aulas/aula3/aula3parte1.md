@@ -374,17 +374,24 @@ Ou seja, **9,4% de chance** de observar esse documento, dado o modelo.
 
 #### O que essa distribuição garante?
 
-- A média:  
-  $$ \mathbb{E}[W_{ij}] = M_i \mu_j $$  
-  → cada contagem esperada é igual ao proporção $\mu_j$ vezes o tamanho do documento ($M_i$).  
+- **Média**  
+  \[
+    \mathbb{E}[W_{ij}] \;=\; M_i \,\mu_j
+  \]  
+  A contagem esperada do termo \(j\) no documento \(i\) é a sua probabilidade \(\mu_j\) multiplicada pelo tamanho do documento \(M_i\).
 
-- A variância:  
-  $$ \text{Var}(W_{ij}) = M_i \mu_j (1 - \mu_j) $$  
-  → quanto mais incerta a palavra (probabilidade perto de 0,5), maior a variação.  
+- **Variância**  
+  \[
+    \operatorname{Var}(W_{ij}) \;=\; M_i \,\mu_j \,(1-\mu_j)
+  \]  
+  A incerteza é maior quando \(\mu_j \approx 0{,}5\) e diminui quando a palavra é muito rara ou muito comum.
 
-- A covariância:  
-  $$ \text{Cov}(W_{ij}, W_{ij'}) = - M_i \mu_j \mu_{j'} $$  
-  → se conto mais de uma palavra, conto menos de outra (efeito de soma fixa: o total de palavras tem que dar $M_i$).
+- **Covariância**  
+  \[
+    \operatorname{Cov}\!\bigl(W_{ij},\,W_{ij'}\bigr) \;=\; -\,M_i \,\mu_j \,\mu_{j'}
+  \]  
+  Como o total de tokens é fixo (\(M_i\)), um aumento na contagem de \(j\) implica redução esperada em \(j'\) — efeito de “soma constante”.
+
 
 ---
 
