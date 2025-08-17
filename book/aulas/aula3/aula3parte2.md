@@ -40,7 +40,7 @@ O quinto princípio é bem autoexplicativo: Se o pesquisador sabe de problemas, 
 
 ## Contagem de Palavras
 
-Antes da criação de categorias ou tópicos de documentos, uma forma mais simples de trabalhar com texto era a de contar a frequência de certas palavras ao longo de todo o documento. Ainda que contagem de palavras seja uma forma mais direta e clara de trabalhar com o texto, ela pode não ser tão útil para conceitos mais complexos. No entanto, pode ser extretamente efetiva em alguns casos. Grimmer et al. citam o exemplo de Duneier (2016, {cite}`duneier2016ghetto`) com a exploração de como a palavra *Ghetto* muda de significado e utilização antes e depois do nazismo.
+Antes da criação de categorias ou tópicos de documentos, uma forma mais simples de trabalhar com texto era a de contar a frequência de certas palavras ao longo de todo o documento. Ainda que contagem de palavras seja uma forma mais direta e clara de trabalhar com o texto, ela pode não ser tão útil para conceitos mais complexos. No entanto, pode ser extretamente efetiva em alguns casos. Grimmer et al. citam o exemplo de Duneier (2016, {cite}`duneier2016ghetto`.) com a exploração de como a palavra *Ghetto* muda de significado e utilização antes e depois do nazismo.
 
 
 ```{figure} ../aula3/images/ghetto.png
