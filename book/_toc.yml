@@ -27,6 +27,8 @@ parts:
     - file: aulas/aula3/aula3intro.md
     - file: aulas/aula3/aula3parte1.md
     - file: aulas/aula3/aula3parte2.md
+    - file: aulas/aula3/aula3.ipynb
+  # - file: aulas/aula3/lab3.ipynb
   - caption: Outros
     chapters:
     - file: references.md
