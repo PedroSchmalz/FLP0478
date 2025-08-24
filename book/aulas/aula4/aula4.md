@@ -101,7 +101,7 @@ Em PLN, tarefas de classificação incluem desde a filtragem de spam, análise d
 
 
 
-
+## Como criar um Banco de Treinamento
 
 
 
