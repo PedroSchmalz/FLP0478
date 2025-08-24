@@ -45,7 +45,7 @@ O Paradigma central do aprendizado supervisionado se articula na ideia de traduz
 
 
 $$
-D_i := {(y_i, **x**_i), i = 1,\dots, N}
+D_i := {(y_i, \mathbf{x_i}), i = 1,\dots, N}
 $$
 
 $$
