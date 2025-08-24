@@ -5,7 +5,7 @@ Na última aula vimos a representação textual *Bag-of-words*, que divide o tex
 
 ## Aprendizado de Máquina
 
-O Aprendizado de Máquina é uma tecnologia dentro do campo de Inteligência Artificial que permite que computadores aprendam e façam predições sem programação explícita. Inteligência Artificial é a "Inteligência apresentada por artefatos (e.g. Máquinas), em oposição à inteligência natural (IN) apresentada por animais, como os humanos. [...] De maneira geral, definimos inteligência como a habilidade de perceber um ambiente, analisá-lo e tomar acões/decisões que maximizam a chance de atingir determinado objetivo" ({cite}`cerulli2023fundamentals`., p. 5). Como mostra a figura {numref}`Figura {number} <AIML>`, Aprendizado de Máquina é uma subárea da Inteligência artificial e, como definimos na primeira linha, permitem que a máquina tome acões/decisões com base em um conjunto de dados/experiências prévias, e não em programação explícita. Aprendizado de Máquina e Aprendizado Estatístico são utilizados de maneira intercambiável na literatura. Dentro da área de aprendizado supervisionado, temos a subárea de Aprendizado Profundo (ou *Deep Learning*), em que a característica definidora dos modelos são de que possuirão diversas camadas neurais (veremos o que é isso futuramente).
+O Aprendizado de Máquina é uma tecnologia dentro do campo de Inteligência Artificial que permite que computadores aprendam e façam predições sem programação explícita. Inteligência Artificial é a "Inteligência apresentada por artefatos (e.g. Máquinas), em oposição à inteligência natural (IN) apresentada por animais, como os humanos. [...] De maneira geral, definimos inteligência como a habilidade de perceber um ambiente, analisá-lo e tomar acões/decisões que maximizam a chance de atingir determinado objetivo" ({cite}`cerulli2023fundamentals`., p. 5). Como mostra a {numref}`Figura {number} <AIML>`, Aprendizado de Máquina é uma subárea da Inteligência artificial e, como definimos na primeira linha, permitem que a máquina tome acões/decisões com base em um conjunto de dados/experiências prévias, e não em programação explícita. Aprendizado de Máquina e Aprendizado Estatístico são utilizados de maneira intercambiável na literatura. Dentro da área de aprendizado supervisionado, temos a subárea de Aprendizado Profundo (ou *Deep Learning*), em que a característica definidora dos modelos são de que possuirão diversas camadas neurais (veremos o que é isso futuramente).
 
 
 ```{figure} ../aula4/images/AIML.png
@@ -18,7 +18,7 @@ align: center
 ```
 
 
-a figura {numref}`Figura {number} <classicdiv>` mostra como a literatura faz a divisão clássica do Aprendizado de Máquina. Temos aplicações supervisionadas, em que um conjunto de valores $Y$ (*targets*) são preditos com base em um conjunto de variáveis explicativas (ou *features*). Existem dois tipos de aplicações superivisionadas: As com *targets* de valores contínuos (Regressão) e as de valores categóricos (Classificação). No decorrer do curso, focaremos em aplicações de Classificação. No entanto, existem também aplicações não supervisionadas, como as de *Clustering, que buscam encontrar padrões nos dados (e.g. Classificação de Tópicos, Divisão em grupos) sem que o humano/pesquisador forneça rótulos ou valores alvo. Há ainda uma terceira categoria, a dos métodos semi-supervisionados, que combinam um pequeno conjunto de dados rotulados com muitos dados não rotulados para melhorar o desempenho dos modelos. Por fim, existe o Aprendizado por Reforço (*Reinforcement Learning*), em que um agente interage com um ambiente e aprende, por tentativa e erro, a escolher ações que maximizem a recompensa acumulada ao longo do tempo. Aqui estão alguns exemplos típicos de cada família de aplicações:
+A {numref}`Figura {number} <classicdiv>` mostra como a literatura faz a divisão clássica do Aprendizado de Máquina. Temos aplicações supervisionadas, em que um conjunto de valores $Y$ (*targets*) são preditos com base em um conjunto de variáveis explicativas (ou *features*). Existem dois tipos de aplicações supervisionadas: As com *targets* de valores contínuos (Regressão) e as de valores categóricos (Classificação). No decorrer do curso, focaremos em aplicações de Classificação. No entanto, existem também aplicações não supervisionadas, como as de *Clustering, que buscam encontrar padrões nos dados (e.g. Classificação de Tópicos, Divisão em grupos) sem que o humano/pesquisador forneça rótulos ou valores alvo. Há ainda uma terceira categoria, a dos métodos semi-supervisionados, que combinam um pequeno conjunto de dados rotulados com muitos dados não rotulados para melhorar o desempenho dos modelos. Por fim, existe o Aprendizado por Reforço (*Reinforcement Learning*), em que um agente interage com um ambiente e aprende, por tentativa e erro, a escolher ações que maximizem a recompensa acumulada ao longo do tempo. Aqui estão alguns exemplos típicos de cada família de aplicações:
 
 - Classificação (supervisionado) – filtragem de e-mails spam × não spam.
 
@@ -32,8 +32,7 @@ a figura {numref}`Figura {number} <classicdiv>` mostra como a literatura faz a d
 
 
 
-```{figure} ../aula4/images/classicdivision.png
----
+```{figure} ../aula4/images/classicdivision.jpg
 width: 100%
 name: classicdiv
 align: center
@@ -43,6 +42,15 @@ align: center
 
 
 O Paradigma central do aprendizado supervisionado se articula na ideia de traduzir uma tarefa cognitiva em um problema estatístico. O aprendizado estatístico começa com a coleta de informações do passado armazenados em um objeto $D$, o banco de dados. Um banco de dados é uma coleção de informações sobre $N$ casos, nos quais observamos um resulatdo (ou *outcome*) $y$, e um conjunto $p$ de preditores (ou variáveis explicativas) $ X = (X_i, ..., Xp) $:
+
+
+\[
+\mathcal{D} := \{(y_i, \mathbf{x}_i), \; i = 1,\dots, N\} \tag{1.1}
+\]
+
+\[
+(x_1,\dots,x_p) \xrightarrow{\,f\,} y \tag{1.2}
+\]
 
 
 
