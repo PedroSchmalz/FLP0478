@@ -55,13 +55,31 @@ $$
 $$
 
 
-Para mapear isso da melhor maneira, precisamos de outra função: A função erro. A **função erro** é um mapeamento  
+### Função de Erro
+
+
+Para mapear isso da melhor maneira, precisamos de outra função: A função erro. A **função erro**, de forma muito geral e superficial, é um mapeamento  
 
 $$
 L : (y, \hat{y}) \;\longrightarrow\; \mathbb{R}_{\ge 0}
 $$
 
-que devolve um escalar não-negativo indicando o quanto a predição $\hat{y}=f(\mathbf{x})$ diverge do valor verdadeiro $y$.
+que devolve um escalar não-negativo indicando o quanto a predição $\hat{y}=f(\mathbf{x})$ diverge do valor verdadeiro $y$. Traduzindo, o modelo de aprendizado de máquina utilizará a função erro para entender o quão distante ele está do melhor resultado. Nas sucessivas iterações, ele vai tentar minimizar o erro, consequentemente minimizando a função de custo. Uma função de erro comum na regressão linear é o MSE (*Mean Squared Error*):
+
+$$
+MSE (X) = E[(y- f(x)²| x)]
+$$
+
+Cada tarefa de aprendizado de máquina terá sua função de erro específica (até a não supervisionada). Não é necessário memorizar todas as funções erro/custo, e alguns modelos (como os de aprendizado profundo) usam funções erro próprias. O importante é entender o que são e que o objetivo do modelo, numa aplicação deste tipo, é o de reduzir o erro. O melhor modelo, na concepção clássica do Aprendizado de máquina, é aquele que consegue o melhor resultado na aproximação de $E(y|x)$. Ou seja, o que consegue o melhor resultado (Acurácia, Precisão, etc.) utilizando as *features* para tentar prever o *target*.
+
+
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"Em Aprendizado de Máquina, prever a variável-alvo é tão central que podemos definir a área como um conjunto de estratégias de modelagem (paramétricas ou não paramétricas) cujo objetivo é obter uma aproximação confiável de $E(y∣x)$, tomando a acurácia de predição como princípio orientador. Assim, alguns métodos podem ser considerados superiores a outros desde que a predição seja o único propósito da análise. A estimativa estatística de $E(y∣x)$ está sujeita a dois tipos de erro possíveis: (1) erro amostral e (2) erro de especificação."
+({cite}`cerulli2023fundamentals`, p. 15, tradução nossa)
+```
+
 
 
 
