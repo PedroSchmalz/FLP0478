@@ -41,16 +41,16 @@ align: center
 ```
 
 
-O Paradigma central do aprendizado supervisionado se articula na ideia de traduzir uma tarefa cognitiva em um problema estatístico. O aprendizado estatístico começa com a coleta de informações do passado armazenados em um objeto $D$, o banco de dados. Um banco de dados é uma coleção de informações sobre $N$ casos, nos quais observamos um resulatdo (ou *outcome*) $y$, e um conjunto $p$ de preditores (ou variáveis explicativas) $ X = (X_i, ..., Xp) $:
+O Paradigma central do aprendizado supervisionado se articula na ideia de traduzir uma tarefa cognitiva em um problema estatístico (Cerulli, p. 7). O aprendizado estatístico começa com a coleta de informações do passado armazenados em um objeto $D$, o banco de dados. Um banco de dados é uma coleção de informações sobre $N$ casos, nos quais observamos um resulatdo (ou *outcome*) $y$, e um conjunto $p$ de preditores (ou variáveis explicativas) $ X = (X_i, ..., Xp) $:
 
 
-\[
-\mathcal{D} := \{(y_i, \mathbf{x}_i), \; i = 1,\dots, N\} \tag{1.1}
-\]
+$$
+D_i := {(y_i, **x**_i), i = 1,\dots, N}
+$$
 
-\[
-(x_1,\dots,x_p) \xrightarrow{\,f\,} y \tag{1.2}
-\]
+$$
+(x_1,...,x_p) \xrightarrow{\,f\,} y 
+$$
 
 
 
