@@ -41,17 +41,27 @@ align: center
 ```
 
 
-O Paradigma central do aprendizado supervisionado se articula na ideia de traduzir uma tarefa cognitiva em um problema estatístico (Cerulli, p. 7). O aprendizado estatístico começa com a coleta de informações do passado armazenados em um objeto $D$, o banco de dados. Um banco de dados é uma coleção de informações sobre $N$ casos, nos quais observamos um resulatdo (ou *outcome*) $y$, e um conjunto $p$ de preditores (ou variáveis explicativas) $ X = (X_i, ..., Xp) $:
+O Paradigma central do aprendizado supervisionado se articula na ideia de traduzir uma tarefa cognitiva em um problema estatístico (Cerulli, p. 7). O aprendizado estatístico começa com a coleta de informações do passado armazenados em um objeto $D$, o **banco de dados**. Um banco de dados é uma coleção de informações sobre $N$ casos, nos quais observamos um resultado (ou *outcome*) $y$, e um conjunto $p$ de preditores (ou variáveis explicativas) $ X = (X_i, ..., Xp) $:
 
 
 $$
 D_i := {(y_i, \mathbf{x_i}), i = 1,\dots, N}
 $$
 
+Grosso modo, $D_i$ é igual ao conjunto dos pares ordenados $(y_i,x_i)$ com i indo de 1 a $N$, o tamanho do banco de dados. Na aplicação de PLN que estamos trabalhando ao longo do curso, $D_i$ é o banco de dados contendo todas as publicações dos políticos no *X*, os pares ordenados $(y_i,x_i)$ representam a nossa classificação para cada publicação(Sentimento ou Posicionamento), em $y_i$, e a representação do nosso texto em $x_i$. A tarefa principal do aprendizado de máquina é mapear, usando o banco de dados, os preditores $x_i$ para cada resultado $y_i$. Com isso, temos o seguinte algoritmo (ou função) geral:
+
 $$
 (x_1,...,x_p) \xrightarrow{\,f\,} y 
 $$
 
+
+Para mapear isso da melhor maneira, precisamos de outra função: A função erro. A **função erro** é um mapeamento  
+
+$$
+L : (y, \hat{y}) \;\longrightarrow\; \mathbb{R}_{\ge 0}
+$$
+
+que devolve um escalar não-negativo indicando o quanto a predição $\hat{y}=f(\mathbf{x})$ diverge do valor verdadeiro $y$.
 
 
 
