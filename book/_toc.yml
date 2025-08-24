@@ -30,6 +30,9 @@ parts:
     - file: aulas/aula3/aula3parte2.md
     - file: aulas/aula3/aula3.ipynb
     - file: aulas/aula3/lab3.ipynb
+  - caption: Aula 04 - Conceitos Básicos de *ML*
+    chapters:
+    - file: aulas/aula4/aula4intro.md
   - caption: Outros
     chapters:
     - file: references.md
