@@ -18,7 +18,7 @@ align: center
 ```
 
 
-A {numref}`Figura {number} <classicdiv>` mostra como a literatura faz a divisão clássica do Aprendizado de Máquina. Temos aplicações supervisionadas, em que um conjunto de valores $Y$ (*targets*) são preditos com base em um conjunto de variáveis explicativas (ou *features*). Existem dois tipos de aplicações supervisionadas: As com *targets* de valores contínuos (Regressão) e as de valores categóricos (Classificação). No decorrer do curso, focaremos em aplicações de Classificação. No entanto, existem também aplicações não supervisionadas, como as de *Clustering, que buscam encontrar padrões nos dados (e.g. Classificação de Tópicos, Divisão em grupos) sem que o humano/pesquisador forneça rótulos ou valores alvo. Há ainda uma terceira categoria, a dos métodos semi-supervisionados, que combinam um pequeno conjunto de dados rotulados com muitos dados não rotulados para melhorar o desempenho dos modelos. Por fim, existe o Aprendizado por Reforço (*Reinforcement Learning*), em que um agente interage com um ambiente e aprende, por tentativa e erro, a escolher ações que maximizem a recompensa acumulada ao longo do tempo. Aqui estão alguns exemplos típicos de cada família de aplicações:
+A {numref}`Figura {number} <classicdiv>` mostra como a literatura faz a divisão clássica do Aprendizado de Máquina. Temos aplicações supervisionadas, em que um conjunto de valores $Y$ (*targets*) são preditos com base em um conjunto de variáveis explicativas (ou *features*). Existem dois tipos de aplicações supervisionadas: As com *targets* de valores contínuos (Regressão) e as de valores categóricos (Classificação). No decorrer do curso, focaremos em aplicações de Classificação. No entanto, existem também aplicações não supervisionadas, como as de *Clustering*, que buscam encontrar padrões nos dados (e.g. Classificação de Tópicos, Divisão em grupos) sem que o humano/pesquisador forneça rótulos ou valores alvo. Há ainda uma terceira categoria, a dos métodos semi-supervisionados, que combinam um pequeno conjunto de dados rotulados com muitos dados não rotulados para melhorar o desempenho dos modelos. Por fim, existe o Aprendizado por Reforço (*Reinforcement Learning*), em que um agente interage com um ambiente e aprende, por tentativa e erro, a escolher ações que maximizem a recompensa acumulada ao longo do tempo. Aqui estão alguns exemplos típicos de cada família de aplicações:
 
 - Classificação (supervisionado) – filtragem de e-mails spam × não spam.
 
@@ -80,6 +80,24 @@ Cada tarefa de aprendizado de máquina terá sua função de erro específica (a
 "Em Aprendizado de Máquina, prever a variável-alvo é tão central que podemos definir a área como um conjunto de estratégias de modelagem (paramétricas ou não paramétricas) cujo objetivo é obter uma aproximação confiável de $E(y∣x)$, tomando a acurácia de predição como princípio orientador. Assim, alguns métodos podem ser considerados superiores a outros desde que a predição seja o único propósito da análise. A estimativa estatística de $E(y∣x)$ está sujeita a dois tipos de erro possíveis: (1) erro amostral e (2) erro de especificação."
 ({cite}`cerulli2023fundamentals`, p. 15, tradução nossa)
 ```
+
+## Classificação Supervisionada em PLN
+
+A tarefa de classificação é uma das aplicações mais comuns do aprendizado supervisionado, especialmente em Processamento de Linguagem Natural (PLN). O objetivo central da classificação é atribuir um rótulo ou categoria a cada exemplo do conjunto de dados, com base em suas características (features). No contexto do curso, isso significa, por exemplo, identificar o sentimento ou posicionamento de uma publicação de político a partir do texto.
+
+Para realizar a classificação, o modelo é treinado com um conjunto de exemplos rotulados, aprendendo padrões que relacionam as variáveis explicativas (como a frequência de palavras ou outras representações do texto) ao rótulo desejado. Após o treinamento, o modelo pode ser utilizado para prever o rótulo de novos exemplos, buscando generalizar o conhecimento adquirido.
+
+
+### Métricas de Classificação
+
+A qualidade de um classificador é avaliada por métricas como acurácia, precisão, recall e F1-score, que medem o quão bem o modelo consegue distinguir entre as diferentes classes. Além disso, é fundamental validar o desempenho do modelo em dados não vistos durante o treinamento, garantindo que ele não apenas memorize os exemplos, mas realmente aprenda padrões úteis.
+
+Em PLN, tarefas de classificação incluem desde a filtragem de spam, análise de sentimentos, identificação de tópicos, até a detecção de fake news. O sucesso dessas aplicações depende de uma boa representação dos dados, escolha adequada do modelo e validação rigorosa dos resultados. Assim, a classificação se torna uma ferramenta poderosa para extrair conhecimento e tomar decisões baseadas em dados.
+
+
+## *Trade-offs* do Aprendizado de Máquina
+
+
 
 
 
