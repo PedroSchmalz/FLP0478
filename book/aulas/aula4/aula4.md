@@ -33,6 +33,7 @@ A {numref}`Figura {number} <classicdiv>` mostra como a literatura faz a divisão
 
 
 ```{figure} ../aula4/images/classicdivision.jpg
+---
 width: 100%
 name: classicdiv
 align: center
@@ -55,10 +56,10 @@ $$
 $$
 
 
-### Função de Erro
+### Função Erro
 
 
-Para mapear isso da melhor maneira, precisamos de outra função: A função erro. A **função erro**, de forma muito geral e superficial, é um mapeamento  
+Para mapear isso da melhor maneira, precisamos de outra função: A **função erro**. A **função erro**, de forma muito geral e superficial, é um mapeamento  
 
 $$
 L : (y, \hat{y}) \;\longrightarrow\; \mathbb{R}_{\ge 0}
