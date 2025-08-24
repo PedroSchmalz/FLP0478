@@ -1,6 +1,6 @@
 # Leituras
 
-## Aula 04 - Conceitos Básicos I
+## Aula 04 - Conceitos Básicos de Aprenzidado Supervisionado de Máquina I
 ___
 
 **Leituras Obrigatórias:**  
