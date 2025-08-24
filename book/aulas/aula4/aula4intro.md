@@ -28,6 +28,6 @@ Gillion, D. Q. (2016). Governing with Words. {cite}`gillion2016governing`. Cambr
 
 
 **Referências para o Lab:**  
-- - McKinney, Wes (2022). {cite}`mckinney2022python`. Chapter 5. "Getting Started with pandas", Chapter 6. "Data Loading, Storage, and File Formats", Chapter 7. "Data Cleaning and Preparation", and Chapter 8. "Data Wrangling: Join, Combine, and Reshape" in *Python for Data Analysis Data Wrangling with pandas, NumPy, and Jupyter*. Third Edition. O'Reilly.
+- McKinney, Wes (2022). {cite}`mckinney2022python`. Chapter 5. "Getting Started with pandas", Chapter 6. "Data Loading, Storage, and File Formats", Chapter 7. "Data Cleaning and Preparation", and Chapter 8. "Data Wrangling: Join, Combine, and Reshape" in *Python for Data Analysis Data Wrangling with pandas, NumPy, and Jupyter*. Third Edition. O'Reilly.
 
 
