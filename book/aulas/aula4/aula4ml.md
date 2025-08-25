@@ -171,10 +171,40 @@ Abaixo estão dois exemplos também reais de tweets *Irrelevantes*:
 
 A segunda publicação, apesar de ser durante a pandemia e referenciar as máscaras, não se refere às vacinas de COVID-19, mas usa as máscaras como analogia à vacina. Portanto, é considerada Irrelevante. 
 
-Esses são exemplos de uma única tarefa de codificação dentro do nosso projeto, e a mais "direta". Mesmo nessa tarefa simples, precisamos definir muitas regras para desambiguar situações atípicas e garantir a replicabilidade e confiabilidade do nosso conjunto de treinamento.
+Esses são exemplos de uma única tarefa de codificação dentro do nosso projeto, e a mais "direta". Mesmo nessa tarefa simples, precisamos definir muitas regras para desambiguar situações atípicas e garantir a replicabilidade e confiabilidade do nosso conjunto de treinamento. Veremos, futuramente, que a classificação de Posicionamento e Sentimento são mais complexas e geraram menor concordância entre anotadores, além de problemas de desbalanceamento dos dados.
 
 
+### b) Escolher e Gerenciar anotadores
 
+Seguindo o desenvolvimento de regras detalhadas para cada categoria de relevância, posicionamento e sentimento, foi criado um manual de codificação para treinar a equipe de anotadores; além disso, literatura sobre hesitação vacinal foi compartilhada a fim de aprimorar a compreensão da complexidade das atitudes e emoções em relação à vacinação. A equipe de pesquisa também recebeu treinamento sobre as diferenças de contexto dos três anos analisados (por exemplo, 2020 como ano sem vacinas; 2021, início da vacinação de adultos e adolescentes; e 2022, início da imunização de crianças e bebês contra a SARS-CoV-2).
+
+A anotação do corpus foi realizada em 61 rodadas. Em cada rodada, uma amostra aleatória de 200 publicações era classificada usando um banco de dados criado especificamente para o projeto, no qual os posts eram anonimizados, removendo informações sobre autor, data ou imagens associadas à mensagem. O processo de classificação teve duas etapas: 
+
+Relevância — Três anotadores classificavam cada post como relevante ou não relevante. Em seguida, conflitos eram revisados por três pesquisadores seniores.
+
+Posicionamento e sentimento — Depois de resolvidos os conflitos de relevância, os posts considerados relevantes eram novamente anotados, agora quanto ao posicionamento e ao tipo de sentimento, de forma independente por três anotadores. Conflitos nessas duas categorias também eram revistos pelos supervisores de pesquisa.
+
+
+### c) Selecionar Documentos
+
+O processo de amostragem teve duas fases: Primeiro, definiu-se que o grupo político a ser estudado era os candidatos que estavam concorrendo às eleições municipais nas capitais em 2020, para o cargo de prefeito. Depois, coletou-se todas as publicações feitas por esses indivíduos nos anos 2020, 2021 e 2022. Para a anotação do córpus final, foram amostradas aleatoriamente 9.045 publicações, que ficaram divididas em 61 rodadas de aproximadamente 200 publicações. 
+
+
+### d) Checar Confiabilidade
+
+A confiabilidade da anotação de um córpus pode ser checada de algumas maneiras. A primeira é se consultar regularmente com os anotadores para verificar se não há contextos que não foram levados em conta, se eles conseguiram entender o processo de anotação, e se eles concordam entre si. Existem métricas que permitem mensurar o quanto os anotadores concordam em cada fase da anotação, comparando os rótulos dados por cada um em determinado documento. A {numref}`Figura {number} <krippedorf>` mostra o quanto a concordância entre anotadores variou ao longo das três tarefas (Relevância, Posicionamento e Sentimento). [Veja mais](https://pt.wikipedia.org/wiki/Alfa_de_Krippendorff) sobre o Alfa de Krippendorf.
+
+
+```{figure} ../aula4/images/Krippendorff_Alpha.png
+---
+width: 100%
+name: krippendorf
+align: center
+---
+Alfa de Krippendorf para as três tarefas de anotação. Fonte: Barberia et al., 2025 ({cite}`barberia2025its`)
+```
+
+A relevância apresentou o maior acordo geral entre os anotadores, com alfa médio de 0,94 e variação mínima entre as rodadas. Essa tarefa se beneficiou de um conjunto de dados mais balanceado, menos conflitos entre os anotadores e um número total maior de observações. Os critérios de sentimento e posicionamento obtiveram acordo moderado. O alfa médio foi 0,67 para Sentimento e 0,70 para Posicionamento. Contudo, ambas as tarefas mostraram grande variabilidade ao longo das rodadas. Essa oscilação pode ser atribuída ao desequilíbrio entre classes nessas duas classificações, o que gerou maior discordância nos conteúdos analisados em cada rodada, sobretudo nas categorias minoritárias (desfavorável e indefinido).
 
 
 ### Métricas de Classificação
@@ -187,10 +217,6 @@ Em PLN, tarefas de classificação incluem desde a filtragem de spam, análise d
 ## *Trade-offs* do Aprendizado de Máquina
 
 
-
-
-
-## Como criar um Banco de Treinamento
 
 
 
