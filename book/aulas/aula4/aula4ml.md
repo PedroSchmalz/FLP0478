@@ -223,7 +223,7 @@ A qualidade de um classificador é avaliada por métricas como **acurácia**, **
 
 A **acurácia** é uma das métricas mais utilizadas para avaliar o desempenho de um classificador. Ela indica a proporção de previsões corretas feitas pelo modelo em relação ao total de exemplos avaliados. Em outras palavras, a acurácia mostra o quanto o modelo acertou ao classificar os documentos ou exemplos em suas respectivas categorias.
 
-A fórmula da acurácia é:
+A fórmula da **acurácia** é:
 
 $$
 \text{Acurácia} = \frac{\text{Número de previsões corretas}}{\text{Número total de exemplos}}
