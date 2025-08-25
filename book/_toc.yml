@@ -34,6 +34,7 @@ parts:
     chapters:
     - file: aulas/aula4/aula4intro.md
     - file: aulas/aula4/aula4.md
+    - file: aulas/aula4/aula4.ipynb
   - caption: Outros
     chapters:
     - file: references.md
