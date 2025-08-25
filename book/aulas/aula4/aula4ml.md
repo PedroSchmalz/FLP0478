@@ -192,7 +192,7 @@ O processo de amostragem teve duas fases: Primeiro, definiu-se que o grupo polí
 
 #### d) Checar Confiabilidade
 
-A confiabilidade da anotação de um córpus pode ser checada de algumas maneiras. A primeira é se consultar regularmente com os anotadores para verificar se não há contextos que não foram levados em conta, se eles conseguiram entender o processo de anotação, e se eles concordam entre si. Existem métricas que permitem mensurar o quanto os anotadores concordam em cada fase da anotação, comparando os rótulos dados por cada um em determinado documento. A {numref}`Figura {number} <krippedorf>` mostra o quanto a concordância entre anotadores variou ao longo das três tarefas (Relevância, Posicionamento e Sentimento). [Veja mais](https://pt.wikipedia.org/wiki/Alfa_de_Krippendorff) sobre o Alfa de Krippendorf.
+A confiabilidade da anotação de um córpus pode ser checada de algumas maneiras. A primeira é se consultar regularmente com os anotadores para verificar se não há contextos que não foram levados em conta, se eles conseguiram entender o processo de anotação, e se eles concordam entre si. Existem métricas que permitem mensurar o quanto os anotadores concordam em cada fase da anotação, comparando os rótulos dados por cada um em determinado documento. A {numref}`Figura {number} <krippendorf>` mostra o quanto a concordância entre anotadores variou ao longo das três tarefas (Relevância, Posicionamento e Sentimento). [Veja mais](https://pt.wikipedia.org/wiki/Alfa_de_Krippendorff) sobre o Alfa de Krippendorf.
 
 
 ```{figure} ../aula4/images/Krippendorff_Alpha.png
@@ -209,12 +209,17 @@ A relevância apresentou o maior acordo geral entre os anotadores, com alfa méd
 
 ### 2. Escolher o Modelo de Aprendizado de Máquina
 
+Após a criação de um banco de treinamento confiável e bem anotado, o próximo passo é selecionar o modelo de aprendizado de máquina mais adequado para a tarefa. A escolha do modelo depende de diversos fatores, como o tipo de problema (classificação, regressão, etc.), o tamanho e a qualidade dos dados, o número de categorias, e o objetivo da análise.
 
+No contexto de Processamento de Linguagem Natural (PLN), modelos clássicos como Regressão Logística, Naive Bayes e Árvores de Decisão são frequentemente utilizados para tarefas de classificação de texto, especialmente quando se trabalha com representações simples como *Bag-of-Words*. Para problemas mais complexos ou conjuntos de dados maiores, modelos de aprendizado profundo, como redes neurais e transformadores (por exemplo, BERTimbau para português), podem oferecer ganhos significativos de desempenho.
 
+É importante considerar também a interpretabilidade do modelo, o tempo de treinamento, e a facilidade de ajuste dos hiperparâmetros (discutiremos isso novamente na próxima aula). Muitas vezes, recomenda-se começar com modelos mais simples e, conforme necessário, avançar para modelos mais sofisticados. Independentemente da escolha, o modelo deve ser treinado utilizando o banco de dados anotado, buscando aprender padrões que permitam prever corretamente os rótulos dos novos exemplos.
+
+Por fim, a seleção do modelo deve ser acompanhada de uma avaliação rigorosa de sua performance, utilizando métricas apropriadas e validação em dados não vistos, para garantir que o classificador seja confiável.
 
 ### 3. Checar a Performance
 
-A qualidade de um classificador é avaliada por métricas como **acurácia**, **precisão**, **recall** e **F1-score**, que medem o quão bem o modelo consegue distinguir entre as diferentes classes. Além disso, é fundamental validar o desempenho do modelo em dados não vistos durante o treinamento, garantindo que ele não apenas memorize os exemplos, mas realmente aprenda padrões úteis e generalize para outros conjuntos de documentos relacionados.
+A qualidade de um classificador é avaliada por métricas como **acurácia**, **precisão**, **recall** e **F1-score**, que medem o quão bem o modelo consegue distinguir entre as diferentes classes ([Veja Mais](https://developers.google.com/machine-learning/crash-course/classification/accuracy-precision-recall?hl=pt-br)). Além disso, é fundamental validar o desempenho do modelo em dados não vistos durante o treinamento, garantindo que ele não apenas memorize os exemplos, mas realmente aprenda padrões úteis e generalize para outros conjuntos de documentos relacionados.
 
 A **acurácia** é uma das métricas mais utilizadas para avaliar o desempenho de um classificador. Ela indica a proporção de previsões corretas feitas pelo modelo em relação ao total de exemplos avaliados. Em outras palavras, a acurácia mostra o quanto o modelo acertou ao classificar os documentos ou exemplos em suas respectivas categorias.
 
@@ -254,7 +259,16 @@ $$
 \text{F1-score} = 2 \times \frac{\text{Precisão} \times \text{Recall}}{\text{Precisão} + \text{Recall}}
 $$
 
-O F1-score varia de 0 a 1, sendo 1 o valor ideal, indicando que o modelo tem alta precisão e alto recall ao mesmo
+O F1-score varia de 0 a 1, sendo 1 o valor ideal, indicando que o modelo tem alta precisão e alto recall ao mesmo tempo.
+
+### 4. Aplicar no Banco de Teste
+
+Após treinar e validar o modelo de aprendizado supervisionado, o passo final é aplicar o classificador no banco de teste. O banco de teste consiste em exemplos que não foram utilizados durante o treinamento do modelo, permitindo avaliar sua capacidade de generalização para dados novos e reais. Ao aplicar o modelo no banco de teste, obtemos previsões para cada exemplo e podemos calcular as métricas de desempenho (acurácia, precisão, recall, F1-score) de forma mais confiável. Esse processo garante que o modelo não apenas aprendeu padrões específicos do conjunto de treinamento, mas também é capaz de realizar classificações corretas em situações inéditas, tornando-se útil para aplicações práticas e futuras
+
+## Conclusão
+
+O aprendizado supervisionado é uma abordagem fundamental para análise de textos e classificação de documentos em Processamento de Linguagem Natural. Ao longo do processo, é essencial construir um banco de treinamento confiável, com regras claras de anotação e validação, garantindo objetividade, replicabilidade e generalizabilidade dos resultados. A escolha do modelo de aprendizado de máquina deve considerar o tipo de problema, a qualidade dos dados e o objetivo da análise, equilibrando simplicidade, interpretabilidade e desempenho. A avaliação rigorosa do classificador, por meio de métricas como acurácia, precisão, recall e F1-score, assegura que o modelo seja capaz de generalizar para novos dados e produzir resultados úteis em aplicações reais. Por fim, aplicar o modelo em um banco de teste é indispensável para validar sua capacidade de classificação em situações inéditas, consolidando o papel do aprendizado supervisionado como ferramenta poderosa para extrair conhecimento e apoiar decisões baseadas em grandes
+
 
 
 
