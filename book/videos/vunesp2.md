@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# VUNESP - Introdução ao Python
+# VUNESP - Introdução ao Pandas
 
 
 ```{video} https://www.youtube.com/embed/zHlJY0xuu8M?si=8jqQiExDGgesCJ6h
