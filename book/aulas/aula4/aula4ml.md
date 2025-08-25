@@ -56,7 +56,7 @@ $$
 $$
 
 
-### Função Erro
+## Função Erro
 
 
 Para mapear isso da melhor maneira, precisamos de outra função: A **função erro**. A **função erro**, de forma muito geral e superficial, é um mapeamento  
@@ -83,9 +83,98 @@ Cada tarefa de aprendizado de máquina terá sua função de erro específica (a
 
 ## Classificação Supervisionada em PLN
 
-A tarefa de classificação é uma das aplicações mais comuns do aprendizado supervisionado, especialmente em Processamento de Linguagem Natural (PLN). O objetivo central da classificação é atribuir um rótulo ou categoria a cada exemplo do conjunto de dados, com base em suas características (features). No contexto do curso, isso significa, por exemplo, identificar o sentimento ou posicionamento de uma publicação de político a partir do texto.
+A tarefa de classificação é uma das aplicações mais comuns do aprendizado supervisionado, especialmente em Processamento de Linguagem Natural (PLN). O objetivo central da classificação é atribuir um rótulo ou categoria a cada exemplo do conjunto de dados, com base em suas características (features). No contexto do curso, isso significa, por exemplo, identificar o sentimento ou posicionamento de uma publicação de político a partir do texto (representado numericamente) de uma publicação no *X*. A classificação supervisionada usa um conjunto de documentos rotulados em categorias para criar um modelo estatístico que relaciona as palavras nos documentos aos rótulos, e aplica este modelo para conseguir rótulos comparáveis para outros documentos não rotulados. Nesse tipo de aplicação, o pesquisador é responsável por providenciar três tipos de informação: as categorias/rótulos para os documentos de treinamento; a representação do texto (*BOW* ou outra), e a classe de modelos que vai ser utilizada no treinamento. Na tarefa de classificação, o modelo de aprendizado de máquina também é referido como *Classificador*.
 
-Para realizar a classificação, o modelo é treinado com um conjunto de exemplos rotulados, aprendendo padrões que relacionam as variáveis explicativas (como a frequência de palavras ou outras representações do texto) ao rótulo desejado. Após o treinamento, o modelo pode ser utilizado para prever o rótulo de novos exemplos, buscando generalizar o conhecimento adquirido.
+No projeto *Mapping Political Elites COVID-19 Vaccine Tweets in Brazil*, o objetivo é o de anotar publicações no X (antigo *Twitter*) de políticos brasileiros sobre as vacinas de COVID-19 no período da pandemia. As categorias de anotação são: Se as publicações são relevantes com relação às vacinas de COVID-19 (**Relevância**), se possuem sentimentos negativos, positivos ou indeterminados (**Análise de Sentimento**); e se posicionam de forma contrária, favorável ou indeterminada com relação às vacinas (**Detecção de Posicionamento**). Mais detalhes sobre o processo de anotação, coleta, e os dados disponíveis estão no [Github](https://github.com/NUPRAM/CoViD-Pol) do NUPRAM (Núcleo de Políticas, Redes Sociais e Aprendizado de Máquina). Esse é um projeto no formato clássico de uma tarefa de classificação em PLN: Temos três categorias para cada publicação (Relevância, Sentimento e Posicionamento); temos a representação do texto (*Embeddings* do BERTimbau, que veremos no final do curso); e temos a classe de modelos (O BERTimbau, um modelo de aprendizado profundo para o português brasileiro). Segundo Grimmer et al., Um processo de anotação tem quatro passos:
+
+
+### 1. Criar o banco de Treinamento
+
+Criar um banco de treinamento (ou usar um já existente) é o primeiro passo em toda aplicação de Aprendizado de Máquina. Para isso, é necessário codificação/anotação por feita por humanos. A codificação humana de textos é existe há muito tempo para a organização e quantificação de textos (e.g. gêneros textuais, gêneros musicais, categorias de livros). Assim que um pesquisador define categorias, a codificação humana é o processo de colocar manualmente esses documentos em categorias. Esse processo é uma combinação de um *codebook*, o treinamento de anotadores, e os processos internos específicos de cada anotador. Com base em Neuendorf (2016), Grimmer et al. estabelecem as seguintes características de um bom banco de treinamento:
+
+* Objetividade-Intersubjetividade: A categoria mensurada é objetiva, e seu entendimento não é restrito à uma única pessoa (ou grupo de pessoas);
+* Desenho *a priori*: O banco de dados deve ser classificado com base em um *codebook*;
+* Confiabilidade: Diferentes conjuntos de anotadores humanos deveriam ser capazes de atingir mais ou menos a mesma classificação no mesmo conjunto de dados;
+* Validade: A métrica deve estar alinhada com o conceito de interesse;
+* Generalizabilidade: O banco de treinamento será baseado em uma amostra de um conjunto maior de documentos. A anotação feita nessa amostra deve ser generalizável para o resto dos documentos;
+* Replicabilidade: Outros pesquisadores e anotadores deve ser capazes de replicar a anotação no mesmo conjunto de dados (ou aplicar em outros conjuntos de documentos).
+
+
+#### a) Criando um codebook
+
+Um *codebook* é um documento que define de forma clara e detalhada as categorias, critérios e regras que devem ser seguidos durante o processo de anotação dos dados. Ele serve como guia para os anotadores humanos, garantindo que todos compreendam e apliquem os conceitos de maneira consistente e objetiva. O codebook descreve exemplos, contraexemplos e situações ambíguas, ajudando a reduzir interpretações subjetivas e aumentando a confiabilidade e a replicabilidade da classificação. Em projetos de aprendizado supervisionado, um codebook bem elaborado é fundamental para assegurar que o banco de treinamento reflita fielmente o conceito de interesse e possa ser utilizado por outros pesquisadores/anotadores. Vamos pegar o exemplo da nossa classificação de Relevância das publicações de políticos. Essas foram as regras: Posts cujo conteúdo se referia a vacinas e à vacinação contra a COVID-19 receberam valor 1, enquanto posts que apenas continham palavras-chave, mas não tratavam de vacinas/vacinação contra a COVID-19, receberam valor 0. Posts classificados como **relevantes** incluíam:
+
+* Citação direta de vacinas/vacinação contra a COVID-19;
+
+* Referência indireta a vacinas e vacinação contra a COVID-19 (por exemplo, discussão sobre outras vacinas e/ou campanhas de vacinação);
+
+* Termos específicos — ou que possam ser inferidos como tais — relativos às vacinas contra a COVID-19, como “segunda e terceira doses/aplicações”, “doses de reforço”;
+
+* Considerando o período deste estudo, tweets que mencionem vacinas e/ou vacinação no Brasil ou em outros países, mesmo que não especifiquem COVID-19;
+
+* Menção ao trabalho relacionado a vacinas de instituições (por exemplo, Fiocruz, Butantan), cientistas (por exemplo, Peter Hotez) ou políticos, ou ainda opiniões e comportamentos pró-vacina ou anti-vacina (por exemplo, Osmar Terra, CPICOVID19), mesmo em hashtags (#);
+
+* Menção ao trabalho relacionado a vacinas de laboratórios, indústrias ou organizações responsáveis pela produção ou desenvolvimento de vacinas, como Fiocruz, Butantan, Covaxin, AstraZeneca, Oxford etc.;
+
+* Campanhas de vacinação e comunicados de utilidade pública mencionando faixas etárias específicas e limitadas (por exemplo, “Vacinação para 37–39 anos começa amanhã”), pois tais anúncios eram quase exclusivamente para campanhas de vacinação contra a COVID-19;
+
+* Mensagens que discutam terapias e tratamentos para infecção por COVID-19 no contexto da própria COVID-19;
+
+* Menções à imunização obtida por vacinas ou por contaminação com o vírus da COVID-19 (por exemplo, imunização natural, imunização de rebanho etc.); ou
+
+* Tweets que incluam termos como “negacionista”, “negacionismo” e equivalentes, que se refiram direta ou indiretamente às posições da elite política sobre vacinas.
+
+Os dois exemplos abaixo são de *tweets* reais considerados relevantes na nossa anotação:
+
+```{admonition} 🐦 Tweet
+:class: tweet
+**@capitaoassumção**: Vacina Para todos!
+13:00 · 14 mar. 2021
+```
+
+```{admonition} 🐦 Tweet
+:class: tweet
+**@celsorussomano**: Cuidado com a ditadura que querem nos impor com a vacina da COVID-19. Estamos falando de uma vacina experimental, e todos nos corremos o risco de sermos cobaias. Isso é um desrespeito com a vida dos paulistanos, e não podemos aceitar que siga adiante!
+12:34 · 12 fev. 2021
+```
+
+
+
+Posts considerados **não relevantes** incluíam mensagens que se referiam a:
+
+* Vacinação em animais;
+
+* “Vacina” usada como metáfora para outro tema (por exemplo, transparência como vacina contra a corrupção);
+
+* Mensagem sobre outro assunto, mas contendo uma hashtag de vacina da COVID-19;
+
+* Ausência de menção a vacinação, vacinas, laboratórios ou qualquer palavra apresentada acima como relevante;
+
+* Mensagens em idioma estrangeiro que seriam relevantes se estivessem em português; ou
+
+* Mensagens que discutam terapias e tratamentos para infecção por COVID-19, mas cujo contexto não esteja relacionado à COVID-19.
+
+
+Abaixo estão dois exemplos também reais de tweets *Irrelevantes*:
+
+```{admonition} 🐦 Tweet
+:class: tweet
+**@anisiomaiapb**: Alguns partidos ainda funcionam como monarquias onde as decisões são tomadas entre pai e filho ou entre marido e esposa. Não passam de projetos familiares. Ainda bem que o PT está vacinado contra isto e continuamos militando num projeto plural, democrático e participativo.
+```
+
+
+
+```{admonition} 🐦 Tweet
+:class: tweet
+**@JoaoCampos**: O @governope decretou, a partir de hoje, a obrigatoriedade do uso de máscara para quem trabalha em estabelecimentos comercias durante a pandemia. Mas, se puder, saia de casa sempre de máscara, ela é a única vacina que temos contra o coronavírus.
+```
+
+A segunda publicação, apesar de ser durante a pandemia e referenciar as máscaras, não se refere às vacinas de COVID-19, mas usa as máscaras como analogia à vacina. Portanto, é considerada Irrelevante. 
+
+Esses são exemplos de uma única tarefa de codificação dentro do nosso projeto, e a mais "direta". Mesmo nessa tarefa simples, precisamos definir muitas regras para desambiguar situações atípicas e garantir a replicabilidade e confiabilidade do nosso conjunto de treinamento.
+
+
+
 
 
 ### Métricas de Classificação
