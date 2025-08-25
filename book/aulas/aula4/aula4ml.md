@@ -214,7 +214,9 @@ A relevância apresentou o maior acordo geral entre os anotadores, com alfa méd
 
 ### 3. Checar a Performance
 
-A qualidade de um classificador é avaliada por métricas como acurácia, precisão, recall e F1-score, que medem o quão bem o modelo consegue distinguir entre as diferentes classes. Além disso, é fundamental validar o desempenho do modelo em dados não vistos durante o treinamento, garantindo que ele não apenas memorize os exemplos, mas realmente aprenda padrões úteis e generalize para outros conjuntos de documentos relacionados. A **acurácia** é uma das métricas mais utilizadas para avaliar o desempenho de um classificador. Ela indica a proporção de previsões corretas feitas pelo modelo em relação ao total de exemplos avaliados. Em outras palavras, a acurácia mostra o quanto o modelo acertou ao classificar os documentos ou exemplos em suas respectivas categorias.
+A qualidade de um classificador é avaliada por métricas como **acurácia**, **precisão**, **recall** e **F1-score**, que medem o quão bem o modelo consegue distinguir entre as diferentes classes. Além disso, é fundamental validar o desempenho do modelo em dados não vistos durante o treinamento, garantindo que ele não apenas memorize os exemplos, mas realmente aprenda padrões úteis e generalize para outros conjuntos de documentos relacionados.
+
+A **acurácia** é uma das métricas mais utilizadas para avaliar o desempenho de um classificador. Ela indica a proporção de previsões corretas feitas pelo modelo em relação ao total de exemplos avaliados. Em outras palavras, a acurácia mostra o quanto o modelo acertou ao classificar os documentos ou exemplos em suas respectivas categorias.
 
 A fórmula da acurácia é:
 
@@ -224,8 +226,35 @@ $$
 
 Por exemplo, se um modelo classificou corretamente 80 de 100 exemplos, sua acurácia será 0,8 (ou 80%). Embora seja uma métrica intuitiva e fácil de interpretar, é importante lembrar que ela pode ser enganosa em situações de classes desbalanceadas, onde outras métricas como precisão, recall e F1-score também devem ser consideradas.
 
+A **precisão** (ou *precision*) é outra métrica importante para avaliar o desempenho de um classificador, especialmente em situações onde o custo de falsos positivos é alto. A precisão indica, dentre todas as previsões positivas feitas pelo modelo, qual proporção realmente corresponde a exemplos positivos. Em outras palavras, ela mostra o quanto o modelo foi assertivo ao identificar exemplos de uma determinada classe.
 
-### 4. Aplicar no Banco de Teste
+A fórmula da precisão é:
+
+$$
+\text{Precisão} = \frac{\text{Número de verdadeiros positivos}}{\text{Número total de exemplos classificados como positivos}}
+$$
+
+Por exemplo, se o modelo classificou 50 exemplos como positivos, mas apenas 40 deles eram realmente positivos, a precisão será $40/50 = 0,8$ (ou 80%). A precisão é especialmente relevante quando queremos evitar que o modelo faça muitas previsões positivas incorretas, como em tarefas de detecção de fraudes ou diagnósticos médicos.
+
+O **recall** (ou sensibilidade) é uma métrica que indica a capacidade do classificador de identificar corretamente todos os exemplos positivos presentes no conjunto de dados. Em outras palavras, o recall mostra a proporção de exemplos positivos que foram corretamente classificados como positivos pelo modelo.
+
+A fórmula do recall é:
+
+$$
+\text{Recall} = \frac{\text{Número de verdadeiros positivos}}{\text{Número de verdadeiros positivos} + \text{Número de falsos negativos}}
+$$
+
+Ou seja, é a proporção de exemplos positivos corretamente identificados pelo modelo, considerando todos os exemplos que realmente pertencem à classe positiva (verdadeiros positivos + falsos negativos).
+
+O **F1-score** é uma métrica que combina precisão e recall em um único valor, representando a média harmônica entre as duas. O F1-score é útil para avaliar o desempenho do modelo quando há um equilíbrio desejado entre precisão e recall, especialmente em conjuntos de dados desbalanceados.
+
+A fórmula do F1-score é:
+
+$$
+\text{F1-score} = 2 \times \frac{\text{Precisão} \times \text{Recall}}{\text{Precisão} + \text{Recall}}
+$$
+
+O F1-score varia de 0 a 1, sendo 1 o valor ideal, indicando que o modelo tem alta precisão e alto recall ao mesmo
 
 
 
