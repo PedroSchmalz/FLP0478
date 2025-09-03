@@ -16,9 +16,9 @@ Em que $Y$ é nosso *target* (e.g. Sentimento, posicionamento) e $\mathbf{x}$ é
 ## Por que estimar $f(x)$?
 
 
-Existem dois contextos em que o pesquisador está interessado em estimar $f(x)$: Inferência e Predição. Grosso modo, as pesquisas em **inferência** procuram entender o impacto de cada variável explicativa ($X_1, X_2, ..., X_3$) em $Y$, e como essa relação se altera com a inclusão de novas variáveis, interações, polinômios, etc. Por exemplo, uma pesquisa pode estar preocupada em entender como a religião de um indivíduo pode impactar em seu apoio ao bolsonarismo. Um possível resultado dessa pesquisa poderia ser de que o indivíduo ser evangélico tem um efeito positivo constante no apoio ao bolsonarismo, em comparação com outras religiões/denominações. 
+Existem dois contextos em que o pesquisador está interessado em estimar $f(x)$: Inferência e Predição. Grosso modo, as pesquisas em **inferência** procuram entender o impacto de cada variável explicativa ($X_1, X_2, ..., X_p$) em $Y$, e como essa relação se altera com a inclusão de novas variáveis, interações, polinômios, etc. Por exemplo, uma pesquisa pode estar preocupada em entender como a religião de um indivíduo pode impactar em seu apoio ao bolsonarismo. Um possível resultado dessa pesquisa poderia ser de que o indivíduo ser evangélico tem um efeito positivo constante no apoio ao bolsonarismo, em comparação com outras religiões/denominações. 
 
-No contexto da **predição**, o foco é em utilizar os dados de treinamento rotulados (e, com isso, as variáveis $X_1, X_2, ..., X_3 $) para prever os valores de $Y$, sejam estes valores contínuos ou categóricos. Um exemplo clássico de classificação neste contexto é o de classificação de e-mails em *Spam* ou não *Spam*. Nessa tarefa, utiliza-se o texto do email em alguma representação numérica (*Bag-of-words*, *embeddings*, etc.) para a classificação binária de *Spam* ou não. 
+No contexto da **predição**, o foco é em utilizar os dados de treinamento rotulados (e, com isso, as variáveis $X_1, X_2, ..., X_p $) para prever os valores de $Y$, sejam estes valores contínuos ou categóricos. Um exemplo clássico de classificação neste contexto é o de classificação de e-mails em *Spam* ou não *Spam*. Nessa tarefa, utiliza-se o texto do email em alguma representação numérica (*Bag-of-words*, *embeddings*, etc.) para a classificação binária de *Spam* ou não. 
 
 ### Predição
 
@@ -30,6 +30,13 @@ $$
 
 
 Onde $\hat{f}$ é a estimativa de $f$ e $\hat{y}$ é a estimativa de $y$. Aqui, $\hat{f}$ é tratado como uma "caixa preta", no sentido de que a preocupação não é com sua forma, nem com sua especificação, mas se ele fornece boas previsões de $y$. No exemplo do e-mail, não importa quais palavras são melhores preditoras de se um e-mail é ou não *spam*, mas sim que o modelo consiga classificar corretamente essa categoria, na maior parte dos casos. A precisão da função $\hat{f}$ é determinada por dois tipos de erro: um redutível e outro irredutível. Mesmo que tenhamos um ótimo modelo e especificação, ainda existirá uma parcela de erro devido à fatores estocásticos (i.e. aleatórios).
+
+
+````{margin}
+```{note}
+Um problema comum que pode existir em aplicações de aprendizado de máquina é o *data leakage*. *Data leakage* é um problema que ocorre quando informações do conjunto de teste ou de validação acabam sendo utilizadas, direta ou indiretamente, durante o treinamento do modelo. Isso faz com que o modelo tenha acesso a dados que não deveria conhecer, levando a resultados artificialmente altos nas métricas de avaliação e prejudicando sua capacidade de generalização para dados realmente novos. Portanto, sabendo que existe um erro irredutível nas aplicações de predição, resultados **bons demais** na validação e teste (i.e. resultados muito próximos da perfeição) podem indicar que o pesquisador está com vazamento de dados.
+```
+````
 
 $$
  E(y-\hat{y}) = E[f(x)+ \epsilon - \hat{f}(x)]² \\
@@ -44,13 +51,6 @@ $$
 
 $f(x)$ seria a verdadeira relação de variáveis que melhor explicam e prevem $y$ (ou o verdadeiro *Data Generating Process*) e $\hat{f}(x)$ é a função que o pesquisador estabeleceu com as variáveis existentes no banco de dados. Sempre é possível, com base na rotulação de treinamento, reduzir a diferença entre o que encontramos nos dados e o que melhor aproxima $y$. No entanto, o outro componente da equação é
 
-````{margin}
-```{note}
-Um problema comum que pode existir em aplicações de aprendizado de máquina é o *data leakage*. *Data leakage* é um problema que ocorre quando informações do conjunto de teste ou de validação acabam sendo utilizadas, direta ou indiretamente, durante o treinamento do modelo. Isso faz com que o modelo tenha acesso a dados que não deveria conhecer, levando a resultados artificialmente altos nas métricas de avaliação e prejudicando sua capacidade de generalização para dados realmente novos. Portanto, sabendo que existe um erro irredutível nas aplicações de predição, resultados **bons demais** na validação e teste (i.e. resultados muito próximos da perfeição) podem indicar que o pesquisador está com vazamento de dados.
-```
-````
-
-
 
 $$
 + \underbrace{Var(\epsilon)}_{\text{Erro irredutível: variabilidade aleatória dos dados}}
@@ -58,23 +58,42 @@ $$
 
 Esse erro é irredutível e estocástico, e sempre estará presente em qualquer aplicação, seja ela inferencial ou de previsão. Esse erro faz com que, independente da nossa especificação de $\hat{f}(x)$, $E(y-\hat{y})$ nunca será igual a zero.
 
+
+#### Exemplo
+
+Aqui estão dois exemplos de tarefas de predição:
+
+**Predição de valores contínuos (Regressão):**  
+Um pesquisador deseja prever o preço de casas em uma cidade com base em variáveis como número de quartos, área construída, localização e idade do imóvel. O banco de treinamento contém registros dessas características ($\mathbf{X}$) e o preço real de cada casa ($Y$). O objetivo é estimar uma função $\hat{f}(\mathbf{x})$ que, ao receber as características de uma nova casa, forneça uma previsão do seu preço ($\hat{y}$), um valor contínuo. 
+
+**Predição em PLN com classificação:**  
+Em Processamento de Linguagem Natural, uma tarefa comum é classificar textos em categorias específicas. Por exemplo, considere um sistema de análise de sentimentos aplicado a avaliações de produtos online. O banco de treinamento é composto por textos de avaliações ($\mathbf{X}$) e o rótulo correspondente ($Y$), indicando se a avaliação é positiva, negativa ou neutra. O modelo aprende padrões linguísticos e de frequência de palavras para estimar $\hat{f}(\mathbf{x})$ e, ao receber uma nova avaliação, prevê o sentimento expresso pelo usuário ($\hat{y}$), realizando uma classificação multiclasse. Esse tipo de tarefa é essencial para empresas que desejam monitorar a satisfação dos clientes, identificar problemas recorrentes em produtos ou serviços, e tomar decisões estratégicas baseadas no feedback dos usuários.
+
+Outro exemplo relevante de classificação em PLN é a detecção automática de notícias falsas (*fake news*). Nesse caso, o banco de treinamento contém textos de notícias ($\mathbf{X}$) e o rótulo ($Y$) indicando se a notícia é verdadeira ou falsa. O modelo pode ser treinado para identificar padrões de linguagem, fontes e estrutura textual que diferenciam notícias confiáveis de notícias enganosas, auxiliando plataformas digitais e leitores na filtragem de informações e combate à desinformação.
+
 ### Inferência
 
+No contexto da inferência, também há a preocupação de estimar $f$. No entanto, o foco está em entender a associação entre $y$ e $X = \{X_1, X_2, ..., X_p\}$. Diferente da predição, onde o objetivo principal é prever valores futuros ou desconhecidos, a inferência busca interpretar e explicar como as variáveis explicativas influenciam o resultado. Algumas perguntas comuns nesse tipo de estudo incluem:
+
+- Quais variáveis explicativas estão associadas com $y$?
+- Qual a relação de cada $X_i$ com $y$?
+- Essa relação é linear ou mais complexa?
+- Qual o efeito de uma mudança em $X_i$ sobre $y$?
+
+**Exemplo 1: Inferência em regressão linear**  
+Um pesquisador deseja entender como fatores socioeconômicos, como renda, escolaridade e idade, influenciam o nível aprovação de políticos (e.g. Governador do estado, Presidente, etc.). Utilizando um modelo de regressão linear, ele pode estimar o efeito de cada variável explicativa sobre a aprovação ($Y$), interpretando os coeficientes para identificar quais fatores têm maior impacto e se essas relações são positivas ou negativas.
+
+**Exemplo 2: Inferência em PLN**  
+Em Processamento de Linguagem Natural, um estudo pode investigar quais características textuais estão associadas à viralização de postagens em redes sociais. O pesquisador pode analisar variáveis como o uso de emojis, hashtags, comprimento do texto e presença de palavras-chave, buscando entender como cada uma dessas variáveis ($X_i$) contribui para o número de compartilhamentos ou curtidas ($Y$). O objetivo não é apenas prever se uma postagem será viral, mas explicar quais elementos do texto aumentam ou diminuem essa probabilidade.
+
+**Exemplo 3: Inferência em classificação**  
+Outro exemplo é um estudo sobre fatores que influenciam a classificação de notícias como verdadeiras ou falsas. Ao invés de apenas construir um modelo para detectar fake news, o pesquisador pode examinar quais padrões linguísticos, fontes ou estruturas textuais estão estatisticamente associados à veracidade das notícias, permitindo uma compreensão mais profunda dos mecanismos de desinformação.
 
 
+## Como estimar $f$?
 
+Estabelecemos que, em inferência ou predição, o objetivo principal é estimar a função $\hat{f}$ tal que $y \approx \hat{f}(x)$ para cada par de observações ($x_i, y_i$). Os métodos/modelos que podem fazer essa estimação estão divididos em dois grupos: **Paramétricos** e **Não Paramétricos**.
 
-
-
-
-
-
-
-
-
-## Conclusão
-
-O aprendizado supervisionado é uma abordagem fundamental para análise de textos e classificação de documentos em Processamento de Linguagem Natural. Ao longo do processo, é essencial construir um banco de treinamento confiável, com regras claras de anotação e validação, garantindo objetividade, replicabilidade e generalizabilidade dos resultados. A escolha do modelo de aprendizado de máquina deve considerar o tipo de problema, a qualidade dos dados e o objetivo da análise, equilibrando simplicidade, interpretabilidade e desempenho. A avaliação rigorosa do classificador, por meio de métricas como acurácia, precisão, recall e F1-score, assegura que o modelo seja capaz de generalizar para novos dados e produzir resultados úteis em aplicações reais. Por fim, aplicar o modelo em um banco de teste é indispensável para validar sua capacidade de classificação em situações inéditas, consolidando o papel do aprendizado supervisionado como ferramenta poderosa para extrair conhecimento e apoiar decisões baseadas em grandes
 
 
 
