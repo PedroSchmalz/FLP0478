@@ -16,7 +16,7 @@ Em que $Y$ é nosso *target* (e.g. Sentimento, posicionamento) e $\mathbf{x}$ é
 ## Por que estimar $f(x)$?
 
 
-Existem dois contextos em que o pesquisador está interessado em estimar $f(x)$: Inferência e Predição. Grosso modo, as pesquisas em **inferência** procuram entender o impacto de cada variável explicativa ($X_1, X_2, ..., X_3$) em $Y$, e como essa relação se altera com a inclusão de novas variáveis, interações, polinômios, etc. Por exemplo, uma pesquisa pode estar preocupada em entender como a religião de um indivíduo pode impactar em seu apoio ao bolsonarismo. Um possível resultado dessa pesquisa é o de que ser evangélico tem um efeito positivo constante no apoio ao bolsonarismo, em comparação com outras religiões/denominações. 
+Existem dois contextos em que o pesquisador está interessado em estimar $f(x)$: Inferência e Predição. Grosso modo, as pesquisas em **inferência** procuram entender o impacto de cada variável explicativa ($X_1, X_2, ..., X_3$) em $Y$, e como essa relação se altera com a inclusão de novas variáveis, interações, polinômios, etc. Por exemplo, uma pesquisa pode estar preocupada em entender como a religião de um indivíduo pode impactar em seu apoio ao bolsonarismo. Um possível resultado dessa pesquisa poderia ser de que o indivíduo ser evangélico tem um efeito positivo constante no apoio ao bolsonarismo, em comparação com outras religiões/denominações. 
 
 No contexto da **predição**, o foco é em utilizar os dados de treinamento rotulados (e, com isso, as variáveis $X_1, X_2, ..., X_3 $) para prever os valores de $Y$, sejam estes valores contínuos ou categóricos. Um exemplo clássico de classificação neste contexto é o de classificação de e-mails em *Spam* ou não *Spam*. Nessa tarefa, utiliza-se o texto do email em alguma representação numérica (*Bag-of-words*, *embeddings*, etc.) para a classificação binária de *Spam* ou não. 
 
@@ -42,12 +42,23 @@ $$
 \underbrace{[f(x)-\hat{f}(x)]^2}_{\text{Erro redutível: diferença entre a função verdadeira e a estimada}} \\
 $$
 
-$f(x)$ seria a verdadeira relação de variáveis que melhor explicam e prevem $y$ (ou o verdadeiro *Data Generating Process*) e $\hat{f}(x)$ é a função que o pesquisador estabeleceu com as variáveis existentes no banco de dados.
+$f(x)$ seria a verdadeira relação de variáveis que melhor explicam e prevem $y$ (ou o verdadeiro *Data Generating Process*) e $\hat{f}(x)$ é a função que o pesquisador estabeleceu com as variáveis existentes no banco de dados. Sempre é possível, com base na rotulação de treinamento, reduzir a diferença entre o que encontramos nos dados e o que melhor aproxima $y$. No entanto, o outro componente da equação é
+
+````{margin}
+```{note}
+Um problema comum que pode existir em aplicações de aprendizado de máquina é o *data leakage*. *Data leakage* é um problema que ocorre quando informações do conjunto de teste ou de validação acabam sendo utilizadas, direta ou indiretamente, durante o treinamento do modelo. Isso faz com que o modelo tenha acesso a dados que não deveria conhecer, levando a resultados artificialmente altos nas métricas de avaliação e prejudicando sua capacidade de generalização para dados realmente novos. Portanto, sabendo que existe um erro irredutível nas aplicações de predição, resultados **bons demais** na validação e teste (i.e. resultados muito próximos da perfeição) podem indicar que o pesquisador está com vazamento de dados.
+```
+````
+
+
 
 $$
 + \underbrace{Var(\epsilon)}_{\text{Erro irredutível: variabilidade aleatória dos dados}}
 $$
 
+Esse erro é irredutível e estocástico, e sempre estará presente em qualquer aplicação, seja ela inferencial ou de previsão. Esse erro faz com que, independente da nossa especificação de $\hat{f}(x)$, $E(y-\hat{y})$ nunca será igual a zero.
+
+### Inferência
 
 
 
