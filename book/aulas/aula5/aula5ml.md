@@ -4,7 +4,7 @@ Na última aula, vimos que o Aprendizado de máquina é um campo dentro da Intel
 
 ```
 
-
+Como dito, o objetivo de uma tarefa de aprendizado de máquina é usar um conjunto de dados para fazer previsões e classificações para outros dados não observados durante o treinamento. Esse conjunto de dados é conhecido como o **banco de treinamento** (ou Córpus anotado, em PLN), e é composto de dois tipos de variáveis principais: A variável ***Target*** (alvo), representada muitas vezes por $Y$, e também conhecida por variável resposta, variável dependente, ou variável explicada. O segundo tipo de variável é o que é chamado, no *ML*, de ***Features***, representadas por $\mathbf{X}$
 
 
 
