@@ -37,6 +37,9 @@ parts:
     - file: aulas/aula4/aula4.ipynb
     - file: aulas/aula4/lab4.ipynb
     - file: videos/vunesp2.md
+  - caption: Aula 05 - Conceitos Básicos de Aprendizado Supervisionado II
+    chapters:
+    - file: aulas/aula5/aula5intro.md
   - caption: Outros
     chapters:
     - file: references.md
