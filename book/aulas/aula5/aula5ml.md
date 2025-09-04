@@ -136,7 +136,7 @@ Entre os métodos paramétricos mais conhecidos estão a regressão linear, a re
 
 ### Métodos Não-Paramétricos
 
-Em contraposição aos métodos paramétricos, os métodos **não-paramétricos** não assumem uma forma funcional de $f$, procurando estimá-lo de forma a chegar bem perto das observações individuais, sem ser muito rígido nem flexível demais. No exemplo da renda do indivíduo, ainda usamos as variáveis de anos de estudo e *seniority*, mas não definimos se essa relação é linear, se há interação entre as variáveis explicativas, etc.
+Em contraposição aos métodos paramétricos, os métodos **não-paramétricos** não assumem uma forma funcional de $f$, procurando estimá-lo de forma a chegar bem perto das observações individuais, sem ser muito rígido nem flexível demais. No exemplo da renda do indivíduo, ainda usamos as variáveis de anos de estudo e *seniority*, mas não definimos se essa relação é linear, se há interação entre as variáveis explicativas, etc. A {numref}`Figura {number} <incomenonpar>` mostra como ficaria um modelo não paramétrico para a relação entre Renda do Indivíduo, anos de educação e *seniority* na empresa.
 
 
 ```{admonition} 💬 Com a palavra, os autores:
@@ -157,8 +157,40 @@ Modelo Não Paramétrico da Relação entre Renda do indivíduo, anos de educaç
 ```
 
 
+### Trade-off entre Flexibilidade e Interpretabilidade
+
+Lendo a seção anterior, talvez surja a seguinte pergunta: Por que usar métodos paramétricos? O modelo não paramétrico, apesar de precisar de mais dados, parece se ajustar melhor às observações e geral melhores resultados. Vamos ver que, pelo menos na área de aprendizado de máquina, a preferência é por métodos não-paramétricos. No entanto, métodos paramétricos são mais interpretáveis e adequados para a inferência: Com eles é possível entender quanto o aumento de um ano de estudo pode impactar a renda de um indivíduo no futuro, por exemplo. A {numref}`Figura {number} <flexinter>` mostra como varia a interpretabilidade ao longo da flexibilidade. Ao longo do curso, veremos modelos OLS (ou lineares, como a regressão logística), modelos baseados em árvores (Decision Trees, Random Forests), *bagging* e *boosting*, *SVM* (*Support Vector Machines*) e alguns modelos de *Deep Learning*.
+
+```{figure} ../aula5/images/fig2.7.png
+---
+width: 100%
+name: flexinter
+align: center
+---
+Representação do Trade-off entre interpretabilidade e flexibilidade. Fonte: Id., (p. 24)
+```
 
 
+Veremos que quanto mais flexível um modelo, mais difícil de entender como cada *feature* impacta na qualidade das previsões, chegando ao ápice da incompreensão em modelos de *deep learning*, que veremos ao final do curso. Métodos paramétricos, mais flexíveis, geralmente estimam um $f$ que se aproxima mais dos valores reais de $y$, mas isso vem com o custo para a interpretabilidade. Por isso, é importante tentar utilizar métodos paramétricos mais simples se o intuito é o de entender como cada variável impacta o modelo, seja no contexto de predição ou no contexto de inferência.
+
+Apesar disso, existem movimentos que buscam conciliar interpretabilidade e flexibilidade, como o do *Interpretable Machine Learning*. Avanços estão sendo feitos para permitir que seja possível investigar a "caixa preta" de modelos mais flexíveis, como o deep learning, e entender o impacto de cada *feature* ou conjunto de palavras na previsão dos modelos.
+
+Além disso, nem sempre o modelo mais flexível será mais generalizável para outras amostras para além do treinamento. A {numref}`Figura {number} <flexteste>` mostra como diferentes modelos performam no treinamento e teste em dados simulados (ou seja, em que se sabe o verdadeiro *DGP*).
+
+
+
+```{figure} ../aula5/images/fig2.9.png
+---
+width: 100%
+name: flexteste
+align: center
+---
+À esquerda: dados simulados a partir de f, mostrados em preto. Três estimativas de f são exibidas: a linha de regressão linear (curva laranja) e dois ajustes por splines de suavização (curvas azul e verde).
+
+À direita: Erro Quadrático Médio de treinamento (curva cinza), EQM de teste (curva vermelha) e EQM mínimo possível de teste entre todos os métodos (linha tracejada). Os quadrados representam os EQMs de treinamento e de teste para os três ajustes mostrados no painel da esquerda. Fonte: Id., p. 29.
+```
+
+O verdadeiro $f(x)$ da população está representado na linha preta, e seria o modelo que queremos alcançar. No entanto, não sabemos o verdadeiro $f(x)$, então só podemos comparar a performance dos modelos em algumas situações: Treinamento, Teste e Validação. 
 
 
 
