@@ -157,9 +157,9 @@ Modelo Não Paramétrico da Relação entre Renda do indivíduo, anos de educaç
 ```
 
 
-### Trade-off entre Flexibilidade e Interpretabilidade
+## Trade-off entre Flexibilidade e Interpretabilidade
 
-Lendo a seção anterior, talvez surja a seguinte pergunta: Por que usar métodos paramétricos? O modelo não paramétrico, apesar de precisar de mais dados, parece se ajustar melhor às observações e geral melhores resultados. Vamos ver que, pelo menos na área de aprendizado de máquina, a preferência é por métodos não-paramétricos. No entanto, métodos paramétricos são mais interpretáveis e adequados para a inferência: Com eles é possível entender quanto o aumento de um ano de estudo pode impactar a renda de um indivíduo no futuro, por exemplo. A {numref}`Figura {number} <flexinter>` mostra como varia a interpretabilidade ao longo da flexibilidade. Ao longo do curso, veremos modelos OLS (ou lineares, como a regressão logística), modelos baseados em árvores (Decision Trees, Random Forests), *bagging* e *boosting*, *SVM* (*Support Vector Machines*) e alguns modelos de *Deep Learning*.
+Lendo a seção anterior, talvez surja a seguinte pergunta: Por que usar métodos paramétricos? O modelo não paramétrico, apesar de precisar de mais dados, parece se ajustar melhor às observações e gera melhores resultados. Vamos ver que, pelo menos na área de aprendizado de máquina, a preferência é por métodos não-paramétricos. No entanto, métodos paramétricos são mais interpretáveis e adequados para a inferência: Com eles é possível entender quanto o aumento de um ano de estudo pode impactar a renda de um indivíduo no futuro, por exemplo. A {numref}`Figura {number} <flexinter>` mostra como varia a interpretabilidade ao longo da flexibilidade. Ao longo do curso, veremos modelos OLS (ou lineares, como a regressão logística), modelos baseados em árvores (Decision Trees, Random Forests), *bagging* e *boosting*, *SVM* (*Support Vector Machines*) e alguns modelos de *Deep Learning*.
 
 ```{figure} ../aula5/images/fig2.7.png
 ---
@@ -171,7 +171,7 @@ Representação do Trade-off entre interpretabilidade e flexibilidade. Fonte: Id
 ```
 
 
-Veremos que quanto mais flexível um modelo, mais difícil de entender como cada *feature* impacta na qualidade das previsões, chegando ao ápice da incompreensão em modelos de *deep learning*, que veremos ao final do curso. Métodos paramétricos, mais flexíveis, geralmente estimam um $f$ que se aproxima mais dos valores reais de $y$, mas isso vem com o custo para a interpretabilidade. Por isso, é importante tentar utilizar métodos paramétricos mais simples se o intuito é o de entender como cada variável impacta o modelo, seja no contexto de predição ou no contexto de inferência.
+Veremos que quanto mais flexível um modelo, mais difícil de entender como cada *feature* impacta na qualidade das previsões, chegando ao ápice em modelos de *deep learning*, que veremos ao final do curso. Métodos paramétricos, mais flexíveis, geralmente estimam um $f$ que se aproxima mais dos valores reais de $y$, mas isso vem com o custo para a interpretabilidade. Por isso, é importante tentar utilizar métodos paramétricos mais simples se o intuito é o de entender como cada variável impacta o modelo, seja no contexto de predição ou no contexto de inferência.
 
 Apesar disso, existem movimentos que buscam conciliar interpretabilidade e flexibilidade, como o do *Interpretable Machine Learning*. Avanços estão sendo feitos para permitir que seja possível investigar a "caixa preta" de modelos mais flexíveis, como o deep learning, e entender o impacto de cada *feature* ou conjunto de palavras na previsão dos modelos.
 
@@ -190,12 +190,22 @@ align: center
 À direita: Erro Quadrático Médio de treinamento (curva cinza), EQM de teste (curva vermelha) e EQM mínimo possível de teste entre todos os métodos (linha tracejada). Os quadrados representam os EQMs de treinamento e de teste para os três ajustes mostrados no painel da esquerda. Fonte: Id., p. 29.
 ```
 
-O verdadeiro $f(x)$ da população está representado na linha preta, e seria o modelo que queremos alcançar. No entanto, não sabemos o verdadeiro $f(x)$, então só podemos comparar a performance dos modelos em algumas situações: Treinamento, Teste e Validação. 
+O verdadeiro $f(x)$ da população está representado na linha preta, e seria o modelo que queremos alcançar. No entanto, na prática não sabemos o verdadeiro $f(x)$, então só podemos comparar a performance dos modelos em algumas situações: **Treinamento, Teste e Validação**. Na {numref}`Figura {number} <flexteste>` temos a comparação dos modelos no bancos de treinamento e teste (veremos o que é a validação nas próximas aulas). O modelo de regressão linear, menos flexível, traça uma reta ao longo das observações por meio do cálculo do *OLS*, gerando bastante erro entre os valores preditos e os valores reais. Por isso, apresenta os maiores erros de treinamento e teste (Quadrado laranja na figura à direita). O modelo de regressão linear apresenta *underfitting*, tendo resultados ruins no treinamento e no teste.
 
 
+ Na curva verde, temos um modelos flexível que se ajusta bem de perto às observações, gerando pouquíssimo erros no treinamento (quadrado verde). No entanto, apresenta alto erro no banco de teste. Isso se deve ao fato de que se ajustou muito bem aos dados de treinamento, mas não é generalizável para outras amostras. Isso é chamado de *overfitting*.
+
+ Por fim, temos a linha azul. Ela é bem próxima da verdadeira função $f$ representada na linha preta. O modelo se ajusta bem aos dados de treinamento, apresentando baixo erro nesse conjunto. Dos três modelos, é o que apresenta também o menor erro de teste. A linha azul representa a situação ideal em um modelo de aprendizado de máquina: tem bons resultados no treinamento e no teste.
 
 
+ ```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"À medida que a flexibilidade do modelo aumenta, o EQM de treinamento diminui, mas o EQM de teste pode não acompanhar essa queda. Quando um método produz um EQM de treinamento pequeno, mas um EQM de teste grande, dizemos que ele está sofrendo overfitting (ajuste excessivo) aos dados. Isso ocorre porque o procedimento de aprendizado estatístico se empenha demais em encontrar padrões no conjunto de treinamento e acaba capturando alguns que surgem apenas por acaso, e não por características reais da função desconhecida f. Ao fazermos overfitting nos dados de treinamento, o EQM de teste fica muito alto, pois os supostos padrões detectados no treinamento simplesmente não existem no conjunto de teste."
+({cite}`james2023introduction`., pp. 30-31, tradução nossa)
+```
 
+
+## Tradeoff entre Viés e Variância
 
 
 
