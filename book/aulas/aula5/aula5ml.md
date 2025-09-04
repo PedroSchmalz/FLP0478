@@ -113,7 +113,7 @@ Y = \beta_0 + \beta_1*X_1 + \beta_2*X_2 + ... + \beta_p * X_p
 $$
 
 
-Onde $p$ é o número de variáveis a serem incluídas. No exemplo de James et al. ({cite}`james2023introduction`), temos um modelo sobre a renda em função de anos de estudo e *seniority* (quantos anos o indivíduo trabalha na empresa). 
+Onde $p$ é o número de variáveis a serem incluídas. No exemplo de James et al. ({cite}`james2023introduction`.), temos um modelo sobre a renda em função de anos de estudo e *seniority* (quantos anos o indivíduo trabalha na empresa). 
 
 2. Com as variáveis e forma de $f$ definidas, precisamos escolher um modo de fazer o *fit* do modelo às observações. Isto é, precisamos estimar os parâmetros $\beta_0, \beta_1, ..., \beta_p$. O método mais comum em regressão linear para estimar esses parâmetros é o *OLS*, *Ordinary Least Squares*
 
@@ -125,12 +125,36 @@ width: 100%
 name: income
 align: center
 ---
-Modelo Linear da Relação entre Renda do indivíduo, anos de educação e *seniority*. Fonte: James et al. ({cite}`james2023introduction`, p. 21)
+Modelo Linear da Relação entre Renda do indivíduo, anos de educação e *seniority*. Fonte: James et al. ({cite}`james2023introduction`., p. 21)
 ```
 
 
-A {numref}`Figura {number} <income>` mostra como ficaria um modelo OLS na representação 3D da relação entre Renda, Anos de educação, e senioridade.  
+A {numref}`Figura {number} <income>` mostra como ficaria um modelo OLS na representação 3D da relação entre Renda, Anos de educação, e senioridade. Apesar de parecer um pouco estranho por estar em três dimensões, essa relação é linear. Analisando o quadrante que mostra a evolução entre renda e anos de educação, parece que á uma relação linear positiva: quanto mais anos de educação, maior a renda. O mesmo parece acontecer com *seniority*. Esse método é paramétrico justamente por que o pesquisador define a forma funcional e como as variáveis $X_i$ se relacionam com a variável explicativa $Y$. Após definir a forma, o pesquisador deve escolher um método para estimar os **Parâmetros** $\beta_0, \beta_1, ..., \beta_p$. 
 
+Entre os métodos paramétricos mais conhecidos estão a regressão linear, a regressão logística, o modelo de Poisson e o modelo de sobrevivência de Cox. Esses métodos assumem uma forma funcional específica para a relação entre as variáveis explicativas e o resultado, permitindo a interpretação direta dos parâmetros estimados e facilitando a análise dos efeitos individuais.
+
+
+### Métodos Não-Paramétricos
+
+Em contraposição aos métodos paramétricos, os métodos **não-paramétricos** não assumem uma forma funcional de $f$, procurando estimá-lo de forma a chegar bem perto das observações individuais, sem ser muito rígido nem flexível demais. No exemplo da renda do indivíduo, ainda usamos as variáveis de anos de estudo e *seniority*, mas não definimos se essa relação é linear, se há interação entre as variáveis explicativas, etc.
+
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"Essas abordagens podem apresentar uma grande vantagem em relação às paramétricas: ao evitar a suposição de uma forma funcional específica para f, têm o potencial de ajustar com precisão uma gama bem mais ampla de formatos possíveis para f. Toda abordagem paramétrica traz consigo a possibilidade de que a forma funcional usada para estimar f seja muito diferente da verdadeira f, caso em que o modelo resultante não descreverá bem os dados. Em contraste, as abordagens não paramétricas eliminam completamente esse risco, já que praticamente não se assume nada sobre a forma de f. Entretanto, as abordagens não paramétricas sofrem de uma grande desvantagem: como não reduzem o problema de estimar f a um pequeno conjunto de parâmetros, é necessário um número muito maior de observações (bem acima do normalmente exigido por uma abordagem paramétrica) para se obter uma estimativa precisa de f."
+({cite}`james2023introduction`., p. 22, tradução nossa)
+```
+
+
+
+```{figure} ../aula5/images/fig2.6.png
+---
+width: 100%
+name: incomenonpar
+align: center
+---
+Modelo Não Paramétrico da Relação entre Renda do indivíduo, anos de educação e *seniority*. Fonte: James et al. ({cite}`james2023introduction`., p. 23)
+```
 
 
 
