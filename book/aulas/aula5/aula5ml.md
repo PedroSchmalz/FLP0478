@@ -56,12 +56,7 @@ $$
 + \underbrace{Var(\epsilon)}_{\text{Erro irredutível: variabilidade aleatória dos dados}}
 $$
 
-Esse erro é irredutível e estocástico, e sempre estará presente em qualquer aplicação, seja ela inferencial ou de previsão. Esse erro faz com que, independente da nossa especificação de $\hat{f}(x)$, $E(y-\hat{y})$ nunca será igual a zero.
-
-
-#### Exemplo
-
-Aqui estão dois exemplos de tarefas de predição:
+Esse erro é irredutível e estocástico, e sempre estará presente em qualquer aplicação, seja ela inferencial ou de previsão. Esse erro faz com que, independente da nossa especificação de $\hat{f}(x)$, $E(y-\hat{y})$ nunca será igual a zero. Aqui estão dois exemplos de tarefas de predição:
 
 **Predição de valores contínuos (Regressão):**  
 Um pesquisador deseja prever o preço de casas em uma cidade com base em variáveis como número de quartos, área construída, localização e idade do imóvel. O banco de treinamento contém registros dessas características ($\mathbf{X}$) e o preço real de cada casa ($Y$). O objetivo é estimar uma função $\hat{f}(\mathbf{x})$ que, ao receber as características de uma nova casa, forneça uma previsão do seu preço ($\hat{y}$), um valor contínuo. 
@@ -95,8 +90,46 @@ Outro exemplo é um estudo sobre fatores que influenciam a classificação de no
 Estabelecemos que, em inferência ou predição, o objetivo principal é estimar a função $\hat{f}$ tal que $y \approx \hat{f}(x)$ para cada par de observações ($x_i, y_i$). Os métodos/modelos que podem fazer essa estimação estão divididos em dois grupos: **Paramétricos** e **Não Paramétricos**.
 
 
+### Métodos Paramétricos
+
+Métodos paramétricos geralmente operam em dois passos:
+
+1. Definir ou especificar a forma funcional de $f$. Para isso, precisa escolher as variáveis explicativas de interesse, se a relação com $Y$ será linear ou não, se existem interações entre as variáveis independentes, etc. Vamos olhar para uma regressão linear univariada:
+
+$$
+Y = \beta_0 + \beta_1*X_1
+$$
+
+Talvez você já tenha visto algo muito similar quando estudou a equação reduzida da reta:
+
+$$
+Y = mX + b
+$$
+
+$b$, ou o coeficiente linear, é o ponto onde a reta intercepta o eixo y. Na regressão linear univariada, estimamos o $\beta_0$, que também é o coeficiente linear. $m$ é o coeficiente angular, que na regressão univariada é representado por $\beta_1$, e mostra o quanto $y$ varia com o aumento de $x$. Essa regressão pode ser generalizada para mais variáveis (ainda sendo uma regressão linear):
+
+$$
+Y = \beta_0 + \beta_1*X_1 + \beta_2*X_2 + ... + \beta_p * X_p
+$$
 
 
+Onde $p$ é o número de variáveis a serem incluídas. No exemplo de James et al. ({cite}`james2023introduction`), temos um modelo sobre a renda em função de anos de estudo e *seniority* (quantos anos o indivíduo trabalha na empresa). 
+
+2. Com as variáveis e forma de $f$ definidas, precisamos escolher um modo de fazer o *fit* do modelo às observações. Isto é, precisamos estimar os parâmetros $\beta_0, \beta_1, ..., \beta_p$. O método mais comum em regressão linear para estimar esses parâmetros é o *OLS*, *Ordinary Least Squares*
+
+
+
+```{figure} ../aula5/images/fig2.4.png
+---
+width: 100%
+name: income
+align: center
+---
+Modelo Linear da Relação entre Renda do indivíduo, anos de educação e *seniority*. Fonte: James et al. ({cite}`james2023introduction`, p. 21)
+```
+
+
+A {numref}`Figura {number} <income>` mostra como ficaria um modelo OLS na representação 3D da relação entre Renda, Anos de educação, e senioridade.  
 
 
 
