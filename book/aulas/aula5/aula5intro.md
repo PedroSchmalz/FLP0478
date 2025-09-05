@@ -8,9 +8,9 @@ ___
 
 **Leituras Complementares:**
 
-Gillion, D. Q. (2016). Governing with Words. {cite}`gillion2016governing`. Cambridge University Press. 
+- Gillion, D. Q. (2016). Governing with Words. {cite}`gillion2016governing`. Cambridge University Press. 
 
-Hastie, T.; Tibshirani, R.; Friedman, J. (2009) The Elements of Statistical Learning: Data Mining, Inference, and Prediction. {cite}`hastie2009elements` 2ª ed. New York: Springer, 2009.
+- Hastie, T.; Tibshirani, R.; Friedman, J. (2009) The Elements of Statistical Learning: Data Mining, Inference, and Prediction. {cite}`hastie2009elements` 2ª ed. New York: Springer, 2009.
 
 
 

@@ -210,7 +210,7 @@ O verdadeiro $f(x)$ da população está representado na linha preta, e seria o 
 Essa relação entre flexibilidade do modelo e os erros de treinamento e teste se devem à duas propriedades de métodos de aprendizado estatístico: **Viés e Variância**. Para minimizar o erro esperado do teste, precisamos deu ma técnica de aprendizado de máquina que simultaneamente tenha baixa variância e baixo viés. O seguinte [site](https://mlu-explain.github.io/bias-variance) apresenta uma interessante visualização deste problema. Aqui estão algumas definições gerais:
 
 - **Variância**: Grosso modo, podemos definir a variância como o quanto a função estimada $\hat{f}$ mudaria se alterássemos os dados de treinamento. Idealmente, deveríamos ter baixa variância. Isto é, ao alterar os dados de treinamento, os resultados não variariam muito. Métodos mais flexíveis geralmente apresentam maior variância, e por isso podem apresentar melhores resultados no banco de treinamento do que no de teste. Portanto, são mais propensos ao *overfitting*.
-- **Viés**: Viés é o erro introduzdio pela aproximação de um problema da vida real por um modelo simples. Por exemplo, tentar modelar a renda de um indíviduo como uma relação linear com anos de estudo e *seniority*. Métodos mais flexíveis geralmente apresentam menor viés. Métodos menos flexíveis (como a regressão linear) são mais propensos ao viés e, consequentemente, ao *underfitting*.  
+- **Viés**: Viés é o erro introduzdido pela aproximação de um problema da vida real por um modelo simples. Por exemplo, tentar modelar a renda de um indíviduo como uma relação linear com anos de estudo e *seniority*. Métodos mais flexíveis geralmente apresentam menor viés. Métodos menos flexíveis (como a regressão linear) são mais propensos ao viés e, consequentemente, ao *underfitting*.  
 
 
 
@@ -251,46 +251,66 @@ Então o foco fica em encontrar um equilíbrio no resto da equação, tentando r
 
 ## "Protocolo Padrão" de Aprendizado de Máquina Supervisionado
 
-Para garantir que o pesquisador possui o melhor modelos e resultados, além de apresentar a variância e viés claramente para os leitores, propõe-se o seguinte "Protocolo Padrão":
+Para garantir que o pesquisador obtenha modelos robustos e resultados confiáveis, além de apresentar claramente variância e viés aos leitores, recomenda-se seguir o seguinte "Protocolo Padrão":
 
+### 1. Definição do Problema
+   - Identifique um problema de pesquisa relevante e contextualize sua importância.
+   - Defina claramente o objetivo da análise e as perguntas de pesquisa.
+   - Delimite a população de interesse e o universo de documentos a serem estudados.
+   - Avalie se os dados disponíveis são adequados para mensurar o conceito de interesse.
 
-### 1. **Definição do Problema**  
-   - Identifique um problema de pesquisa relevante na sua área de interesse. Por exemplo, "Como as redes sociais influenciam o debate público sobre mudanças climáticas?".
-   - Qual será o objetivo da pesquisa?
-   - Quem é a população de interesse?
-   - Que universo de documentos irei estudar?
-   - Os dados que quero coletar podem mensurar adequadamente meu conceito de interesse?
+### 2. Coleta e Preparação dos Dados
 
-   
-### 2. **Coleta de Dados** 
+- **a) Criação de banco próprio:**
+   - Escolha fontes de dados textuais apropriadas (redes sociais, discursos, jornais, etc.).
+   - Defina a tarefa de aprendizado de máquina (classificação, análise de sentimento, detecção de posicionamento, etc.).
+   - Elabore um codebook detalhado, estabelecendo regras claras de anotação e treinamento dos anotadores.
+   - Planeje a amostragem da população e dos documentos.
+   - Mensure a concordância entre anotadores e identifique possíveis problemas de desbalanceamento.
+   - Documente limitações dos dados e estratégias para lidar com elas.
+   - Considere como o córpus anotado manualmente pode ser usado para anotar automaticamente novos documentos.
 
-- a) Criação de um banco próprio:
-   - Que tipo de dados textuais você utilizaria para abordar esse problema? Considere fontes como redes sociais, discursos políticos, artigos de jornal, etc.
-   - Qual é minha tarefa de aprendizado de máquina? (e.g. Classificação de tópicos, Análise de Sentimento, Detecção de Posicionamentos);
-   - Quais minhas regras de anotação? (Criação do Codebook, definição de regras e anotadores, etc.)
-   - Como irei amostrar a população alvo e o universo de documentos?
-   - Mensurar concordância entre anotadores.
-   - Tenho problemas de desbalanceamento dos dados?
-   - Discutir possíveis limitações dos dados.
+- **b) Utilização de córpus externo:**
+   - Analise as regras de anotação e a validade do córpus para seu problema.
+   - Verifique o número de anotadores e a concordância entre eles.
+   - Realize análise exploratória para identificar desbalanceamento, dados faltantes e plano amostral.
+   - Avalie se os autores discutem limitações e se o córpus é adequado para sua pesquisa.
 
+### 3. Escolha e Implementação do Método
+   - Reafirme a tarefa de aprendizado de máquina e sua relevância.
+   - Selecione e compare diferentes métodos (paramétricos e não-paramétricos), considerando flexibilidade e interpretabilidade.
+   - Certifique-se de que o método escolhido é adequado para o objetivo.
+   - Defina como o texto será representado numericamente (Bag-of-Words, embeddings, etc.).
+   - Detalhe os passos de pré-processamento do texto.
+   - Identifique e ajuste os hiperparâmetros[^1], explorando como eles afetam o desempenho.
+   - Compare os resultados dos modelos e escolha o melhor.
 
-- b) Utilizar um córpus alheio:
-  - Quais as regras de anotação? (Codebook, definição de regras e anotadores, etc.)
-  - O córpus é válido para mensurar o problema que procura operacionalizar?
-  - Quantos anotadores? Qual a concordância entre eles?
-  - Faça uma análise exploratória dos dados, procurando por desbalanceamento, problemas com dados faltantes, etc.
-  - O córpus têm algum plano amostral? Se sim, faz sentido?
+### 4. Validação
 
-### 3. **Método**  
-   - Qual método de análise você aplicaria para identificar padrões ou temas nos textos? Exemplos incluem Latent Dirichlet Allocation (LDA), análise de sentimentos ou classificação supervisionada.
+- **a) Validação do córpus:**
+   - Avalie a concordância entre anotadores e clareza das regras.
+   - Verifique se o córpus mensura o conceito de interesse de forma válida.
+   - Assegure que o córpus e o codebook estejam disponíveis publicamente, se possível.
+   - Analise possíveis problemas no plano amostral.
 
-### 4. **Validação**  
-   - Como você validaria os resultados da sua análise? Pense em estratégias como leitura manual de amostras, comparação com eventos conhecidos ou validação cruzada.
+- **b) Validação dos modelos:**
+   - Apresente resultados de treinamento, validação e teste.
+   - Descreva a técnica de validação utilizada (K-fold, LOOCV, etc.).
+   - Avalie o desempenho dos modelos no banco de teste.
+   - Discuta a capacidade de generalização do melhor modelo para novos dados.
 
-### 5. **Inferência**  
-   - Que tipo de inferência você poderia fazer com base nos resultados? Por exemplo, estimar o impacto de uma política pública ou identificar mudanças no discurso político ao longo do tempo.
+### 5. Inferência 
+   - Explique que tipo de inferência pode ser feita com base nos resultados obtidos.
+   - Relacione os achados com impactos práticos, como políticas públicas ou mudanças em discursos.
+   - Reflita sobre o que foi aprendido com a anotação automática de novos grupos ou documentos.
 
-### 6. **Reflexão Final**  
-   - Como o ciclo iterativo de descoberta e mensuração pode ajudar a refinar suas perguntas de pesquisa e hipóteses iniciais? Considere como os dados podem influenciar o foco do seu estudo.
+### 6. Reflexão Final
+   - Discuta como o ciclo iterativo de descoberta e mensuração pode refinar perguntas de pesquisa e hipóteses.
+   - Considere como os dados e resultados podem influenciar o foco e as próximas etapas do estudo.
+   - Deixe tudo público! *Codebook*, dados, anotações, limitações, etc.
 
+---
 
+Esse protocolo promove transparência, rigor e reprodutibilidade em pesquisas de aprendizado de máquina, facilitando a comunicação dos resultados e a comparação entre diferentes estudos.
+
+[^1]: **Hiperparâmetro** é um parâmetro definido antes do treinamento do modelo, que controla aspectos do processo de aprendizado, como a taxa de aprendizado, número de árvores em uma floresta aleatória, número de vizinhos em KNN, ou o número de épocas em redes neurais. Diferente dos parâmetros do modelo, que são aprendidos a partir dos dados, os hiperparâmetros são ajustados pelo pesquisador para otimizar o desempenho do
