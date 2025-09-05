@@ -249,42 +249,48 @@ $$
 Então o foco fica em encontrar um equilíbrio no resto da equação, tentando reduzir tanto viés quanto variância. Como podemos fazer isso?
 
 
-## "Protocolo Padrão" de Aprendizado de Máquina
+## "Protocolo Padrão" de Aprendizado de Máquina Supervisionado
 
 Para garantir que o pesquisador possui o melhor modelos e resultados, além de apresentar a variância e viés claramente para os leitores, propõe-se o seguinte "Protocolo Padrão":
 
 
-
-```{admonition} 📋 Protocolo de Aprendizado de Máquina
-:class: exercise
-
-Podemos propor o seguir protocolo:
-
-1. **Definição do Problema**  
+### 1. **Definição do Problema**  
    - Identifique um problema de pesquisa relevante na sua área de interesse. Por exemplo, "Como as redes sociais influenciam o debate público sobre mudanças climáticas?".
    - Qual será o objetivo da pesquisa?
    - Quem é a população de interesse?
    - Que universo de documentos irei estudar?
+   - Os dados que quero coletar podem mensurar adequadamente meu conceito de interesse?
 
    
-2. **Coleta de Dados** 
+### 2. **Coleta de Dados** 
 
 - a) Criação de um banco próprio:
    - Que tipo de dados textuais você utilizaria para abordar esse problema? Considere fontes como redes sociais, discursos políticos, artigos de jornal, etc.
-   -
+   - Qual é minha tarefa de aprendizado de máquina? (e.g. Classificação de tópicos, Análise de Sentimento, Detecção de Posicionamentos);
+   - Quais minhas regras de anotação? (Criação do Codebook, definição de regras e anotadores, etc.)
+   - Como irei amostrar a população alvo e o universo de documentos?
+   - Mensurar concordância entre anotadores.
+   - Tenho problemas de desbalanceamento dos dados?
+   - Discutir possíveis limitações dos dados.
 
-3. **Método**  
+
+- b) Utilizar um córpus alheio:
+  - Quais as regras de anotação? (Codebook, definição de regras e anotadores, etc.)
+  - O córpus é válido para mensurar o problema que procura operacionalizar?
+  - Quantos anotadores? Qual a concordância entre eles?
+  - Faça uma análise exploratória dos dados, procurando por desbalanceamento, problemas com dados faltantes, etc.
+  - O córpus têm algum plano amostral? Se sim, faz sentido?
+
+### 3. **Método**  
    - Qual método de análise você aplicaria para identificar padrões ou temas nos textos? Exemplos incluem Latent Dirichlet Allocation (LDA), análise de sentimentos ou classificação supervisionada.
 
-4. **Validação**  
+### 4. **Validação**  
    - Como você validaria os resultados da sua análise? Pense em estratégias como leitura manual de amostras, comparação com eventos conhecidos ou validação cruzada.
 
-5. **Inferência**  
+### 5. **Inferência**  
    - Que tipo de inferência você poderia fazer com base nos resultados? Por exemplo, estimar o impacto de uma política pública ou identificar mudanças no discurso político ao longo do tempo.
 
-6. **Reflexão Final**  
+### 6. **Reflexão Final**  
    - Como o ciclo iterativo de descoberta e mensuração pode ajudar a refinar suas perguntas de pesquisa e hipóteses iniciais? Considere como os dados podem influenciar o foco do seu estudo.
 
-Após responder às perguntas, discuta suas respostas com um colega ou no grupo de estudos. Reflita sobre como o paradigma proposto por Grimmer et al. pode ser aplicado para enriquecer sua pesquisa.
-```
 
