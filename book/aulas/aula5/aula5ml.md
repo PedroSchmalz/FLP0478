@@ -253,3 +253,38 @@ Então o foco fica em encontrar um equilíbrio no resto da equação, tentando r
 
 Para garantir que o pesquisador possui o melhor modelos e resultados, além de apresentar a variância e viés claramente para os leitores, propõe-se o seguinte "Protocolo Padrão":
 
+
+
+```{admonition} 📋 Protocolo de Aprendizado de Máquina
+:class: exercise
+
+Podemos propor o seguir protocolo:
+
+1. **Definição do Problema**  
+   - Identifique um problema de pesquisa relevante na sua área de interesse. Por exemplo, "Como as redes sociais influenciam o debate público sobre mudanças climáticas?".
+   - Qual será o objetivo da pesquisa?
+   - Quem é a população de interesse?
+   - Que universo de documentos irei estudar?
+
+   
+2. **Coleta de Dados** 
+
+- a) Criação de um banco próprio:
+   - Que tipo de dados textuais você utilizaria para abordar esse problema? Considere fontes como redes sociais, discursos políticos, artigos de jornal, etc.
+   -
+
+3. **Método**  
+   - Qual método de análise você aplicaria para identificar padrões ou temas nos textos? Exemplos incluem Latent Dirichlet Allocation (LDA), análise de sentimentos ou classificação supervisionada.
+
+4. **Validação**  
+   - Como você validaria os resultados da sua análise? Pense em estratégias como leitura manual de amostras, comparação com eventos conhecidos ou validação cruzada.
+
+5. **Inferência**  
+   - Que tipo de inferência você poderia fazer com base nos resultados? Por exemplo, estimar o impacto de uma política pública ou identificar mudanças no discurso político ao longo do tempo.
+
+6. **Reflexão Final**  
+   - Como o ciclo iterativo de descoberta e mensuração pode ajudar a refinar suas perguntas de pesquisa e hipóteses iniciais? Considere como os dados podem influenciar o foco do seu estudo.
+
+Após responder às perguntas, discuta suas respostas com um colega ou no grupo de estudos. Reflita sobre como o paradigma proposto por Grimmer et al. pode ser aplicado para enriquecer sua pesquisa.
+```
+
