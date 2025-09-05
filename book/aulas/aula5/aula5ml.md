@@ -207,9 +207,49 @@ O verdadeiro $f(x)$ da população está representado na linha preta, e seria o 
 
 ## Tradeoff entre Viés e Variância
 
+Essa relação entre flexibilidade do modelo e os erros de treinamento e teste se devem à duas propriedades de métodos de aprendizado estatístico: **Viés e Variância**. Para minimizar o erro esperado do teste, precisamos deu ma técnica de aprendizado de máquina que simultaneamente tenha baixa variância e baixo viés. O seguinte [site](https://mlu-explain.github.io/bias-variance) apresenta uma interessante visualização deste problema. Aqui estão algumas definições gerais:
+
+- **Variância**: Grosso modo, podemos definir a variância como o quanto a função estimada $\hat{f}$ mudaria se alterássemos os dados de treinamento. Idealmente, deveríamos ter baixa variância. Isto é, ao alterar os dados de treinamento, os resultados não variariam muito. Métodos mais flexíveis geralmente apresentam maior variância, e por isso podem apresentar melhores resultados no banco de treinamento do que no de teste. Portanto, são mais propensos ao *overfitting*.
+- **Viés**: Viés é o erro introduzdio pela aproximação de um problema da vida real por um modelo simples. Por exemplo, tentar modelar a renda de um indíviduo como uma relação linear com anos de estudo e *seniority*. Métodos mais flexíveis geralmente apresentam menor viés. Métodos menos flexíveis (como a regressão linear) são mais propensos ao viés e, consequentemente, ao *underfitting*.  
 
 
 
+ ```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"De modo geral, métodos mais flexíveis produzem menor viés. Como regra geral, à medida que recorremos a métodos mais flexíveis, a variância aumenta e o viés diminui. A taxa relativa de variação dessas duas quantidades determina se o MSE de teste aumenta ou diminui. Quando ampliamos a flexibilidade de uma classe de métodos, o viés tende a diminuir inicialmente mais rápido do que a variância aumenta, fazendo com que o MSE de teste esperado caia. Contudo, em certo ponto, incrementar ainda mais a flexibilidade tem pouco efeito sobre o viés, mas passa a aumentar significativamente a variância; nessa fase, o MSE de teste volta a crescer."
+({cite}`james2023introduction`., pp. 30-31, tradução nossa)
+```
+
+A {numref}`Figura {number} <biasvartrade>` mostra uma representação teórica de como opera a relação entre complexidade do modelo e erro de predição nos bancos de treinamento e teste. No geral, a ideia é encontrar um modelo que consegue bons resultados no treinamento, mas que generalize bem para outros bancos (Teste e Validação). Essa figura foi retirada de outro livro feita pelos mesmos autores do ISLP: The Elements of Statistical Learning, de Hastie, Tibshirani e Friedman ({cite}`hastie2009elements`.).
 
 
+```{figure} ../aula5/images/biasvarESL.png
+---
+width: 100%
+name: biasvartrade
+align: center
+---
+Erro de treino e de teste como uma função da complexidade do modelo. Fonte: Hastie, Tibshirani e Friedman ({cite}`hastie2009elements`., p. 38)
+```
+
+Podemos representar o erro de um modelo da seguinte forma:
+
+$$
+Erro = Viés² + Variância + \epsilon
+$$
+
+Como vimos anteriormente, não há muito o que fazer sobre $\epsilon$, pois ele representa o erro aleatório e irredutível:
+
+
+$$
++ \underbrace{Var(\epsilon)}_{\text{Erro irredutível: variabilidade aleatória dos dados}}
+$$
+
+
+Então o foco fica em encontrar um equilíbrio no resto da equação, tentando reduzir tanto viés quanto variância. Como podemos fazer isso?
+
+
+## "Protocolo Padrão" de Aprendizado de Máquina
+
+Para garantir que o pesquisador possui o melhor modelos e resultados, além de apresentar a variância e viés claramente para os leitores, propõe-se o seguinte "Protocolo Padrão":
 
