@@ -42,6 +42,8 @@ parts:
     - file: aulas/aula5/aula5intro.md
     - file: aulas/aula5/aula5ml.md
     - file: videos/vunesp3.md
+    - file: aulas/aula5/aula5.ipynb
+    - file: aulas/aula5/lab5.ipynb
   - caption: Outros
     chapters:
     - file: references.md
