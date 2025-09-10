@@ -40,6 +40,8 @@ parts:
     - file: aulas/aula4/aula4ml.md
     - file: aulas/aula4/aula4.ipynb
     - file: aulas/aula4/lab4.ipynb
+      sections:
+      - file: aulas/aula4/lab4_gabarito.ipynb
     - file: videos/vunesp2.md
   - caption: Aula 05 - Conceitos Básicos de Aprendizado Supervisionado II
     chapters:
