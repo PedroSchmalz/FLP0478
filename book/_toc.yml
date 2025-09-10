@@ -22,7 +22,7 @@ parts:
     - file: aulas/aula2/aula2main.md
     - file: aulas/aula2/aula2.ipynb
     - file: aulas/aula2/lab2.ipynb
-      -sections:
+      sections:
       - file: aulas/aula2/lab2_gabarito.ipynb
     - file: videos/aitaon.md
   - caption: Aula 03 - Mensuração e Aprendizado Supervisionado
