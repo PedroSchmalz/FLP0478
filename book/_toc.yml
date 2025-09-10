@@ -50,6 +50,9 @@ parts:
     - file: videos/vunesp3.md
     - file: aulas/aula5/aula5.ipynb
     - file: aulas/aula5/lab5.ipynb
+  - caption: Aula 06 - Classificação
+    chapters:
+    - file: aulas/aula6/aula6intro.md
   - caption: Outros
     chapters:
     - file: references.md
