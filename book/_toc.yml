@@ -32,6 +32,8 @@ parts:
     - file: aulas/aula3/aula3parte2.md
     - file: aulas/aula3/aula3.ipynb
     - file: aulas/aula3/lab3.ipynb
+      sections:
+      - file: aulas/aula3/lab3_gabarito.ipynb
   - caption: Aula 04 - Conceitos Básicos de Aprendizado Supervisionado I
     chapters:
     - file: aulas/aula4/aula4intro.md
