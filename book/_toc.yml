@@ -53,7 +53,7 @@ parts:
   - caption: Aula 06 - Classificação
     chapters:
     - file: aulas/aula6/aula6intro.md
-    caption: Vídeos Complementares
+    sections: Vídeos Complementares
     - file: videos/classificacao.md
   - caption: Outros
     chapters:
