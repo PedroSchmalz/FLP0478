@@ -36,11 +36,13 @@ Mesmo se alterássemos os valores, os resultados se manteriam. No entanto, poder
 ```{figure} ../aula6/images/fig4.2.a.png
 ---
 width: 100%
-name: income
+name: reglinclass
 align: center
 ---
 Classificação no banco "Default" utilizando uma regressão linear. Fonte: James et al. ({cite}`james2023introduction`., p. 139)
 ```
+
+A {numref}`Figura {number} <reglinclass>` mostra que a regressão linear (linha azul) concentra a maior parte dos valores estimados de Y (Probabilidade de *Default*) bem perto de zero. Portanto, pouquíssimos indivíduos seriam classificados como inadimplentes (ou devedores). Além disso, encontramos probabilidades negativas (o que é impossível) perto de valores de *balance* (Saldo do cartão de crédito) menores que 500. No laboratório de hoje exploraremos um pouco mais desse banco de dados apresentado pelos autores, e tentaremos classificar os adimplentes e inadimplentes utilizando os diversos modelos discutidos no capítulo.
 
 ```{admonition} 💬 Com a palavra, os autores:
 :class: quote
@@ -50,6 +52,31 @@ Classificação no banco "Default" utilizando uma regressão linear. Fonte: Jame
 
 ## A Regressão Logística
 
+Quando temos um resultado binário (Sim ou não, 0 ou 1), podemos utilizar a regressão logística para modelar a probabilidade de que $Y_i$ pertence a determinada categoria.
+
+$$
+Pr(Y_i = 1 | X)
+$$
+
+Traduzindo, queremos a probabilidade ($Pr$) de que $Y_i$ pertença a categoria 1 dado ($|$) os valores das variáveis preditoras associadas àquela observação ($X$). No caso do banco de inadimplentes (*Default*), podemos querer saber a probabilidade de que um indivíduo vai ser inadimplente dada suas características preditoras (Se é estudante ou não, renda, dívidas anteriores, etc.). No caso da regressão logística simples (de um único preditor), podemos pensar somente com relação ao saldo (*Balance*) do cartão do indivíduo:
+
+
+$$
+Pr(Inadimplente = Sim | Saldo)
+$$
+
+Estimando a mesma relação apresentada na {numref}`Figura {number} <reglinclass>` com um modelo de regressão logística, obtemos o seguinte resultado:
+
+```{figure} ../aula6/images/fig4.2.b.png
+---
+width: 100%
+name: reglogclass
+align: center
+---
+Classificação no banco "Default" utilizando uma regressão logística. Fonte: James et al. ({cite}`james2023introduction`., p. 139)
+```
+
+A {numref}`Figura {number} <reglogclass>` mostra que temos uma relação muito mais "limpa" entre o saldo de cartão de crédito e os valores estimados para a probabilidade de que seja um inadimplente: Não possuímos valores negativos na função estimada (curva azul), e indivíduos com maior saldo de cartão tem maior probabilidade de serem classificados como inadimplentes.
 
 
 [^1]: **Classificadores** são modelos de aprendizado de máquina supervisionado projetados para atribuir exemplos a categorias ou classes distintas com base em suas características. Eles são utilizados quando a variável resposta é categórica, como na identificação de sentimentos em textos, classificação de imagens ou detecção de spam em e-mails.
