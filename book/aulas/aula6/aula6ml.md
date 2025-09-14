@@ -213,6 +213,18 @@ Onde o logaritmo da probabilidade de pertencer à classe $k$ em comparação com
 
 ## Modelos Generativos para Classificação
 
+Os autores apresentam uma segunda classe de modelos comuns utilizados na classificação: os modelos generativos. Modelos generativos são chamados assim porque buscam modelar explicitamente o processo de geração dos dados. Em vez de apenas aprender a relação direta entre as variáveis explicativas ($X$) e a variável resposta ($Y$), como fazem os modelos discriminativos, os modelos generativos aprendem a distribuição conjunta $P(X, Y)$ ou, de forma equivalente, $P(X|Y)$ e $P(Y)$. Isso permite que eles não só classifiquem exemplos, mas também simulem ou gerem novos dados que seguem o mesmo padrão observado. Na prática, modelos generativos como Naive Bayes e LDA (Linear Discriminant Analysis) estimam como as características dos dados são distribuídas dentro de cada classe e, a partir disso, calculam a probabilidade de um exemplo pertencer a cada categoria. Essa abordagem é útil para entender melhor a estrutura dos dados e pode ser empregada em tarefas como classificação, detecção de anomalias e geração de exemplos sintéticos.
+
+
+Nesse tipo de modelos, podemos modelar a distribuição dos $p$ preditores $X$ separadamente para cada classe em $Y$. com isso, usamos o **Teorema de Bayes** para obtermos as estimativas de $Pr (y=k | X= x)$.
+
+### Por que não Regressão Logística?
+
+- Quando há separação substantiva entre as classes, as estimativas do *logit* podem ser instáveis;
+- Se a distribuição dos preditores $X$ for **aproximadamente** normal, os métodos generativos serão mais precisos;
+- Esses métodos se extendem naturalmente para um número de classes $K >= 2$
+
+Suponha que queremos classiifcar uma observação entre uma em K clases,
 
 
 
