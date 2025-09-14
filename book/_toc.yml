@@ -53,8 +53,9 @@ parts:
   - caption: Aula 06 - Classificação
     chapters:
     - file: aulas/aula6/aula6intro.md
-    sections: Vídeos Complementares
-    - file: videos/classificacao.md
+    - file: aulas/aula6/complemento.md
+      sections: 
+      - file: videos/maxlikelihood.md
   - caption: Outros
     chapters:
     - file: references.md
