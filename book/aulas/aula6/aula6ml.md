@@ -19,5 +19,37 @@ Y =
 \end{cases}
 $$
 
+Além de gerar um ordenamento entre os casos (Crise Epiléptica ser "maior" que AVC), estabelece que a distância entre um AVC e a overdose é a mesma que entre uma overdose e uma crise epiléptica. Ainda por cima, alterar a ordem dessa categorização geraria estimativas com significados e dimensões muito diferentes, tornando o modelo de regressão linear instável e pouco confiável. A situação melhora um pouco quando temos apenas dois resultados possíveis:
+
+
+$$
+Y =
+\begin{cases}
+  0 & \text{se AVC;} \\\\
+  1 & \text{se Overdose;} \\\\
+\end{cases}
+$$
+
+Mesmo se alterássemos os valores, os resultados se manteriam. No entanto, poderíamos obter valores estimados para além dos limites 0 e 1, além de obter poucas estimativas para casos mais perto dos valores máximos e mínimos, como mostra a seguinte figura:
+
+
+```{figure} ../aula6/images/fig4.2.a.png
+---
+width: 100%
+name: income
+align: center
+---
+Classificação no banco "Default" utilizando uma regressão linear. Fonte: James et al. ({cite}`james2023introduction`., p. 139)
+```
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"Para resumir, existem pelo menos duas razões para não realizar classificação utilizando um método de regressão [linear]: (a) um método de regressão não pode acomodar uma resposta qualitativa com mais de duas classes; (b) um método de regressão não fornecerá estimativas significativas de Pr(Y | X), mesmo com apenas duas classes. Assim, é preferível usar um método de classificação que seja realmente adequado para valores de resposta qualitativa."
+({cite}`james2023introduction`., p. 138, tradução nossa)
+```
+
+## A Regressão Logística
+
+
 
 [^1]: **Classificadores** são modelos de aprendizado de máquina supervisionado projetados para atribuir exemplos a categorias ou classes distintas com base em suas características. Eles são utilizados quando a variável resposta é categórica, como na identificação de sentimentos em textos, classificação de imagens ou detecção de spam em e-mails.
