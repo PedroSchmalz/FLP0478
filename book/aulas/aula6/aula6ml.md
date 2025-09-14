@@ -81,16 +81,59 @@ A {numref}`Figura {number} <reglogclass>` mostra que temos uma relação muito m
 
 ### Função Logística
 
+Lembrando que $p(x)$ é equivalente à $Pr(Y_i = 1 | X)$, podemos estimar a regressão logística utilizando a seguinte **Função Logística**
 
 $$
 p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}}.
 $$
 
+Os parâmetros $\beta_0$ e $\beta_1$ também são estimados, assim como na regressão linear. A diferença está em como é feito. Na regressão linear, utilizamos o método de mínimos quadrados ordinários (ou *OLS* em inglês) para estimar os parâmetros da equação. Aqui, utilizaremos o método da Máxima Verossimilihança, ou *Maximum Likelihood*, que veremos na próxima subseção (e coloquei um vídeo complementar para quem tiver interesse). Com um pouco de manipulação (segundo os autores, não eu), chegamos em:
+
+$$
+\frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1 X}.
+$$
+
+O lado esquerdo da equação ($\frac{p(X)}{1 - p(X)}$) é conhecido por *odds*, e podem ter qualquer valor entre 0 e $\infty$, e quanto maior, maior a probabilidade de Inadimplência (no nosso exemplo anterior), e vice-versa. Tirando o logaritmo de ambos os lados, chegamos em.
+
+
+$$
+\log\!\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X.
+$$
+
+Que é o *log odds* ou *logit*, este último que é muitas vezes usado como sinônimo de regressão logística. Em um modelo de regressão logística, aumentar $X_1$ em uma unidade altera o valor de *log odds* por $\beta_1$. No entanto a relação entre $p(X)$ e $X$ não é linear, e o quanto $p(x)$ muda com a mudança de $X$ depende do valor atual de $X$.
+
+
+Em resumo, a regressão logística transforma a probabilidade de um evento em uma escala que pode ser modelada linearmente, utilizando o logit (ou log odds) como ligação entre as variáveis explicativas e o resultado. O modelo estima a relação entre os preditores e a chance de ocorrência de um evento, garantindo que as previsões estejam sempre entre 0 e 1. Essa abordagem é especialmente útil para problemas de classificação binária, pois permite interpretar diretamente o impacto de cada variável sobre a probabilidade do evento e evita problemas comuns da regressão linear, como previsões fora do intervalo válido de probabilidades.
+
 
 
 ### Método de Máxima Verossimilhança
 
+Para estimar os parâmetros $\beta_0$ e $\beta_1$ na equação
+ 
+$$
+p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}}.
+$$
 
+é utilizado o método de máxima verossimilhança. A intuição por trás desse método é a de ele procura estimar os parâmetros $\beta_0$, $\beta_1$,..., $\beta_p$ (para o caso com mais variáveis preditoras) tal que a probabilidade $\hat{p}(X_i)$ para cada indivíduo corresponda, da melhor maneira possível, à probabilidade observada $p(x_i)$. Ou seja,
+
+
+$$
+\frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}} = \hat{p}(X_i) \approx p(X_i) 
+$$
+
+Para isso, é utilizada a seguinte função de verossimilhança.
+
+$$
+\ell(\beta_0, \beta_1)
+     = \prod_{i:\,y_i = 1} p(x_i)\;
+       \prod_{i':\,y_{i'} = 0} \!\bigl(1 - p(x_{i'})\bigr).
+$$
+
+Em palavras simples, a equação afirma: “Para um conjunto de parâmetros ($\beta_0, \beta_1$), a verossimilhança é o produto da probabilidade prevista do evento em todos os casos que de fato ocorreram ($y = 1$) multiplicado pela probabilidade prevista do não-evento em todos os casos que não ocorreram ($y = 0$).”
+
+
+Quando as observações são independentes, a verossimilhança de um modelo é obtida multiplicando as probabilidades individuais atribuídas a cada dado observado. Aqui, p(xᵢ) representa a probabilidade calculada pelo modelo (por exemplo, a saída da regressão logística) de que o i-ésimo indivíduo tenha y = 1. Para cada yᵢ = 1, incluímos p(xᵢ) no produto; para cada yᵢ = 0, incluímos 1 − p(xᵢ). Dessa forma, parâmetros que atribuem alta probabilidade aos resultados realmente vistos tornam o produto – e, portanto, a verossimilhança – maior.
 
 
 [^1]: **Classificadores** são modelos de aprendizado de máquina supervisionado projetados para atribuir exemplos a categorias ou classes distintas com base em suas características. Eles são utilizados quando a variável resposta é categórica, como na identificação de sentimentos em textos, classificação de imagens ou detecção de spam em e-mails.
