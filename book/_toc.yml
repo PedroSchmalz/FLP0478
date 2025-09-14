@@ -56,6 +56,7 @@ parts:
     - file: aulas/aula6/complemento.md
       sections: 
       - file: videos/maxlikelihood.md
+      - file: videos/bayestheorem.md
   - caption: Outros
     chapters:
     - file: references.md
