@@ -87,7 +87,7 @@ $$
 p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}}.
 $$
 
-Os parâmetros $\beta_0$ e $\beta_1$ também são estimados, assim como na regressão linear. A diferença está em como é feito. Na regressão linear, utilizamos o método de mínimos quadrados ordinários (ou *OLS* em inglês) para estimar os parâmetros da equação. Aqui, utilizaremos o método da Máxima Verossimilihança, ou *Maximum Likelihood*, que veremos na próxima subseção (e coloquei um vídeo complementar para quem tiver interesse). Com um pouco de manipulação (segundo os autores, não eu), chegamos em:
+Os parâmetros $\beta_0$ e $\beta_1$ também são estimados, assim como na regressão linear. A diferença está em como é feito. Na regressão linear, utilizamos o método de mínimos quadrados ordinários (ou *OLS* em inglês) para estimar os parâmetros da equação. Aqui, utilizaremos o método da Máxima Verossimilhança, ou *Maximum Likelihood*, que veremos na próxima subseção (e coloquei um vídeo complementar para quem tiver interesse). Com um pouco de manipulação (segundo os autores, não eu), chegamos em:
 
 $$
 \frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1 X}.
@@ -135,5 +135,87 @@ Em palavras simples, a equação afirma: “Para um conjunto de parâmetros ($\b
 
 Quando as observações são independentes, a verossimilhança de um modelo é obtida multiplicando as probabilidades individuais atribuídas a cada dado observado. Aqui, p(xᵢ) representa a probabilidade calculada pelo modelo (por exemplo, a saída da regressão logística) de que o i-ésimo indivíduo tenha y = 1. Para cada yᵢ = 1, incluímos p(xᵢ) no produto; para cada yᵢ = 0, incluímos 1 − p(xᵢ). Dessa forma, parâmetros que atribuem alta probabilidade aos resultados realmente vistos tornam o produto – e, portanto, a verossimilhança – maior.
 
+A máxima verossimilhança é uma função utilizada em muitos modelos paramétricos não-lineares, e com os coeficientes estimados por ela podemos fazer previsões para dados não vistos.
+
+### Regressão Logística Múltipla
+
+A Regressão Logística Múltipla é a generalização da regressão logística com outcome binário (sim ou não) para mais variáveis preditoras. Nesse cenário, o *log odds* passa a ser calculado por:
+
+$$
+\log\!\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X_1 + ... + \beta_p* X_p
+$$
+
+Onde X = ($X_1, ..., X_p$) são os preditores. Da mesma forma que antes, o método de verossimilhança é utilizado para estimar os parâmetros $\beta_0, \beta_1, ...  ,\beta_p$.
+
+
+### Regressão Logística Multinomial
+
+Até agora, trabalhamos com o caso de um outcome *Y* binário (sim ou não, 0 ou 1). No entanto, em muitos casos estamos interessados em classificar mais de uma categoria/classe. Para tarefas em que o número K de classes é $>2$, utilizamos o *Multinomial Logit*, ou **Regressão Logística Multinomial**, que é uma extensão da regressão logística para mais classes. Nessa extensão, uma das classes será utilizada como base de comparação para estimar os parâmetros. $p(X)$ é alterado da seguinte maneira:
+
+
+$$
+Pr(Y_i = K | X = x)
+$$
+
+Ou seja, a probabilidade de que a observação individual $Y_i$ seja de determinada categoria K, dado os valores das variáveis preditoras. Para estimar esse novo $p(X)$, estimamos
+
+$$
+\Pr\bigl(Y = k \mid X = x\bigr)
+  = \frac{
+        e^{\beta_{k0} + \beta_{k1}x_1 + \cdots + \beta_{kp}x_p}
+      }{
+        1 \;+\; \displaystyle\sum_{l=1}^{K-1}
+              e^{\beta_{l0} + \beta_{l1}x_1 + \cdots + \beta_{lp}x_p}
+      }.
+$$
+
+Que pode ser lida assim:
+
+A **probabilidade** de um indivíduo pertencer à categoria *k* (entre K possíveis) **dado** o vetor de preditores $x=(x_1,\dots,x_p)$ é igual à razão entre   o **peso exponencial** atribuído a essa categoria obtido somando o intercepto $\beta_{k0}$ ao efeito de cada preditor $x_j$ ponderado pelo seu coeficiente $\beta_{kj}$ e a soma desse mesmo peso **mais** os pesos de todas as demais categorias tomadas como comparação.
+
+Em outras palavras:
+
+1. Para cada classe *k* calculamos um escore linear
+$\beta_{k0} + \beta_{k1}x_1 + \dots + \beta_{kp}x_p$.
+2. Transformamos esse escore em algo estritamente positivo aplicando a exponencial $e^{(\cdot)}$; isso garante que valores maiores de escore se convertam em pesos maiores.
+3. A probabilidade final de estar na classe *k* é esse peso dividido pela soma de:
+    - 1 (peso da classe-de-referência implicitamente tratada como $ \beta_{00}=0 $) **mais**
+    - os pesos de todas as outras K−1 classes explicitadas no denominador.
+
+Assim, o modelo:
+
+- Mantém todas as probabilidades no intervalo 0–1.
+- Faz com que a soma das probabilidades sobre todas as K classes seja 1.
+- Permite interpretar cada $\beta_{kj}$ como o efeito de $x_j$ na chance logarítmica de estar na classe *k* em comparação com a classe-referência.
+
+O *log odds* passa a ser
+
+
+$$
+\log\!\left(
+      \frac{\Pr\!\bigl(Y = k \mid X = x\bigr)}
+           {\Pr\!\bigl(Y = K \mid X = x\bigr)}
+    \right)
+  \;=\;
+  \beta_{k0} + \beta_{k1}x_1 + \cdots + \beta_{kp}x_p.
+$$
+
+Onde o logaritmo da probabilidade de pertencer à classe $k$ em comparação com as outras classes é igual à uma equação linear com os preditores. A decisão da classe a ser utilizada como base de comparação é
+
+
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"irrelevante. Por exemplo, ao classificar atendimentos de emergência em AVC, overdose de drogas e crise epiléptica, suponha que ajustemos dois modelos de regressão logística multinomial: um tomando AVC como referência e outro tomando overdose de drogas como referência. As estimativas dos coeficientes diferirão entre os dois modelos ajustados devido à escolha distinta de referência, mas os valores ajustados (previsões), os log-odds entre qualquer par de classes e os demais resultados importantes do modelo permanecerão iguais. Ainda assim, a interpretação dos coeficientes em um modelo de regressão logística multinomial deve ser feita com cuidado, pois ela depende da categoria de referência."
+({cite}`james2023introduction`., p. 145, tradução nossa)
+```
+
+
+## Modelos Generativos para Classificação
+
+
+
+
+## Notas
 
 [^1]: **Classificadores** são modelos de aprendizado de máquina supervisionado projetados para atribuir exemplos a categorias ou classes distintas com base em suas características. Eles são utilizados quando a variável resposta é categórica, como na identificação de sentimentos em textos, classificação de imagens ou detecção de spam em e-mails.
