@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# Método da Máxima Verossimilhança
+# Teorema de Bayes
 
 
 ```{video} https://www.youtube.com/embed/HZGCoVF3YvM?si=AgPUCWiTJyaDedpR
