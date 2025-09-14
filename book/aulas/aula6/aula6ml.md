@@ -76,7 +76,21 @@ align: center
 Classificação no banco "Default" utilizando uma regressão logística. Fonte: James et al. ({cite}`james2023introduction`., p. 139)
 ```
 
-A {numref}`Figura {number} <reglogclass>` mostra que temos uma relação muito mais "limpa" entre o saldo de cartão de crédito e os valores estimados para a probabilidade de que seja um inadimplente: Não possuímos valores negativos na função estimada (curva azul), e indivíduos com maior saldo de cartão tem maior probabilidade de serem classificados como inadimplentes.
+A {numref}`Figura {number} <reglogclass>` mostra que temos uma relação muito mais "limpa" entre o saldo de cartão de crédito e os valores estimados para a probabilidade de que seja um inadimplente: Não possuímos valores negativos na função estimada (curva azul), e indivíduos com maior saldo de cartão tem maior probabilidade de serem classificados como inadimplentes. Para modelar a $Pr(Y_i = 1 | X)$ na regressão logística, ou $p(X)$ para encurtar, precisamos da **Função Logística**, uma das funções que permitem um *output* entre zero e um.
+
+
+### Função Logística
+
+
+$$
+p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}}.
+$$
+
+
+
+### Método de Máxima Verossimilhança
+
+
 
 
 [^1]: **Classificadores** são modelos de aprendizado de máquina supervisionado projetados para atribuir exemplos a categorias ou classes distintas com base em suas características. Eles são utilizados quando a variável resposta é categórica, como na identificação de sentimentos em textos, classificação de imagens ou detecção de spam em e-mails.
