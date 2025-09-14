@@ -224,9 +224,63 @@ Nesse tipo de modelos, podemos modelar a distribuição dos $p$ preditores $X$ s
 - Se a distribuição dos preditores $X$ for **aproximadamente** normal, os métodos generativos serão mais precisos;
 - Esses métodos se extendem naturalmente para um número de classes $K >= 2$
 
-Suponha que queremos classiifcar uma observação entre uma em K clases,
+### Teorema de Bayes
+
+Suponha que queremos classificar uma observação entre uma em K classes, onde $K >= 2$. Sendo $\pi k$ a representação da probabilidade *a priori* de que uma observação escolhida aleatoriamente venha da $k_{ésima}$ classe. E sendo $fk(x) = Pr(X|y = k)$ a função de densidade de  X para uma observação da da $k_{ésima}$ classe. Então, o teorema de Bayes estabelece que:
+
+$$
+\Pr\bigl(Y = k \mid X = x\bigr)
+  = \frac{\pi_k\,f_k(x)}
+         {\displaystyle\sum_{l=1}^{K} \pi_l\,f_l(x)}.
+$$
+
+A leitura "intuitiva" é a seguinte: "Pegue o quão comum cada classe é na população (o peso πₖ) e multiplique por quão bem as características x se encaixam nessa classe (a verossimilhança fₖ(x)). Depois compare esse peso com a soma dos pesos de todas as classes. A fração resultante é exatamente a probabilidade de que a observação pertença à classe k."
+
+Com isso temos a probabilidade posterior $pk(x)$ = $Pr(y= k | X= x)$, que é a probabilidade de que uma observação pertence à classe k, dado os valores dos preditores para aquela observação. Os modelos dessa parte do capítulo todos vão utilizar o teorema de Bayes como parte das estimativas das probabilidades $pk(x)$.
+
+### *Linear Discriminant Analysis* (LDA)
+
+O *Linear Discriminant Analysis* (LDA) é um modelo generativo utilizado para tarefas de classificação, especialmente quando a variável resposta possui duas ou mais categorias. O LDA parte do princípio de que os dados de cada classe seguem uma distribuição normal multivariada com médias diferentes, mas compartilham a mesma matriz de covariância. Ou seja, ele assume que, dentro de cada classe, as variáveis explicativas ($X$) têm distribuição aproximadamente normal e que a dispersão dos dados é semelhante entre as classes.
+
+O funcionamento do LDA envolve dois passos principais: primeiro, ele estima a média e a variância das variáveis explicativas para cada classe, além das probabilidades a priori de cada classe na população. Em seguida, utiliza o Teorema de Bayes para calcular a probabilidade de uma nova observação pertencer a cada classe, combinando a verossimilhança dos dados com o peso de cada classe.
+
+A fronteira de decisão do LDA entre as classes é linear, pois o modelo constrói uma combinação linear das variáveis explicativas para separar as categorias. Isso significa que o LDA busca encontrar a linha (ou hiperplano, em dimensões maiores) que melhor discrimina entre as classes, maximizando a separação entre elas e minimizando a dispersão dentro de cada classe.
+
+O LDA é especialmente útil quando as suposições de normalidade e covariância igual são razoáveis, e pode ser aplicado em problemas como reconhecimento de padrões, classificação de textos, diagnóstico médico e análise de crédito. Além de classificar novas observações, o LDA também permite interpretar quais variáveis são mais importantes para distinguir entre as classes, fornecendo insights sobre a estrutura dos dados.
 
 
+### *Quadratic Discriminant Analysis* (QDA)
+
+O *Quadratic Discriminant Analysis* (QDA) é uma extensão do LDA que relaxa uma das principais suposições do modelo: enquanto o LDA assume que todas as classes compartilham a mesma matriz de covariância, o QDA permite que cada classe tenha sua própria matriz de covariância. Isso significa que o QDA pode capturar situações em que a dispersão ou a forma das distribuições das variáveis explicativas ($X$) é diferente entre as classes.
+
+No QDA, os dados de cada classe ainda são modelados como provenientes de uma distribuição normal multivariada, mas agora cada classe pode ter uma dispersão e correlação entre variáveis próprias. Como resultado, a fronteira de decisão entre as classes deixa de ser linear e passa a ser quadrática, permitindo separar classes que têm formatos ou distribuições mais complexas.
+
+O funcionamento do QDA envolve estimar, para cada classe, a média das variáveis explicativas, a matriz de covariância específica e a probabilidade a priori. Utilizando o Teorema de Bayes, o QDA calcula a probabilidade de uma nova observação pertencer a cada classe, levando em conta as diferenças na dispersão dos dados.
+
+O QDA é especialmente útil quando as classes apresentam padrões de variabilidade distintos, como em problemas de classificação de imagens, reconhecimento de padrões ou situações em que a estrutura dos dados é mais heterogênea. Por ser mais flexível que o LDA, o QDA pode se adaptar melhor a dados complexos, mas também exige mais dados para estimar corretamente as matrizes de covariância de cada classe.
+
+### LDA ou QDA?
+
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"Por que importa se assumimos ou não que as K classes compartilham uma matriz de covariância comum? Em outras palavras, por que alguém preferiria LDA a QDA, ou vice-versa? A resposta está no trade-off viés-variância. Quando há p preditores, estimar uma matriz de covariância requer estimar p(p+1)/2 parâmetros. O QDA estima uma matriz de covariância separada para cada classe, somando Kp(p+1)/2 parâmetros. Com 50 preditores, isso corresponde a múltiplos de 1 275, ou seja, muitos parâmetros. Ao assumir que as K classes compartilham uma matriz de covariância comum, o modelo LDA torna-se linear em x, o que implica Kp coeficientes lineares a estimar. Consequentemente, o LDA é um classificador muito menos flexível que o QDA e, portanto, tem variância substancialmente menor. Isso pode levar a um desempenho de previsão melhor. Mas há um trade-off: se a suposição de que as K classes compartilham uma matriz de covariância comum estiver muito errada, o LDA pode sofrer de alto viés. De modo geral, o LDA tende a ser uma aposta melhor que o QDA quando há poucas observações de treino e, portanto, reduzir a variância é crucial. Em contraste, o QDA é recomendado se o conjunto de treino for muito grande, de modo que a variância do classificador não seja uma grande preocupação, ou se a suposição de uma matriz de covariância comum para as K classes for claramente insustentável."
+({cite}`james2023introduction`., p. 157, tradução nossa)
+```
+
+### *Naive Bayes*
+
+
+O *Naive Bayes* é outro modelo generativo amplamente utilizado em tarefas de classificação, especialmente em Processamento de Linguagem Natural. Sua principal característica é a suposição de independência condicional entre as variáveis explicativas ($X$) dado a classe ($Y$). Ou seja, o modelo assume que, dentro de cada classe, as variáveis são estatisticamente independentes entre si — uma simplificação que raramente é verdadeira na prática, mas que torna o modelo extremamente eficiente e fácil de implementar.
+
+O funcionamento do Naive Bayes envolve calcular, para cada classe, a probabilidade a priori ($P(Y)$) e a probabilidade de observar cada valor das variáveis explicativas dado a classe ($P(X_i|Y)$). Utilizando o Teorema de Bayes, o modelo combina essas probabilidades para estimar a probabilidade de uma nova observação pertencer a cada classe. Apesar da suposição "ingênua" de independência, o Naive Bayes costuma apresentar bom desempenho em problemas de texto, como classificação de e-mails em spam ou não spam, análise de sentimentos e categorização de documentos.
+
+Além de ser rápido e escalável para grandes volumes de dados, o Naive Bayes é robusto a dados faltantes e pode ser facilmente adaptado para diferentes tipos de variáveis (binárias, categóricas ou contínuas). Em resumo, o Naive Bayes oferece uma solução prática e eficiente para problemas de classificação, especialmente quando a simplicidade e a velocidade são prioridades.
+
+
+## Conclusão
+
+Neste capítulo, aprofundamos o entendimento sobre o problema de classificação em aprendizado supervisionado, destacando as limitações da regressão linear para variáveis categóricas e a importância de utilizar métodos apropriados para tarefas de classificação. Exploramos a regressão logística, suas extensões para múltiplos preditores e múltiplas classes, e discutimos o papel do logit como ligação entre variáveis explicativas e probabilidades. Apresentamos também os modelos generativos, como LDA, QDA e Naive Bayes, que modelam explicitamente o processo de geração dos dados e utilizam o Teorema de Bayes para estimar probabilidades de pertencimento às classes. Discutimos os pressupostos, vantagens e limitações de cada abordagem, bem como o trade-off entre viés e variância na escolha do modelo. Por fim, reforçamos a importância de compreender as características dos dados e dos métodos para realizar classificações precisas, interpretáveis e adequadas ao contexto de cada problema.
 
 ## Notas
 
