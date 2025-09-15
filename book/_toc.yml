@@ -59,8 +59,8 @@ parts:
       - file: videos/maxlikelihood.md
       - file: videos/bayestheorem.md
     - file: aulas/aula6/aula6.ipynb
-    # - file: aulas/aula6/lab6.ipynb
-    # - file: aulas/aula6/lab6_extra.ipynb
+    - file: aulas/aula6/lab6.ipynb
+    - file: aulas/aula6/lab6_extra.ipynb
   - caption: Outros
     chapters:
     - file: references.md
