@@ -61,6 +61,9 @@ parts:
     - file: aulas/aula6/aula6.ipynb
     - file: aulas/aula6/lab6.ipynb
     - file: aulas/aula6/lab6_extra.ipynb
+  - caption: Aula 07 - Classificação com Texto
+    chapters:
+    - file: aulas/aula7/aula7intro.md
   - caption: Outros
     chapters:
     - file: references.md
