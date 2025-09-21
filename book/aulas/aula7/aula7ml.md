@@ -143,8 +143,10 @@ $$
 Esse pressuposto, ou suposição, de que a probabilidade de uma palavra depende apenas da palavra anteiror é chamado de **Suposição de Markov**. Modelos de Markov são uma classe de modelos probabilísticos que assumem que podemos prever a probabilidade de uma unidade futura sem olhar muito distante no passado. Portanto, a probabilidade de uma frase inteira pode ser estimada por
 
 $$
-Pr(p_{1:n}) \approx 
+Pr(p_{1:n}) \approx \prod_{k=1}^{n} Pr(p_k|p_{k-1})
 $$
+
+
 
 ## Notas
 
