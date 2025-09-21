@@ -158,16 +158,41 @@ P\bigl(p_n \,\bigl|\, p_{n-1}\bigr)
         {\displaystyle\sum_{p} C\!\bigl(p_{n-1}p\bigr)}
 $$
 
-Vamos trabalhar alguns exemplos de cálculos de probabilidade só para entender como funciona:
+Vamos trabalhar alguns exemplos de cálculos de probabilidade só para entender como funciona (<f> e </f> indicam o começo e o fim de uma frase):
+ 
+$$
+<f> \text{Eu sou João} </f>
+$$
 
 $$
-1. <s> \text{Eu sou João} </s>
-2. <s> \text{João sou eu} </s>
-3. <s> \text{Eu não gosto de sopa} </s>
+<f> \text{João sou eu} </f>
 $$
+
+$$
+<f> \text{Eu não gosto de sopa} </f>
+$$
+
 
 Se esse fosse nosso córpus inteiro, poderíamos computar as seguinte probabilidades para os bigramas:
 
+$$
+Pr (Eu | <f>) = 2/3 \approx 67%
+$$
+
+Aqui, queremos a probabilidade de que a frase começe com "Eu". Em dois casos (1 e 3 frases), isso ocorre. Obtemos, então, uma probabilidade de aproximadamente 67%. Para a frase abaixo
+
+$$
+Pr (João | <f>) = 1/3
+$$
+
+Queremos a probabilidade de que a frase começe com "João". Só uma frase das três começa, portanto a probabilidade é de 1/3, ou aproximadamente $33\%$. No caso geral, a estimação de paramêtros no *MLE* (Maximum Likelihood Estimation) em n-grams fica:
+
+$$
+P\bigl(w_n \,\bigl|\, w_{\,n-N+1{:}n-1}\bigr)
+   \;=\;
+   \frac{C\!\bigl(w_{\,n-N+1{:}n-1}\,w_n\bigr)}
+        {C\!\bigl(w_{\,n-N+1{:}n-1}\bigr)}
+$$
 
 
 
