@@ -3,7 +3,7 @@
 Discutimos ao longo do curso que a tarefa de classificação envolve pegar preditores $X$ (ou *features*) e utilizá-los para tentar prever à que categoria $Y$, nosso *target* pertence. Para a classificação com texto, a principal mudança é a de que não utilizaremos mais dados numéricos (Saldo do cartão, variáveis de saúde), e sim **Texto**, pré-processado e representado numericamente. Um exemplo clássico dentro da classificação com texto é a de verificar se uma avaliação de um produto é positiva ou negativa. Isso é uma tarefa dentro da área de Análise de Sentimentos, e as categorias podem variar um pouco. Nessa tarefa, pegamos o texto da avaliação {"O produto é muito bom!", "Não gostei nem um pouco"} e tentaremos classificar eles como positivos ou negativos. Como vimos antes, um classificador básico é a regressão logística, e ela servirá de base para entendermos o mecanismo por trás dos modelos de aprendizado supervisionado com texto.
 
 
-## Regressão Logística
+## Classificação com Regressão Logística
 
 No ISL ({cite}`james2023introduction`.), os autores explicam a Regressão Logística por uma linguamge mais estatística. Já Jurafsky e Martin ({cite}`jurafsky2024speech`.) vão por uma linha mais do Aprendizado de Máquina. Por isso, não estranhem a mudança de jargão e de termos para se referir à Regressão Logística. 
 
@@ -36,8 +36,6 @@ align: center
 ---
 Função sigmóide. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`.)
 ```
-
-## Classificação com Regressão Logística
 
 Com a função sigmóide, conseguimos computar a probabilidade $Pr(y=1|X)$. No entanto, precisamos também definir um nível de decisão. Para uma probabilidade de 0.51, classificaremos a observação como da classe 1 ou da classe 0? Apesar de bem próximo ao meio termo, poderíamos adotar o nível de decisão de 0.5, o que jogaria essa observação para classe 1. Isso é o que é conhecido no aprendizado de máquina como *Decision Boundary*.
 
@@ -94,7 +92,14 @@ Nessa situação temos que a probabilidade de que a observação seja classifica
 
 ## O aprendizado na Regressão Logística
 
-Como os parâmetros do modelo logístico, os pesos $\mathbf{w}$ e o viés b, são estimados? Precisamos de dois componentes principais para essa estimativa: Uma métrica do quão distante os rótulos previstos $\hat{y}$ estão do valor verdadeiro de $y$. Essa distância é mensurada por meio de uma **função de perda** (*Loss/Cost Function*). Um segundo componente é um **algoritmo de otimização** para atualizarmos os pesos iterativamente para reduzir a função de perda ao máximo. Um algoritmo comumente usado é o *Gradient Descent*
+Como os parâmetros do modelo logístico, os pesos $\mathbf{w}$ e o viés b, são estimados? Precisamos de dois componentes principais para essa estimativa: Uma métrica do quão distante os rótulos previstos $\hat{y}$ estão do valor verdadeiro de $y$. Essa distância é mensurada por meio de uma **função de perda** (*Loss/Cost Function*). Um segundo componente é um **algoritmo de otimização** para atualizarmos os pesos iterativamente para reduzir a função de perda ao máximo. Um algoritmo comumente usado é o *Gradient Descent*. Veremos agora uma função de perda comum (*Cross-Entropy*) e o *Gradient Descent*.
+
+### A função de Perda *Cross-entropy*
+
+
+```{video} https://www.youtube.com/embed/6ArSys5qHAU?si=qVH8W4n4xPbCNmMX
+```
+
 
 
 
