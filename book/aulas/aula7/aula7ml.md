@@ -99,10 +99,16 @@ $$
 Uma forma de estimar essa probabilidade é por meio da contagem de frequências: Dado um córpus[^2], quantas vezes a frase "A praia de Copacabana é tão" é seguida por "Azul".
 
 $$
-
+\( Pr(\text{blue} | \text{A praia de Copacabana é tão}) \;=\;
+\frac{C(\text{A praia de Copacabana é tão Azul})}
+     {C(\text{A praia de Copacabana é tão})} \)
 $$
 
+No entanto, nenhum córpus será tão grande a ponto de nos dar boas estimativas para essa probabilidade. Isso se deve ao fato da Língua e a Linguagem serem criativas, e novas frases são criadas o tempo todo. Por isso, outra forma de estimar a probabilidade é necessária. Uma forma de estimar essa probabilidade é por meio da *Chain Rule of Probability* (Ou Regra Geral do Produto/Cadeia, em português). Aplicando ela para palavras ($p$), temos:
 
+$$
+Pr(P_1, ..., P_n) = Pr(P_1) P(P_2|P_1) P(X_3|X_{1:2}) ... P(X_n|X_{1:n-1}) 
+$$
 
 
 ## Notas
