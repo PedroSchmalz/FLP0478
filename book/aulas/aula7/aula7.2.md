@@ -47,8 +47,18 @@ $$
 \end{cases}
 $$
 
-Resumindo, o processo de classificação com a regressão logística é o seguinte: Estimamos um valor $z$ utilizando os pesos e termo de viés estimados pelo classificador durante o treinamento. Passamos cada z pela função sigmóide, mapeando-os para um valor no intervalo [0,1]. Com um nível de decisão definidos pelo pesquisador (ou o padrão do classificador), pegamos a probabilidade estimada e classificamos cada observação de teste entre as classes 0 ou 1.
+Resumindo, o processo de classificação com a regressão logística é o seguinte: Estimamos um valor $z$ utilizando os pesos e termo de viés estimados pelo classificador durante o treinamento. Passamos cada z pela função sigmóide, mapeando-os para um valor no intervalo [0,1]. Com um nível de decisão definidos pelo pesquisador (ou o padrão do classificador), pegamos a probabilidade estimada e classificamos cada observação de teste entre as classes 0 ou 1. A {numref}`Figura {number} <logclass>` mostra como a regressão logística calcula a probabilidade de uma observação ser de uma classe dada as *features* de texto.
 
+
+
+```{figure} ../aula7/images/fig4.3.1.png
+---
+width: 100%
+name: logclass
+align: center
+---
+Classificação na regressão Logística Binária. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`.)
+```
 
 ## Classificação com Regressão Multinomial
 
@@ -61,6 +71,7 @@ Quando temos un número de classes $K>2$, não podemos utilizar a regressão log
 ```{video} https://www.youtube.com/embed/KpKog-L9veg?si=my4iOKA4GkFuMT6U
 ```
 
+---
 
 A função **Softmax** é uma generalização da função Sigmóide, usada no modelo de regressão multinomial para calcular a probabilidade de que as observações pertencem a uma classe k $Pr(Y = k | X)$. A função *softmax* pegar um vetor $\mathbf{z} = [z_1, z_2, ..., z_k]$ das probabilidades de cada classe para $k$ classes e mapeia cada uma para uma distribuição de probabilidades, dentro do intervalo [0,1] e somando 1 ao total. Para um vetor $\mathbf{z}$ de dimensionalidade K, o softmax é definido como:
 
@@ -92,7 +103,19 @@ $$
 [0.05, 0.09, 0.01, 0.1, 0.74, 0.01]
 $$
 
-Nessa situação temos que a probabilidade de que a observação seja classificada com da classe de número 5 é de 74% (0.74), e sabemos também os valores estimados para todas as outras classes (e.g. classe 1 = 0.05, etc).
+Nessa situação temos que a probabilidade de que a observação seja classificada com da classe de número 5 é de 74% (0.74), e sabemos também os valores estimados para todas as outras classes (e.g. classe 1 = 0.05, etc). A {numref}`Figura {number} <multclass>` mostra como a regressão multinomial calcula as probabilidades de uma observação ser de uma classe dada as *features* de texto.
+
+
+
+```{figure} ../aula7/images/fig4.3.2.png
+---
+width: 100%
+name: multclass
+align: center
+---
+Classificação na regressão Multinomial. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`.)
+```
+
 
 
 
@@ -105,6 +128,7 @@ Como os parâmetros do modelo logístico, os pesos $\mathbf{w}$ e o viés b, sã
 
 ```{video} https://www.youtube.com/embed/6ArSys5qHAU?si=qVH8W4n4xPbCNmMX
 ```
+--- 
 
 Precisamos de uma função de perda que expresse, para uma observação, o quão próximo uma saída do classificador $\hat{y} = \mathbf{\sigma} (\mathbf{w}*\mathbf{x} + b) $ é em relação ao valor correto de base, $Y$. Formalizando, queremos descobrir
 
@@ -117,9 +141,11 @@ Que é quanto $\hat{y}$ difere de $y$. Fazemos isso por meio de uma funçaõ de 
 
 ### Descida do Gradiente
 
+```{video} https://www.youtube.com/embed/IHZwWFHWa-w?si=FMtTFGir0x5qFyCX
+```
+---
 
-
-
+O objetivo da descida do gradiente (*Gradient Descent*) é achar os pesos ótimos, minimizando nossa funçaõ de perda para todas as observações. Como podemos achar o mínimo dessa função? O método da descida do gradiente procura o mínimo da função descobrindo em qual direção (dentro do espaço de parâmetros) a inclinação da função está aumentando mais rapidamente, e então se move na direção contrária.
 
 
 ## Notas
