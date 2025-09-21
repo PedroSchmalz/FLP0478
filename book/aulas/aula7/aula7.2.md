@@ -145,9 +145,25 @@ Que é quanto $\hat{y}$ difere de $y$. Fazemos isso por meio de uma funçaõ de 
 ```
 ---
 
-O objetivo da descida do gradiente (*Gradient Descent*) é achar os pesos ótimos, minimizando nossa funçaõ de perda para todas as observações. Como podemos achar o mínimo dessa função? O método da descida do gradiente procura o mínimo da função descobrindo em qual direção (dentro do espaço de parâmetros) a inclinação da função está aumentando mais rapidamente, e então se move na direção contrária.
+O objetivo da descida do gradiente (*Gradient Descent*) é achar os pesos ótimos, minimizando nossa função de perda para todas as observações. Como podemos achar o mínimo dessa função? O método da descida do gradiente procura o mínimo da função descobrindo em qual direção (dentro do espaço de parâmetros) a inclinação da função está aumentando mais rapidamente, e então se move na direção contrária. No caso da regressão logística (ou multinomial), estamos navegando um espaço de parâmetros 2D: Temos o peso $w$ e navegamos ele ao longo da função de perda. Em modelos mais complexos, como os de redes neurais, o espaço de parâmetros passa a ter mais dimensões.  A {numref}`Figura {number} <gradientdesc>` mostra como o algortimo de otimização percorre a função de perda para tentar encontrar o mínimo global, reduzindo a função de perda e garantindo melhores previsões do modelo de aprendizado supervisionado.
+
+
+```{figure} ../aula7/images/fig4.5.png
+---
+width: 100%
+name: gradientdesc
+align: center
+---
+Movimentação do Algoritmo de Otimização. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`.)
+```
+
+O algoritmo de descida do gradiente procura o gradiente da função de perda no ponto atual e se move na direção contrária. Podemos pensar no gradiente como a inclinação da reta (reta pontilhada verde na figura), na situação de uma única variável de otimização. A velocidade desse "passo" da descida do gradiente será ditada por um hiperparâmetro[^1], a **Taxa de Aprendizado**.
+
+### Taxa de Aprendizado
+
+
 
 
 ## Notas
 
-
+[^1]: Hiperparâmetro é uma variável de configuração definida manualmente antes do treinamento que controla aspectos essenciais de como o algoritmo de machine learning aprende, como a taxa de aprendizado, o número de camadas de uma rede neural ou o tamanho do lote de dados. Diferentemente dos parâmetros do modelo (pesos e vieses), que são ajustados automaticamente pelo processo de otimização, os hiperparâmetros precisam ser escolhidos e refinados pelo pesquisador — prática conhecida como ajuste (ou otimização) de hiperparâmetros — porque influenciam diretamente a velocidade de convergência, a capacidade de generalização e o risco de sobreajuste do modelo.
