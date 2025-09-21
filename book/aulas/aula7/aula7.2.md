@@ -56,6 +56,12 @@ Quando temos un número de classes $K>2$, não podemos utilizar a regressão log
 
 ### Função Softmax
 
+
+
+```{video} https://www.youtube.com/embed/KpKog-L9veg?si=my4iOKA4GkFuMT6U
+```
+
+
 A função **Softmax** é uma generalização da função Sigmóide, usada no modelo de regressão multinomial para calcular a probabilidade de que as observações pertencem a uma classe k $Pr(Y = k | X)$. A função *softmax* pegar um vetor $\mathbf{z} = [z_1, z_2, ..., z_k]$ das probabilidades de cada classe para $k$ classes e mapeia cada uma para uma distribuição de probabilidades, dentro do intervalo [0,1] e somando 1 ao total. Para um vetor $\mathbf{z}$ de dimensionalidade K, o softmax é definido como:
 
 $$
@@ -99,6 +105,18 @@ Como os parâmetros do modelo logístico, os pesos $\mathbf{w}$ e o viés b, sã
 
 ```{video} https://www.youtube.com/embed/6ArSys5qHAU?si=qVH8W4n4xPbCNmMX
 ```
+
+Precisamos de uma função de perda que expresse, para uma observação, o quão próximo uma saída do classificador $\hat{y} = \mathbf{\sigma} (\mathbf{w}*\mathbf{x} + b) $ é em relação ao valor correto de base, $Y$. Formalizando, queremos descobrir
+
+$$
+L(\hat{y},y)
+$$
+
+Que é quanto $\hat{y}$ difere de $y$. Fazemos isso por meio de uma funçaõ de perda que vai preferir que a classificação correta durante o treinamento seja a mais provável. Isso é conhecido como *MLE* condicional: escolhemos os parâmetros $w,b$ que maximizam a probabilidade dos valores verdadeiros de y dados os valores x de treinamento. A função de perda resultate é a *negative log likelihood loss*, mais conhecida como ***Cross-Entropy Loss***.
+
+
+### Descida do Gradiente
+
 
 
 
