@@ -1,4 +1,4 @@
-# Modelos de Língua, N-Grams e Classificação com Texto
+# Modelos de Língua e N-grams
 
 Na última aula, vimos que o problema de classificação exige métodos específicos quando a variável resposta é categórica, como sentimentos, diagnósticos ou posicionamentos. Discutimos por que a regressão linear não é adequada para esse tipo de tarefa e exploramos alternativas como a regressão logística, que modela probabilidades de forma apropriada. Aprendemos sobre extensões da regressão logística para múltiplos preditores e múltiplas classes, além de conhecer os modelos generativos, como LDA, QDA e Naive Bayes, que modelam o processo de geração dos dados e utilizam o Teorema de Bayes para estimar probabilidades de pertencimento às classes. Por fim, destacamos as vantagens, limitações e pressupostos de cada abordagem, reforçando a importância de escolher o método mais adequado ao contexto do problema.
 
@@ -215,39 +215,6 @@ Ao dominar esses conceitos, o pesquisador consegue construir representações ma
 ### Próximos Passos e Modelos Neurais
 
 Os modelos probabilísticos de linguagem, como os n-grams, inauguraram a ideia de atribuir uma probabilidade explícita a cada sequência de palavras por meio da regra da cadeia e da suposição de Markov. Esse enquadramento mostrou que textos podiam ser convertidos em contagens normalizadas e treinados por máxima verossimilhança, introduzindo métricas como perplexidade para avaliar a qualidade do modelo. Quando surgiram os modelos neurais, eles mantiveram o mesmo objetivo de estimar $Pr(p|h)$, mas trocaram tabelas esparsas por vetores densos e parâmetros aprendidos, conseguindo generalizar para contextos mais longos e lidar melhor com dados raros. Entender essa herança probabilística nos faz perceber que mesmo as arquiteturas mais recentes continuam, no essencial, sendo máquinas de previsão de sequências. Um princípio que permanece nos grandes modelos de linguagem atuais, como os *LLMs*.
-
-
-
-## Regressão Logística e Classificação com Texto
-
-Discutimos ao longo do curso que a tarefa de classificação envolve pegar preditores $X$ (ou *features*) e utilizá-los para tentar prever à que categoria $Y$, nosso *target* pertence. Para a classificação com texto, a principal mudança é a de que não utilizaremos mais dados numéricos (Saldo do cartão, variáveis de saúde), e sim **Texto**, pré-processado e representado numericamente. Um exemplo clássico dentro da classificação com texto é a de verificar se uma avaliação de um produto é positiva ou negativa. Isso é uma tarefa dentro da área de Análise de Sentimentos, e as categorias podem variar um pouco. Nessa tarefa, pegamos o texto da avaliação {"O produto é muito bom!", "Não gostei nem um pouco"} e tentaremos classificar eles como positivos ou negativos. Como vimos antes, um classificador básico é a regressão logística, e ela servirá de base para entendermos o mecanismo por trás dos modelos de aprendizado supervisionado com texto.
-
-
-### Regressão Logística
-
-No ISL ({cite}`james2023introduction`.), os autores explicam a Regressão Logística por uma linguamge mais estatística. Já Jurafsky e Martin ({cite}`jurafsky2024speech`.) vão por uma linha mais do Aprendizado de Máquina. Por isso, não estranhem a mudança de jargão e de termos para se referir à Regressão Logística. 
-
-#### Função Sigmóide
-
-Como dito antes, o objetivo da regressão logística binária é treinar um classificador capaz de tomar uma decisão binária sobre a classe de uma nova observação de entrada. Aqui introduzimos o classificador sigmoide, que nos ajudará a tomar essa decisão. Em Jurafsky e Martin, a Regressão logística resolve o problema de estimar $Pr(Y=1|X)$ (A probabilidade de que a observação pertence à classe 1, dado os preditores) estimando um vetor de **pesos** e **termos de viés**. Vamos chamar os pesos de $w$ e o viés de $b$. Cada peso $w_i$ é um número real e está associado à um dos preditores $X_i$. O peso representa quão importante é cada preditor para a decisão de classificação, podendo ser negativo ou positivo. Em uma tarefa de classificação de sentimento, provávelmente a palavra "ótimo" terá um peso positivo, e a palavra "horrível" terá um peso negativo. O termo de viés, ou intercepto, é um número real que é adicionado aos *inputs* ao final do cálculo. Para fazer uma decisão em uma observação de teste (após o treinamento), o classificador logístico vai multiplicar cada preditor $X_i$ pelo seu peso $w_i$, e somar isso com o termo de viés. Formalmente, temos:
-
-$$
-z \;=\; \left(\sum_{i=1}^{n} w_i x_i\right) + b
-$$
-
-No entanto, os valores de $z$ resultantes dessa equação não estão obrigatoriamente entre 0 e 1. Para que possamos calcular a probabilidade de que uma observação é da classe 0 ou 1, precisamos limitar z para esse intervalo. Para isso, passaremos z pela função sigmóide $\sigma$, ou função logística.
-
-$$
-\sigma(z)
-   \;=\;
-   \frac{1}{1 + e^{-z}}
-   \;=\;
-   \frac{1}{1 + \exp(-z)}
-$$
-
-
-
-
 
 
 
