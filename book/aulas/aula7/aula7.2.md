@@ -5,7 +5,7 @@ Discutimos ao longo do curso que a tarefa de classificação envolve pegar predi
 
 ## Classificação com Regressão Logística
 
-No ISL ({cite}`james2023introduction`.), os autores explicam a Regressão Logística por uma linguamge mais estatística. Já Jurafsky e Martin ({cite}`jurafsky2024speech`.) vão por uma linha mais do Aprendizado de Máquina. Por isso, não estranhem a mudança de jargão e de termos para se referir à Regressão Logística. 
+No ISL ({cite}`james2023introduction`.), os autores explicam a Regressão Logística por uma linguagem mais estatística. Já Jurafsky e Martin ({cite}`jurafsky2024speech`.) vão por uma linha mais do Aprendizado de Máquina. Por isso, não estranhem a mudança de jargão e de termos para se referir à Regressão Logística. 
 
 ### Função Sigmóide
 
