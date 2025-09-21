@@ -58,7 +58,7 @@ Seguindo a mesma frase e a mesma etapa de tokenização em palavras, podemos for
 
 Se o objetivo é capturar resistência à vacinação, ou hesitação vacinal, talvez quebrar o texto em bigramas seja mais informativo do que quebrá-lo apenas em suas palavras individuais. Com isso, se dá mais contexto ao modelo de aprendizado de máquina, ao custo de adicionar mais combinações raras que podem não aparecer tanto em seu banco de dados. 💬 "Usar ordens maiores de n-gramas pode aumentar substancialmente o número de tipos únicos, mas pode ajudar nossa análise textual ao reter mais informações" ({cite}`grimmer2022text`, p. 99, tradução nossa). Novamente, isso não é uma escolha trivial: Assim como todos os passos e princípios discutidos nas últimas aulas, a forma de processar e representar numericamente o texto altera substancialmente os resultados. O pesquisador deve tentar sempre estar consciente dessas escolhas e relatá-las aos leitores quando necessário. 
 
-### Processamento Morfológico em PLN
+### Processamento Morfológico
 
 Para desenvolver qualquer aplicação de PLN, é necessário realizar fases/etapas que convencionamos chamar de pré-processamento do texto. No pré-processamento, algumas tarefas usuais são: Segmentação do texto em sentenças (Sentenciação); Separação de Palavras (tokenização); tokenização em subpalavras; normalização de palavras (lematização, radicalização), entre outras. Como as tarefas mais usuais foram discutidas na seção "*Bag-of-words* e o modelo multinomial", não iremos repetir o conteúdo, partindo para os modelos de linguagem.
 
@@ -99,9 +99,9 @@ $$
 Uma forma de estimar essa probabilidade é por meio da contagem de frequências: Dado um córpus[^2], quantas vezes a frase "A praia de Copacabana é tão" é seguida por "Azul".
 
 $$
-\( Pr(\text{blue} | \text{A praia de Copacabana é tão}) \;=\;
+ Pr(\text{blue} | \text{A praia de Copacabana é tão}) \;=\;
 \frac{C(\text{A praia de Copacabana é tão Azul})}
-     {C(\text{A praia de Copacabana é tão})} \)
+     {C(\text{A praia de Copacabana é tão})} 
 $$
 
 No entanto, nenhum córpus será tão grande a ponto de nos dar boas estimativas para essa probabilidade. Isso se deve ao fato da Língua e a Linguagem serem criativas, e novas frases são criadas o tempo todo. Por isso, outra forma de estimar a probabilidade é necessária. Uma forma de estimar essa probabilidade é por meio da *Chain Rule of Probability* (Ou Regra Geral do Produto/Cadeia, em português). Aplicando ela para palavras ($p$), temos:
@@ -110,6 +110,41 @@ $$
 Pr(P_1, ..., P_n) = Pr(P_1) P(P_2|P_1) P(X_3|X_{1:2}) ... P(X_n|X_{1:n-1}) 
 $$
 
+De forma geral:
+
+\[
+\prod_{k=1}^{n} P\bigl(p_k \,\bigl|\, p_{1{:}k-1}\bigr)
+\]
+
+Ou seja, podemos estimar a probabilidade conjunta de uma frase inteira por meio da multiplicação das probabilidades condicionais que a compõem. Dito de outra forma, a regra geral do produto diz que podemos calcular a probabilidade de uma frase multiplicando as probabilidades de cada palavra aparecer, considerando as palavras anteriores. Assim, mesmo sem ter todas as frases no nosso banco de dados, conseguimos estimar a chance de uma sequência de palavras acontecer. No entanto, como calcular cada probabilidade condicional (e.g. $Pr(P_2|P_1)$)?
+
+### A Suposição de Markov
+
+A intuição por trás do modelo *N-gram* é de que, ao invés de computar a $Pr(p|h)$, podemos aproximar o histórico $h$ só com as últimas palavras.  O modelo de bigrama, por exemplo, aproxima a probabilidade de uma palavra dada todas as palavras anteriores $Pr(p_n|p_{1:n-1})$ usando a probabilidade condicional da palavra anterior $Pr(p_n|p_{n-1})$. Ou seja, no lugar de estimar
+
+
+$$
+Pr(Azul | \text{A praia de Copacabana é tão})
+$$
+
+
+Ele aproxima $h$ por meio da probabilidade:
+
+$$
+Pr(Azul | tão)
+$$
+
+De maneira geral, a seguinte aproximação é feita
+
+$$
+Pr(p_n|p_{1:n-1}) \approx Pr(p_n|p_{n-1})
+$$
+
+Esse pressuposto, ou suposição, de que a probabilidade de uma palavra depende apenas da palavra anteiror é chamado de **Suposição de Markov**. Modelos de Markov são uma classe de modelos probabilísticos que assumem que podemos prever a probabilidade de uma unidade futura sem olhar muito distante no passado. Portanto, a probabilidade de uma frase inteira pode ser estimada por
+
+$$
+Pr(p_{1:n}) \approx 
+$$
 
 ## Notas
 
