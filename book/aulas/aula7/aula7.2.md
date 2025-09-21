@@ -119,7 +119,7 @@ Classificação na regressão Multinomial. Fonte: Jurafsky e Martin (2025, {cite
 
 
 
-## O aprendizado na Regressão Logística
+## O aprendizado na Regressão Logística/Multinomial
 
 Como os parâmetros do modelo logístico, os pesos $\mathbf{w}$ e o viés b, são estimados? Precisamos de dois componentes principais para essa estimativa: Uma métrica do quão distante os rótulos previstos $\hat{y}$ estão do valor verdadeiro de $y$. Essa distância é mensurada por meio de uma **função de perda** (*Loss/Cost Function*). Um segundo componente é um **algoritmo de otimização** para atualizarmos os pesos iterativamente para reduzir a função de perda ao máximo. Um algoritmo comumente usado é o *Gradient Descent*. Veremos agora uma função de perda comum (*Cross-Entropy*) e o *Gradient Descent*.
 
@@ -161,9 +161,20 @@ O algoritmo de descida do gradiente procura o gradiente da função de perda no 
 
 ### Taxa de Aprendizado
 
+Quanto o algoritmo de otimização vai se "mexer" a cada iteração da descida do gradiente vai depender da **Taxa de Aprendizado**, ou *Learning Rate*. Uma alta taxa de aprendizado faz com que o algoritmo de um "passo" maior, se movendo mais ao longo da curva de aprendizado (Loss x Weights). Isso faz com que o modelo treine mais rapidamente mas, em contextos de aprendizado profundo, pode ser que ele fique em um mínimo local, não minimizando o erro ao máximo. Inversamente, uma taxa de aprendizado baixa faz com que o modelo precise de mais iterações para definir um mínimo, mas não garante que ele vai chegar no mínimo global.
+
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"A taxa de aprendizado η é um hiperparâmetro que precisa ser ajustado. Se for muito alta, o modelo dará passos excessivamente grandes e ultrapassará o mínimo da função de perda; se for muito baixa, dará passos muito pequenos e demorará para chegar ao mínimo. É comum começar com uma taxa de aprendizado maior e reduzi-la gradualmente, fazendo-a variar com a iteração k do treinamento."
+({cite}`jurafsky2024speech`., p. 77, tradução nossa)
+```
+
 
 
 
 ## Notas
 
 [^1]: Hiperparâmetro é uma variável de configuração definida manualmente antes do treinamento que controla aspectos essenciais de como o algoritmo de machine learning aprende, como a taxa de aprendizado, o número de camadas de uma rede neural ou o tamanho do lote de dados. Diferentemente dos parâmetros do modelo (pesos e vieses), que são ajustados automaticamente pelo processo de otimização, os hiperparâmetros precisam ser escolhidos e refinados pelo pesquisador — prática conhecida como ajuste (ou otimização) de hiperparâmetros — porque influenciam diretamente a velocidade de convergência, a capacidade de generalização e o risco de sobreajuste do modelo.
+
+

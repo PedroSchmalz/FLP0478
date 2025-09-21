@@ -211,9 +211,27 @@ O modelo n-gram, ao considerar sequências de palavras, vai além da simples con
 
 Ao dominar esses conceitos, o pesquisador consegue construir representações mais informativas dos textos, escolher as melhores estratégias de pré-processamento e selecionar modelos adequados para diferentes problemas de classificação. Dessa forma, o entendimento dos modelos de linguagem n-gram e probabilísticos é um passo essencial para o desenvolvimento de soluções eficazes e interpretáveis em PLN.
 
-### Próximos Passos e Modelos Neurais
+### E daí? ‒ Por que estudar n-grams antes de classificação com texto?
 
 Os modelos probabilísticos de linguagem, como os n-grams, inauguraram a ideia de atribuir uma probabilidade explícita a cada sequência de palavras por meio da regra da cadeia e da suposição de Markov. Esse enquadramento mostrou que textos podiam ser convertidos em contagens normalizadas e treinados por máxima verossimilhança, introduzindo métricas como perplexidade para avaliar a qualidade do modelo. Quando surgiram os modelos neurais, eles mantiveram o mesmo objetivo de estimar $Pr(p|h)$, mas trocaram tabelas esparsas por vetores densos e parâmetros aprendidos, conseguindo generalizar para contextos mais longos e lidar melhor com dados raros. Entender essa herança probabilística nos faz perceber que mesmo as arquiteturas mais recentes continuam, no essencial, sendo máquinas de previsão de sequências. Um princípio que permanece nos grandes modelos de linguagem atuais, como os *LLMs*.
+
+Antes de mergulharmos nos classificadores supervisionados que rotulam tweets como *positivo/negativo* ou *spam/não-spam*, precisamos responder a uma pergunta fundamental: **como o algoritmo enxerga o texto em primeiro lugar?**
+
+1. **Representação numérica vem primeiro**:
+Classificadores exigem vetores de números. Modelos n-gram mostram o caminho ao converter frases em contagens normalizadas: cada sequência de n palavras vira uma *feature* quantitativa. Sem essa ponte entre letras e números, não há regressão logística, SVM ou rede neural que funcione.
+2. **Contexto local importa**:
+Unigramas ignoram ordem; bigramas e trigramas capturam negações (“não_gosto”) ou expressões fixas (“direitos_humanos”) que fazem toda a diferença na polaridade de um texto. Compreender n-grams ajuda o aluno a decidir até que ponto vale a pena expandir o vocabulário para melhorar o modelo final.
+3. **Probabilidade como critério de decisão**:
+N-grams introduzem a ideia de estimar $P(\text{próxima palavra}\mid\text{histórico})$. Essa lógica estatística reaparece nos classificadores probabilísticos (Naive Bayes, regressão logística) e, mais tarde, nos modelos neurais — só que com matrizes de pesos em vez de tabelas de contagem.
+4. **Limitações motivam avanços**:
+Ao notar que n-grams explodem em dimensionalidade e falham em capturar dependências longas, o estudante entende por que embeddings densos, LSTMs e Transformers se tornaram necessários. Assim, o tema “modelos de linguagem neurais” deixa de parecer magia e passa a ser a continuação natural do raciocínio.
+5. **Avaliação já familiar**:
+Métricas como perplexidade e *maximum-likelihood* surgem aqui e serão reutilizadas para medir a qualidade de redes neurais. Dominar esses conceitos agora evita uma curva de aprendizado íngreme depois.
+
+Em resumo, estudar modelos probabilísticos de linguagem **pavimenta** a estrada para a classificação de texto: eles ensinam como numerizar sentenças, por que o contexto conta, e de onde vieram as ideias que hoje impulsionam as LLMs. Sem esse alicerce, discussões sobre hiperparâmetros, embeddings ou fine-tuning ficariam sem chão.
+
+
+
 
 
 
