@@ -1,4 +1,4 @@
-# Classificação com texto
+# Modelos de Língua, N-Grams e Classificação com Texto
 
 Na última aula, vimos que o problema de classificação exige métodos específicos quando a variável resposta é categórica, como sentimentos, diagnósticos ou posicionamentos. Discutimos por que a regressão linear não é adequada para esse tipo de tarefa e exploramos alternativas como a regressão logística, que modela probabilidades de forma apropriada. Aprendemos sobre extensões da regressão logística para múltiplos preditores e múltiplas classes, além de conhecer os modelos generativos, como LDA, QDA e Naive Bayes, que modelam o processo de geração dos dados e utilizam o Teorema de Bayes para estimar probabilidades de pertencimento às classes. Por fim, destacamos as vantagens, limitações e pressupostos de cada abordagem, reforçando a importância de escolher o método mais adequado ao contexto do problema.
 
@@ -80,7 +80,27 @@ Para que precisaríamos prever a próxima palavra? *LLMs* são construídas só 
 2. "O copo"
 3. "A vacina"
 
+E trigramas:
+
+1. "Copo de água"
+2. "Vacina da Covid"
+3. "Presidente do Brasil"
+
+Mas um *N-gram* também é um modelo de probabilidade[^1] que estima a probabilidade de uma palavra dada as n-1 palavras que vem anteriormente.
+
+### *N-Grams*
+
+Começaremos com a tarefa de estimar a $Pr(p|h)$, a probabilidade da palavra $p$ dado o histórico $h$. Suponha que o histórico $h$ seja "A praia de Copacabana é tão" e queremos saber a probabilidade de que a próxima palavra seja "azul". Portanto, queremos estimar:
+
+$$
+Pr(Azul | A praia de Copacabana é tão)
+$$
 
 
 
 
+
+
+## Notas
+
+[^1]: O termo **n-gram** pode ser usado em dois sentidos: (1) como uma sequência de n itens (palavras, caracteres, etc.) extraída de um texto, e (2) como um modelo de linguagem que estima a probabilidade de uma palavra ou sequência com base nas n-1 palavras anteriores. O contexto geralmente indica qual sentido está sendo utilizado.
