@@ -25,7 +25,7 @@ ___
 
 
 
-**Laboratório 7. Classificação com texto**  
+**Laboratório 7. Classificação com texto, N-grams e Bag-of-words.**  
 
 
 
