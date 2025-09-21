@@ -93,10 +93,14 @@ Mas um *N-gram* também é um modelo de probabilidade[^1] que estima a probabili
 Começaremos com a tarefa de estimar a $Pr(p|h)$, a probabilidade da palavra $p$ dado o histórico $h$. Suponha que o histórico $h$ seja "A praia de Copacabana é tão" e queremos saber a probabilidade de que a próxima palavra seja "azul". Portanto, queremos estimar:
 
 $$
-Pr(Azul | A praia de Copacabana é tão)
+Pr(Azul | \text{A praia de Copacabana é tão})
 $$
 
+Uma forma de estimar essa probabilidade é por meio da contagem de frequências: Dado um córpus[^2], quantas vezes a frase "A praia de Copacabana é tão" é seguida por "Azul".
 
+$$
+
+$$
 
 
 
@@ -104,3 +108,5 @@ $$
 ## Notas
 
 [^1]: O termo **n-gram** pode ser usado em dois sentidos: (1) como uma sequência de n itens (palavras, caracteres, etc.) extraída de um texto, e (2) como um modelo de linguagem que estima a probabilidade de uma palavra ou sequência com base nas n-1 palavras anteriores. O contexto geralmente indica qual sentido está sendo utilizado.
+
+[^2]: O termo **córpus** refere-se a um conjunto estruturado de textos ou documentos utilizados para análise linguística ou treinamento de modelos de linguagem. Em PLN, o córpus serve como fonte de dados para extrair padrões, calcular frequências e estimar probabilidades, sendo fundamental para o desenvolvimento e avaliação de métodos computacionais aplicados à linguagem. Aqui, estamos indo para além da ideia de um córpus anotado.
