@@ -158,6 +158,17 @@ P\bigl(p_n \,\bigl|\, p_{n-1}\bigr)
         {\displaystyle\sum_{p} C\!\bigl(p_{n-1}p\bigr)}
 $$
 
+Vamos trabalhar alguns exemplos de cálculos de probabilidade só para entender como funciona:
+
+$$
+1. <s> \text{Eu sou João} </s>
+2. <s> \text{João sou eu} </s>
+3. <s> \text{Eu não gosto de sopa} </s>
+$$
+
+Se esse fosse nosso córpus inteiro, poderíamos computar as seguinte probabilidades para os bigramas:
+
+
 
 
 ## Notas
