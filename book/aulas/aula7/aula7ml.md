@@ -146,6 +146,15 @@ $$
 Pr(p_{1:n}) \approx \prod_{k=1}^{n} Pr(p_k|p_{k-1})
 $$
 
+### Como estimar as probabilidades?
+
+Uma forma de estimar essas probabilidades que utilizam a suposição de Markov é chamada de *Maximum Likelihood Estimation*, ou **Método de Estimação de Máxima Verossimilhança**. Em texto, conseguiremos as estimativas em um modelo *n-gram* pegando contagens de um córpus, e normalizando[^3] essas contagens para que fiquem entre 0 e 1. Por exemplo, para computar a probabilidade de um bigrama de uma palavra $p_n$ dada uma palavra anterior $p_{n-1}$, se computa a contagem de um bigrama $C(p_{n-1} p_{n})$ e normalizar essa contagem pela soma de todo os bigramas que compartilham a primeira palavra $p_{n-1}$:
+
+
+$$
+Pr(p_n | p_{n-1}) = \frac{C(p_{n-1} p_n)}{}
+$$
+
 
 
 ## Notas
@@ -153,3 +162,5 @@ $$
 [^1]: O termo **n-gram** pode ser usado em dois sentidos: (1) como uma sequência de n itens (palavras, caracteres, etc.) extraída de um texto, e (2) como um modelo de linguagem que estima a probabilidade de uma palavra ou sequência com base nas n-1 palavras anteriores. O contexto geralmente indica qual sentido está sendo utilizado.
 
 [^2]: O termo **córpus** refere-se a um conjunto estruturado de textos ou documentos utilizados para análise linguística ou treinamento de modelos de linguagem. Em PLN, o córpus serve como fonte de dados para extrair padrões, calcular frequências e estimar probabilidades, sendo fundamental para o desenvolvimento e avaliação de métodos computacionais aplicados à linguagem. Aqui, estamos indo para além da ideia de um córpus anotado.
+
+[^3]: **Normalizar** significa ajustar os valores de uma variável ou conjunto de dados para que fiquem dentro de um intervalo padrão, geralmente entre 0 e 1. No contexto de modelos de linguagem, normalizar as contagens transforma frequências absolutas em probabilidades, facilitando a comparação e o processamento estatístico dos dados.
