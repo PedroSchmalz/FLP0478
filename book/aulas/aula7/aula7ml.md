@@ -194,6 +194,17 @@ P\bigl(w_n \,\bigl|\, w_{\,n-N+1{:}n-1}\bigr)
         {C\!\bigl(w_{\,n-N+1{:}n-1}\bigr)}
 $$
 
+Os modelos probabilísticos, como os n-grams, permitem calcular a probabilidade de diferentes sequências de palavras em uma língua, atribuindo valores a cada possível continuação de uma frase com base nas ocorrências observadas em um córpus. Esse cálculo é fundamental para tarefas de geração automática de texto, pois possibilita escolher, a cada etapa, a palavra mais provável para continuar a sentença. O processo de busca gulosa utiliza exatamente essa ideia: a cada passo da geração, seleciona a palavra com maior probabilidade condicional, formando sentenças que refletem os padrões estatísticos aprendidos pelo modelo. Assim, a busca gulosa é uma estratégia prática que conecta diretamente os cálculos probabilísticos dos modelos de linguagem à produção de frases coerentes e naturais. A {numref}`Figura {number} <figgulosa>` ilustra o processo de geração de sentenças em um processo de "Busca Gulosa", um dos possíveis dentre vários.
+
+
+```{figure} ../aula7/images/fig17.1.png
+---
+width: 100%
+name: figgulosa
+align: center
+---
+Exemplo de geração de sentença em um processo de "Busca Gulosa". Fonte Caseli e Nunes (p.369, {cite}`caseli_nunes_pln_2024`.)
+```
 
 
 ## Notas
