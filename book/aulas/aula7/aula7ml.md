@@ -152,7 +152,10 @@ Uma forma de estimar essas probabilidades que utilizam a suposição de Markov �
 
 
 $$
-Pr(p_n | p_{n-1}) = \frac{C(p_{n-1} p_n)}{}
+P\bigl(p_n \,\bigl|\, p_{n-1}\bigr)
+   \;=\;
+   \frac{C\!\bigl(p_{n-1}p_n\bigr)}
+        {\displaystyle\sum_{p} C\!\bigl(p_{n-1}p\bigr)}
 $$
 
 
