@@ -2,12 +2,11 @@
 
 Na última aula, vimos que o problema de classificação exige métodos específicos quando a variável resposta é categórica, como sentimentos, diagnósticos ou posicionamentos. Discutimos por que a regressão linear não é adequada para esse tipo de tarefa e exploramos alternativas como a regressão logística, que modela probabilidades de forma apropriada. Aprendemos sobre extensões da regressão logística para múltiplos preditores e múltiplas classes, além de conhecer os modelos generativos, como LDA, QDA e Naive Bayes, que modelam o processo de geração dos dados e utilizam o Teorema de Bayes para estimar probabilidades de pertencimento às classes. Por fim, destacamos as vantagens, limitações e pressupostos de cada abordagem, reforçando a importância de escolher o método mais adequado ao contexto do problema.
 
-Na aula de hoje, iremos discutir como utilizar esses modelos para a classificação supervisionada **com texto**. Para isso, precisamos entender como representar a língua de maneira computacional, e qual será nossa unidade mínima de análise neste caso. Veremos o que são modelos de linguagem e como nos ajudam para esta tarefa, discutindo o uso de *n-grams*, como prever a probabilidade da próxima palavra em uma frase, etc.
-
+Na aula de hoje
 
 ## Do Número para a Língua, da Língua para o Número
 
-Na aula anterior, discutimos como aplicar classificadores (modelos de aprendizado supervisionado para classificação) no contexto de variáveis quantitativas numéricas: tinhamos características quantitativas de indivíduos (renda, saldo do cartão, etc.) e queríamos classificar esses indivíduos como potenciais devedores ou não; Ou tínhamos informações de saúde (também quantitativas) e queríamos classificar os indivíduos como pessoas com diabetes ou não. No entanto, o objetivo do curso é ensiná-los a classificar observações em categorias (favorável/desfavorável, positivo/negativo) de acordo com o conteúdo textual (conteúdo de uma publicação no *Twitter*). Para isso, precisamos entender como representar a língua de maneira computacional. Daí, surge a seguinte pergunta: Qual a unidade mínima quando tratamos, computacionalmente, a língua? Para Caseli e Nunes (2024, {cite}`caseli_nunes_pln_2024`.), depende do seu critério e finalidade: Na fonologia, será o fonema; na morfologia, o morfema; podemos separar a língua em palavras, caractéres, e assim por diante. Para os propósitos dessa disciplina, focaremos em uma unidade: O *Token*.
+Na aula anterior, discutimos como aplicar classificadores (modelos de aprendizado supervisionado para classificação) no contexto de variáveis quantitativas numéricas: tinhamos características quantitativas de indivíduos (renda, saldo do cartão, etc.) e queríamos classificar esses indivíduos como potenciais devedores ou não; Ou tínhamos informações de saúde (também quantitativas) e queríamos classificar os indivíduos como pessoas com diabetes ou não. No entanto, o objetivo do curso é ensiná-los a classificar observações em categorias (favorável/desfavorável, positivo/negativo) de acordo com o conteúdo textual (conteúdo de uma publicação no *Twitter*). Para isso, precisamos entender como representar a língua de maneira computacional. Daí, surge a seguinte pergunta: Qual a unidade mínima quando tratamos, computacionalmente, a língua? Para Caseli e Nunes (2024, {cite}`caseli_nunes_pln_2024`.), isso depende do seu critério e finalidade: Na fonologia, será o fonema; na morfologia, o morfema; podemos separar a língua em palavras, caractéres, e assim por diante. Para os propósitos dessa disciplina, focaremos em uma unidade: O *Token*.
 
 
 
@@ -62,6 +61,26 @@ Se o objetivo é capturar resistência à vacinação, ou hesitação vacinal, t
 ### Processamento Morfológico em PLN
 
 Para desenvolver qualquer aplicação de PLN, é necessário realizar fases/etapas que convencionamos chamar de pré-processamento do texto. No pré-processamento, algumas tarefas usuais são: Segmentação do texto em sentenças (Sentenciação); Separação de Palavras (tokenização); tokenização em subpalavras; normalização de palavras (lematização, radicalização), entre outras. Como as tarefas mais usuais foram discutidas na seção "*Bag-of-words* e o modelo multinomial", não iremos repetir o conteúdo, partindo para os modelos de linguagem.
+
+## Modelos de Linguagem/Língua
+
+Modelos de linguagem são sistemas matemáticos ou computacionais desenvolvidos para representar e analisar padrões presentes em textos, fala ou outras formas de comunicação. Eles buscam capturar as regularidades estatísticas da língua, como a frequência de palavras, a probabilidade de sequências de termos e as relações contextuais entre diferentes elementos do texto. Esses modelos podem ser aplicados tanto à linguagem natural quanto a linguagens formais, como códigos ou expressões matemáticas. Em PLN, modelos de linguagem são fundamentais para tarefas como previsão da próxima palavra, análise de sentimentos, tradução automática e geração de texto, pois permitem transformar a linguagem em representações numéricas que podem ser processadas por algoritmos de aprendizado de máquina.
+
+Um **Modelo de Linguagem** é um modelo de aprendizado de máquina que faz uma previsão sobre as próximas palavras. Formalmente, um modelo de linguagem atribui uma probabilidade para cada próxima palavra possível, podendo atribuir probabilidades para frases inteiras. Por exemplo, um modelo de linguagem pode dizer que a seguinte frase possui alta probabilidade:
+
+- "Do nada, percebi três homens na calçada"
+
+E atribuirá baixa probabilidade para a seguinte frase:
+
+- "Na calçada três nada do percebi homens"
+
+Para que precisaríamos prever a próxima palavra? *LLMs* são construídas só sendo treinadas para prever palavras, e hoje são muito presentes e possuem diversas aplicações possíveis. O modelo mais simples de língua é o ***N-Gram***, que é uma sequência de n palavras. Por exemplo, um bigrama (ou *2-gram*) poderia ser:
+
+1. "A água"
+2. "O copo"
+3. "A vacina"
+
+
 
 
 

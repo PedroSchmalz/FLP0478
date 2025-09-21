@@ -64,6 +64,7 @@ parts:
   - caption: Aula 07 - Classificação com Texto
     chapters:
     - file: aulas/aula7/aula7intro.md
+    - file: aulas/aula7/aula7ml.md
   - caption: Outros
     chapters:
     - file: references.md
