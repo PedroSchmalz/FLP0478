@@ -112,9 +112,9 @@ $$
 
 De forma geral:
 
-\[
+$$
 \prod_{k=1}^{n} P\bigl(p_k \,\bigl|\, p_{1{:}k-1}\bigr)
-\]
+$$
 
 Ou seja, podemos estimar a probabilidade conjunta de uma frase inteira por meio da multiplicação das probabilidades condicionais que a compõem. Dito de outra forma, a regra geral do produto diz que podemos calcular a probabilidade de uma frase multiplicando as probabilidades de cada palavra aparecer, considerando as palavras anteriores. Assim, mesmo sem ter todas as frases no nosso banco de dados, conseguimos estimar a chance de uma sequência de palavras acontecer. No entanto, como calcular cada probabilidade condicional (e.g. $Pr(P_2|P_1)$)?
 
