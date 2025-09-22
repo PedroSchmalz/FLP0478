@@ -67,6 +67,7 @@ parts:
     - file: aulas/aula7/aula7.1.md
     - file: aulas/aula7/aula7.2.md
     - file: aulas/aula7/aula7.ipynb
+    - file: aulas/aula7/lab7.ipynb
   - caption: Outros
     chapters:
     - file: references.md
