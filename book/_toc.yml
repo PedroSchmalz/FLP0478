@@ -72,6 +72,7 @@ parts:
     chapters:
     - file: aulas/aula8/aula8intro.md
     - file: aulas/aula8/aula8.md
+    - file: aulas/aula8/aula8.ipynb
   - caption: Outros
     chapters:
     - file: references.md
