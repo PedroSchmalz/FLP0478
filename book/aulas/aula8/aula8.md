@@ -18,7 +18,7 @@ align: center
 Exemplo de um banco de treinamento com duas classes e preditores. Os painéis mostram dois modelos de classificação e seus limites de classificação. Fonte Kuhn and Kjell (p.63, {cite}`kuhn2018applied`.)
 ```
 
-Como mostra A {numref}`Figura {number} <figkkclass>`, o modelo 1 seria um modelo sobreajustado, pois tenta definir os limites para a clssificação muito próximos também aos casos atípicos. Isto é, os casos azuis que estão para valores dos preditores maiores do que 0.5 (ambos preditores). Com esse sobreajuste, com certeza o modelo apresentaria ótimos resultados no banco de treinamento, mas performaria muito mal em novas observações, justamente por tentar se aproximar muito de como as observações se comportaram no treinamento. O segundo modelo, apesar de admitir mais erro durante o treinamento, provavelmente apresentaria melhores resultados em observações não vistas e, portanto, melhor capacidade de generalização. Esse é o ponto principal do problema: Queremos conseguir identificar quando nosso modelo está sobreajustado, e qual modelo terá melhores resultados em novas observações. Nós vimos isso acontecer anteriormente na quinta aula, quando avaliamos o resultado de treinamento e teste de alguns modelos com base na sua flexibilidade, na {numref}`Figura {number} <flexteste>`:
+Como mostra A {numref}`Figura {number} <figkkclass>`, o modelo 1 seria um modelo sobreajustado, pois tenta definir os limites para a classificação muito próximos também aos casos atípicos. Isto é, os casos azuis que estão para valores dos preditores maiores do que 0.5 (ambos preditores). Com esse sobreajuste, com certeza o modelo apresentaria ótimos resultados no banco de treinamento, mas performaria muito mal em novas observações, justamente por tentar se aproximar muito de como as observações se comportaram no treinamento. O segundo modelo, apesar de admitir mais erro durante o treinamento, provavelmente apresentaria melhores resultados em observações não vistas e, portanto, melhor capacidade de generalização. Esse é o ponto principal do problema: Queremos conseguir identificar quando nosso modelo está sobreajustado, e qual modelo terá melhores resultados em novas observações. Nós vimos isso acontecer anteriormente na quinta aula, quando avaliamos o resultado de treinamento e teste de alguns modelos com base na sua flexibilidade, na {numref}`Figura {number} <flexteste>`:
 
 ```{figure} ../aula5/images/fig2.9.png
 ---
@@ -28,7 +28,7 @@ align: center
 ---
 À esquerda: dados simulados a partir de f, mostrados em preto. Três estimativas de f são exibidas: a linha de regressão linear (curva laranja) e dois ajustes por splines de suavização (curvas azul e verde).
 
-À direita: Erro Quadrático Médio de treinamento (curva cinza), EQM de teste (curva vermelha) e EQM mínimo possível de teste entre todos os métodos (linha tracejada). Os quadrados representam os EQMs de treinamento e de teste para os três ajustes mostrados no painel da esquerda. Fonte: Id., p. 29.
+À direita: Erro Quadrático Médio de treinamento (curva cinza), EQM de teste (curva vermelha) e EQM mínimo possível de teste entre todos os métodos (linha tracejada). Os quadrados representam os EQMs de treinamento e de teste para os três ajustes mostrados no painel da esquerda. Fonte: James et al. ({cite}`james2023introduction`., p. 29).
 ```
 
 Nesse caso, temos um modelo sobreajustado, que é representado na linha verde: Ele segue bem de perto a variação estocástica de cada observação, e consegue ótimos resultados no treinamento (quadrado verde, linha cinza). No entanto, vemos que seu resultado é ruim para o banco de teste (linha vermelha), só não sendo pior do que a regressão linear, que nesse caso foi um modelo subajustado (*under-fit*). Nas nossas aplicações, sempre almejamos o modelo azul (corretamente ajustado), e, apesar de não sabermos o verdadeiro erro mínimo possível, podemos comparar diversos modelos e suas estimativas com métodos de reamostragem, escolhendo o melhor modelo dentre os testados. 
@@ -46,10 +46,11 @@ Vamos tentar imaginar como isso ocorreria com texto em um exemplo simples. Consi
 Para transformar texto em números aplicamos um modelo *bag-of-words* de **trigramas**: cada sequência de três palavras vira uma feature, gerando dezenas de colunas muito específicas (“amei muito este”, “esse filme demais” etc.). Treinamos uma **regressão logística** sem regularização; como há exatamente um trigrama exclusivo para cada frase, o algoritmo pode facilmente encontrar pesos que se encaixam perfeitamente e atingir 100% de acurácia no conjunto de treino. No entanto, imaginemos o seguinte banco de teste:
 
 Teste (2 frases nunca vistas):
+
 7. “Adorei esse filme.” (+)
 8. “Horrível, não gostei.” (−)
 
-Nenhum trigama do teste aparece no treino, logo o modelo poderá atribuir probabilidades aleatórias e classificar ambas como negativas ou positivas, resultando em apenas 50% de acerto. O sistema **memoriza ruído em vez de aprender padrões gerais**, o que é uma evidência de sobreajuste. Poderíamos trocar para unigramas ou aplicar regularização para reduzir a complexidade e recuperar a capacidade de generalização. Mas precisamos saber identificar quando estamos com sobreajuste.
+Nenhum trigama do teste aparece no treino, logo o modelo poderá atribuir probabilidades aleatórias e classificar ambas como negativas ou positivas, resultando em apenas 50% de acerto (ou errar ambas). O sistema **memoriza ruído em vez de aprender padrões gerais**, o que é uma evidência de sobreajuste. Poderíamos trocar para unigramas ou aplicar regularização para reduzir a complexidade e recuperar a capacidade de generalização. Mas precisamos saber identificar quando estamos com sobreajuste.
 
 
 
@@ -70,9 +71,48 @@ Justamente para que sejamos capazes de identificar quando estamos na situação 
 
 Métodos de reamostragem podem ser utilizados para estimar o erro de um modelo ou para selecionar o nível de flexibilidade (como vimos na {numref}`Figura {number} <flexteste>`). O processo de avaliar a performance de um modelo é conhecido como **Validação do Modelo**, e o processo de escolher hiperparâmetros e/ou flexibilidade do modelo é conhecido como **Seleção do modelo** (ou *hyperparameter tuning*).
 
-### Validação Cruzada
-
 Durante o curso, discutimos muito o valor de erro do modelo no banco de teste. o Erro de Teste é a média dos erros que resultam das previsões do modelo em uma nova observação, que não foi vista durante o treinamento. No entanto, a distinção entre banco de treino e teste pode ser um pouco ilusória: Na verdade, não temos um banco anotado separado só para teste, mas um banco de treinamento que foi repartido para treinamento e teste. Na ausência do banco de teste ideal, usamos métodos de validação para verificar a capacidade de generalização de um modelo.
+
+## Abordagem do Conjunto de Validação/Teste
+
+
+```{video} https://www.youtube.com/embed/ngrOYWgJjb4?si=V1M2QpZVbXRwqcyl
+```
+
+
+---
+
+Ao longo do curso, já usamos um método de validação. Dividimos um banco de treinamento em duas partes: treino e teste. O banco de teste também pode ser chamado de banco de validação. Com esse método, treinamos o modelo no banco de treinamento e avaliamos sua performance no banco de teste. A {numref}`Figura {number} <treinoteste>` ilustra a divisão neste método.
+
+
+```{figure} ../aula8/images/islfig5.1.png
+---
+width: 100%
+name: treinoteste
+align: center
+---
+Divisão entre o banco de treino (azul) e teste/validação (bege). Fonte: James et al. ({cite}`james2023introduction`., p. 203)
+```
+
+Uma das principais desvantagens desse método sozinho é que, ao repetirmos o processo de separação entre treino e teste, obteremos resultados bem diferentes. A figura {numref}`Figura {number} <testevar>` mostra a variância das estimativas de erro obtida com diferentes divisões entre treino e teste. Fica claro que a aleatoriedade contida nessa divisão pode afetar bastante nossa estimativa: não temos como saber quando estaremos na linha amarela (menor MSE) ou na linha laranja (maior MSE). Portanto, precisaremos de outros métodos para termos mais confiança em nossos modelos.
+
+
+```{figure} ../aula8/images/islfig.5.2.png
+---
+width: 100%
+name: testevar
+align: center
+---
+Uma única divisão entre treino e teste (Esquerda) e múltiplos resultados em várias divisões (Direita). Fonte: James et al. ({cite}`james2023introduction`., p. 204)
+```
+
+Em resumo, o método de validação só bom com o banco de teste tem duas desvantagens principais: 1) A estimativa de erro será única, e pode variar bastante dependendo de quais observações entraram no banco de teste. 2) O modelo treinará com menos observações (80 ou 90%), gerando resultados que podem supersestimar o erro de teste.
+
+
+## Abordagem *Leave-one-out* (LOOCV)
+
+
+
 
 
 
