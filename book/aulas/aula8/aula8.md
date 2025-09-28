@@ -179,6 +179,9 @@ Erro quadrático médio (MSE) de teste verdadeiro e estimado para os conjuntos d
 ## Conclusão
 
 
+A aula 8 amarra os três grandes eixos que vimos até aqui de representação de texto, modelagem supervisionada e validação num único ponto sobre confiança nas previsões. Partindo do exemplo de sobreajuste em trigramas, percebemos que transformar palavras em números não basta; é preciso controlar a flexibilidade para evitar que o modelo decore ruído. Foi aí que os métodos de reamostragem entraram como protagonistas: o conjunto de validação simples mostrou suas limitações de variância, o LOOCV trouxe viés mínimo mas alto custo computacional, e o k-fold (k ≈ 5 ou 10) equilibrou o trade-off viés–variância, entregando estimativas de erro mais estáveis e realistas. Assim, fechamos o ciclo: entendemos por que o modelo azul “bem ajustado” é preferível ao verde “sobreajustado”, aprendemos a diagnosticá-lo com curvas de treinamento e teste, e ganhamos um arsenal prático—validação cruzada, regularização e escolha de features—para garantir que nossos classificadores de texto não apenas brilhem no treino, mas também generalizem em produção.
+
+
 
 
 ## Notas
