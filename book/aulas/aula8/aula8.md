@@ -111,7 +111,25 @@ Em resumo, o método de validação só bom com o banco de teste tem duas desvan
 
 ## Abordagem *Leave-one-out* (LOOCV)
 
+O método "Deixe um de fora" (***Leave-one-out***), ou "Exclua um", consiste em dividir o banco também em duas partes. No entanto, ao invés de deixar 10%, ou 20%, para teste, uma única observação ($x_1,y_1$) é usada como validação, e o resto é usado para o treinamento. O método é então repetido com $(x_2,y_2), (x_3,y_3) ..., (x_n,y_n)$ de fora. Ou seja, repetimos o processo para cada observação no banco de dados, cada vez deixando uma única observação de fora. Com isso, teremos *n* estimativas de erro. No caso da regressão, obteremos *n* MSEs.
 
+$$CV_{(n)} = \dfrac{1}{n} \sum_{i=1}^{n} \text{MSE}_{i}$$
+
+
+A {numref}`Figura {number} <LOOCV>` ilustra como funciona esse processo.
+
+```{figure} ../aula8/images/islfig.5.3.png
+---
+width: 100%
+name: LOOCV
+align: center
+---
+Ilutração do método *Leave-one-out* (LOOCV). Fonte: James et al. ({cite}`james2023introduction`., p. 205)
+```
+
+As vantagens desse método com relação ao primeiro são as seguintes: 1) ele tem menos viés, gerando menor superestimação do erro no teste. 2) Não é aleatório, tendo resultados estáveis, já que sempre seguirá a mesma ordem dentro do banco de dados. No entanto, possui uma desvantagem clara: O seu gasto computacional e de tempo é muito alto. Para um banco de *N* observações, teremos que treinar o modelo *N* vezes, e isso é impraticável com bancos grande e com modelos que já exigem mais, como é o caso dos modelos de Aprendizado Profundo. Portanto, na prática, se usa um método que é um caso especial do *LOOCV*: o ***K-fold Cross-validation***.
+
+## *K-fold Cross-Validation*
 
 
 
