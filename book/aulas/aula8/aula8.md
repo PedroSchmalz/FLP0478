@@ -61,6 +61,11 @@ Nenhum trigama do teste aparece no treino, logo o modelo poderá atribuir probab
 
 ## Reamostragem e Validação Cruzada
 
+```{video} https://www.youtube.com/embed/fSytzGwwBVw?si=1si6a5JK_COrLkHa
+```
+
+---
+
 Justamente para que sejamos capazes de identificar quando estamos na situação de sobreajuste que surgiram os métodos de Reamostragem. **Métodos de Reamostragem**, ou *Resampling*, são ferramentas indispensáveis na estatística e no aprendizado de máquina, e consistem em sortear amostras repetidas de um determinado conjunto de dados de treinamento, reajustando o modelo em cada nova amostra e obtendo informações adicionais sobre seu ajuste e incerteza. 
 
 Métodos de reamostragem podem ser utilizados para estimar o erro de um modelo ou para selecionar o nível de flexibilidade (como vimos na {numref}`Figura {number} <flexteste>`). O processo de avaliar a performance de um modelo é conhecido como **Validação do Modelo**, e o processo de escolher hiperparâmetros e/ou flexibilidade do modelo é conhecido como **Seleção do modelo** (ou *hyperparameter tuning*).
