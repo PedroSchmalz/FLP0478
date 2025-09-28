@@ -68,6 +68,9 @@ parts:
     - file: aulas/aula7/aula7.2.md
     - file: aulas/aula7/aula7.ipynb
     - file: aulas/aula7/lab7.ipynb
+  - caption: Aula 08 - Reamostragem e Validação Cruzada
+    chapters:
+    - file: aulas/aula8/aula8intro.md
   - caption: Outros
     chapters:
     - file: references.md
