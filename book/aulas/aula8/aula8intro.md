@@ -1,6 +1,6 @@
 # Leituras
 
-## Aula 08 - Reamostragem e Validação Cruzada
+## Aula 08 - Sobreajuste, Reamostragem e Validação Cruzada
 ___
 
 **Leituras Obrigatórias:**  
@@ -23,7 +23,7 @@ ___
 
 
 
-**Laboratório 8. Overfitting, Reamostragem e Validação dos Resultados**  
+**Laboratório  Sobreajuste, Reamostragem e Validação dos Resultados**  
 
 
 
