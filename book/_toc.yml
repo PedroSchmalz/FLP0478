@@ -71,7 +71,7 @@ parts:
   - caption: Aula 08 - Sobreajuste, Reamostragem e Validação Cruzada
     chapters:
     - file: aulas/aula8/aula8intro.md
-    - file: aulas/aula8/aula8.md
+    - file: aulas/aula8/aula8ml.md
     - file: aulas/aula8/aula8.ipynb
   - caption: Outros
     chapters:
