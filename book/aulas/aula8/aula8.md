@@ -53,13 +53,6 @@ Teste (2 frases nunca vistas):
 Nenhum trigama do teste aparece no treino, logo o modelo poderá atribuir probabilidades aleatórias e classificar ambas como negativas ou positivas, resultando em apenas 50% de acerto (ou errar ambas). O sistema **memoriza ruído em vez de aprender padrões gerais**, o que é uma evidência de sobreajuste. Poderíamos trocar para unigramas ou aplicar regularização para reduzir a complexidade e recuperar a capacidade de generalização. Mas precisamos saber identificar quando estamos com sobreajuste.
 
 
-
-```{admonition} 💬 Com a palavra, os autores:
-:class: quote
-"Ao fazer o processamento computacional de textos escritos, a definição de que tipo de unidade de processamento se quer buscar/estudar parece estar atrelada às necessidades da tarefa ou trabalho pretendidos. Geralmente, considera-se que uma palavra é, simplesmente, uma unidade grafológica delimitada, nas línguas europeias, entre espaços em branco na representação gráfica, ou entre um espaço em branco e um sinal de pontuação. Essa é uma definição bastante concreta, e bastante prática. No entanto, ao pensarmos em nossos modelos computacionais e suas aplicações no mundo, é importante nos aprofundarmos um pouco mais na conceituação do que é uma palavra e nas possibilidades de processamento e implicações das decisões tomadas no pré-processamento dos corpora."
-({cite}`caseli_nunes_pln_2024`., p. 68, tradução nossa)
-```
-
 ## Reamostragem e Validação Cruzada
 
 ```{video} https://www.youtube.com/embed/fSytzGwwBVw?si=1si6a5JK_COrLkHa
@@ -133,6 +126,57 @@ As vantagens desse método com relação ao primeiro são as seguintes: 1) ele t
 
 
 
+```{video} https://www.youtube.com/embed/rSGzUy13F_0?si=LYRw0bYA7rfJdio8
+```
+
+---
+
+Uma alternativa menos computacionalmente exigente ao *LOOCV* é o ***K-fold***. Nessa estratégia, definimos em quantas repartições, ou "dobras" (daí o *fold*), dividíremos o banco de treino. Com base nessas $k$ dobras, iniciamos o treinamento com o primeiro *fold* sendo usado para validação e o resto para treino, repetindo isso $k$ vezes. Obtendo, por tanto, $k$ métricas de erro. Nossa fórmula para o MSE do *LOOCV* vira, então:
+
+$$CV_{(k)} = \dfrac{1}{k} \sum_{i=1}^{k} \text{MSE}_{i}$$
+
+A {numref}`Figura {number} <KFOLD>` ilustra como funciona esse processo.
+
+
+```{figure} ../aula8/images/islfig.5.5.png
+---
+width: 100%
+name: KFOLD
+align: center
+---
+Ilutração do método *K-fold*. Fonte: James et al. ({cite}`james2023introduction`., p. 207)
+```
+
+Não só o método *k-fold* é menos custoso computacionalmente, ele também possui vantagens de viés com relação ao *LOOCV*: NA validação cruzada, “viés” é o erro introduzido porque cada modelo é treinado com um subconjunto dos dados, não com o conjunto inteiro.
+
+No LOOCV (Leave-One-Out) cada split treina com n – 1 observações, praticamente todo o conjunto. Isso torna a estimativa de erro muito pouco enviesada, mas cada fold avalia o modelo num único ponto, o que gera alta variância.
+
+No k-fold com k pequeno (por exemplo k = 5 ou 10) cada modelo treina com apenas (k – 1)/k do conjunto; como perde um pouco mais de dados para teste, o erro médio tende a ser levemente mais alto (maior viés) do que no LOOCV.
+
+A “vantagem” é justamente esse pequeno aumento de viés: ele suaviza a avaliação e, combinado com o uso repetido de partes maiores do conjunto de teste, reduz drasticamente a variância da estimativa. Na prática, esse equilíbrio entre “um pouco mais de viés” e “muito menos variância” faz com que o k-fold produza uma previsão de desempenho mais estável e geralmente mais próxima do erro real em dados novos. 
+
+
+Na {numref}`Figura {number} <KFOLDvsLOOCV>` estão as estimativas de validação cruzada e as taxas reais de erro de teste obtidas ao aplicar splines de suavização aos conjuntos de dados simulados mostrados nas Figuras 2.9–2.11 do Capítulo 2. O MSE de teste verdadeiro é exibido em azul. As linhas preta tracejada e laranja contínua representam, respectivamente, as estimativas do LOOCV e da validação cruzada com 10 dobras. Nos três gráficos, as duas estimativas de validação cruzada são muito semelhantes. No painel da direita, o MSE de teste verdadeiro e as curvas de validação cruzada são quase idênticos. No painel central, os dois conjuntos de curvas coincidem nos menores graus de flexibilidade, mas as curvas de validação cruzada superestimam o MSE do conjunto de teste para graus mais altos de flexibilidade. No painel da esquerda, as curvas de validação cruzada apresentam o formato geral correto, porém subestimam o MSE de teste verdadeiro.
+
+```{figure} ../aula8/images/islfig5.6.png
+---
+width: 100%
+name: KFOLDvsLOOCV
+align: center
+---
+Erro quadrático médio (MSE) de teste verdadeiro e estimado para os conjuntos de dados simulados nas Figuras 2.9 (esquerda), 2.10 (centro) e 2.11 (direita). O MSE de teste verdadeiro é mostrado em azul, a estimativa do LOOCV aparece como uma linha tracejada preta e a estimativa da validação cruzada com 10 dobras em laranja. As cruzes indicam o mínimo de cada uma das curvas de MSE. Fonte: James et al. ({cite}`james2023introduction`., p. 209)
+
+```
+
+
+
+```{admonition} 💬 Com a palavra, os autores:
+:class: quote
+"Ao realizar validação cruzada k-fold — por exemplo, com k = 5 ou k = 10 — obtém-se um nível intermediário de viés, porque cada conjunto de treinamento contém aproximadamente (k − 1)n/k observações: menos do que no LOOCV, mas muito mais do que na estratégia de conjunto de validação único. Portanto, sob a ótica de redução de viés, o LOOCV é preferível ao k-fold. Contudo, viés não é a única preocupação; também importa a variância do procedimento. O LOOCV apresenta variância mais alta do que o k-fold com k < n. Por quê? No LOOCV, calculamos a média das saídas de n modelos ajustados sobre conjuntos quase idênticos, gerando resultados altamente correlacionados. Já no k-fold com k < n, fazemos a média das saídas de k modelos treinados em conjuntos que se sobrepõem menos, resultando em correlações menores. Como a média de variáveis muito correlacionadas tem variância maior que a média de variáveis menos correlacionadas, a estimativa do erro de teste via LOOCV tende a exibir variância mais alta que a obtida pelo k-fold. Em suma, há um trade-off viés-variância na escolha de k: valores como k = 5 ou k = 10 são usados com frequência, pois fornecem estimativas do erro de teste que não sofrem nem de viés excessivo nem de variância muito alta."
+({cite}`james2023introduction`., p. 209, tradução nossa)
+```
+
+## Conclusão
 
 
 
