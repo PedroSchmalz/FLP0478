@@ -27,5 +27,7 @@ Siga-nos nas redes sociais:
   [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/30px-LinkedIn_logo_initials.png" alt="LinkedIn" width="30" style="margin-right: 10px;">](https://linkedin.com/in/lorena-barberia)
   [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/30px-Octicons-mark-github.svg.png" alt="GitHub" width="30">](https://github.com/LorenaBarberia)
 
-- **NUPRAM - Núcleo de Política, Redes Sociais e Aprendizado de Máquina**  
+- **NUPRAM - Núcleo de Política, Redes Sociais e Aprendizado de Máquina**
+  [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/30px-LinkedIn_logo_initials.png" alt="LinkedIn" width="30" style="margin-right: 10px;">](https://www.linkedin.com/company/nupram)
   [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/30px-Octicons-mark-github.svg.png" alt="GitHub" width="30">](https://github.com/NUPRAM)
+  
