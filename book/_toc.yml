@@ -74,6 +74,9 @@ parts:
     - file: aulas/aula8/aula8ml.md
     - file: aulas/aula8/aula8.ipynb
     - file: aulas/aula8/lab8.ipynb
+  - caption: Aula 09 - Hyperparameter Tuning
+    chapters:
+    - file: aulas/aula9/aula9intro.md
   - caption: Outros
     chapters:
     - file: references.md
