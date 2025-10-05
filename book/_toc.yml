@@ -78,7 +78,7 @@ parts:
     chapters:
     - file: aulas/aula9/aula9intro.md
     - file: aulas/aula9/aula9ml.md
-    - file: aulas/aula9/lab9.md
+    # - file: aulas/aula9/lab9.md
   - caption: Outros
     chapters:
     - file: references.md
