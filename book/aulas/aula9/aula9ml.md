@@ -74,45 +74,112 @@ A {numref}`Figura {number} <hypertuning>` esquematiza o processo padrão de ajus
 
 
 
-### Espaço de Hiperparâmetros
+## Espaço de Hiperparâmetros
 
-Ao fazermos tuning, trabalhamos com o chamado espaço de hiperparâmetros, que consiste em todas as combinações possíveis dos valores de cada hiperparâmetro. Esse espaço pode ser bastante grande, multidimensional e até conter variáveis condicionais (por exemplo, valores de um hiperparâmetro dependem do valor de outro).
+O espaço de hiperparâmetros é definido com o oconjunto universal de possíveis combinações de valores de hiperparâmetros. Em outras palavras, é o espaço contendo todos os valores possíveis de hiperparâmetros que serão usados como espaço de busca durante da fase do ajuste. Esse espaço pode ser bastante grande, multidimensional e até conter variáveis condicionais (por exemplo, valores de um hiperparâmetro dependem do valor de outro). Além disso, para métodos mais avançados, é importante definir distribuições de probabilidade sobre os hiperparâmetros, que indicam a chance de cada valor ser testado. Essas distribuições podem ser uniformes, log-uniformes, normais, entre outras, e ajudam a guiar a busca por melhores combinações.
 
-Além disso, para métodos mais avançados, é importante definir distribuições de probabilidade sobre os hiperparâmetros, que indicam a chance de cada valor ser testado. Essas distribuições podem ser uniformes, log-uniformes, normais, entre outras, e ajudam a guiar a busca por melhores combinações.
+Os métodos de ajuste de hiperparâmetros podem ser divididos em duas categorias principais: não informados e informados. Os métodos não informados (ou de busca exaustiva), como *grid search* e *random search*, realizam a busca pelos melhores hiperparâmetros de forma independente em cada iteração, sem aprender com os resultados das avaliações anteriores. Eles simplesmente testam combinações predefinidas ou aleatórias do espaço de hiperparâmetros sem usar essas informações para guiar iterações futuras. Em contraste, os métodos informados, como a otimização bayesiana, utilizam um modelo probabilístico que aprende com as avaliações anteriores para direcionar a busca de maneira mais eficiente. Esses métodos constroem um modelo substituto (surrogate model) que estima a relação entre hiperparâmetros e performance do modelo, usando essa informação para decidir quais combinações testar a seguir, focando em regiões promissoras do espaço de busca. Isso torna os métodos informados mais eficientes em termos de número de avaliações necessárias, especialmente quando o custo computacional de cada avaliação é alto ou o espaço de hiperparâmetros é muito grande.
 
-### Métodos Não Informados (Exaustivos)
+## Métodos Não Informados (Exaustivos)
 
-#### Grid Search
+O primeiro grupo de métodos de ajuste de hiperparâmetros é conhecido como os métodos de **busca exaustiva**, ou não informados. São os mais usados e diretos. Métodos deste grupo fazem uma busca exaustiva dentro do espaço de hiperparâmetros, testando várias combinações e salvando a que tiver melhor resultado, sem aprender com as iterações. Três métodos são mais conhecidos: a busca manual, a busca em "grade" (*grid search*), e a busca aleatória (*random search*). 
 
-Grid search é o método mais simples e direto: ele testa **exhaustivamente** todas as combinações possíveis definidas no espaço dos hiperparâmetros. Imagina que temos três hiperparâmetros, cada um com 5 possíveis valores; o grid search testaria todas as $5 \times 5 \times 5 = 125$ combinações.
+### Busca Manual
 
-Apesar de ser fácil de entender e implementar, grid search é computacionalmente caro, especialmente quando o espaço cresce — o número de avaliações aumenta exponencialmente com a quantidade e granularidade dos hiperparâmetros. Portanto, é prático apenas para espaços pequenos ou com poucos hiperparâmetros relevantes.
+A busca manual, como diz o nome, é feita manualmente com base no "instinto" do pesquisador. Um parâmetro é alterado manualmente (por exemplo n-gram), e olhamos os resultados de validação e teste. Se melhorar, mantemos. Se piorar, alteramos. Você ajusta os hiperparâmetros até ficar satisfeito com o resultado final. É um método cansativo, manual, e propenso ao erro. Para evitar problemas deste tipo, métodos de ajuste automatizados foram criados.
 
-#### Random Search
+### Busca em "Grade" (*Grid Search*)
 
-Random search é uma alternativa mais eficiente ao grid search. Em vez de testar todas as combinações, ele sorteia aleatoriamente valores dentro do espaço definido para um número fixo de iterações. Isso permite explorar um espaço de busca maior com menos avaliações, e estudos mostram que random search pode ser mais eficaz do que grid search, pois nem todos os hiperparâmetros impactam igualmente a performance do modelo.
+Grid search é o método mais simples e intuitivo de *tuning* de hiperparâmetros, funcionando essencialmente como uma busca exaustiva em um espaço discreto de valores predefinidos. O processo consiste em criar uma "grade" com todas as combinações possíveis dos hiperparâmetros especificados e avaliar o modelo para cada uma dessas combinações usando validação cruzada. Por exemplo, imagine que estamos ajustando uma regressão logística multinomial para classificar tweets sobre vacinas, e queremos otimizar três hiperparâmetros: o tipo de n-gram (unigrama, bigrama), o solver (liblinear, lbfgs, saga) e a força de regularização C (0.1, 1.0, 10.0). O grid search testaria sistematicamente todas as $2 × 3 × 3 = 18$ combinações possíveis, treinando e avaliando o modelo para cada uma delas com 10 folds de validação cruzada, e retornando aquela que obteve a melhor métrica de desempenho (por exemplo, F1-score médio). Na prática, isso significa que, se cada avaliação de validação cruzada leva 2 minutos, o processo completo levaria 36 minutos para encontrar a melhor configuração. Embora esse método garanta que encontremos a melhor combinação dentro do espaço especificado, ele se torna rapidamente impraticável quando temos muitos hiperparâmetros ou muitos valores possíveis para cada um — adicionar apenas mais um hiperparâmetro com 3 valores possíveis triplicaria o tempo total de execução, ilustrando o crescimento exponencial do custo computacional que caracteriza este método. Além disso, corremos o risco do melhor valor de  hiperparâmetro **não estar** dentro do nosso espaço de hiperparâmetros.
 
-No random search, é importante definir quantas iterações serão feitas e as distribuições dos hiperparâmetros para garantir uma cobertura razoável do espaço. Esse método é simples e rápido, e ideal quando não se tem muita informação prévia sobre bons valores dos hiperparâmetros.
 
-### Método Informado
+```{figure} ../aula9/images/owenfig3.2.png
+---
+width: 100%
+name: gridsearch
+align: center
+---
+Espaço de hiperparâmetros em uma busca em grade (*Grid Search*). Fonte Owen (p.23, {cite}`owen2022hyperparameter`.)
+```
 
-#### Otimização Bayesiana
+Por exemplo, a figura {numref}`Figura {number} <gridsearch>` mostra o número de combinações possíveis com dois hiperparâmetros. O hiperparâmetro 1 está definido com 4 valores possíveis, e o hiperparâmetro 2 está definido com 5 valores. Somente com esses dois hiperparâmetros, temos 20 combinações possíveis. Se estamos usando a validação cruzada com 10 folds, treinaremos o modelo $20*10 = 200$ vezes. Para um modelo simples, como a regressão multinomial, isso provavelmente não demandará muito tempo. No entanto, com modelos mais pesados, ou mais combinações de valores de parâmetros, isso rapidamente se torna proibitivo.
 
-Diferente dos métodos exaustivos, a otimização bayesiana é um método **informado**, que aprende com as avaliações anteriores para dirigir a busca de forma mais eficiente. Ela utiliza um modelo probabilístico (chamado de modelo substituto ou surrogate) para estimar a relação entre conjuntos de hiperparâmetros e o desempenho do modelo, e uma função de aquisição para decidir quais hiperparâmetros testar a seguir.
+### Random Search
 
-Esse processo sequencial torna a otimização bayesiana mais **data eficiente**, exigindo menos avaliações para encontrar bons hiperparâmetros, especialmente em espaços grandes ou onde o custo de avaliar o modelo é alto (ex: modelos complexos ou conjuntos grandes de dados).
+A busca aleatória é uma alternativa mais eficiente à busca em grade que, em vez de testar todas as combinações possíveis de hiperparâmetros de forma exaustiva, amostra aleatoriamente um número fixo de combinações dentro do espaço de busca definido. O funcionamento é simples: primeiro, definimos distribuições de probabilidade ou intervalos para cada hiperparâmetro — por exemplo, para uma regressão logística multinomial, poderíamos especificar que o parâmetro de regularização C seja sorteado de uma distribuição log-uniforme entre 0.001 e 100, o solver seja escolhido aleatoriamente entre ['liblinear', 'lbfgs', 'saga'], e o tipo de n-gram seja sorteado entre (1,1), (1,2), (1,3). Em seguida, o algoritmo sorteia aleatoriamente combinações desses valores e avalia cada uma usando validação cruzada, repetindo esse processo por um número predeterminado de iterações (por exemplo, 50 iterações). 
 
-Existem variações da otimização bayesiana baseadas em diferentes modelos substitutos, como o processo gaussiano (GP), o modelo baseado em floresta aleatória (SMAC) e o estimador Parzen estruturado em árvore (TPE). Cada variante tem suas peculiaridades, vantagens e limitações, mas todas seguem a ideia principal de aprender com os resultados anteriores para guiar a busca.
+Voltando ao exemplo anterior dos tweets sobre vacinas, se a busca em grade testaria todas as 18 combinações em 36 minutos, a busca aleatória poderia testar 50 combinações aleatórias em aproximadamente 100 minutos, mas com uma vantagem crucial: geralmente a busca aleatória encontra configurações tão boas quanto — ou até melhores que — a busca em grade, especialmente quando alguns hiperparâmetros têm pouco impacto na performance do modelo. Isso acontece porque a busca aleatória explora melhor o espaço de hiperparâmetros importantes, já que não desperdiça avaliações testando sistematicamente todas as combinações de hiperparâmetros irrelevantes. Na prática, a busca aleatória é particularmente eficaz quando o espaço de busca é grande ou quando não temos certeza sobre quais hiperparâmetros são mais importantes, tornando-se a escolha preferida em muitos cenários.
+
+
+```{figure} ../aula9/images/owenfig3.4.png
+---
+width: 100%
+name: gridsearch
+align: center
+---
+Ilustração do espaço de hiperparâmetros em uma busca aleatória (*Random Search*). Fonte Owen (p.25, {cite}`owen2022hyperparameter`.)
+```
+
+
+### Comparação métodos não informados
+
+| Método | Prós | Contras |
+|--------|------|---------|
+| **Grid Search** | Simples de implementar e entender | Computacionalmente caro, especialmente com muitos hiperparâmetros |
+| | Garante que todas as combinações sejam testadas | Ineficiente em espaços de busca grandes |
+| | Ideal para espaços pequenos de hiperparâmetros | Tempo de execução cresce exponencialmente com o número de hiperparâmetros |
+| | Permite análise detalhada do impacto de cada hiperparâmetro | Pode ser impraticável em cenários com grandes volumes de dados |
+| **Random Search** | Menos custoso computacionalmente que Grid Search | Não garante que a melhor combinação seja encontrada |
+| | Mais eficiente em espaços de busca grandes | Pode exigir mais iterações para encontrar uma solução satisfatória |
+| | Pode explorar melhor o espaço de hiperparâmetros | Resultados podem variar entre execuções devido à aleatoriedade |
+| | Frequentemente encontra soluções comparáveis ao Grid Search com menos avaliações | Menos determinístico que Grid Search |
+
+
+
+## Métodos Informados
+
+
+Os métodos informados de ajuste de hiperparâmetros representam uma abordagem fundamentalmente diferente dos métodos exaustivos (Não informados), pois utilizam informação acumulada das iterações anteriores para guiar a busca de forma inteligente e eficiente. O principal representante desta categoria é a otimização bayesiana, que se baseia no teorema de Bayes para construir um modelo probabilístico (chamado de modelo substituto ou surrogate model) que estima a relação entre configurações de hiperparâmetros e a performance do modelo. O funcionamento da otimização bayesiana segue um ciclo iterativo: primeiro, avalia-se algumas combinações iniciais de hiperparâmetros (geralmente escolhidas aleatoriamente); em seguida, constrói-se um modelo probabilístico (frequentemente usando Processos Gaussianos) que prevê quão bem o modelo funcionará para combinações não testadas; depois, usa-se uma função de aquisição para decidir qual combinação testar a seguir, equilibrando exploração (testar regiões desconhecidas) e explotação (focar em regiões promissoras); finalmente, atualiza-se o modelo substituto com os novos resultados. Por exemplo, retornando ao caso da classificação de tweets sobre vacinas, se a busca aleatória precisasse testar 50 combinações aleatórias em 100 minutos, a otimização bayesiana poderia encontrar uma configuração igualmente boa ou melhor testando apenas 20 a 30 combinações no mesmo período de tempo, pois aprende rapidamente quais regiões do espaço de hiperparâmetros são mais promissoras e concentra seus esforços ali. Isso torna a otimização bayesiana particularmente valiosa quando cada avaliação é computacionalmente cara — por exemplo, ao treinar modelos complexos em grandes conjuntos de dados, ou quando o espaço de hiperparâmetros é muito grande e a busca exaustiva se torna proibitiva. Na prática, bibliotecas como Optuna, Hyperopt e scikit-optimize implementam variantes da otimização bayesiana, tornando este método sofisticado acessível para pesquisadores e profissionais de machine learning que buscam maximizar a performance de seus modelos com eficiência computacional.
+
+### Otimização Bayesiana
+
+A otimização bayesiana é uma técnica sofisticada de otimização global que utiliza princípios da estatística bayesiana para encontrar o máximo ou mínimo de uma função desconhecida, sendo particularmente eficaz quando a avaliação da função é computacionalmente cara ou demorada. Diferentemente dos métodos exaustivos, a otimização bayesiana constrói um modelo probabilístico (tipicamente usando Processos Gaussianos) que representa nossa crença sobre a função objetivo desconhecida, atualizando essa crença a cada nova observação através do teorema de Bayes. O processo funciona iterativamente: primeiro avalia algumas combinações iniciais de hiperparâmetros, então constrói o modelo probabilístico que prevê tanto o valor esperado quanto a incerteza para combinações não testadas, utiliza uma função de aquisição para decidir qual combinação testar a seguir, avalia essa nova combinação, e finalmente atualiza o modelo com as novas informações. Essa abordagem sequencial permite que o algoritmo "aprenda" quais regiões do espaço de hiperparâmetros são mais promissoras, concentrando os esforços computacionais onde há maior potencial de melhoria.
+
+### Função Objetivo
+
+A função objetivo é a métrica que queremos otimizar durante o processo de tuning de hiperparâmetros, representando a performance do modelo que estamos tentando maximizar ou minimizar. No contexto de machine learning, a função objetivo geralmente é uma métrica de avaliação calculada através de validação cruzada, como F1-score, acurácia, precisão, recall, ou AUC-ROC. Por exemplo, ao ajustar hiperparâmetros de uma regressão logística multinomial para classificar tweets sobre vacinas, nossa função objetivo poderia ser o F1-score médio obtido através de validação cruzada k-fold. A função objetivo é tipicamente uma "caixa-preta" — não conhecemos sua forma matemática exata e só podemos avaliá-la através de experimentos computacionais caros, que envolvem treinar e validar o modelo com diferentes combinações de hiperparâmetros. É justamente essa característica custosa da função objetivo que torna a otimização bayesiana tão valiosa, pois ela minimiza o número de avaliações necessárias.
+
+### Função de Aquisição
+
+A função de aquisição é o componente que diferencia a otimização bayesiana de outros métodos, sendo responsável por decidir qual combinação de hiperparâmetros testar a seguir, equilibrando cuidadosamente exploração, *exploration*, (testar regiões desconhecidas) e *exploitation* (focar em regiões promissoras). Existem várias estratégias de aquisição, cada uma com características específicas: *Expected Improvement* (EI) calcula o ganho esperado sobre o melhor resultado atual, sendo conservadora e focando em melhorias incrementais; *Upper Confidence Bound *(UCB) seleciona pontos com alta média predita ou alta incerteza, sendo mais agressiva na exploração; *Probability of Improvement* (PI) escolhe pontos com maior probabilidade de superar o melhor resultado atual, sendo a mais simples mas potencialmente muito conservadora. Por exemplo, em um problema onde o melhor F1-score atual é 0.85, a função EI priorizaria combinações que têm boa chance de superar esse valor, enquanto UCB também consideraria regiões com alta incerteza mesmo que a média predita seja menor, garantindo uma exploração mais ampla do espaço de hiperparâmetros.
+
+
+
+```{figure} ../aula9/images/owenfig4.1.png
+---
+width: 100%
+name: BOsearch
+align: center
+---
+Ilustração do Método de Otimização Bayesiana. Fonte Owen (p.30, {cite}`owen2022hyperparameter`.)
+```
+
+
+A {numref}`Figura {number} <gridsearch>` ilustra de forma didática o princípio fundamental da otimização bayesiana através do conceito de modelo de regressão probabilístico, também conhecido como modelo substituto ou *surrogate model*. No gráfico, o eixo horizontal representa o espaço de um hiperparâmetro (x), enquanto o eixo vertical representa a função objetivo f(x) — por exemplo, o F1-score do modelo. Os pontos laranjas representam os pares de valores conhecidos, ou seja, combinações de hiperparâmetros que já foram avaliadas e cujas performances são conhecidas. A curva tracejada representa a "curva desconhecida", que é justamente a função objetivo real que queremos otimizar, mas que não conhecemos completamente. O modelo substituto funciona como uma aproximação probabilística dessa curva desconhecida, construída a partir dos pontos já observados, permitindo ao algoritmo fazer previsões sobre quão bem o modelo performará para valores de hiperparâmetros ainda não testados. A cada nova avaliação, um novo ponto laranja é adicionado ao conjunto de observações, e o modelo substituto é atualizado, refinando sua estimativa da curva desconhecida e melhorando progressivamente sua capacidade de identificar regiões promissoras do espaço de hiperparâmetros onde o próximo teste deve ser realizado. Essa abordagem iterativa e informada é o que torna a otimização bayesiana mais eficiente que métodos de busca exaustiva, pois ela "aprende" com cada iteração para focar os esforços computacionais nas regiões mais promissoras do espaço de busca.
+
+
+Dentro da família de métodos de otimização bayesiana, existem diferentes implementações que se distinguem principalmente pelo tipo de modelo substituto utilizado para aproximar a função objetivo. A abordagem clássica, conhecida como Bayesian Optimization with Gaussian Processes (BOGP), utiliza Processos Gaussianos como modelo substituto, oferecendo estimativas probabilísticas suaves e contínuas da função objetivo, sendo particularmente eficaz em espaços de hiperparâmetros contínuos de baixa dimensionalidade. O Sequential Model-based Algorithm Configuration (SMAC) substitui Processos Gaussianos por Random Forests como modelo substituto, o que permite trabalhar melhor com hiperparâmetros categóricos e condicionais, além de escalar melhor para espaços de maior dimensionalidade. Já o Tree-structured Parzen Estimator (TPE), implementado em bibliotecas populares como Hyperopt e Optuna, adota uma abordagem diferente ao modelar diretamente as distribuições de hiperparâmetros que levam a bons e maus resultados, sendo computacionalmente eficiente e robusto em diversos cenários práticos. Cada uma dessas variações tem suas vantagens específicas, mas todas compartilham o princípio fundamental de aprender com avaliações anteriores para guiar a busca de forma inteligente, tornando-se ferramentas valiosas quando o custo computacional de cada avaliação é alto e queremos maximizar a eficiência do processo de tuning.
+
+
+Embora a otimização bayesiana seja o método informado mais amplamente utilizado e estudado, existem outras abordagens sofisticadas que também aprendem com iterações anteriores para guiar a busca por hiperparâmetros. Os algoritmos evolutivos, inspirados na evolução biológica, mantêm uma "população" de configurações de hiperparâmetros que evoluem através de operações como mutação e cruzamento, selecionando as melhores configurações para gerar novas gerações. O Population-Based Training (PBT) combina busca aleatória com exploração evolutiva, treinando múltiplos modelos em paralelo e periodicamente copiando pesos de modelos bem-sucedidos para substituir os menos performantes. O Simulated Annealing simula o processo de resfriamento de metais, começando com uma "temperatura" alta que permite explorações mais amplas e gradualmente diminuindo para focar em refinamentos locais. Métodos de multi-fidelidade, como Hyperband e BOHB (Bayesian Optimization HyperBand), aceleram a busca treinando modelos com recursos reduzidos (menos épocas, menos dados) para eliminar rapidamente configurações ruins antes de investir recursos completos nas promissoras. Para estudantes interessados em aprofundar seus conhecimentos, bibliotecas como Optuna, Ray Tune, Hyperopt e NNI (Neural Network Intelligence) implementam vários desses métodos, oferecendo uma excelente oportunidade para experimentação prática com diferentes abordagens de tuning informado em projetos futuros.
 
 ### Conclusão
 
-O tuning de hiperparâmetros é uma etapa essencial para garantir que modelos de machine learning atinjam seu potencial máximo. Enquanto métodos simples como grid search e random search são úteis e fáceis de aplicar, eles podem ser custosos e ineficientes para espaços grandes. A otimização bayesiana, por outro lado, oferece uma abordagem inteligente e eficiente, aprendendo com as iterações anteriores para focalizar a busca.
+Esta aula consolida um dos pilares fundamentais do machine learning: a interconexão entre validação cruzada, controle de sobreajuste e otimização de hiperparâmetros. A validação cruzada k-fold, que exploramos na aula anterior, não é apenas uma técnica de avaliação isolada, mas sim a base que torna possível todo o processo de tuning de hiperparâmetros de forma confiável e robusta. Sem validação cruzada, estaríamos navegando às cegas no espaço de hiperparâmetros, correndo o risco de otimizar para um conjunto específico de dados de validação e criar modelos que falham miseravelmente em produção. A validação cruzada fornece estimativas estáveis e menos enviesadas da performance do modelo, permitindo que métodos como grid search, random search e otimização bayesiana tomem decisões informadas sobre quais configurações realmente generalizam bem para dados não vistos.
 
-Agora que entendemos esses conceitos e métodos, estamos mais preparados para aplicar tuning eficazmente nos nossos projetos, maximizando a performance e a robustez dos modelos.
+O processo de tuning de hiperparâmetros que discutimos hoje — desde os métodos exaustivos mais simples até a sofisticada otimização bayesiana — depende crucialmente da validação cruzada para avaliar cada combinação de hiperparâmetros de forma consistente e confiável. Quando executamos grid search com 18 combinações ou random search com 50 iterações, cada uma dessas avaliações usa validação cruzada k-fold internamente, garantindo que não estamos simplesmente encontrando hiperparâmetros que funcionam bem por acaso em uma divisão específica dos dados. Da mesma forma, a otimização bayesiana constrói seu modelo substituto com base em avaliações de validação cruzada, permitindo que ela faça previsões precisas sobre regiões não exploradas do espaço de hiperparâmetros.
+
+Mais profundamente, esta aula revela como diferentes aspectos do machine learning se complementam para resolver o problema central do sobreajuste. A validação cruzada detecta quando um modelo está decorando ao invés de aprender; o tuning de hiperparâmetros ajusta a complexidade do modelo para encontrar o ponto ideal entre underfitting e overfitting; e os diferentes métodos de busca nos permitem explorar eficientemente o espaço de configurações possíveis. Juntos, esses elementos formam um sistema integrado que maximiza as chances de desenvolvermos modelos que não apenas performam bem durante o desenvolvimento, mas também mantêm essa performance quando confrontados com dados reais em outros bancos. 
 
 
 
-
-## Notas
-
-[^1]: 
