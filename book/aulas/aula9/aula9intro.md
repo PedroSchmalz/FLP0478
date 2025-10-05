@@ -4,7 +4,7 @@
 ___
 
 **Leituras Obrigatórias:**  
-- OWEN, Louis. (2022) {cite}`owen2022hyperparameter`. Hyperparameter Tuning with Python: boost your machine learning model’s performance via hyperparameter tuning. Birmingham; Mumbai: Packt Publishing, 2022. ISBN 978-1-80323-587-5. Capítulos 1 a 3
+- OWEN, Louis. (2022) {cite}`owen2022hyperparameter`. Hyperparameter Tuning with Python: boost your machine learning model’s performance via hyperparameter tuning. Birmingham; Mumbai: Packt Publishing, 2022. ISBN 978-1-80323-587-5. Capítulos 1 a 4
 - Cerulli, Giovanni. (2023) {cite}`cerulli2023fundamentals`. Fundamentals of Supervised Machine Learning: With Applications in Python, R, and Stata. Springer Nature. Capítulo 1 & 2
 
 
