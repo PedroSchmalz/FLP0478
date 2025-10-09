@@ -63,11 +63,10 @@ parts:
       - file: videos/bayestheorem.md
     - file: aulas/aula6/aula6.ipynb
     - file: aulas/aula6/lab6.ipynb
+    - file: aulas/aula6/lab6_extra.ipynb
+    - file: aulas/aula6/gabaritos.md
       sections:
       - file: aulas/aula6/lab6_gabarito.ipynb
-      #
-    - file: aulas/aula6/lab6_extra.ipynb
-      sections:
       - file: aulas/aula6/lab6_extra_gabarito.ipynb
       #
   - caption: Aula 07 - Classificação com Texto
@@ -86,6 +85,9 @@ parts:
     - file: aulas/aula8/aula8ml.md
     - file: aulas/aula8/aula8.ipynb
     - file: aulas/aula8/lab8.ipynb
+      sections:
+      - file: aulas/aula8/lab8_gabarito.ipynb
+      #
   - caption: Aula 09 - Hyperparameter Tuning
     chapters:
     - file: aulas/aula9/aula9intro.md
