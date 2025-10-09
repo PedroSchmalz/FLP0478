@@ -50,6 +50,8 @@ parts:
     - file: videos/vunesp3.md
     - file: aulas/aula5/aula5.ipynb
     - file: aulas/aula5/lab5.ipynb
+      sections:
+      - file: aulas/aula5/lab5_gabarito.ipynb
   - caption: Aula 06 - Classificação
     chapters:
     - file: aulas/aula6/aula6intro.md
