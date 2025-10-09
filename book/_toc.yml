@@ -69,7 +69,6 @@ parts:
     - file: aulas/aula6/lab6_extra.ipynb
       sections:
       - file: aulas/aula6/lab6_extra_gabarito.ipynb
-      #
   - caption: Aula 07 - Classificação com Texto
     chapters:
     - file: aulas/aula7/aula7intro.md
