@@ -93,6 +93,9 @@ parts:
     - file: aulas/aula9/aula9intro.md
     - file: aulas/aula9/aula9ml.md
     - file: aulas/aula9/lab9.md
+  - caption: Aula 10 - Árvores de Decisão e SVM
+    chapters:
+    - file: aulas/aula10/aula10intro.md
   - caption: Outros
     chapters:
     - file: references.md
