@@ -20,7 +20,7 @@ ___
 
 
 
-**Lab 10 - Métodos de Classificação I : SVM e Decision Trees**  
+**Laboratório - Métodos de Classificação I : SVM e Decision Trees**  
 
 
 
