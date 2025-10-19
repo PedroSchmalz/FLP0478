@@ -52,7 +52,7 @@ A {numref}`Figura {number} <hiperplano2>` mostra algumas retas (hiperplanos) pos
 ```{figure} ../aula10/images/islfig9.2.2.png
 ---
 width: 100%
-name: hiperplano2
+name: hiperplano3
 align: center
 ---
 Hiperplano dividindo as observações entre roxos e azuis. Fonte: James et al. ({cite}`james2023introduction`., p. 370)
