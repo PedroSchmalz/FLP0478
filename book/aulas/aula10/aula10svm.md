@@ -1,10 +1,8 @@
-# Árvores de Decisão
+# Máquinas de Suporte de Vetores
 
-Na última aula exploramos o ajuste de hiperparâmetros, ou tuning, um processo fundamental para otimizar a performance de modelos de machine learning. Começamos distinguindo hiperparâmetros (valores definidos antes do treinamento, como taxa de aprendizado ou número de árvores) dos parâmetros que o modelo aprende durante o treinamento (como pesos e coeficientes). Estudamos o conceito de espaço de hiperparâmetros e os diferentes métodos para encontrar as melhores combinações: os métodos não informados (busca manual, grid search e random search), que testam combinações de forma exaustiva ou aleatória sem aprender com iterações anteriores, e os métodos informados (como a otimização bayesiana), que constroem modelos substitutos probabilísticos para guiar a busca de forma inteligente, focando em regiões promissoras do espaço de hiperparâmetros. Aprendemos que a otimização bayesiana é particularmente eficiente porque utiliza informações de avaliações anteriores através de funções de aquisição que equilibram exploração e explotação, reduzindo significativamente o número de avaliações necessárias comparado aos métodos exaustivos. Também consolidamos a importância da validação cruzada k-fold como base para o tuning confiável, garantindo que cada combinação de hiperparâmetros seja avaliada de forma robusta e que o modelo final generalize bem para dados não vistos.
+Na seção anterior, trabalhamos o funcionamento do modelo de árvores de decisão. Agora, veremos o segundo modelo da aula, o modelo de **Máquinas de Suporte de Vetores**, ou *Support Vector Machines*
 
-Na aula de hoje vamos sair um pouco da estrutura básica de uma aplicação de aprendizado de máquina para conhecer dois métodos específicos: a Árvore de decisão e o modelo de *Support Vector Machines*. Veremos também o *TF-IDF* (*Term Frequency-Inverse Document Frequency*, ou Frequência do Termo-Inverso da Frequência nos Documentos), que é uma medida estatística que indica a importância de uma palavra em um documento específico em relação a uma coleção de documentos, aumentando o valor para palavras frequentes no documento mas raras no corpus geral. o *TF-IDF* é criado com base nos n-gramas, mas reduz a importância no modelo de palavras muito/pouco frequentes, servindo como uma regularização das variáveis de texto. O *SVM* vai exigir que utilizemos o *TF-IDF*, por isso ele será introduzido nesta aula.
-
-## Métodos Baseados em Árvores
+## *SVM*
 
 Os métodos baseados em árvores consistem em estratificar e segmentar o espaço de preditores em um número de regiões. Na aula de hoje veremos o primeiro método, que serve de base para os outros, as **Árvores de Decisão** (*Decision Trees*)[^1]. Esses métodos fazem previsões para uma determinada observação usando o valor médio, ou resposta modal (de moda), das observações de treinamento para a região a que ela pertence. Métodos desse tipo possuem a principal vantagem de serem fáceis de interpretar, mas não são muito competitivos em termos de performance, especialmente em comparação com o *deep learning*.
 
@@ -229,25 +227,12 @@ A {numref}`Figura {number} <dtgeron>` ilustra uma árvore de decisão de classif
 ({cite}`geron2022hands`., Capítulo 6, tradução nossa)
 ```
 
-
-### Vantagens e Desvantagens
-
-:::{tip}
-- Árvores são muito fáceis de explicar para as pessoas; por vezes, são até mais fáceis de explicar do que a regressão linear.
-- Algumas pessoas acreditam que as árvores de decisão espelham mais fielmente a tomada de decisão humana do que abordagens de regressão e classificação.
-- Árvores podem ser exibidas graficamente e são facilmente interpretadas mesmo por não especialistas (especialmente se forem pequenas).
-- Árvores podem lidar naturalmente com preditores qualitativos sem a necessidade de criar variáveis dummy.
-:::
-
-:::{caution}
-- Infelizmente, as árvores geralmente não atingem o mesmo nível de precisão preditiva que algumas outras abordagens de regressão e classificação.
-- Adicionalmente, as árvores podem ser pouco robustas: uma pequena mudança nos dados pode causar uma grande alteração na árvore final estimada.
-:::
-
 ## Conclusão
 
 
-Nesta aula exploramos as árvores de decisão, um dos métodos fundamentais de machine learning que serve de base para algoritmos mais sofisticados como Random Forests e Gradient Boosting. Aprendemos que tanto árvores de regressão quanto de classificação compartilham a mesma estratégia central: particionar recursivamente o espaço de preditores em regiões distintas através do algoritmo guloso e top-down de divisão binária recursiva, onde cada divisão busca localmente a melhor separação dos dados sem considerar o impacto global. Vimos que as árvores de regressão minimizam o RSS (Residual Sum of Squares) para encontrar as melhores divisões, enquanto as árvores de classificação utilizam medidas de impureza como o índice Gini ou entropia para avaliar a qualidade das separações, buscando criar nós filhos mais homogêneos e puros. Um conceito crucial que abordamos foi a poda de custo-complexidade (Cost-Complexity Pruning), que introduz o hiperparâmetro α para balancear erro de predição e complexidade do modelo, conectando-se diretamente com os conceitos de ajuste de hiperparâmetros da aula anterior e demonstrando como controlar o trade-off entre viés e variância para evitar overfitting. A principal vantagem das árvores de decisão é sua excepcional interpretabilidade: a estrutura hierárquica de regras "se-então" permite que profissionais de diversas áreas compreendam facilmente como o modelo toma decisões, tornando-as ideais para contextos onde explicabilidade é crucial, como diagnósticos médicos ou decisões de crédito. No entanto, como mencionado, árvores individuais geralmente não são tão competitivas em termos de performance pura quando comparadas a métodos mais modernos, tendendo a ter alta variância e sendo sensíveis a pequenas mudanças nos dados de treinamento. Na próxima seção, exploraremos o Support Vector Machine (SVM), um algoritmo com abordagem completamente diferente que busca maximizar margens de separação entre classes, e introduziremos o TF-IDF, uma técnica de ponderação de texto que será essencial para aplicar SVMs em problemas de classificação textual.
+Nesta aula exploramos as árvores de decisão, um dos métodos fundamentais de machine learning que serve de base para algoritmos mais sofisticados como Random Forests e Gradient Boosting. Aprendemos que tanto árvores de regressão quanto de classificação compartilham a mesma estratégia central: particionar recursivamente o espaço de preditores em regiões distintas através do algoritmo guloso e top-down de divisão binária recursiva, onde cada divisão busca localmente a melhor separação dos dados sem considerar o impacto global. Vimos que as árvores de regressão minimizam o RSS (Residual Sum of Squares) para encontrar as melhores divisões, enquanto as árvores de classificação utilizam medidas de impureza como o índice Gini ou entropia para avaliar a qualidade das separações, buscando criar nós filhos mais homogêneos e puros. Um conceito crucial que abordamos foi a poda de custo-complexidade (Cost-Complexity Pruning), que introduz o hiperparâmetro 
+α
+α para balancear erro de predição e complexidade do modelo, conectando-se diretamente com os conceitos de ajuste de hiperparâmetros da aula anterior e demonstrando como controlar o trade-off entre viés e variância para evitar overfitting. A principal vantagem das árvores de decisão é sua excepcional interpretabilidade: a estrutura hierárquica de regras "se-então" permite que profissionais de diversas áreas compreendam facilmente como o modelo toma decisões, tornando-as ideais para contextos onde explicabilidade é crucial, como diagnósticos médicos ou decisões de crédito. No entanto, como mencionado, árvores individuais geralmente não são tão competitivas em termos de performance pura quando comparadas a métodos mais modernos, tendendo a ter alta variância e sendo sensíveis a pequenas mudanças nos dados de treinamento. Na próxima seção, exploraremos o Support Vector Machine (SVM), um algoritmo com abordagem completamente diferente que busca maximizar margens de separação entre classes, e introduziremos o TF-IDF, uma técnica de ponderação de texto que será essencial para aplicar SVMs em problemas de classificação textual.
 
 
 ## Notas
