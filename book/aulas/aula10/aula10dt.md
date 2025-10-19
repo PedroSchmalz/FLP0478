@@ -183,7 +183,7 @@ $$
 G = 1 - \sum_{k} \hat{p}_k^2
 $$
 
-Mede a probabilidade de classificação incorreta aleatória. Varia de 0 (puro) a aproximadamente 0.5 (máxima impureza em problemas binários).[^11][^6]
+Mede a probabilidade de classificação incorreta aleatória. Varia de 0 (puro) a aproximadamente 0.5 (máxima impureza em problemas binários).
 
 **Entropia** (baseada na teoria da informação):
 
@@ -191,7 +191,7 @@ $$
 H = -\sum_{k} \hat{p}_k \log(\hat{p}_k)
 $$
 
-Quantifica a incerteza ou desordem no nó. Quanto maior a entropia, maior a mistura de classes.[^5][^6]
+Quantifica a incerteza ou desordem no nó. Quanto maior a entropia, maior a mistura de classes.
 
 **Erro de classificação** (misclassification error):
 
@@ -202,6 +202,7 @@ $$
 Proporção de observações que não pertencem à classe majoritária. É menos sensível a mudanças na distribuição das classes.
 
 Ao avaliar cada possível divisão durante a **divisão binária recursiva**, a árvore calcula a **impureza ponderada** das duas regiões geradas (esquerda e direita) e escolhe o split que **mais reduz** a impureza média :
+
 $$
 I_{\text{split}} = \frac{n_{L}}{n} I(L) + \frac{n_{R}}{n} I(R)
 $$
