@@ -77,7 +77,7 @@ Olhando para a {numref}`Figura {number} <hiperplano3>`, vemos que o hiperplano t
 
 ## Classificadores de Vetores de Suporte (*SVC*)
 
-Nem sempre é possível separar as observações com um hiperplano. E mesmo quando é possível, talvez não seja desejável usar limites tão rígidos quanto os necessários para a definição do hiperplano de margem máxima, que separa perfeitamente as observações entre as classes. Por isso, talvez seja útil relaxar essa restrição, aumentando a robustez do modelo às observações dos vetores de suporte, e garantindo maior generalização dos resultados para dados não vistos. Essa é a ideia por traz dos **Classificadores de Vetores de Suporte**, ou *Support Vector Classifiers*, que usam uma margem suave, permitindo que algumas observações estejam dentro da margem, ou do lado contrário dela.
+Nem sempre é possível separar as observações com um hiperplano. E mesmo quando é possível, talvez não seja desejável usar limites tão rígidos quanto os necessários para a definição do hiperplano de margem máxima, que separa perfeitamente as observações entre as classes. Por isso, talvez seja útil relaxar essa restrição, aumentando a robustez do modelo às observações dos vetores de suporte, e garantindo maior generalização dos resultados para dados não vistos. Essa é a ideia por trás dos **Classificadores de Vetores de Suporte**, ou *Support Vector Classifiers*, que usam uma margem suave, permitindo que algumas observações estejam dentro da margem, ou do lado contrário dela.
 
 
 ```{figure} ../aula10/images/islfig9.6.png
