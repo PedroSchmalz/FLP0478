@@ -1,6 +1,6 @@
-# Máquinas de Suporte de Vetores
+# Máquinas de Vetores de Suporte
 
-Na seção anterior, trabalhamos o funcionamento do modelo de árvores de decisão. Agora, veremos o segundo modelo da aula, o modelo de **Máquinas de Suporte de Vetores**, ou *Support Vector Machines*
+Na seção anterior, trabalhamos o funcionamento do modelo de árvores de decisão. Agora, veremos o segundo modelo da aula, o modelo de **Máquinas de Vetores de Suporte**, ou *Support Vector Machines*
 
 
 ```{video} https://www.youtube.com/embed/efR1C6CvhmE?si=u_uVRbYz4LlsV6PG
