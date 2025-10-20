@@ -100,7 +100,6 @@ parts:
     - file: aulas/aula10/aula10svm.md
     - file: aulas/aula10/aula10tfidf.md
     - file: aulas/aula10/aula10.ipynb
-    - file: aulas/aula10/lab10.ipynb
   - caption: Outros
     chapters:
     - file: references.md
