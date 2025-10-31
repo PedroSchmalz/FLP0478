@@ -14,20 +14,33 @@ Na aula de hoje vamos aprofundar nossa compreensão dos métodos de machine lear
 ```{video} https://www.youtube.com/embed/Xz0x-8-cgaQ?si=kh22plivN21X6OCA
 ```
 
-Um método *ensemble* é aquele que combina modelos como "tijolos" de forma a obter um único modelo com melhores resultados. Hoje iremos discutir dois grupos de métodos principais: *Bagging* e *Boosting*. O ***Bagging***, ou *Bootstrap Aggregation*, é um procedimento geral utilizado para reduzir a variância de um modelo de aprendizado estatístico. O *Bagging* se baseia no método de *Bootstrap*, e procura reduzir a variância do modelo pegando diversos conjuntos de treinamento da população, construindo um modelo em cada conjunto separadamente, e pegando a média das previsões de todos os modelos em todos os conjuntos. Em outras palavras
+Um método *ensemble* é aquele que combina modelos como "tijolos" de forma a obter um único modelo com melhores resultados. Hoje iremos discutir dois grupos de métodos principais: *Bagging* e *Boosting*. O ***Bagging***, ou *Bootstrap Aggregation*, é um procedimento geral utilizado para reduzir a variância de um modelo de aprendizado estatístico. O *Bagging* se baseia no método de *Bootstrap*, e procura reduzir a variância do modelo pegando diversos conjuntos de treinamento da população, construindo um modelo em cada conjunto separadamente, e pegando a média das previsões de todos os modelos em todos os conjuntos. Em outras palavras, estimamos $\hat{f}^1(x)$, $\hat{f}^2(x)$, ... $\hat{f}^B(x)$ usando $B$ subconjuntos separados de treinamentos, pegando a média deles de forma a obter um únoc modelo com pouca variância, dado por:
+
+$$
+\hat{f}_{\text{avg}}(x) = \frac{1}{B} \sum_{b=1}^{B} \hat{f}^b(x)
+$$
 
 
+No entanto, não temos a possibilidade de extrair amostras aleatórias de uma população, então fazemos essa amostragem com base no nosso banco de treinamento. O nosso conjunto de treinamento é então dividido em $B$ subconjuntos, e a equação se torna:
 
-```{figure} ../aula10/images/islfig8.3.1.png
+
+$$
+\hat{f}_{\text{bag}}(x) = \frac{1}{B} \sum_{b=1}^{B} \hat{f}^\text{*b}(x)
+$$
+
+É dessa maneira que funciona o bagging, e ele pode ser aplicado com diversos modelos de aprendizado estatístico. Para o caso específico de classificação, a previsão final é dada pelo "voto da maioria": A previsão final será aquela mais comum entre as $B$ previsões dos diferentes subconjuntos.
+
+
+```{figure} ../aula11/images/datascientestbag.png
 ---
 width: 100%
-name: dtreg
+name: bagging
 align: center
 ---
-Ilustração da Árvore de Decisão no contexto de Regressão. Fonte: James et al. ({cite}`james2023introduction`., p. 335)
+Processo de *Bagging* de modelos. Fonte: [DataScientest](https://datascientest.com/en/bagging-vs-boosting).)
 ```
 
-A {numref}`Figura {number} <dtreg>` mostra o processo decisório em um modelo de árvore de decisão. Na figura, temos duas variáveis preditoras, $X_1$ e $X_2$, e a árvore vai se dividindo de acordo com os valores das duas. No começo da árvore, também conhecido como **Nó raiz** ou só **raiz**, a primeira decisão é com base no corte $t_1$: Valores menores que $t_1$ em $x_1$ jogam as observações para o lado esquerdo da árvore, e valores maiores vão para o lado direito. Do lado esquerdo da figura, a segunda decisão vem com base em $X_2$, com valores menores que o ponto de corte $t_2$ caindo para a primeira região $R_1$, e valores maiores que $t_2$ caindo na segunda região $R_2$. Cada observação vai passar por esses nós decisórios, chegando nos nós terminais que vão dar a previsão final ($R_1$, $R_2$, etc.). No caso das árvores de regressão, o valor previsto será a média das observações dentro dessa região.
+A {numref}`Figura {number} <bagging>` ilustra como funciona o processo de bagging na prática: Os dados (CSV) são divididos em subconjuntos (*data*). Os classificadores são então treinados em cada um desses subconjuntos. O modelo final resulta da combinação dos diversos classificadores em uma única coisa.
 
 
 
@@ -36,10 +49,7 @@ A {numref}`Figura {number} <dtreg>` mostra o processo decisório em um modelo de
 ## Conclusão
 
 
-Nesta aula exploramos as árvores de decisão, um dos métodos fundamentais de machine learning que serve de base para algoritmos mais sofisticados como Random Forests e Gradient Boosting. Aprendemos que tanto árvores de regressão quanto de classificação compartilham a mesma estratégia central: particionar recursivamente o espaço de preditores em regiões distintas através do algoritmo guloso e top-down de divisão binária recursiva, onde cada divisão busca localmente a melhor separação dos dados sem considerar o impacto global. Vimos que as árvores de regressão minimizam o RSS (Residual Sum of Squares) para encontrar as melhores divisões, enquanto as árvores de classificação utilizam medidas de impureza como o índice Gini ou entropia para avaliar a qualidade das separações, buscando criar nós filhos mais homogêneos e puros. Um conceito crucial que abordamos foi a poda de custo-complexidade (Cost-Complexity Pruning), que introduz o hiperparâmetro α para balancear erro de predição e complexidade do modelo, conectando-se diretamente com os conceitos de ajuste de hiperparâmetros da aula anterior e demonstrando como controlar o trade-off entre viés e variância para evitar overfitting. A principal vantagem das árvores de decisão é sua excepcional interpretabilidade: a estrutura hierárquica de regras "se-então" permite que profissionais de diversas áreas compreendam facilmente como o modelo toma decisões, tornando-as ideais para contextos onde explicabilidade é crucial, como diagnósticos médicos ou decisões de crédito. No entanto, como mencionado, árvores individuais geralmente não são tão competitivas em termos de performance pura quando comparadas a métodos mais modernos, tendendo a ter alta variância e sendo sensíveis a pequenas mudanças nos dados de treinamento. Na próxima seção, exploraremos o Support Vector Machine (SVM), um algoritmo com abordagem completamente diferente que busca maximizar margens de separação entre classes, e introduziremos o TF-IDF, uma técnica de ponderação de texto que será essencial para aplicar SVMs em problemas de classificação textual.
+Nesta au
 
 
-## Notas
-
-[^1]: Outros métodos baseados em árvores incluem: Random Forests — ensembles de árvores construídas por amostragem bootstrap que reduzem a variância; Bagging (Bootstrap Aggregating) — agregação de várias árvores independentes; Extra-Trees (Extremely Randomized Trees) — similar a Random Forest com divisão mais aleatória; Boosting — métodos sequenciais que corrigem erros (ex.: AdaBoost); Gradient Boosting Machines (GBM) — otimização por gradiente de árvores fracas; implementações populares e otimizadas: XGBoost, LightGBM e CatBoost; Isolation Forest — uso de árvores para detecção de anomalias; e abordagens mais especializadas como Conditional Inference Trees e Bayesian Additive Regression Trees (BART). Cada família tem trade-offs distintos entre viés, variância, interpretabilidade e velocidade.
 
