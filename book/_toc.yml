@@ -101,6 +101,9 @@ parts:
     - file: aulas/aula10/aula10tfidf.md
     - file: aulas/aula10/aula10tut.ipynb
     - file: aulas/aula10/lab_10.ipynb
+  - caption: Aula 11 - Métodos Ensemble
+    chapters:
+    - file: aulas/aula11/aula11intro.md
   - caption: Outros
     chapters:
     - file: references.md
