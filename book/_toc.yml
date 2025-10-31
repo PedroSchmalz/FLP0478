@@ -104,6 +104,7 @@ parts:
   - caption: Aula 11 - Métodos Ensemble
     chapters:
     - file: aulas/aula11/aula11intro.md
+    - file: aulas/aula11/aula11ml.md
   - caption: Outros
     chapters:
     - file: references.md
