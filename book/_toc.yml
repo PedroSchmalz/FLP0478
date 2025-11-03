@@ -105,6 +105,7 @@ parts:
     chapters:
     - file: aulas/aula11/aula11intro.md
     - file: aulas/aula11/aula11ml.md
+    - file: aulas/aula11/lab_11.ipynb
   - caption: Outros
     chapters:
     - file: references.md
