@@ -19,7 +19,7 @@ ___
 
 
 
-**Laboratório 11 - Métodos de Classificação II : Mais árvores e Ensemble**  
+**Laboratório 12: Introdução ao Deep Learning**  
 
 
 
