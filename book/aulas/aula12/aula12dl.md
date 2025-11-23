@@ -14,7 +14,7 @@ Até a última década, os modelos de Aprendizado de Máquina dependiam fortemen
 ```{video} https://www.youtube.com/embed/aircAruvnKk?si=10baygyjCfA9JWz9
 ```
 
-As **Redes Neurais** (***Neural Networks***) tiveram um primeiro momento de fama nos anos 80. Mas, devido ao seu alto custo computacional e ncessidade de ajuste fino de hiperparâmetros, foram deixadas de lado em favor de modelos mais simples e que performavam melhor. Porém, com o aumento da disponibilidade de bancos de dados maiores (*Big Data*) e a possibilidade de paralelizar o processamento por meio de *GPUs* (Placas de vídeo/Gráficas), veio a "Renascença" das Redes Neurais, e a área voltou a ganhar força. Hoje emm dia, as Redes Neurais são uma ferramenta essencial para o Processamento de Língua Natural. Apesar deste momento de fama nos anos 80, a origem do nome vem de um modelo de Mcculocch-Pitts em 1943, que buscava simplificar o neurônio biológico como um elemento de computação que poderia ser descrito em termos de lógica propositiva ({cite}`mcculloch1943logical`., 1943). O uso moderno se distanciou bastante disso. Hoje, a Rede Neural é uma rede de *unidades* computacionais menores ({cite}`jurafsky2024speech`.), e cada uma delas pegará um vetor de valores de entrada ($\mathbf{X}$) e produzirá um único valor de saída $y$. A primeira arquitetura introduzida é a ***Feedforward Network*** (Rede Progressiva), que possui esse nome pois a computação é iterativa de uma camada para a próxima. O uso contemporâneo se chama aprendizado profundo por que as Redes Neurais atuais possuem múltiplas camadas.
+As **Redes Neurais** (***Neural Networks***) tiveram um primeiro momento de fama nos anos 80. Mas, devido ao seu alto custo computacional e ncessidade de ajuste fino de hiperparâmetros, foram deixadas de lado em favor de modelos mais simples e que performavam melhor. Porém, com o aumento da disponibilidade de bancos de dados maiores (*Big Data*) e a possibilidade de paralelizar o processamento por meio de *GPUs* (Placas de vídeo/Gráficas), veio a "Renascença" das Redes Neurais, e a área voltou a ganhar força. Hoje em dia, as Redes Neurais são uma ferramenta essencial para o Processamento de Língua Natural. Apesar deste momento de fama nos anos 80, a origem do nome vem de um modelo de Mcculocch-Pitts em 1943, que buscava simplificar o neurônio biológico como um elemento de computação que poderia ser descrito em termos de lógica propositiva ({cite}`mcculloch1943logical`., 1943). O uso moderno se distanciou bastante disso. Hoje, a Rede Neural é uma rede de *unidades* computacionais menores ({cite}`jurafsky2024speech`.), e cada uma delas pegará um vetor de valores de entrada ($\mathbf{X}$) e produzirá um único valor de saída $y$. A primeira arquitetura introduzida é a ***Feedforward Network*** (Rede Progressiva), que possui esse nome pois a computação é iterativa de uma camada para a próxima. O uso contemporâneo se chama aprendizado profundo por que as Redes Neurais atuais possuem múltiplas camadas.
 
 
 ### Unidade (*Unit*)
@@ -33,7 +33,7 @@ $$
 z = \mathbf{w} \cdot \mathbf{x} + b
 $$
 
-No entanto, ao invés de modelar z como uma função linear de x, as unidades neurais aplicam uma função não linear $f()$, permitindo transformações mais complexas dos dados. A {numref}`Figura {number} <unitneural>` mostra um esquema b[asico de uma unidade neural. Neste exemplo, a unidade toma 3 valores de entrada $x_1,x_2,x_3$ e calcula uma soma ponderada, multiplicando cada valor por um peso $w_1,w_2,w_3$, e somando eles ao termo de viés $b$, e passando essa soma resultante por uma função de ativação (no exemplo, a função sigmóide, que já vimos antes), resultando em um número entre 0 e 1.
+No entanto, ao invés de modelar z como uma função linear de x, as unidades neurais aplicam uma função não linear $f()$, permitindo transformações mais complexas dos dados. A {numref}`Figura {number} <unitneural>` mostra um esquema básico de uma unidade neural. Neste exemplo, a unidade toma 3 valores de entrada $x_1,x_2,x_3$ e calcula uma soma ponderada, multiplicando cada valor por um peso $w_1,w_2,w_3$, e somando eles ao termo de viés $b$, e passando essa soma resultante por uma função de ativação (no exemplo, a função sigmóide, que já vimos antes), resultando em um número entre 0 e 1.
 
 
 ```{figure} ../aula12/images/jurfig6.2.png
@@ -96,7 +96,7 @@ align: center
 Rede Neural com uma única Camada Escondida. Fonte: James et al. ({cite}`james2023introduction`., p.400))
 ```
 
-A {numref}`Figura {number} <neuralnet>` mostra uma Rede Neural com uma única camada escondida. Os *inputs* $X_1$ a $X_4$ são passados para cada uma das unidades de ativação $A_1,...,A_5$, e em cada uma delas o cálculo que mostramos na seção anterior é feito. Essa camada escondida, ou camada de neurônios de ativação, então vai passar esses valores calculados para a camada de output, gerando um único valor predito. Neste exemplo, como não é uma classificação, não existe uma camada de ativação modificando os resultados para ficar entre um intervalo específico. Formalizado, o modelo é da seguinte forma:
+A {numref}`Figura {number} <neuralnet>` mostra uma Rede Neural Progressiva (Pois as informações vão para as camadas seguintes e não há ciclos) com uma única camada escondida. Os *inputs* $X_1$ a $X_4$ são passados para cada uma das unidades de ativação $A_1,...,A_5$, e em cada uma delas o cálculo que mostramos na seção anterior é feito. Essa camada escondida, ou camada de neurônios de ativação, então vai passar esses valores calculados para a camada de output, gerando um único valor predito. Neste exemplo, como não é uma classificação, não existe uma camada de ativação modificando os resultados para ficar entre um intervalo específico. Formalizado, o modelo é da seguinte forma:
 
 
 $$
@@ -142,14 +142,27 @@ A ReLU pode ser computada e armazenada de forma mais eficiente. No entanto, como
 
 ### Redes Neurais Multicamadas
 
+```{video} https://www.youtube.com/embed/CqOfi41LfDw?si=KsXCu-DOSQiFHUEi
+```
+
+Os modelos de Redes Neurais Contemporâneos geralmente têm mais de uma camada escondida. 
 
 
+```{figure} ../aula12/images/islfig10.4.png
+---
+width: 100%
+name: neuralnetmult
+align: center
+---
+Rede Neural com duas camadas escondidas. Fonte: James et al. ({cite}`james2023introduction`., p.404))
+```
+
+A {numref}`Figura {number} <neuralnetmult>` mostra uma Rede Neural com duas camadas escondidas ($L_1$ e $L_2$), e a tarefa é de classificação com dez classes ($Y_0,...,Y_9$). A primeira camada $L_1$ é da mesma forma que vimos antes.
 
 
-
-
-
-
+$$
+A_k^{(1)} = h_k^{(1)}(\mathbf{X}) = g\left(w_{k0}^{(1)} + \sum_{j=1}^{p} w_{kj}^{(1)} X_j\right)
+$$
 
 
 
