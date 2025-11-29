@@ -8,7 +8,7 @@ BERT (Bidirectional Encoder Representations from Transformers) é um modelo base
 
 Até agora vimos o que são embeddings, transformers e como a atenção é um conceito importante no treinamento de Transformers como um modelo de Linguagem. Agora veremos um novo paradigma, o Codificador Transformer Bidirecional (*Bidirectional Transformer Encoder*), e sua versão mais usada, o BERT (*Bidirectional Encoder Representations from Transformers*). Esse modelo é treinado por meio de modelagem de lingua oculta, ou mascarada (*Masked Language Models*), onde, ao invés de prever a próxima palavra, nós ocultamos uma palavra no meio e pedimos ao modelo que advinhe a palavra dadas as outras palavras, antes e depois. Isso permite que o modelo veja o contexto nas duas direções (esquerda para direita e direita para esquerda).
 
-Também veremoso que é o ***fine-tuning*** de um modelo, ou ***transfer-learning***, onde pegamos a rede de um Transformer aprendida por esses modelos pré-treinados, adicionamos uma camada para classificação na camada superior do modelo, e treinamos ele para uma nova tarefa usando um banco de dados rotulado, seja para análise de sentimento, detecção de posicionamento, etc.
+Também veremos o que é o ***fine-tuning*** de um modelo, ou ***transfer-learning***, onde pegamos a rede de um Transformer aprendida por esses modelos pré-treinados, adicionamos uma camada para classificação na camada superior do modelo, e treinamos ele para uma nova tarefa usando um banco de dados rotulado, seja para análise de sentimento, detecção de posicionamento, etc.
 
 ## Codificadores Transformer Bidirecionais (*Bidirectional Transformer Encoder*)
 
