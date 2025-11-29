@@ -117,6 +117,7 @@ parts:
   - caption: Aula 13 - Embeddings, Transformers e BERT
     chapters:
     - file: aulas/aula13/aula13intro.md
+    - file: aulas/aula13/aula13emb.md
   - caption: Outros
     chapters:
     - file: references.md

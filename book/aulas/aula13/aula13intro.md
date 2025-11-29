@@ -24,6 +24,7 @@ ___
 - Géron, Aurelien. (2022). {cite}`geron2022hands`."10. Introduction to Artificial Neural Networks with Keras” and “11. Training Deep Neural Networks” in *Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems*.  
 - Eli Stevens, Eli; Antiga, Luca; Viehmann, Thomas. (2020). {cite}`stevens2020deep`.Deep Learning with PyTorch: Build, Train, and Tune Neural Networks Using Python Tools. Manning Publications.
 - TUNSTALL, Lewis; VON WERRA, Leandro; WOLF, Thomas. {cite}`tunstall2022nlp`. Natural Language Processing with Transformers: Building Language Applications with Hugging Face. Sebastopol, CA: O'Reilly Media, 2022. ISBN 978-1-098-13679-6.
+- CASELI, H. M.; NUNES, M. G. V. (org.). (2024). {cite}`CaseliNunes2024`. Processamento de Linguagem Natural: Conceitos, Técnicas e Aplicações em Português. 3. ed. São Carlos: BPLN, 2024. Disponível em: https://brasileiraspln.com/livro-pln/3a-edicao/. Acesso em: 29 nov. 2025
 
 
 
