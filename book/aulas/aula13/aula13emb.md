@@ -71,7 +71,9 @@ Arquitetura Skip-gram. Prediz o contexto com base na palavra-alvo.
 ```
 
 
+## Conclusão
 
+Ao longo desta seção vimos que embeddings são o elo entre textos em linguagem natural e modelos de Deep Learning: eles convertem palavras em vetores densos que capturam semelhança semântica e, no caso de modelos como o BERT, também o contexto em que cada palavra aparece. Os métodos distribucionais clássicos, como Word2Vec com skip‑gram e amostragem negativa, já nos permitem sair de vetores esparsos de contagem e aprender representações contínuas úteis para classificadores e outros modelos supervisionados. Mas é com os embeddings contextuais baseados em transformers que essa ideia atinge todo o seu potencial: o BERT usa a pilha de self‑attention de um encoder transformer para produzir, a cada camada, vetores que dependem de toda a sentença, servindo como entradas riquíssimas para tarefas de classificação de texto, análise de sentimentos, question answering e muitas outras aplicações modernas de PLN.
 
 
 
