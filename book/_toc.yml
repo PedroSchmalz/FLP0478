@@ -114,6 +114,9 @@ parts:
     - file: aulas/aula12/aula12treino.md
     - file: aulas/aula12/tutorial_aula12.ipynb
     - file: aulas/aula12/lab_12.ipynb
+  - caption: Aula 13 - Embeddings, Transformers e BERT
+    chapters:
+    - file: aulas/aula13/aula13intro.md
   - caption: Outros
     chapters:
     - file: references.md
