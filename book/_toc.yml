@@ -120,6 +120,7 @@ parts:
     - file: aulas/aula13/aula13emb.md
     - file: aulas/aula13/aula13trans.md
     - file: aulas/aula13/aula13bert.md
+    - file: aulas/aula13/Tutorial_Word2Vec_Transformers.ipynb
   - caption: Outros
     chapters:
     - file: references.md
