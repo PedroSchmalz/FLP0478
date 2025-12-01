@@ -122,6 +122,7 @@ parts:
     - file: aulas/aula13/aula13bert.md
     - file: aulas/aula13/Tutorial_Word2Vec_Transformers.ipynb
     - file: aulas/aula13/Tutorial_BERT_Classificação.ipynb
+    - file: aulas/aula13/lab_13.ipynb
   - caption: Outros
     chapters:
     - file: references.md
