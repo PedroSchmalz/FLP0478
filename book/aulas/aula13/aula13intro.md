@@ -5,8 +5,8 @@ ___
 
 **Leituras Obrigatórias:**  
 - Jurafsky, D. and Martin, J. H. (2024). {cite}`jurafsky2024speech`. Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition with Language Models. 3rd edition. Capitulo 5: Embeddings, Capítulo 8: Transformers e Capítulo 9: Masked Language Models
-- VASWANI, Ashish et al. (2017). {cite}`Vaswani2017Attention`. Attention is all you need. In: Advances in Neural Information Processing Systems, p. 5998-6008, 2017.
-- DEVLIN, Jacob et al. (2019). {cite}`Devlin2019BERT`. BERT: pre-training of deep bidirectional transformers for language understanding. In: Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), p. 4171-4186, 2019.
+- VASWANI, Ashish et al. (2017). {cite}`vaswani2017attention`. Attention is all you need. In: Advances in Neural Information Processing Systems, p. 5998-6008, 2017.
+- DEVLIN, Jacob et al. (2019). {cite}`devlin2019bert`. BERT: pre-training of deep bidirectional transformers for language understanding. In: Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers), p. 4171-4186, 2019.
 
 
 
