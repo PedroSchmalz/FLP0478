@@ -87,12 +87,101 @@ align: center
 Probabilidades em um Modelo de Linguagem. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`. ,p.147)
 ```
 
-A ideia de usar modelos computacionais para gerar texto, assim como códigos, imagens, falas etc., se consolidou em uma nova área dentro da IA, a IA generativa (mais conhecida como *GenAI*). Os LLMs, como GPT-3, GPT-4, LLaMA e outros, são modelos de linguagem autorregressivos baseados em Transformers que foram treinados em quantidades massivas de texto (trilhões de tokens) para prever a próxima palavra em uma sequência [file:14][file:15][file:16]. Diferentemente do BERT, que é um modelo de *compreensão* de texto (encoder-only), os LLMs são modelos *generativos* (decoder-only) projetados para produzir texto de forma fluente e coerente, token por token.
+A ideia de usar modelos computacionais para gerar texto, assim como códigos, imagens, falas etc., se consolidou em uma nova área dentro da IA, a IA generativa (mais conhecida como *GenAI*). Os LLMs, como GPT-3, GPT-4, LLaMA e outros, são modelos de linguagem autorregressivos baseados em Transformers que foram treinados em quantidades massivas de texto (trilhões de tokens) para prever a próxima palavra em uma sequência. Diferentemente do BERT, que é um modelo de *compreensão* de texto (encoder-only), os LLMs são modelos *generativos* (decoder-only) projetados para produzir texto de forma fluente e coerente, token por token.
 
 
 ## Três Arquiteturas de Modelos de Linguagem
 
-As três principais ar
+As três principais arquiteturas de *LMs* são as de *Encoders*, *Decoders* e *Enconder-Decoders*.
+
+```{figure} ../aula14/images/jurfig7.3.png
+---
+width: 100%
+name: arquiteturaslms
+align: center
+---
+Arquiteturas de Modelo de Linguagem. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`. ,p.148)
+```
+
+O ***Decoder*** é a arquitetura causal que vimos na aula anterior. Isto é, ela iterativamente percorre a frase da esquerda para a direita, calculando as probabilidades. O *decoder* é a arquitetura usada nos principais *LLMs*, como o *GPT*, o *Claude*, *LLama* etc. *Decoders* são a base do modelo generativo.
+
+Já os ***Encoders*** pegam como entrada uma sequência de tokens e têm como saída uma representação vetorial para cada tokens. Essa arquitetura nós vimos no treinamento de MLMs e do BERT. *Encoders* geralmente são *MLM* (*Masked Language Models*) e são a base de modelos como o BERT, RoBERTA, etc. São modelos que não são usados de forma generativa, e mais usados para classificação e outras tarefas supervisionadas com texto.
+
+Os **Encoder-decoders** são arquiteturas mais utilizadas para reconhecimento de fala e tradução. Nessa configuração, o *encoder* processa toda a sequência de entrada (por exemplo, uma frase em inglês ou um sinal de áudio) e gera representações contextualizadas. O *decoder* então recebe essas representações e gera a sequência de saída token por token (por exemplo, a tradução em português ou a transcrição do áudio). A arquitetura original do Transformer, apresentada no artigo "Attention is All You Need", era justamente um encoder-decoder. Modelos como T5, BART e os sistemas de tradução neural modernos utilizam essa arquitetura, pois ela permite que o modelo "compreenda" completamente a entrada antes de começar a gerar a saída, sendo ideal para tarefas de sequência-para-sequência.
+
+
+### Diferenças principais entre BERT e GPT:
+
+| Característica | BERT (Encoder) | GPT (Decoder) |
+|----------------|----------------|---------------|
+| **Tipo de atenção** | Bidirecional | Causal (unidirecional) |
+| **Objetivo de treino** | Masked Language Modeling | Next-Token Prediction |
+| **Uso principal** | Compreensão/Classificação | Geração de texto |
+| **Token especial** | [CLS], [MASK] | Tokens de contexto |
+
+
+
+## Geração Condicional de Texto
+
+A geração condicional de texto é a ideia de que o modelo sempre escreve “em resposta a alguma coisa”: um contexto, uma instrução, um documento ou até uma parte anterior do próprio texto. Nesse enquadramento, praticamente qualquer tarefa de linguagem pode ser vista como “gerar texto condicionado a uma entrada”, e essa é a intuição central por trás de modelos grandes de linguagem.
+
+Mais formalmente, fala-se em gerar uma sequência de tokens condicionada a outra sequência: dado um texto de entrada (o *prompt*), o modelo produz tokens um a um, de forma autoregressiva, de modo que cada novo token é amostrado de uma distribuição de probabilidade que depende tanto da entrada quanto de tudo o que já foi gerado até aquele ponto. Em notação probabilística, o modelo aprende algo do tipo $p(y_1, \dots, y_T \mid x)$, onde $x$ é o texto de entrada (condição) e $y_1, \dots, y_T$ são os tokens gerados.
+
+
+
+```{figure} ../aula14/images/jurfig7.4.png
+---
+width: 100%
+name: geracaocond
+align: center
+---
+Geração Condicional de texto. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`. ,p.150)
+```
+
+Aqui estão alguns exemplos de geração condicional de texto:
+
+- **Resposta a perguntas**: o usuário escreve "Explique o que é overfitting em poucas linhas", e o modelo gera um parágrafo explicativo condicionado a esse pedido; a tarefa inteira é “gerar texto (resposta) condicionado ao enunciado da pergunta”.
+- **Resumo de documentos**: o modelo recebe um artigo longo como entrada e deve produzir um resumo; aqui, a sequência de saída (resumo) é condicionada ao documento de entrada.
+- **Tradução automática**: na tradução, o texto em língua de origem (por exemplo, inglês) é a condição, e o texto em língua de destino (por exemplo, português) é a sequência gerada; essa é uma forma clássica de geração condicional em tarefas de sequência-para-sequência.
+- **Completar código ou texto**: quando se escreve o começo de uma função ou de um parágrafo e o modelo continua, o prefixo é o contexto condicional, e a continuação é a sequência gerada.
+
+
+Na prática, a geração condicional se manifesta por meio de *prompts*, que funcionam como a “condição” que guia o comportamento do modelo. Um mesmo modelo pode fazer tarefas muito diferentes alterando apenas o texto de entrada: um *prompt* formulado como instrução (“Resuma o texto a seguir em três pontos principais:”) induz uma saída estruturada em tópicos, enquanto um *prompt* narrativo (“Escreva a continuação desta história:”) induz uma continuação ficcional.
+
+Além disso, o controle da geração (por exemplo, com *temperature*, *top-k*, *top-p*) atua sobre a forma como a distribuição condicional de probabilidades é amostrada: mesmo condicionados ao mesmo *prompt*, diferentes configurações podem produzir saídas mais conservadoras ou mais criativas, mas sempre dentro da distribuição condicionada aprendida pelo modelo.
+
+
+## Prompting
+
+A ideia de geração condicional já é bastante poderosa, mas se torna ainda mais útil quando o modelo é treinado explicitamente para responder perguntas e seguir instruções em linguagem natural. Nesse cenário, em vez de apenas completar texto, o modelo passa a “entender” melhor comandos como "explique", "resuma", "traduza" ou "liste", e a produzir saídas alinhadas a essas instruções.
+
+```{figure} ../aula14/images/jurfig7.5.png
+---
+width: 100%
+name: prompting
+align: center
+---
+Geração condicional de texto para responder questões e seguir instruções. Adaptado de Jurafsky e Martin (2025, {cite}`jurafsky2024speech`, p. 151).
+```
+
+Esse tipo de treinamento adicional é conhecido como *instruction-tuning* e consiste em continuar o treinamento da LLM com um conjunto de pares instrução/pergunta–resposta, cobrindo vários tipos de tarefas e formatos de pedido. Como resultado, o modelo se torna mais capaz de seguir instruções detalhadas, manter diálogos coerentes e adaptar o estilo de resposta ao que o usuário solicita.
+
+Chama-se ***prompt*** qualquer entrada de texto fornecida pelo usuário para indicar ao modelo o que fazer, como "explique o texto abaixo em linguagem simples" ou "gere cinco títulos possíveis para este parágrafo". O processo de formular *prompts* mais claros, específicos e eficazes para obter o comportamento desejado do modelo é conhecido como *engenharia de prompt*, e hoje é uma habilidade central para explorar ao máximo o potencial de LLMs em aplicações práticas.
+
+
+## Treinando LLMs
+
+LLMs são normalmente treinados em três grandes fases, que vão de aprender padrões gerais de linguagem até se tornarem modelos úteis, seguros e voltados para seguir instruções humanas. Em cada etapa, muda tanto o tipo de dado usado quanto o objetivo de treino do modelo.
+
+1. **Pré-treinamento**
+No primeiro estágio, o modelo é treinado para prever o próximo token (palavra ou subpalavra) em um corpus massivo de textos, usando uma função de perda como *cross-entropy* para ajustar seus parâmetros. O resultado é um modelo muito competente em modelar a distribuição da linguagem, isto é, em prever sequências plausíveis e gerar texto fluente em diversos domínios.
+2. ***Instruction-tuning***
+Em seguida, o modelo passa por um refinamento em que aprende a seguir instruções explícitas, responder perguntas, resumir textos, gerar código e executar outras tarefas guiadas por comandos em linguagem natural. Para isso, utiliza-se um corpus especial contendo pares instrução–resposta considerados adequados, o que faz o modelo se comportar mais como um “assistente” que entende pedidos do usuário.
+3. ***Alignment***
+Por fim, o modelo é ajustado para ficar mais alinhado a valores e critérios de utilidade e segurança, reduzindo comportamentos danosos ou indesejáveis. Nessa fase, o treino favorece respostas vistas como aceitáveis (por exemplo, úteis, honestas e menos ofensivas) e desestimula respostas rejeitáveis, muitas vezes usando feedback humano ou sinais de preferência para orientar o comportamento do modelo.
+
+
+
 
 
 ## Conclusão
