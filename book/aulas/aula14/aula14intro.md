@@ -5,6 +5,7 @@ ___
 
 **Leituras Obrigatórias:**  
 - Jurafsky, D. and Martin, J. H. (2024). {cite}`jurafsky2024speech`. Speech and Language Processing: An Introduction to Natural Language Processing, Computational Linguistics, and Speech Recognition with Language Models. 3rd edition. Capitulo 7: "Large Language Models", Capítulo 8 "Transformers" e Capítulo 10 "Post-training: Instruction Tuning, Alignment, and Test-Time Compute";
+- KOSTINA, Arina; DIKAIAKOS, Marios D.; STEFANIDIS, Dimosthenis; PALLIS, George. {cite}`kostina2025llms`. (2025) Large Language Models for Text Classification: Case Study and Comprehensive Review. arXiv preprint arXiv:2501.08457, Nicosia, Cyprus, jan. 2025. Disponível em: https://arxiv.org/abs/2501.08457. Acesso em: 7 dez. 2025.
 
 
 **Objetivos da aula:**  
