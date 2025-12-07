@@ -123,6 +123,9 @@ parts:
     - file: aulas/aula13/Tutorial_Word2Vec_Transformers.ipynb
     - file: aulas/aula13/Tutorial_BERT_Classificação.ipynb
     - file: aulas/aula13/lab_13.ipynb
+  - caption: Aula 14 - Modelos de Linguagem "Grandes" (LLMs) e GPT
+    chapters:
+    - file: aulas/aula14/aula14intro.md
   - caption: Outros
     chapters:
     - file: references.md
