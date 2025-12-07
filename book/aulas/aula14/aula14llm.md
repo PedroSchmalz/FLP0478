@@ -161,7 +161,7 @@ width: 100%
 name: prompting
 align: center
 ---
-Geração condicional de texto para responder questões e seguir instruções. Adaptado de Jurafsky e Martin (2025, {cite}`jurafsky2024speech`, p. 151).
+Geração condicional de texto para responder questões e seguir instruções. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`, p. 151).
 ```
 
 Esse tipo de treinamento adicional é conhecido como *instruction-tuning* e consiste em continuar o treinamento da LLM com um conjunto de pares instrução/pergunta–resposta, cobrindo vários tipos de tarefas e formatos de pedido. Como resultado, o modelo se torna mais capaz de seguir instruções detalhadas, manter diálogos coerentes e adaptar o estilo de resposta ao que o usuário solicita.
@@ -181,12 +181,131 @@ Em seguida, o modelo passa por um refinamento em que aprende a seguir instruçõ
 Por fim, o modelo é ajustado para ficar mais alinhado a valores e critérios de utilidade e segurança, reduzindo comportamentos danosos ou indesejáveis. Nessa fase, o treino favorece respostas vistas como aceitáveis (por exemplo, úteis, honestas e menos ofensivas) e desestimula respostas rejeitáveis, muitas vezes usando feedback humano ou sinais de preferência para orientar o comportamento do modelo.
 
 
+```{figure} ../aula14/images/jurfig7.12.png
+---
+width: 100%
+name: treinollm
+align: center
+---
+Fases do treinamento de uma LLM. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`, p. 151).
+```
+
+## Fine-tuning para outros domínios
+
+Depois de treinadas como modelos gerais de linguagem, LLMs podem ser especializadas para atuar melhor em domínios específicos, como jurídico, médico, financeiro ou atendimento ao cliente. Esse processo é chamado de *fine-tuning* e consiste em ajustar o modelo com exemplos adicionais daquele domínio, mantendo o “conhecimento geral”, mas refinando o vocabulário, o estilo e os padrões de raciocínio mais relevantes para o novo contexto.
+
+No *fine-tuning* para outros domínios, o modelo é treinado com um conjunto de dados especializado, composto por textos, diálogos ou documentos típicos daquela área, muitas vezes já rotulados com instruções e respostas adequadas. Com isso, o modelo passa a usar termos técnicos com mais precisão, seguir formatos específicos (por exemplo, pareceres, laudos, relatórios) e evitar erros grosseiros de interpretação que seriam menos problemáticos em contextos genéricos, mas críticos em aplicações profissionais.
+
+Em aplicações práticas, esse ajuste pode assumir diferentes formas: desde um *fine-tuning* completo (reajustando muitos parâmetros) até abordagens mais leves, como adaptação por *adapters* ou *LoRA*, que inserem poucas camadas adicionais ao modelo original. O objetivo é encontrar um equilíbrio entre custo computacional, quantidade de dados disponíveis e o nível de especialização desejado, de modo que o modelo continue útil em linguagem geral, mas ofereça ganhos claros de desempenho no domínio-alvo.
+
+```{figure} ../aula14/images/jurfig7.15.png
+---
+width: 100%
+name: treinollm
+align: center
+---
+Fine-tuning para outros domínios. Fonte: Jurafsky e Martin (2025, {cite}`jurafsky2024speech`, p. 163).
+```
+
+
+## Problemas éticos e de segurança em LLMs
+
+
+```{video} https://www.youtube.com/embed/9-Jl0dxWQs8?si=K3lczGcRfhn22QSV
+```
+
+
+Modelos de linguagem de grande porte trazem riscos éticos e de segurança que vão muito além de “respostas erradas”. Eles podem reforçar desigualdades, causar danos concretos a pessoas e instituições e ser explorados de forma maliciosa. A seguir estão alguns dos problemas centrais, com foco em como eles aparecem na prática e por que importam para uso responsável.
+
+### Viés, discriminação e injustiça
+
+LLMs aprendem padrões a partir de grandes coleções de texto produzidas por humanos, que inevitavelmente carregam estereótipos, desigualdades e preconceitos sociais. Isso faz com que:
+
+- O modelo associe certas profissões, características ou papéis sociais a determinados gêneros, raças ou nacionalidades (por exemplo, “médico” como homem, “enfermeira” como mulher).
+- Respostas sobre determinados grupos sociais usem linguagem mais negativa, exotizante ou desumanizante.
+- Tarefas como classificação, sumarização ou recomendação tratem grupos de maneira desigual, mesmo sem que o usuário peça explicitamente isso.
+
+Esses vieses podem parecer “apenas textuais”, mas têm efeitos concretos quando o modelo é usado em triagem de currículos, apoio a decisões de crédito, sistemas educacionais, ferramentas jurídicas ou aplicações policiais, reforçando discriminação em escala.
+
+### Alucinações e desinformação
+
+LLMs podem gerar respostas detalhadas e convincentes que estão simplesmente erradas, fenômeno muitas vezes chamado de “alucinação”. Isso é especialmente problemático quando:
+
+- O usuário confia cegamente na resposta para decisões médicas, jurídicas, financeiras ou técnicas.
+- O modelo “inventa” referências, leis, artigos científicos ou dados históricos inexistentes, com aparência de autoridade.
+- Sistemas automatizados incorporam as saídas do modelo sem validação humana, propagando erros para bancos de dados, relatórios ou produtos.
+
+Além disso, modelos podem ser usados deliberadamente para gerar grandes volumes de desinformação: textos politicamente enviesados, teorias conspiratórias “polidas”, narrativas falsas coordenadas e conteúdo enganoso adaptado a diferentes públicos.
+
+### Privacidade, dados sensíveis e reidentificação
+
+Como os modelos são treinados em grandes quantidades de texto, existe o risco de:
+
+- Memorizarem e reproduzirem trechos de dados sensíveis presentes no treinamento (nomes, CPFs, endereços, diagnósticos, credenciais, etc.), especialmente se o conjunto de dados for pequeno ou pouco anonimizado.
+- Ajudarem na reidentificação de pessoas a partir de combinações de pistas (por exemplo, cruzando profissão, cidade, doença rara, idade).
+- Facilitarem a “ingestão” descuidada de dados sigilosos em contextos organizacionais, quando funcionários colam documentos internos, contratos ou bases de clientes para “pedir ajuda ao modelo”, sem política clara de uso.
+
+Isso levanta questões de proteção de dados, consentimento, conformidade legal (como LGPD/GDPR) e responsabilidade em caso de vazamento ou uso indevido de informação pessoal.
+
+### Segurança, uso malicioso e automação de ataques
+
+LLMs também podem ser explorados como ferramentas para atividades maliciosas ou perigosas, por exemplo:
+
+- Redigir *phishing* altamente personalizado, e-mails enganosos, golpes de engenharia social em linguagem natural e em larga escala.
+- Explicar, refinar ou simplificar instruções para atividades ilegais ou perigosas (fraude, abuso, violência, hackeamento), caso as salvaguardas do sistema sejam insuficientes.
+- Ajudar na geração de código malicioso, scripts de exploração ou documentação de ataques mais “amigável” para iniciantes.
+
+Mesmo quando existem filtros, atacantes podem tentar contorná-los (jailbreaks, prompts adversariais) ou usar modelos de código aberto menos restritos para fins ofensivos, o que cria um desafio contínuo de segurança.
+
+### Dependência excessiva, erosão de habilidades e autonomia
+
+O uso intenso de LLMs também levanta questões éticas sobre trabalho, educação e autonomia humana:
+
+- Profissionais podem se acostumar a delegar raciocínio, escrita e tomada de decisão ao modelo, sem checar criticamente as respostas.
+- Estudantes podem usá-los para resolver tarefas inteiras, comprometendo o aprendizado de habilidades fundamentais (argumentação, escrita, resolução de problemas).
+- Organizações podem confiar em “assistentes de IA” sem mecanismos claros de supervisão, auditoria e responsabilização, diluindo a noção de quem é responsável por erros ou danos.
+
+Isso cria o risco de uma “automação apressada”, em que decisões complexas passam a depender de sistemas que não compreendem o contexto social, legal ou moral das situações.
+
+### Falta de transparência e explicabilidade
+
+LLMs são modelos opacos, com bilhões de parâmetros difíceis de interpretar. Isso dificulta:
+
+- Entender por que o modelo deu uma resposta específica, especialmente em contextos sensíveis (por que negou um empréstimo? por que sugeriu essa interpretação jurídica?).
+- Auditar de forma independente a presença de viés, discriminação ou erros sistemáticos.
+- Atribuir responsabilidade entre desenvolvedores de modelos, integradores de sistemas e usuários finais.
+
+Do ponto de vista ético e regulatório, essa opacidade entra em tensão com demandas por explicações claras, direito à contestação de decisões automatizadas e mecanismos de prestação de contas.
+
+### Desigualdade de acesso, poder e impacto social
+
+O desenvolvimento e operação de LLMs exige grande capacidade computacional, dados e capital, o que concentra poder em poucas empresas e instituições. Isso traz questões como:
+
+- Assimetrias de poder entre quem controla os modelos (e suas atualizações) e os usuários, governos e comunidades que dependem deles.
+- Risco de que línguas, culturas e contextos menos presentes nos dados sejam pior atendidos, reforçando desigualdades globais e regionais.
+- Dependência tecnológica de países e organizações que não controlam a infraestrutura ou os dados, dificultando soberania digital e adaptação a valores locais.
+
+Além disso, há preocupações ambientais: o custo energético do treinamento e operação de grandes modelos levanta questões sobre sustentabilidade, responsabilidade ambiental e justiça climática.
+
+### Mitigações e boas práticas (em linhas gerais)
+
+Embora não exista solução perfeita, algumas linhas de mitigação são amplamente discutidas:
+
+- Curadoria e balanceamento de dados para reduzir vieses, com avaliações sistemáticas em conjuntos de teste sensíveis.
+- Mecanismos de *alignment* e *safety* (filtros, RLHF, políticas de uso) aliados a monitoramento contínuo, em vez de apenas “bloqueios pontuais”.
+- Transparência sobre limitações, uso de *disclaimers*, incentivo ativo para verificação humana em contextos críticos e desenho de interfaces que não estimulem confiança cega.
+- Governança, auditorias externas, participação de especialistas em ética, direito, ciências sociais e comunidades afetadas na definição de políticas de desenvolvimento e uso.
+- Educação de usuários e organizações para uso responsável, incluindo políticas claras sobre dados sensíveis, revisão humana e responsabilidade compartilhada.
+
+Esses problemas éticos e de segurança não são “efeitos colaterais menores”, mas aspectos centrais do desenho, implantação e regulação de LLMs. Qualquer uso sério desses modelos precisa tratá-los como parte do projeto, e não como um detalhe técnico secundário.
 
 
 
 ## Conclusão
 
-Ao longo desta seção vimos que embeddings são o elo entre textos em linguagem natural e modelos de Deep Learning: eles convertem palavras em vetores densos que capturam semelhança semântica e, no caso de modelos como o BERT, também o contexto em que cada palavra aparece. Os métodos distribucionais clássicos, como Word2Vec com skip‑gram e amostragem negativa, já nos permitem sair de vetores esparsos de contagem e aprender representações contínuas úteis para classificadores e outros modelos supervisionados. Mas é com os embeddings contextuais baseados em transformers que essa ideia atinge todo o seu potencial: o BERT usa a pilha de self‑attention de um encoder transformer para produzir, a cada camada, vetores que dependem de toda a sentença, servindo como entradas riquíssimas para tarefas de classificação de texto, análise de sentimentos, question answering e muitas outras aplicações modernas de PLN.
+Ao longo deste texto, vimos como os Large Language Models se apoiam em décadas de pesquisa em representação de palavras, arquiteturas de Transformers e modelos como o BERT para dar o salto rumo a sistemas generativos capazes de sustentar diálogos complexos. Esses modelos aproveitam pré-treinamento em escala massiva, geração condicional de texto e técnicas como instruction-tuning e alignment para se tornarem assistentes versáteis, capazes de responder perguntas, seguir instruções e se adaptar a diferentes contextos de uso.
+
+Também ficou claro que o poder desses modelos vem acompanhado de desafios significativos. A mesma capacidade de generalizar a partir de enormes quantidades de texto leva à incorporação de vieses, riscos de alucinação, problemas de privacidade e possibilidades de uso malicioso, o que torna fundamentais etapas como fine-tuning responsável, governança e mitigação de riscos éticos e de segurança. Em última análise, LLMs não são apenas ferramentas técnicas: são infraestruturas sociotécnicas que ampliam nossas capacidades de trabalhar com linguagem, ao mesmo tempo em que exigem senso crítico, supervisão humana e compromisso com usos cuidadosos e responsáveis.
 
 
 
