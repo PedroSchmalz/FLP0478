@@ -127,6 +127,7 @@ parts:
     chapters:
     - file: aulas/aula14/aula14intro.md
     - file: aulas/aula14/aula14llm.md
+    - file: aulas/aula14/aula14llmclass.md
   - caption: Outros
     chapters:
     - file: references.md
