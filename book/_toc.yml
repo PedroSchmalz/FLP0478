@@ -126,6 +126,7 @@ parts:
   - caption: Aula 14 - Modelos de Linguagem "Grandes" (LLMs) e GPT
     chapters:
     - file: aulas/aula14/aula14intro.md
+    - file: aulas/aula14/aula14llm.md
   - caption: Outros
     chapters:
     - file: references.md
